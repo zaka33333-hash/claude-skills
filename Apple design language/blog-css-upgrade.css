@@ -1,0 +1,76 @@
+{% style %}
+/* ═══ BLOG PRO — CLEAN UPGRADE ═══ */
+.main-blog{background:#fafafa}
+
+/* ── Page Title ── */
+h1.main-blog__title{
+  font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif;
+  font-size:clamp(36px,5vw,52px)!important;font-weight:800!important;
+  letter-spacing:-0.04em;color:#1d1d1f;text-align:center;
+  margin-bottom:48px!important
+}
+
+/* ── Cards ── */
+.blog-articles__article{border:none!important}
+.blog-articles{gap:24px!important}
+
+.blog-articles__article .article-card{
+  background:#fff;border-radius:20px;overflow:hidden;
+  border:1px solid rgba(0,0,0,0.05);
+  transition:all .4s cubic-bezier(.16,1,.3,1);
+  box-shadow:0 1px 4px rgba(0,0,0,0.03)
+}
+.blog-articles__article .article-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.07);
+  border-color:rgba(0,0,0,0.08)
+}
+
+/* ── Images ── */
+.article-card__image-wrapper{border-radius:20px 20px 0 0!important;overflow:hidden}
+.article-card__image-wrapper img{transition:transform .6s cubic-bezier(.16,1,.3,1)!important}
+.article-card:hover .article-card__image-wrapper img{transform:scale(1.04)}
+
+/* ── Content ── */
+.article-card__info{padding:24px 24px 24px!important}
+
+/* ── Titles ── */
+.article-card__title{
+  font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif!important;
+  font-size:18px!important;font-weight:700!important;
+  letter-spacing:-0.02em;line-height:1.35!important;
+  color:#1d1d1f!important;margin-bottom:8px!important
+}
+.article-card__title a{text-decoration:none!important;color:inherit!important;transition:color .25s}
+.article-card:hover .article-card__title a{color:#0071e3!important}
+
+/* ── Excerpt ── */
+.article-card__excerpt{
+  font-size:14px!important;line-height:1.65!important;color:#86868b!important;
+  display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden
+}
+
+/* ── Date ── */
+.article-card__info time{font-size:12px!important;color:#aeaeb2!important;font-weight:500}
+
+/* ── Pagination ── */
+.pagination__list{gap:6px}
+.pagination__item a,.pagination__item span{
+  width:40px!important;height:40px!important;border-radius:12px!important;
+  display:flex!important;align-items:center;justify-content:center;
+  font-size:14px!important;font-weight:600!important;color:#86868b!important;
+  border:1px solid rgba(0,0,0,0.06)!important;background:#fff!important;
+  transition:all .25s!important;text-decoration:none!important
+}
+.pagination__item a:hover{border-color:#0071e3!important;color:#0071e3!important}
+.pagination__item--active span,.pagination__item--active a{
+  background:#1d1d1f!important;color:#fff!important;border-color:#1d1d1f!important
+}
+
+/* ── Mobile ── */
+@media(max-width:749px){
+  .article-card__info{padding:20px!important}
+  .article-card__title{font-size:16px!important}
+  h1.main-blog__title{font-size:32px!important;margin-bottom:32px!important}
+}
+{% endstyle %}

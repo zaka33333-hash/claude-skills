@@ -1,0 +1,462 @@
+{% style %}
+.iq {
+  width: 100%;
+  background: #000;
+  padding: 0 5vw;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.iq-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 0 120px;
+}
+
+.iq-r {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity .8s cubic-bezier(.4, 0, .2, 1), transform .8s cubic-bezier(.4, 0, .2, 1);
+}
+
+.iq-r.on {
+  opacity: 1;
+  transform: none;
+}
+
+.iq-eyebrow {
+  display: block;
+  margin-bottom: 16px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.iq h2 {
+  margin: 0 0 20px;
+  color: #f5f5f7;
+  font-size: clamp(34px, 4.5vw, 56px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.06;
+}
+
+.iq h2 em {
+  font-style: normal;
+  background: linear-gradient(180deg, #fff 10%, rgba(255, 255, 255, 0.38) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.iq-lead {
+  max-width: 720px;
+  margin: 0 0 56px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 17px;
+  line-height: 1.78;
+}
+
+.iq-sub-head {
+  margin-bottom: 24px;
+}
+
+.iq-sub-head h3 {
+  margin: 0 0 10px;
+  color: #f5f5f7;
+  font-size: clamp(22px, 2.8vw, 34px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+.iq-sub-head p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.iq-trust {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 64px;
+}
+
+.iq-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #0d0d0f;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.iq-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.14), transparent);
+}
+
+.iq-tc {
+  padding: 28px 22px;
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+.iq-tc:hover {
+  transform: translateY(-4px);
+  border-color: rgba(var(--glow, 255, 255, 255), 0.34);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.34);
+}
+
+.iq-tc-icon {
+  width: 38px;
+  height: 38px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.iq-tc h3 {
+  margin: 0 0 10px;
+  color: #f5f5f7;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.iq-tc p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 12.5px;
+  line-height: 1.7;
+}
+
+.iq-brands {
+  margin-bottom: 64px;
+}
+
+.iq-brands-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.iq-bc {
+  position: relative;
+  display: block;
+  min-height: 210px;
+  padding: 24px;
+  border-radius: 18px;
+  text-decoration: none;
+  background: rgba(18, 18, 20, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.28);
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+.iq-bc:hover {
+  transform: translateY(-5px);
+  border-color: rgba(var(--glow, 255, 255, 255), 0.42);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.38);
+}
+
+.iq-top-logo {
+  display: block;
+  max-width: 105px;
+  margin-bottom: 14px;
+  object-fit: contain;
+  filter: grayscale(1) brightness(4) contrast(0) opacity(0.55);
+  transition: filter .25s ease, transform .25s ease;
+}
+
+.iq-bc:hover .iq-top-logo {
+  filter: none;
+  transform: translateY(-2px);
+}
+
+.iq-top-logo-hp { height: 22px; }
+.iq-top-logo-canon { height: 15px; }
+.iq-top-logo-brother { height: 28px; }
+.iq-top-logo-epson { height: 18px; }
+.iq-top-logo-samsung { height: 34px; }
+.iq-top-logo-kyocera { height: 20px; filter: brightness(0) invert(1) opacity(0.55); }
+
+.iq-bc h4 {
+  margin: 0 0 12px;
+  color: #efeff2;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+}
+
+.iq-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.iq-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.iq-bc-sub {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.56);
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+
+.iq-guides {
+  margin-bottom: 64px;
+}
+
+.iq-guide-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.iq-guide-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.iq-guide-links a:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.iq-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.iq-step {
+  position: relative;
+  overflow: hidden;
+  padding: 28px 24px;
+  border-radius: 18px;
+  background: #0d0d0f;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+.iq-step:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 207, 255, 0.34);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.34);
+}
+
+.iq-step-n {
+  display: block;
+  margin-bottom: 14px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2.5px;
+}
+
+.iq-step h4 {
+  margin: 0 0 10px;
+  color: #f5f5f7;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.iq-step p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 12.5px;
+  line-height: 1.7;
+}
+
+@media (max-width: 960px) {
+  .iq-trust { grid-template-columns: repeat(2, 1fr); }
+  .iq-brands-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .iq-inner { padding: 0 0 100px; }
+  .iq-lead { margin-bottom: 48px; font-size: 16px; }
+  .iq-trust,
+  .iq-brands-grid,
+  .iq-steps { grid-template-columns: 1fr; }
+  .iq-guide-links a { width: 100%; justify-content: center; }
+}
+{% endstyle %}
+
+<section class="iq" id="startoner-iq-seo">
+  <div class="iq-inner">
+    <div class="iq-r">
+      <span class="iq-eyebrow">Por que Star Toner</span>
+      <h2>Toner y cartuchos compatibles.<br><em>El mejor precio en Espana.</em></h2>
+      <p class="iq-lead">En Star Toner somos tu tienda online especializada en <strong>toner y cartuchos de tinta compatibles</strong> para las impresoras mas usadas del mercado. Envio rapido desde Espana, soporte tecnico real y un catalogo pensado para que encuentres la referencia correcta sin perder tiempo.</p>
+    </div>
+
+    <div class="iq-trust iq-r">
+      <div class="iq-card iq-tc" style="--glow:80,200,120;">
+        <div class="iq-tc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.78)" stroke-width="1.8"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg></div>
+        <h3>Certificados ISO 9001 y CE</h3>
+        <p>Cada toner compatible pasa controles de calidad para asegurar reconocimiento, rendimiento y nitidez consistentes.</p>
+      </div>
+      <div class="iq-card iq-tc" style="--glow:255,200,60;">
+        <div class="iq-tc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.78)" stroke-width="1.8"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"></path></svg></div>
+        <h3>Hasta 70% de ahorro</h3>
+        <p>Reduce el coste por pagina sin renunciar a una impresion fiable para oficina, hogar y negocio.</p>
+      </div>
+      <div class="iq-card iq-tc" style="--glow:80,140,255;">
+        <div class="iq-tc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.78)" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+        <h3>Compatibles con garantia</h3>
+        <p>Seleccionamos formatos de alta capacidad y consumibles testados para proteger la continuidad de tu impresora.</p>
+      </div>
+      <div class="iq-card iq-tc" style="--glow:255,130,60;">
+        <div class="iq-tc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.78)" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
+        <h3>Envio 24h desde Espana</h3>
+        <p>Despacho rapido desde stock nacional para que el pedido llegue a tiempo a casa, oficina o almacén.</p>
+      </div>
+    </div>
+
+    <div class="iq-brands iq-r">
+      <div class="iq-sub-head">
+        <h3>Catalogo compatible por marca</h3>
+        <p>Rutas directas a las colecciones y marcas que mejor convierten y mejor responden en SEO.</p>
+      </div>
+      <div class="iq-brands-grid">
+        <a href="/collections/toner-compatible-hp" class="iq-bc" style="--glow:0,165,255;">
+          <img class="iq-top-logo iq-top-logo-hp" src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/HP_logo.png?v=1775435231" alt="HP" loading="lazy">
+          <h4>Toner y tinta compatible HP</h4>
+          <div class="iq-tags"><span class="iq-tag">LaserJet</span><span class="iq-tag">OfficeJet</span><span class="iq-tag">PageWide</span></div>
+          <p class="iq-bc-sub">Colecciones de toner HP y acceso rapido a cartuchos HP 364, 903 y 953XL.</p>
+        </a>
+        <a href="/collections/toner-compatible-brother" class="iq-bc" style="--glow:0,170,255;">
+          <img class="iq-top-logo iq-top-logo-brother" src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Brother-Logo.png?v=1775435231" alt="Brother" loading="lazy">
+          <h4>Toner y tinta compatible Brother</h4>
+          <div class="iq-tags"><span class="iq-tag">Serie TN</span><span class="iq-tag">MFC</span><span class="iq-tag">LC</span></div>
+          <p class="iq-bc-sub">Desde toner TN hasta cartuchos de tinta LC para DCP y MFC.</p>
+        </a>
+        <a href="/collections/toner-compatible-canon" class="iq-bc" style="--glow:255,20,40;">
+          <img class="iq-top-logo iq-top-logo-canon" src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Canon_logo.png?v=1775435231" alt="Canon" loading="lazy">
+          <h4>Toner y tinta compatible Canon</h4>
+          <div class="iq-tags"><span class="iq-tag">PIXMA</span><span class="iq-tag">i-SENSYS</span><span class="iq-tag">MegaTank</span></div>
+          <p class="iq-bc-sub">Colecciones de toner Canon y rutas directas a referencias de tinta Canon PIXMA.</p>
+        </a>
+        <a href="/collections/toner-compatible-samsung" class="iq-bc" style="--glow:20,50,255;">
+          <img class="iq-top-logo iq-top-logo-samsung" src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Samsung_logo.png?v=1775435231" alt="Samsung" loading="lazy">
+          <h4>Toner compatible Samsung</h4>
+          <div class="iq-tags"><span class="iq-tag">Xpress</span><span class="iq-tag">ML</span></div>
+          <p class="iq-bc-sub">Formatos compatibles para impresoras Samsung de oficina y uso intensivo.</p>
+        </a>
+        <a href="/collections/cartuchos-tinta-epson-compatible" class="iq-bc" style="--glow:0,80,255;">
+          <img class="iq-top-logo iq-top-logo-epson" src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Epson_logo_svg.png?v=1775435232" alt="Epson" loading="lazy">
+          <h4>Cartuchos y botellas Epson</h4>
+          <div class="iq-tags"><span class="iq-tag">EcoTank</span><span class="iq-tag">603XL</span><span class="iq-tag">604XL</span></div>
+          <p class="iq-bc-sub">Rutas directas a tinta Epson para EcoTank, WorkForce y Expression.</p>
+        </a>
+        <a href="/collections/toners-copiadoras" class="iq-bc" style="--glow:255,40,20;">
+          <img class="iq-top-logo iq-top-logo-kyocera" src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Kyocera_logo.png?v=1775435232" alt="Kyocera" loading="lazy">
+          <h4>Toner para copiadoras</h4>
+          <div class="iq-tags"><span class="iq-tag">Kyocera</span><span class="iq-tag">Konica</span><span class="iq-tag">Canon</span></div>
+          <p class="iq-bc-sub">Coleccion final sin redirect para copiadoras de alto rendimiento y B2B.</p>
+        </a>
+      </div>
+    </div>
+
+    <div class="iq-guides iq-r">
+      <div class="iq-sub-head">
+        <h3>Guias recomendadas</h3>
+        <p>Enlaces internos pensados para reforzar las URLs con menor apoyo interno detectadas en la auditoria.</p>
+      </div>
+      <div class="iq-guide-links">
+        <a href="/collections/cartuchos-tinta-hp">Cartuchos HP 364, 903 y 953XL</a>
+        <a href="/blogs/news/cartucho-de-tinta-o-toner-cual-elegir-segun-tu-necesidad">Cartucho o toner: cual elegir</a>
+        <a href="/blogs/news/como-alargar-la-vida-de-tus-cartuchos">Como alargar la vida de tus cartuchos</a>
+        <a href="/blogs/news/como-saber-que-toner-necesita-tu-impresora">Como saber que toner usa tu impresora</a>
+        <a href="/blogs/news/firmware-hp-bloquea-cartuchos-compatibles-como-protegerte">Firmware HP y compatibles</a>
+        <a href="/blogs/news/impresoras-tanque-tinta-ecotank-analisis-real">Analisis real de impresoras EcoTank</a>
+        <a href="/blogs/news/impresora-termica-para-negocios-cuando-tiene-sentido">Impresora termica para negocios</a>
+        <a href="/blogs/news/por-que-el-papel-importa-neurociencia-e-impresion">Por que el papel importa</a>
+      </div>
+    </div>
+
+    <div class="iq-r">
+      <div class="iq-sub-head">
+        <h3>Comprar toner online. Asi de simple.</h3>
+        <p>Proceso claro, seguro y pensado para encontrar la referencia correcta con menos friccion.</p>
+      </div>
+      <div class="iq-steps">
+        <div class="iq-step">
+          <span class="iq-step-n">01</span>
+          <h4>Encuentra tu modelo</h4>
+          <p>Busca por marca, serie o referencia y usa las colecciones especificas para reducir errores de compra.</p>
+        </div>
+        <div class="iq-step">
+          <span class="iq-step-n">02</span>
+          <h4>Compara y paga</h4>
+          <p>Revisa formatos XL, capacidad y compatibilidad antes de pasar al carrito o consultar soporte.</p>
+        </div>
+        <div class="iq-step">
+          <span class="iq-step-n">03</span>
+          <h4>Recibelo rapido</h4>
+          <p>Envio desde Espana y soporte para incidencias de reconocimiento, firmware o instalacion.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var items = document.querySelectorAll("#startoner-iq-seo .iq-r");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("on");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    items.forEach(function (el) { io.observe(el); });
+  } else {
+    items.forEach(function (el) { el.classList.add("on"); });
+  }
+})();
+</script>

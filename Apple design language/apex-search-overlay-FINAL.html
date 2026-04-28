@@ -1,0 +1,388 @@
+<!-- ═══════════════════════════════════════════════════════════════
+     STARTONER APEX PREDICTIVE SEARCH ENGINE v2.0
+     A $100M "Spotlight" Dropdown panel architecture.
+     Darkens the background, drops a glass panel under the header.
+     ═══════════════════════════════════════════════════════════════ -->
+
+<style>
+  /* ── 1. DIMMED BACKGROUND BACKDROP ── */
+  #apex-search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 99999999;
+    background: rgba(0, 0, 0, 0.5);
+    /* Cinema-style dark fade */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 12vh;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+    overflow-y: auto;
+  }
+
+  #apex-search-overlay.apex-active {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+  }
+
+  /* ── 2. THE SPOTLIGHT PANEL ── */
+  .apex-panel {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(40px) saturate(200%);
+    -webkit-backdrop-filter: blur(40px) saturate(200%);
+    width: 90vw;
+    max-width: 860px;
+    border-radius: 32px;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.3), inset 0 0 0 1px rgba(255, 255, 255, 0.8);
+    padding: 40px;
+    position: relative;
+    transform: translateY(-40px) scale(0.98);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+  }
+
+  #apex-search-overlay.apex-active .apex-panel {
+    transform: translateY(0) scale(1);
+  }
+
+  /* ── 3. CLOSE BUTTON ── */
+  .apex-search-close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: #f5f5f7;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    color: #1d1d1f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 10;
+  }
+
+  .apex-search-close:hover {
+    background: #1d1d1f;
+    color: #fff;
+    transform: rotate(90deg) scale(1.1);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  /* ── 4. SEARCH INPUT ── */
+  .apex-search-header {
+    width: 100%;
+    position: relative;
+    margin-bottom: 32px;
+  }
+
+  .apex-input-huge {
+    width: 100%;
+    font-size: 36px;
+    font-weight: 800;
+    color: #1d1d1f;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0 50px 0 0;
+    letter-spacing: -0.02em;
+    caret-color: #0071e3;
+  }
+
+  .apex-input-huge::placeholder {
+    color: rgba(29, 29, 31, 0.3);
+  }
+
+  /* Dynamic Glow Line */
+  .apex-input-line {
+    height: 3px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.06);
+    border-radius: 4px;
+    margin-top: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .apex-input-line-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #0071e3, #40a9ff);
+    transition: width 0.3s ease;
+    border-radius: 4px;
+  }
+
+  .apex-loading .apex-input-line-progress {
+    width: 50%;
+    animation: apexPulseLine 1.5s infinite ease-in-out;
+  }
+
+  @keyframes apexPulseLine {
+    0% {
+      left: -50%;
+      width: 50%;
+    }
+
+    100% {
+      left: 100%;
+      width: 50%;
+    }
+  }
+
+  /* ── 5. RESULTS GRID ── */
+  #apex-search-results {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-height: 50vh;
+    overflow-y: auto;
+    padding-right: 8px;
+    /* Scrollbar padding */
+  }
+
+  /* Scrollbar styling */
+  #apex-search-results::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  #apex-search-results::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  #apex-search-results::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+
+  .apex-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 16px;
+    text-decoration: none;
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    animation: apexCardIn 0.5s forwards cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .apex-card:hover {
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 113, 227, 0.1);
+    transform: translateY(-4px);
+  }
+
+  @keyframes apexCardIn {
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  .apex-card-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
+    background: #fafafa;
+    object-fit: cover;
+    box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.03);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .apex-card:hover .apex-card-img {
+    transform: scale(1.08);
+  }
+
+  .apex-card-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .apex-card-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1d1d1f;
+    margin: 0 0 6px;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    transition: color 0.2s;
+  }
+
+  .apex-card:hover .apex-card-title {
+    color: #0071e3;
+  }
+
+  .apex-card-price {
+    font-size: 16px;
+    font-weight: 900;
+    margin: 0;
+    background: linear-gradient(135deg, #1d1d1f 0%, #0071e3 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+  }
+
+  .apex-empty-state {
+    font-size: 20px;
+    font-weight: 700;
+    color: #86868b;
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px 0;
+  }
+
+  @media(max-width: 768px) {
+    #apex-search-overlay {
+      padding-top: 20px;
+    }
+
+    .apex-panel {
+      width: 95vw;
+      padding: 24px;
+      border-radius: 24px;
+    }
+
+    .apex-input-huge {
+      font-size: 28px;
+    }
+
+    #apex-search-results {
+      grid-template-columns: 1fr;
+      max-height: 60vh;
+    }
+  }
+</style>
+
+<!-- ── OVERLAY DOM ── -->
+<div id="apex-search-overlay" onclick="handleOverlayClick(event)">
+  <div class="apex-panel">
+    <button class="apex-search-close" onclick="closeApexSearch()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    <div class="apex-search-header">
+      <input type="text" id="apex-search-input" class="apex-input-huge" placeholder="Buscar..." autocomplete="off"
+        spellcheck="false">
+      <div id="apex-loading-bar" class="apex-input-line">
+        <div class="apex-input-line-progress"></div>
+      </div>
+    </div>
+
+    <div id="apex-search-results"></div>
+  </div>
+</div>
+
+<!-- ── OVERLAY JAVASCRIPT ENGINE ── -->
+<script>
+  // Click outside to close
+  function handleOverlayClick(e) {
+    if (e.target.id === 'apex-search-overlay') closeApexSearch();
+  }
+
+  document.addEventListener('click', (e) => {
+    // Aggressive selector for all combinations of Desktop & Mobile search buttons in Shopify
+    const searchTrigger = e.target.closest('a[href*="/search"], button[aria-controls="SearchDrawer"], details.header__search summary, summary.header__icon--search, .header__icon--search');
+
+    if (searchTrigger && !e.target.closest('#apex-search-overlay')) {
+      e.preventDefault();
+      e.stopPropagation(); // Stop Shopify's native JS from opening its own drawers
+
+      // If it's a Dawn mobile <details> search, force it to stay closed
+      const nativeDetails = searchTrigger.closest('details');
+      if (nativeDetails) nativeDetails.removeAttribute('open');
+
+      openApexSearch();
+    }
+  });
+
+  const overlay = document.getElementById('apex-search-overlay');
+  const input = document.getElementById('apex-search-input');
+  const resultsArea = document.getElementById('apex-search-results');
+  const loadingBar = document.getElementById('apex-loading-bar');
+  let searchTimeout = null;
+
+  function openApexSearch() {
+    overlay.classList.add('apex-active');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => input.focus(), 150);
+  }
+
+  function closeApexSearch() {
+    overlay.classList.remove('apex-active');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('apex-active')) closeApexSearch();
+  });
+
+  input.addEventListener('input', (e) => {
+    const query = e.target.value.trim();
+    clearTimeout(searchTimeout);
+
+    if (query.length < 2) {
+      loadingBar.classList.remove('apex-loading');
+      resultsArea.innerHTML = '';
+      return;
+    }
+
+    loadingBar.classList.add('apex-loading');
+
+    searchTimeout = setTimeout(() => {
+      fetch(`/search/suggest.json?q=${encodeURIComponent(query)}&resources[type]=product&resources[limit]=8`)
+        .then(response => response.json())
+        .then(data => {
+          const products = data.resources.results.products;
+          loadingBar.classList.remove('apex-loading');
+
+          if (products.length === 0) {
+            resultsArea.innerHTML = `<div class="apex-empty-state">No hemos encontrado nada para "${query}".</div>`;
+            return;
+          }
+
+          // Render magical list cards via JS Injection
+          resultsArea.innerHTML = products.map((p, index) => {
+            let formattedPrice = p.price;
+
+            return `
+            <a href="${p.url}" class="apex-card" style="animation-delay: ${index * 0.04}s">
+              <img src="${p.image.split('?')[0]}?width=150" clw 
+              rd-img" alt="${p.title}">
+              <div class="apex-card-content">
+                <p class="apex-card-title">${p.title}</p>
+                <p class="apex-card-price">${formattedPrice} EUR</p>
+              </div>
+            </a>
+          `;
+          }).join('');
+        })
+        .catch(err => {
+          loadingBar.classList.remove('apex-loading');
+          console.error("Search Error:", err);
+        });
+    }, 350);
+  });
+</script>

@@ -1,0 +1,256 @@
+{% style %}
+.sb {
+  width: 100%;
+  background: #000;
+  padding: 0 5vw;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.sb-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 120px 0;
+}
+
+.sb-eyebrow {
+  display: block;
+  margin-bottom: 16px;
+  color: rgba(255, 255, 255, 0.32);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.sb h2 {
+  margin: 0 0 42px;
+  color: #f5f5f7;
+  font-size: clamp(36px, 5vw, 60px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.04;
+}
+
+.sb h2 em {
+  font-style: normal;
+  background: linear-gradient(180deg, #fff 10%, rgba(255, 255, 255, 0.38) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sb-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.sb-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 180px;
+  padding: 24px;
+  border-radius: 20px;
+  text-decoration: none;
+  background: rgba(18, 18, 20, 0.76);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.32);
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease, background .25s ease;
+}
+
+.sb-card:hover {
+  transform: translateY(-5px);
+  background: rgba(18, 18, 20, 0.88);
+  border-color: rgba(var(--glow, 255, 255, 255), 0.38);
+  box-shadow: 0 22px 48px rgba(0, 0, 0, 0.4);
+}
+
+.sb-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 8%;
+  right: 8%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.16), transparent);
+}
+
+.sb-logo {
+  display: block;
+  width: 100%;
+  max-width: 140px;
+  object-fit: contain;
+  filter: brightness(0) invert(1) opacity(0.8);
+  transition: filter .25s ease, transform .25s ease;
+}
+
+.sb-card:hover .sb-logo {
+  filter: none;
+  transform: translateY(-2px);
+}
+
+.sb-logo-hp { height: 38px; }
+.sb-logo-canon { height: 26px; }
+.sb-logo-brother { height: 58px; }
+.sb-logo-epson { height: 28px; }
+.sb-logo-samsung { height: 60px; }
+.sb-logo-kyocera { height: 32px; filter: brightness(0) invert(1) opacity(0.72); }
+.sb-logo-lexmark { height: 36px; }
+
+.sb-copy {
+  margin-top: 16px;
+}
+
+.sb-copy strong {
+  display: block;
+  margin-bottom: 6px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.sb-copy span {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.sb-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.sb-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.sb-links a:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+@media (max-width: 1024px) {
+  .sb-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 700px) {
+  .sb-inner { padding: 80px 0; }
+  .sb h2 { margin-bottom: 32px; font-size: clamp(32px, 8vw, 40px); }
+  .sb-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .sb-card {
+    min-height: 150px;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .sb-links a { width: 100%; justify-content: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sb-card,
+  .sb-logo,
+  .sb-links a {
+    transition: none !important;
+  }
+}
+{% endstyle %}
+
+<section class="sb" id="startoner-brands-seo">
+  <div class="sb-inner">
+    <span class="sb-eyebrow">Compatibles con tu impresora</span>
+    <h2>Elige tu marca.<br><em>Ahorra desde hoy.</em></h2>
+
+    <div class="sb-grid">
+      <a class="sb-card" href="/collections/toner-compatible-hp" style="--glow:0,165,255;">
+        <img class="sb-logo sb-logo-hp" src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/HP_logo.png?v=1775435231" alt="HP" loading="lazy">
+        <div class="sb-copy">
+          <strong>HP</strong>
+          <span>Toner LaserJet y acceso directo a cartuchos HP 364, 903 y 953XL.</span>
+        </div>
+      </a>
+
+      <a class="sb-card" href="/collections/toner-compatible-canon" style="--glow:255,20,40;">
+        <img class="sb-logo sb-logo-canon" src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Canon_logo.png?v=1775435231" alt="Canon" loading="lazy">
+        <div class="sb-copy">
+          <strong>Canon</strong>
+          <span>Toner Canon y rutas directas a cartuchos PIXMA y MegaTank.</span>
+        </div>
+      </a>
+
+      <a class="sb-card" href="/collections/toner-compatible-brother" style="--glow:0,170,255;">
+        <img class="sb-logo sb-logo-brother" src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Brother-Logo.png?v=1775435231" alt="Brother" loading="lazy">
+        <div class="sb-copy">
+          <strong>Brother</strong>
+          <span>Toner TN, tambores DR y cartuchos de tinta LC para DCP y MFC.</span>
+        </div>
+      </a>
+
+      <a class="sb-card" href="/collections/cartuchos-tinta-epson-compatible" style="--glow:0,80,255;">
+        <img class="sb-logo sb-logo-epson" src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Epson_logo_svg.png?v=1775435232" alt="Epson" loading="lazy">
+        <div class="sb-copy">
+          <strong>Epson</strong>
+          <span>Cartuchos y botellas EcoTank, Expression y WorkForce.</span>
+        </div>
+      </a>
+
+      <a class="sb-card" href="/collections/toner-compatible-samsung" style="--glow:20,50,255;">
+        <img class="sb-logo sb-logo-samsung" src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Samsung_logo.png?v=1775435231" alt="Samsung" loading="lazy">
+        <div class="sb-copy">
+          <strong>Samsung</strong>
+          <span>Toner compatible para series Xpress y ML de oficina.</span>
+        </div>
+      </a>
+
+      <a class="sb-card" href="/collections/toners-copiadoras" style="--glow:255,40,20;">
+        <img class="sb-logo sb-logo-kyocera" src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Kyocera_logo.png?v=1775435232" alt="Kyocera" loading="lazy">
+        <div class="sb-copy">
+          <strong>Kyocera y copiadoras</strong>
+          <span>Ruta final sin redirects para copiadoras Konica, Kyocera y Canon.</span>
+        </div>
+      </a>
+
+      <a class="sb-card" href="/collections/toner-compatible-lexmark" style="--glow:0,230,110;">
+        <img class="sb-logo sb-logo-lexmark" src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Lexmark_logo.png?v=1775435231" alt="Lexmark" loading="lazy">
+        <div class="sb-copy">
+          <strong>Lexmark</strong>
+          <span>Toner compatible para equipos Lexmark de trabajo intensivo.</span>
+        </div>
+      </a>
+
+      <a class="sb-card" href="/collections/toners-y-tintas-impresoras-productos-mas-vendidos" style="--glow:255,255,255;">
+        <div class="sb-copy">
+          <strong>Catalogo completo</strong>
+          <span>Explora todas las marcas, formatos y consumibles con mejor rotacion.</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="sb-links">
+      <a href="/collections/cartuchos-tinta-hp">Cartuchos HP</a>
+      <a href="/collections/cartuchos-tinta-canon">Cartuchos Canon</a>
+      <a href="/collections/cartuchos-tinta-brother">Cartuchos Brother</a>
+      <a href="/blogs/news">Blog de impresion</a>
+    </div>
+  </div>
+</section>

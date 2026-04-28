@@ -1,0 +1,154 @@
+<!-- STARTONER: Ofertas Exclusivas — Premium Hero -->
+
+<style>
+/* ═══ STARTONER OFERTAS — APEX LIGHT ENGINE ═══ */
+.of-pro{position:relative;width:100vw;margin-left:calc(-50vw + 50%);background:#fff;color:#1d1d1f;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,sans-serif;padding:0;box-sizing:border-box;overflow:hidden;-webkit-font-smoothing:antialiased}
+.of-pro *,.of-pro *::before,.of-pro *::after{box-sizing:border-box}
+.of-pro h1,.of-pro h2,.of-pro h3,.of-pro h4{display:block !important}
+.of-w{max-width:1200px;margin:0 auto;padding:0 24px}
+
+/* ── HERO ── */
+.of-hero{text-align:center;padding:100px 24px 80px;position:relative}
+.of-hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:900px;height:900px;background:radial-gradient(circle,rgba(255,59,48,0.04) 0%,transparent 60%);pointer-events:none}
+.of-pill{display:inline-flex;align-items:center;gap:8px;background:#1d1d1f;color:#fff;border-radius:100px;padding:10px 22px;font-size:11px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:36px}
+.of-pill::before{content:'';width:6px;height:6px;border-radius:50%;background:#ff3b30;box-shadow:0 0 8px rgba(255,59,48,0.6);animation:ofPulse 1.5s infinite}
+@keyframes ofPulse{0%,100%{opacity:1}50%{opacity:.4}}
+.of-hero h1{font-size:clamp(44px,7vw,82px);font-weight:800;letter-spacing:-0.05em;line-height:1;margin:0 0 24px;color:#1d1d1f}
+.of-hero h1 em{font-style:normal;background:linear-gradient(135deg,#ff3b30 0%,#ff6b35 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.of-hero-p{font-size:20px;color:#86868b;max-width:640px;margin:0 auto 48px;line-height:1.65}
+.of-hero-cta{display:inline-flex;align-items:center;gap:10px;padding:18px 40px;border-radius:100px;font-size:16px;font-weight:700;text-decoration:none;background:#ff3b30;color:#fff;transition:all .3s cubic-bezier(.16,1,.3,1);box-shadow:0 8px 24px rgba(255,59,48,0.25)}
+.of-hero-cta:hover{transform:scale(1.05);box-shadow:0 16px 40px rgba(255,59,48,0.35);background:#e6352b}
+.of-hero-cta svg{transition:transform .3s}
+.of-hero-cta:hover svg{transform:translateX(4px)}
+
+/* ── TRUST BAR ── */
+.of-trust{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(0,0,0,0.06);border-radius:24px;overflow:hidden;margin:0 auto 80px;box-shadow:0 2px 16px rgba(0,0,0,0.04)}
+.of-trust-item{background:#fff;padding:36px 24px;text-align:center}
+.of-trust-num{font-size:clamp(28px,3.5vw,40px);font-weight:800;letter-spacing:-0.03em;color:#1d1d1f;display:block;margin-bottom:4px}
+.of-trust-num em{font-style:normal;color:#ff3b30}
+.of-trust-lbl{font-size:12px;text-transform:uppercase;letter-spacing:1.5px;color:#86868b;font-weight:600}
+
+/* ── CATEGORY CARDS ── */
+.of-cats{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:80px}
+.of-cat{background:#fafafa;border:1px solid rgba(0,0,0,0.06);border-radius:24px;padding:40px 32px;text-align:center;position:relative;overflow:hidden;transition:all .4s cubic-bezier(.16,1,.3,1);text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:16px}
+.of-cat::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#ff3b30,#ff6b35);opacity:0;transition:opacity .3s}
+.of-cat:hover{transform:translateY(-6px);border-color:rgba(255,59,48,0.2);box-shadow:0 20px 40px rgba(0,0,0,0.06)}
+.of-cat:hover::after{opacity:1}
+.of-cat-icon{width:56px;height:56px;border-radius:16px;background:#fff;border:1px solid rgba(0,0,0,0.06);display:flex;align-items:center;justify-content:center;color:#ff3b30;transition:all .3s;box-shadow:0 2px 8px rgba(0,0,0,0.04)}
+.of-cat-icon svg{width:24px;height:24px}
+.of-cat:hover .of-cat-icon{background:#ff3b30;color:#fff;border-color:#ff3b30;transform:scale(1.1)}
+.of-cat h3{font-size:18px;font-weight:700;color:#1d1d1f;margin:0;letter-spacing:-0.01em}
+.of-cat p{font-size:14px;color:#86868b;margin:0;line-height:1.5}
+
+/* ── USP STRIP ── */
+.of-usp{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;padding:32px 24px;margin-bottom:80px;border-top:1px solid rgba(0,0,0,0.06);border-bottom:1px solid rgba(0,0,0,0.06)}
+.of-usp-item{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;color:#1d1d1f}
+.of-usp-icon{width:32px;height:32px;border-radius:50%;background:#fff5f5;display:flex;align-items:center;justify-content:center;color:#ff3b30;flex-shrink:0}
+.of-usp-icon svg{width:16px;height:16px}
+
+/* ── SEO TEXT ── */
+.of-seo{max-width:800px;margin:0 auto 60px;text-align:center}
+.of-seo p{font-size:16px;color:#86868b;line-height:1.8}
+.of-seo strong{color:#1d1d1f;font-weight:700}
+
+/* ── SECTION DIVIDER ── */
+.of-divider{text-align:center;margin:0 auto 40px}
+.of-divider-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#ff3b30;padding:6px 16px;background:rgba(255,59,48,0.06);border-radius:100px;margin-bottom:16px}
+.of-divider h2{font-size:clamp(28px,4vw,42px);font-weight:800;color:#1d1d1f;margin:0;letter-spacing:-0.03em}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .of-hero{padding:72px 20px 60px}
+  .of-hero h1{font-size:44px}
+  .of-trust{grid-template-columns:repeat(2,1fr)}
+  .of-cats{grid-template-columns:1fr}
+  .of-usp{flex-direction:column;align-items:center;gap:20px}
+}
+</style>
+
+<div class="of-pro">
+<div class="of-w">
+
+<!-- ═══ HERO ═══ -->
+<div class="of-hero">
+  <span class="of-pill">Ofertas activas</span>
+  <h1>Ofertas <em>Imbatibles</em></h1>
+  <p class="of-hero-p">Los mejores descuentos en tóner compatible, cartuchos de tinta e impresoras. Misma calidad que el original, hasta un 70% más barato.</p>
+  <a href="/collections/all" class="of-hero-cta">
+    Ver todas las ofertas
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+  </a>
+</div>
+
+<!-- ═══ TRUST BAR ═══ -->
+<div class="of-trust">
+  <div class="of-trust-item">
+    <span class="of-trust-num">-<em>70</em>%</span>
+    <span class="of-trust-lbl">vs precio original</span>
+  </div>
+  <div class="of-trust-item">
+    <span class="of-trust-num"><em>500</em>+</span>
+    <span class="of-trust-lbl">productos en oferta</span>
+  </div>
+  <div class="of-trust-item">
+    <span class="of-trust-num"><em>24</em>h</span>
+    <span class="of-trust-lbl">envío España</span>
+  </div>
+  <div class="of-trust-item">
+    <span class="of-trust-num"><em>2</em> años</span>
+    <span class="of-trust-lbl">garantía total</span>
+  </div>
+</div>
+
+<!-- ═══ CATEGORY CARDS ═══ -->
+<div class="of-cats">
+  <a href="/collections/toner-laserjet" class="of-cat">
+    <div class="of-cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg></div>
+    <h3>Tóner Láser</h3>
+    <p>Certificados ISO 9001 · HP, Canon, Brother, Samsung</p>
+  </a>
+  <a href="/collections/cartuchos-de-tinta" class="of-cat">
+    <div class="of-cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
+    <h3>Cartuchos de Tinta XL</h3>
+    <p>Formatos alta capacidad · Epson, HP, Canon, Brother</p>
+  </a>
+  <a href="/collections/toners-copiadoras" class="of-cat">
+    <div class="of-cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 3H8v4h8V3z"/><line x1="10" y1="12" x2="14" y2="12"/></svg></div>
+    <h3>Tóner Copiadoras</h3>
+    <p>Rendimiento masivo · Kyocera, Ricoh, Sharp, Xerox</p>
+  </a>
+</div>
+
+<!-- ═══ USP STRIP ═══ -->
+<div class="of-usp">
+  <div class="of-usp-item">
+    <div class="of-usp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+    Compra 100% segura
+  </div>
+  <div class="of-usp-item">
+    <div class="of-usp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg></div>
+    Envío express 24h
+  </div>
+  <div class="of-usp-item">
+    <div class="of-usp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+    ISO 9001 · CE · RoHS
+  </div>
+  <div class="of-usp-item">
+    <div class="of-usp-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
+    Ahorro garantizado
+  </div>
+</div>
+
+<!-- ═══ SEO TEXT ═══ -->
+<div class="of-seo">
+  <p>Todos nuestros productos están <strong>certificados con ISO 9001, ISO 14001, CE, RoHS y MSDS</strong>, garantizando un rendimiento fiable y respetuoso con el medio ambiente. Aprovecha nuestras <strong>promociones en consumibles compatibles</strong> para impresoras HP, Canon, Brother, Epson, Kyocera, Pantum y muchas más marcas.</p>
+</div>
+
+<!-- ═══ PRODUCTS DIVIDER ═══ -->
+<div class="of-divider">
+  <span class="of-divider-tag">Selección destacada</span>
+  <h2>Productos en oferta</h2>
+</div>
+
+</div>
+</div>

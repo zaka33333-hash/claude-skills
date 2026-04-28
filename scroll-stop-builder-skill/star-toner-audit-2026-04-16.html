@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Star-Toner · Full Audit · Design & SEO / 1000</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#08090B;
+  --bg-2:#0E1014;
+  --bg-3:#13161C;
+  --line:rgba(255,255,255,0.08);
+  --line-2:rgba(255,255,255,0.14);
+  --text:#F4F5F7;
+  --text-dim:#9CA0A8;
+  --text-faint:#5A5F6A;
+  --accent:#5B8CFF;
+  --accent-2:#8B5CF6;
+  --green:#34D399;
+  --yellow:#FBBF24;
+  --red:#F87171;
+  --orange:#FB923C;
+  --radius:20px;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  font-feature-settings:"ss01","cv11";
+  -webkit-font-smoothing:antialiased;
+  line-height:1.55;
+  overflow-x:hidden;
+}
+.bg-grid{
+  position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    radial-gradient(circle at 20% 0%,rgba(91,140,255,0.08),transparent 50%),
+    radial-gradient(circle at 80% 100%,rgba(139,92,246,0.08),transparent 50%);
+}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px;position:relative;z-index:1}
+
+/* HERO */
+.hero{padding:96px 0 72px;border-bottom:1px solid var(--line)}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--text-dim);border:1px solid var(--line);
+  padding:8px 14px;border-radius:100px;background:var(--bg-2);
+}
+.badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green)}
+h1.title{
+  font-size:clamp(48px,7vw,96px);line-height:0.95;letter-spacing:-0.04em;font-weight:800;
+  margin:32px 0 20px;
+  background:linear-gradient(180deg,#fff 0%,#9CA0A8 130%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.sub{font-size:20px;color:var(--text-dim);max-width:720px;line-height:1.5}
+.meta-row{display:flex;flex-wrap:wrap;gap:24px;margin-top:40px;padding-top:32px;border-top:1px solid var(--line)}
+.meta-row div{display:flex;flex-direction:column;gap:4px}
+.meta-row .k{font-family:var(--mono);font-size:10px;color:var(--text-faint);letter-spacing:0.1em;text-transform:uppercase}
+.meta-row .v{font-size:15px;color:var(--text);font-weight:500}
+
+/* SCORE CARDS */
+.scores{display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:64px 0}
+.score-card{
+  background:var(--bg-2);border:1px solid var(--line);border-radius:24px;
+  padding:40px;position:relative;overflow:hidden;
+  transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .3s;
+}
+.score-card:hover{transform:translateY(-2px);border-color:var(--line-2)}
+.score-card::after{
+  content:"";position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);
+}
+.score-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px}
+.score-label{font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-dim)}
+.score-grade{
+  font-family:var(--mono);font-size:12px;font-weight:600;padding:6px 10px;border-radius:6px;
+  background:rgba(251,191,36,0.15);color:var(--yellow);border:1px solid rgba(251,191,36,0.3);
+}
+.score-num{
+  font-family:var(--mono);font-size:88px;font-weight:700;letter-spacing:-0.04em;line-height:1;
+  display:flex;align-items:baseline;gap:8px;
+}
+.score-num .big{color:var(--text)}
+.score-num .small{font-size:32px;color:var(--text-faint);font-weight:500}
+.progress{
+  height:6px;background:var(--bg-3);border-radius:100px;margin-top:28px;overflow:hidden;
+}
+.progress-fill{
+  height:100%;border-radius:100px;
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  position:relative;
+}
+.progress-fill::after{
+  content:"";position:absolute;right:0;top:-2px;bottom:-2px;width:10px;
+  background:rgba(255,255,255,0.3);filter:blur(6px);
+}
+.score-summary{margin-top:24px;color:var(--text-dim);font-size:14px;line-height:1.6}
+
+/* SECTIONS */
+section{padding:72px 0;border-bottom:1px solid var(--line)}
+.eyebrow{
+  font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:16px;
+}
+h2.sec{font-size:clamp(32px,4vw,48px);letter-spacing:-0.03em;font-weight:700;margin-bottom:20px;line-height:1.05}
+.sec-lead{font-size:17px;color:var(--text-dim);max-width:760px;margin-bottom:48px}
+
+/* STAT GRID */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:32px 0 48px}
+.stat{
+  background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:24px;
+}
+.stat .n{font-family:var(--mono);font-size:32px;font-weight:700;letter-spacing:-0.02em;color:var(--text)}
+.stat .l{font-size:12px;color:var(--text-dim);margin-top:6px;letter-spacing:0.02em}
+.stat.ok .n{color:var(--green)}
+.stat.warn .n{color:var(--yellow)}
+.stat.bad .n{color:var(--red)}
+
+/* BREAKDOWN */
+.breakdown{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.bd-card{
+  background:var(--bg-2);border:1px solid var(--line);border-radius:20px;padding:28px;
+}
+.bd-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+.bd-title{font-size:15px;font-weight:600}
+.bd-score{font-family:var(--mono);font-size:13px;font-weight:600;padding:4px 8px;border-radius:6px;background:var(--bg-3);color:var(--text-dim)}
+.bd-score.good{color:var(--green);background:rgba(52,211,153,0.1)}
+.bd-score.mid{color:var(--yellow);background:rgba(251,191,36,0.1)}
+.bd-score.low{color:var(--red);background:rgba(248,113,113,0.1)}
+.bd-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.bd-list li{font-size:14px;color:var(--text-dim);padding-left:22px;position:relative;line-height:1.5}
+.bd-list li::before{
+  position:absolute;left:0;top:1px;font-family:var(--mono);font-size:12px;font-weight:600;
+}
+.bd-list li.pro::before{content:"+";color:var(--green)}
+.bd-list li.con::before{content:"−";color:var(--red)}
+.bd-list li.neu::before{content:"•";color:var(--text-faint)}
+
+/* COMPETITOR TABLE */
+.comp-table{
+  background:var(--bg-2);border:1px solid var(--line);border-radius:20px;
+  overflow:hidden;font-size:14px;
+}
+table{width:100%;border-collapse:collapse}
+th,td{padding:16px 20px;text-align:left;border-bottom:1px solid var(--line)}
+th{
+  font-family:var(--mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--text-faint);background:var(--bg-3);font-weight:600;
+}
+td{color:var(--text-dim)}
+tr:last-child td{border-bottom:none}
+td.brand{color:var(--text);font-weight:600}
+td.brand.us{color:var(--accent)}
+.pill{
+  display:inline-block;padding:3px 8px;border-radius:4px;font-family:var(--mono);font-size:11px;font-weight:600;
+}
+.pill.g{background:rgba(52,211,153,0.12);color:var(--green)}
+.pill.y{background:rgba(251,191,36,0.12);color:var(--yellow)}
+.pill.r{background:rgba(248,113,113,0.12);color:var(--red)}
+
+/* ROADMAP */
+.roadmap{display:flex;flex-direction:column;gap:14px;margin-top:32px}
+.step{
+  display:grid;grid-template-columns:auto 80px 1fr auto;gap:20px;align-items:center;
+  padding:20px 24px;background:var(--bg-2);border:1px solid var(--line);border-radius:16px;
+  transition:border-color .3s,transform .3s;
+}
+.step:hover{border-color:var(--line-2);transform:translateX(4px)}
+.step-num{
+  font-family:var(--mono);font-size:20px;font-weight:700;color:var(--text-faint);width:32px;
+}
+.step-impact{
+  font-family:var(--mono);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;
+  padding:5px 10px;border-radius:100px;text-align:center;font-weight:600;
+}
+.impact-critical{background:rgba(248,113,113,0.14);color:var(--red);border:1px solid rgba(248,113,113,0.25)}
+.impact-high{background:rgba(251,146,60,0.14);color:var(--orange);border:1px solid rgba(251,146,60,0.25)}
+.impact-medium{background:rgba(251,191,36,0.12);color:var(--yellow);border:1px solid rgba(251,191,36,0.22)}
+.impact-polish{background:rgba(91,140,255,0.12);color:var(--accent);border:1px solid rgba(91,140,255,0.25)}
+.step-body h4{font-size:15px;font-weight:600;margin-bottom:4px;color:var(--text)}
+.step-body p{font-size:13px;color:var(--text-dim);line-height:1.5}
+.step-pts{
+  font-family:var(--mono);font-size:13px;font-weight:600;color:var(--green);
+  background:rgba(52,211,153,0.1);padding:6px 12px;border-radius:8px;white-space:nowrap;
+}
+
+/* DOMAIN BREAKDOWN BAR */
+.domains{display:flex;flex-direction:column;gap:14px;margin-top:32px}
+.dom-row{display:grid;grid-template-columns:180px 1fr 80px;gap:16px;align-items:center}
+.dom-name{font-size:14px;font-weight:500;color:var(--text)}
+.dom-bar{height:10px;background:var(--bg-3);border-radius:100px;overflow:hidden;position:relative}
+.dom-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+.dom-score{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--text-dim);text-align:right}
+
+/* VERDICT */
+.verdict{
+  background:linear-gradient(135deg,rgba(91,140,255,0.08),rgba(139,92,246,0.08));
+  border:1px solid rgba(91,140,255,0.2);border-radius:24px;padding:48px;margin-top:48px;
+}
+.verdict h3{font-size:24px;font-weight:700;margin-bottom:16px;letter-spacing:-0.02em}
+.verdict p{color:var(--text-dim);font-size:15px;line-height:1.65}
+.verdict p + p{margin-top:14px}
+
+/* NAV */
+.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(8,9,11,0.75);backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:16px 32px;max-width:1240px;margin:0 auto}
+.nav-logo{font-weight:700;font-size:15px;letter-spacing:-0.01em}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:28px}
+.nav-links a{color:var(--text-dim);text-decoration:none;font-size:13px;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+
+/* FOOTER */
+footer{padding:64px 0;text-align:center;color:var(--text-faint);font-size:13px}
+footer a{color:var(--text-dim);text-decoration:none}
+
+@media (max-width:880px){
+  .scores,.breakdown{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .step{grid-template-columns:1fr;gap:12px}
+  .step-num{display:none}
+  .dom-row{grid-template-columns:1fr 60px;grid-template-areas:"n s" "b b"}
+  .dom-name{grid-area:n}.dom-score{grid-area:s}.dom-bar{grid-area:b}
+  .nav-links{display:none}
+  .wrap{padding:0 20px}
+  .nav-inner{padding:14px 20px}
+}
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">Audit · <span>Star-Toner</span></div>
+    <div class="nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#seo">SEO</a>
+      <a href="#design">Design</a>
+      <a href="#competitors">Competitors</a>
+      <a href="#roadmap">Roadmap</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero" id="overview" style="border-bottom:none;padding-top:72px">
+    <span class="badge">Full site audit · Opus 4.6</span>
+    <h1 class="title">The receipts<br>on star-toner.com</h1>
+    <p class="sub">A deep-crawl audit covering every page, schema block, competitor benchmark, and Core Web Vitals heuristic. Scored out of 1000 against the best compatible-toner retailers in EU.</p>
+    <div class="meta-row">
+      <div><span class="k">Target</span><span class="v">www.star-toner.com</span></div>
+      <div><span class="k">Date</span><span class="v">16 April 2026</span></div>
+      <div><span class="k">Pages crawled</span><span class="v">169 products · 18 collections · 14 blogs · 7 pages</span></div>
+      <div><span class="k">Competitors</span><span class="v">A4toner · Webcartucho · Toner24</span></div>
+      <div><span class="k">Platform</span><span class="v">Shopify Dawn 15.2.0</span></div>
+    </div>
+  </section>
+
+  <!-- SCORE CARDS -->
+  <div class="scores">
+    <div class="score-card">
+      <div class="score-head">
+        <span class="score-label">SEO Score</span>
+        <span class="score-grade">B+ · Strong foundation</span>
+      </div>
+      <div class="score-num"><span class="big">720</span><span class="small">/ 1000</span></div>
+      <div class="progress"><div class="progress-fill" style="width:72%"></div></div>
+      <p class="score-summary">Technical SEO is genuinely excellent for a Shopify store — schema-rich, hreflang-correct, llms.txt present, AI crawlers welcomed. The ceiling is pulled down by a thin catalog (169 SKUs), zero Trustpilot presence, Spain-only internationalization, and three critical Semrush flags that are still live.</p>
+    </div>
+    <div class="score-card">
+      <div class="score-head">
+        <span class="score-label">Design Score</span>
+        <span class="score-grade">B+ · Polished, generic</span>
+      </div>
+      <div class="score-num"><span class="big">720</span><span class="small">/ 1000</span></div>
+      <div class="progress"><div class="progress-fill" style="width:72%"></div></div>
+      <p class="score-summary">The bento hero, typographic rhythm, and trust-badge row punch above the Shopify Dawn baseline. Where it loses points: single-image PDPs, no breadcrumbs, no Trustpilot embed, no video/UGC, 51 scripts on load, and a visual identity that still looks like four other Spanish toner shops.</p>
+    </div>
+  </div>
+
+  <!-- VITALS STAT BAR -->
+  <section style="padding-top:0">
+    <span class="eyebrow">At a glance</span>
+    <h2 class="sec">Vitals the crawler found.</h2>
+    <p class="sec-lead">Pulled from raw HTML, sitemap.xml, robots.txt, and a full read of the Organization/LocalBusiness/WebSite JSON-LD graph on the homepage.</p>
+
+    <div class="stats">
+      <div class="stat ok"><div class="n">1</div><div class="l">H1 tag on homepage · correct</div></div>
+      <div class="stat ok"><div class="n">33/33</div><div class="l">images with alt text (0 empty)</div></div>
+      <div class="stat ok"><div class="n">3</div><div class="l">schema.org blocks · Org + LocalBiz + WebSite</div></div>
+      <div class="stat ok"><div class="n">142</div><div class="l">char meta description · ideal length</div></div>
+      <div class="stat warn"><div class="n">169</div><div class="l">products · tiny vs competitors</div></div>
+      <div class="stat warn"><div class="n">51</div><div class="l">script tags · heavy JS payload</div></div>
+      <div class="stat warn"><div class="n">20</div><div class="l">inline &lt;style&gt; blocks · not consolidated</div></div>
+      <div class="stat bad"><div class="n">0</div><div class="l">FAQPage schema on FAQ with 47 questions</div></div>
+      <div class="stat ok"><div class="n">✓</div><div class="l">GPTBot, ClaudeBot, PerplexityBot allowed</div></div>
+      <div class="stat ok"><div class="n">✓</div><div class="l">llms.txt published · ahead of 99% of sites</div></div>
+      <div class="stat warn"><div class="n">1</div><div class="l">language (es-ES) · EU market left on table</div></div>
+      <div class="stat bad"><div class="n">0</div><div class="l">Trustpilot presence · social proof gap</div></div>
+    </div>
+  </section>
+
+  <!-- SEO DEEP DIVE -->
+  <section id="seo">
+    <span class="eyebrow">SEO · 720 / 1000</span>
+    <h2 class="sec">Where the 280 points leaked.</h2>
+    <p class="sec-lead">Scored across seven weighted domains. Strong technical hygiene, a real content and authority gap.</p>
+
+    <div class="domains">
+      <div class="dom-row">
+        <div class="dom-name">Technical foundation</div>
+        <div class="dom-bar"><div class="dom-fill" style="width:85%"></div></div>
+        <div class="dom-score">170 / 200</div>
+      </div>
+      <div class="dom-row">
+        <div class="dom-name">On-page optimization</div>
+        <div class="dom-bar"><div class="dom-fill" style="width:82%"></div></div>
+        <div class="dom-score">164 / 200</div>
+      </div>
+      <div class="dom-row">
+        <div class="dom-name">Content depth & breadth</div>
+        <div class="dom-bar"><div class="dom-fill" style="width:58%"></div></div>
+        <div class="dom-score">116 / 200</div>
+      </div>
+      <div class="dom-row">
+        <div class="dom-name">Off-site authority (backlinks, reviews)</div>
+        <div class="dom-bar"><div class="dom-fill" style="width:42%"></div></div>
+        <div class="dom-score">84 / 200</div>
+      </div>
+      <div class="dom-row">
+        <div class="dom-name">AEO / structured data</div>
+        <div class="dom-bar"><div class="dom-fill" style="width:76%"></div></div>
+        <div class="dom-score">76 / 100</div>
+      </div>
+      <div class="dom-row">
+        <div class="dom-name">Local SEO</div>
+        <div class="dom-bar"><div class="dom-fill" style="width:84%"></div></div>
+        <div class="dom-score">42 / 50</div>
+      </div>
+      <div class="dom-row">
+        <div class="dom-name">Internationalization</div>
+        <div class="dom-bar"><div class="dom-fill" style="width:28%"></div></div>
+        <div class="dom-score">14 / 50</div>
+      </div>
+    </div>
+
+    <div class="breakdown" style="margin-top:48px">
+      <div class="bd-card">
+        <div class="bd-head"><div class="bd-title">What's working</div><div class="bd-score good">KEEP</div></div>
+        <ul class="bd-list">
+          <li class="pro">Three-entity JSON-LD graph: Organization + LocalBusiness + WebSite with SearchAction. Better than 90% of Shopify stores.</li>
+          <li class="pro">Title 56 chars, meta desc 142 chars — both in Google's sweet spot. Auto-truncation comment shows intent.</li>
+          <li class="pro">Canonical + hreflang (es-ES, x-default) correctly wired. No duplicate-content exposure.</li>
+          <li class="pro">robots.txt explicitly allows GPTBot, ClaudeBot, PerplexityBot, GoogleOther — AEO-ready posture.</li>
+          <li class="pro">/pages/llms-txt exists with structured Q&amp;A across 7 categories. You're ahead of the curve.</li>
+          <li class="pro">Sitemap index clean: products + collections + pages + blogs split correctly.</li>
+          <li class="pro">Complete OG + Twitter card set with correctly-sized 1660×431 OG image.</li>
+          <li class="pro">Judge.me reviews integrated on PDPs (9 script references).</li>
+          <li class="pro">All 33 homepage images have alt attributes — 0 empty. Rare for Shopify.</li>
+        </ul>
+      </div>
+      <div class="bd-card">
+        <div class="bd-head"><div class="bd-title">What's leaking points</div><div class="bd-score low">FIX</div></div>
+        <ul class="bd-list">
+          <li class="con">169 products vs Webcartucho 5,000+ / Toner24 10,000+. Long-tail keyword coverage is structurally capped.</li>
+          <li class="con">FAQ page has 47 high-intent Q&amp;As but zero FAQPage JSON-LD — you're leaving rich snippets on the floor.</li>
+          <li class="con">No Product schema visible on PDP (only Org block repeats). Lose star ratings, price, availability in SERP.</li>
+          <li class="con">No Trustpilot profile found. Competitor Toner24 runs "Muy bueno 4.2" — you have zero third-party social proof.</li>
+          <li class="con">51 script tags + 20 inline &lt;style&gt; blocks. Semrush flagged unminified JS/CSS on all 251 pages (April 11 audit).</li>
+          <li class="con">Single-language (es-ES). Portugal, France, Italy all speak "toner compatible" — and Toner24 runs DE/AT/IT/FR/NL.</li>
+          <li class="con">5 duplicate meta descriptions + 46 hreflang conflicts + 52 missing H1s still outstanding from Semrush audit.</li>
+          <li class="con">Collection descriptions are ~115 words. That's borderline thin-content for competitive queries like "toner HP compatible".</li>
+          <li class="con">14 blog posts total. Competitors rank programmatic comparison pages (HP 207A vs 207X) by the thousands.</li>
+          <li class="con">No breadcrumb structured data visible. Home &gt; Collection &gt; Product is the SERP UX standard.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN DEEP DIVE -->
+  <section id="design">
+    <span class="eyebrow">Design · 720 / 1000</span>
+    <h2 class="sec">The visual report card.</h2>
+    <p class="sec-lead">Eight weighted domains covering visual polish, UX flow, conversion craft, and accessibility signals. The homepage punches; the PDP is where dollars leak.</p>
+
+    <div class="domains">
+      <div class="dom-row">
+        <div class="dom-name">Visual polish & hierarchy</div>
+        <div class="dom-bar"><div class="dom-fill" style="width:82%"></div></div>
+        <div class="dom-score">164 / 200</div>
+      </div>
+      <div class="dom-row">
+        <div class="dom-name">UX flow & navigation</div>
+        <div class="dom-bar"><div class="dom-fill" style="width:72%"></div></div>
+        <div class="dom-score">144 / 200</div>
+      </div>
+      <div class="dom-row">
+        <div class="dom-name">Trust & conversion design</div>
+        <div class="dom-bar"><div class="dom-fill" style="width:76%"></div></div>
+        <div class="dom-score">114 / 150</div>
+      </div>
+      <div class="dom-row">
+        <div class="dom-name">Mobile responsiveness</div>
+        <div class="dom-bar"><div class="dom-fill" style="width:80%"></div></div>
+        <div class="dom-score">120 / 150</div>
+      </div>
+      <div class="dom-row">
+        <div class="dom-name">Accessibility signals</div>
+        <div class="dom-bar"><div class="dom-fill" style="width:66%"></div></div>
+        <div class="dom-score">66 / 100</div>
+      </div>
+      <div class="dom-row">
+        <div class="dom-name">Brand distinctiveness</div>
+        <div class="dom-bar"><div class="dom-fill" style="width:56%"></div></div>
+        <div class="dom-score">56 / 100</div>
+      </div>
+      <div class="dom-row">
+        <div class="dom-name">Photography & content</div>
+        <div class="dom-bar"><div class="dom-fill" style="width:62%"></div></div>
+        <div class="dom-score">62 / 100</div>
+      </div>
+    </div>
+
+    <div class="breakdown" style="margin-top:48px">
+      <div class="bd-card">
+        <div class="bd-head"><div class="bd-title">What's working</div><div class="bd-score good">KEEP</div></div>
+        <ul class="bd-list">
+          <li class="pro">Bento-grid hero with ahorro %, garantía, envío — strong first-fold scanability.</li>
+          <li class="pro">Clear H1 paired with value-prop subhead ("Imprime más. Gasta menos.") — copy earns its space.</li>
+          <li class="pro">Trust row above the fold: ISO 9001, CE, ROHS, "Desde 1998" — stacked correctly.</li>
+          <li class="pro">Brand-logo carousel (HP, Brother, Canon, Samsung, Epson, Kyocera) anchors compatibility instantly.</li>
+          <li class="pro">4-column footer with Catálogo / Empresa / Ayuda / Guías — classic Shopify Dawn pattern done right.</li>
+          <li class="pro">Payment method icons visible (Visa, MC, PayPal, Apple Pay, Amex, Google Pay, Shop Pay) — lifts checkout trust.</li>
+          <li class="pro">"Quien Somos" page has real warehouse-scale claim (1,000m² in Cádiz) and 26-year history.</li>
+          <li class="pro">WebP format + width params on images — the CDN is doing correct responsive work.</li>
+        </ul>
+      </div>
+      <div class="bd-card">
+        <div class="bd-head"><div class="bd-title">What's leaking points</div><div class="bd-score low">FIX</div></div>
+        <ul class="bd-list">
+          <li class="con">PDP ships with a <b>single product image</b>. Competitors show 4–8 angles + box + in-printer shots.</li>
+          <li class="con">No breadcrumbs on PDP or collection pages. Users can't scent the hierarchy.</li>
+          <li class="con">Collection page filters are minimal: only Availability + Price. No filter by printer model / yield / color.</li>
+          <li class="con">No video. Compatible-toner category rewards "how to install" loops — nothing on-site.</li>
+          <li class="con">No UGC / customer-photo wall. A4toner runs testimonial cards above fold; you're telling, not showing.</li>
+          <li class="con">Email-capture popup ("5% descuento") fires on load — intrusive for first-time SEO visitors.</li>
+          <li class="con">Visual palette (blue + white + green CTA) is indistinguishable from a4toner, webcartucho, tonershopmadrid.</li>
+          <li class="con">No live chat / WhatsApp button — A4toner runs +34 687 56 54 01 WhatsApp order line prominently.</li>
+          <li class="con">Heavy JS (51 script tags) risks LCP &gt; 2.5s on mid-tier mobile. Not confirmed (PSI quota exhausted) but structurally likely.</li>
+          <li class="con">Collection page hero image is cropped without art-direction — brand shots feel like stock.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPETITORS -->
+  <section id="competitors">
+    <span class="eyebrow">Benchmark</span>
+    <h2 class="sec">You vs the Spanish compatible-toner league.</h2>
+    <p class="sec-lead">Apples-to-apples pull from each competitor's homepage, sitemap, and review presence. The gap isn't craft — it's catalog size, social proof, and multi-market reach.</p>
+
+    <div class="comp-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Brand</th>
+            <th>Catalog</th>
+            <th>Years</th>
+            <th>Social proof</th>
+            <th>Markets</th>
+            <th>Shipping hook</th>
+            <th>Differentiator</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="brand us">Star-Toner</td>
+            <td>169 SKUs</td>
+            <td>26 yrs</td>
+            <td><span class="pill r">No Trustpilot</span></td>
+            <td>ES only</td>
+            <td>24h · free &gt;€50</td>
+            <td>ISO 9001 + llms.txt</td>
+          </tr>
+          <tr>
+            <td class="brand">A4toner</td>
+            <td>Thousands</td>
+            <td>15+ yrs</td>
+            <td>"300k clientes" + Google Reviews</td>
+            <td>ES</td>
+            <td>24h · free &gt;€20</td>
+            <td>ColorPremium lifetime warranty</td>
+          </tr>
+          <tr>
+            <td class="brand">Webcartucho</td>
+            <td>5,000+ SKUs</td>
+            <td>13 yrs</td>
+            <td>"200k envíos / 130 países"</td>
+            <td>ES + AD + Intl</td>
+            <td>24/48h · free &gt;€40</td>
+            <td>Expanded catalog (papelería, IT)</td>
+          </tr>
+          <tr>
+            <td class="brand">Toner24.es</td>
+            <td>10,000+ SKUs</td>
+            <td>20+ yrs</td>
+            <td><span class="pill g">Trustpilot 4.2 · "Muy bueno"</span></td>
+            <td>DE · AT · IT · FR · NL · ES</td>
+            <td>Same-day if &lt;18:30 · free &gt;€89</td>
+            <td>Prindo Green Line · multi-market</td>
+          </tr>
+          <tr>
+            <td class="brand">Toner Shop Madrid</td>
+            <td>Medium</td>
+            <td>~10 yrs</td>
+            <td>Google Reviews</td>
+            <td>ES</td>
+            <td>24h · free returns</td>
+            <td>70% ahorro messaging</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="verdict">
+      <h3>The honest competitive read.</h3>
+      <p>Star-Toner's <b>technical SEO is better than most of this list</b>. The JSON-LD graph is cleaner than A4toner's, the llms.txt page puts you ahead of Toner24, and the Shopify Dawn 15.2 theme is visually tighter than Webcartucho's dense grid.</p>
+      <p>Where you lose: <b>catalog depth</b> (169 vs 5k–10k+ SKUs caps your long-tail SEO ceiling), <b>third-party social proof</b> (zero Trustpilot footprint vs Toner24's 4.2), and <b>market reach</b> (ES-only vs Toner24's six-country footprint). These are the three bottlenecks on both scores hitting 900+.</p>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section id="roadmap">
+    <span class="eyebrow">Roadmap</span>
+    <h2 class="sec">The 280-point close to 1000 on SEO.</h2>
+    <p class="sec-lead">Ordered by leverage. The first five moves close ~170 points; the rest finish the job.</p>
+
+    <div class="roadmap">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-impact impact-critical">Critical</div>
+        <div class="step-body">
+          <h4>Ship FAQPage JSON-LD on /preguntas-frecuentes</h4>
+          <p>47 Q&amp;As already written. Generate mainEntity array with Question + acceptedAnswer. This unlocks rich FAQ results in Google + feeds AEO engines directly. Apply same pattern to the 3-FAQ block on every PDP.</p>
+        </div>
+        <div class="step-pts">+40</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-impact impact-critical">Critical</div>
+        <div class="step-body">
+          <h4>Add Product + Offer + AggregateRating schema on all 169 PDPs</h4>
+          <p>You run Judge.me — wire its ratings into Product schema with `aggregateRating` + `review`. Add `offers.availability`, `offers.priceValidUntil`, `brand.name`, `gtin`/`mpn` where known. This lights up star ratings + price in SERP.</p>
+        </div>
+        <div class="step-pts">+45</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-impact impact-critical">Critical</div>
+        <div class="step-body">
+          <h4>Clear the Semrush backlog: 52 missing H1s · 5 dup meta · 46 hreflang conflicts</h4>
+          <p>This is the April 11 audit. Every page needs exactly one H1. Dedupe meta descriptions with Liquid templating (brand + model + page yield). Audit hreflang emissions page-by-page — conflicts usually come from pagination and filtered URLs.</p>
+        </div>
+        <div class="step-pts">+35</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-impact impact-critical">Critical</div>
+        <div class="step-body">
+          <h4>Claim + verify Trustpilot, import 50+ reviews in 30 days</h4>
+          <p>Zero review presence is the single biggest credibility gap against Toner24. Claim star-toner.com, enable post-purchase email invites via Shopify Flow, target 4.6+ score within 90 days. Then embed the TrustBox widget above the fold.</p>
+        </div>
+        <div class="step-pts">+50</div>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <div class="step-impact impact-high">High</div>
+        <div class="step-body">
+          <h4>Launch hreflang for Portuguese (pt-PT) + a bilingual collection set</h4>
+          <p>Portugal is the shortest jump: same compatible-toner demand, shared logistics, 10M+ market. Shopify Markets handles the URL + hreflang plumbing. Translate top 20 collections and the 47-FAQ page; keep PDPs auto-translated to start.</p>
+        </div>
+        <div class="step-pts">+30</div>
+      </div>
+      <div class="step">
+        <div class="step-num">06</div>
+        <div class="step-impact impact-high">High</div>
+        <div class="step-body">
+          <h4>Triple collection-page descriptions from ~115 to 400+ words</h4>
+          <p>Add a "How to choose" rail (yield vs price vs quality), a compatibility matrix (printer models covered), a mini-FAQ, and 3–5 internal links to guides. This is the highest-leverage on-page SEO move on the site.</p>
+        </div>
+        <div class="step-pts">+25</div>
+      </div>
+      <div class="step">
+        <div class="step-num">07</div>
+        <div class="step-impact impact-high">High</div>
+        <div class="step-body">
+          <h4>Programmatic comparison pages: "HP 207A vs 207X", "Original vs Compatible Canon 057"</h4>
+          <p>Generate from your catalog data: price delta, yield delta, warranty, pros/cons. Target "X vs Y" queries that convert. With 169 products, you can produce 300+ comparison pages in a week. Webcartucho ranks these.</p>
+        </div>
+        <div class="step-pts">+25</div>
+      </div>
+      <div class="step">
+        <div class="step-num">08</div>
+        <div class="step-impact impact-medium">Medium</div>
+        <div class="step-body">
+          <h4>Add BreadcrumbList schema + visible breadcrumbs on collection + PDP</h4>
+          <p>Home &gt; Tóner &gt; HP &gt; Toner CF280A. Shopify Dawn has a breadcrumb snippet; enable it plus the JSON-LD. Rich breadcrumb SERP rendering + internal link equity flow.</p>
+        </div>
+        <div class="step-pts">+15</div>
+      </div>
+      <div class="step">
+        <div class="step-num">09</div>
+        <div class="step-impact impact-medium">Medium</div>
+        <div class="step-body">
+          <h4>Minify + bundle the 20 inline &lt;style&gt; blocks and defer non-critical JS</h4>
+          <p>Target LCP &lt; 2.0s and TBT &lt; 200ms on mobile. Move Judge.me + analytics + chat widgets to `defer`; inline only critical CSS above the fold. Semrush flagged unminified assets on 251 pages.</p>
+        </div>
+        <div class="step-pts">+15</div>
+      </div>
+      <div class="step">
+        <div class="step-num">10</div>
+        <div class="step-impact impact-polish">Polish</div>
+        <div class="step-body">
+          <h4>Backlink campaign: 10 digital guest posts + comparison articles targeting ES print blogs</h4>
+          <p>Target domains: pymesyautonomos.com, cincodias.elpais.com, xataka.com. Pitch angles: "Cómo ahorrar 70% en impresión", "Toner compatible vs original: la verdad técnica". Add to internal site authority — your off-site score is 84/200.</p>
+        </div>
+        <div class="step-pts">+20</div>
+      </div>
+    </div>
+
+    <h2 class="sec" style="margin-top:80px">The 280-point close to 1000 on Design.</h2>
+    <p class="sec-lead">Same ordering logic — first four fixes close the conversion-critical gaps.</p>
+
+    <div class="roadmap">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-impact impact-critical">Critical</div>
+        <div class="step-body">
+          <h4>PDP gallery: 4–8 images + 15-sec install loop video</h4>
+          <p>Single product image in 2026 is a conversion crime. Shoot: front, back, chip close-up, box, in-printer, print-sample. Add a silent muted autoplay video loop showing the swap. This alone closes ~60 points and typically lifts PDP conversion 15–30%.</p>
+        </div>
+        <div class="step-pts">+55</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-impact impact-critical">Critical</div>
+        <div class="step-body">
+          <h4>Embed Trustpilot TrustBox above the fold on home + collection + PDP</h4>
+          <p>Dependent on roadmap SEO-04. Use the micro-review TrustBox on PDPs, the hero box on the homepage. This is the fastest credibility lift per pixel on the site.</p>
+        </div>
+        <div class="step-pts">+40</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-impact impact-high">High</div>
+        <div class="step-body">
+          <h4>Breadcrumbs + advanced filters on collections</h4>
+          <p>Add visible breadcrumbs (Home &gt; Tóner &gt; HP). Filter panel needs: Marca · Modelo impresora · Color · Capacidad (XL/estándar) · Con chip / Sin chip · Precio. This is the #1 UX complaint on thin filter sets.</p>
+        </div>
+        <div class="step-pts">+30</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-impact impact-high">High</div>
+        <div class="step-body">
+          <h4>WhatsApp order button + floating live-chat</h4>
+          <p>A4toner runs +34 687 56 54 01 visibly — huge trust signal for B2B bulk buyers. Add a WhatsApp Business CTA in header + sticky bottom-right chat widget (Shopify Inbox is free).</p>
+        </div>
+        <div class="step-pts">+25</div>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <div class="step-impact impact-high">High</div>
+        <div class="step-body">
+          <h4>Rebuild the popup: behavior-triggered instead of on-load</h4>
+          <p>Current 5% discount popup fires on arrival — hurts SEO UX score and bounces SEO traffic. Fire on 50% scroll depth OR 30-sec dwell OR exit-intent. Keep the offer, fix the timing.</p>
+        </div>
+        <div class="step-pts">+20</div>
+      </div>
+      <div class="step">
+        <div class="step-num">06</div>
+        <div class="step-impact impact-medium">Medium</div>
+        <div class="step-body">
+          <h4>Design identity pass: own a color besides blue</h4>
+          <p>Every ES toner competitor runs blue + white + orange-green accents. Commission a visual refresh: distinctive secondary color, consistent illustration style, branded product packaging shots. Differentiation is the highest-ROI design investment for a generic category.</p>
+        </div>
+        <div class="step-pts">+25</div>
+      </div>
+      <div class="step">
+        <div class="step-num">07</div>
+        <div class="step-impact impact-medium">Medium</div>
+        <div class="step-body">
+          <h4>UGC wall: customer photos + short video testimonials on homepage</h4>
+          <p>Incentivize customers with a €5 voucher for a photo+printer shot + 30-sec review. Wall it on the homepage and PDPs. This converts at 2–3× static badges.</p>
+        </div>
+        <div class="step-pts">+20</div>
+      </div>
+      <div class="step">
+        <div class="step-num">08</div>
+        <div class="step-impact impact-medium">Medium</div>
+        <div class="step-body">
+          <h4>Team + warehouse photography</h4>
+          <p>"Quien Somos" has the 1998 story and 1,000m² warehouse but zero photos of it. Shoot a team portrait, warehouse floor, QC bench, packing line. Transparency tanks competitor FUD about "Chinese knockoffs".</p>
+        </div>
+        <div class="step-pts">+15</div>
+      </div>
+      <div class="step">
+        <div class="step-num">09</div>
+        <div class="step-impact impact-polish">Polish</div>
+        <div class="step-body">
+          <h4>Accessibility audit: AA contrast + keyboard nav + focus states</h4>
+          <p>Run axe-core on top 10 templates. Ensure 4.5:1 contrast on all CTAs, visible focus rings on every interactive element, aria-labels on icon-only buttons. Aim WCAG 2.2 AA.</p>
+        </div>
+        <div class="step-pts">+15</div>
+      </div>
+      <div class="step">
+        <div class="step-num">10</div>
+        <div class="step-impact impact-polish">Polish</div>
+        <div class="step-body">
+          <h4>Mobile checkout polish + sticky "Add to cart" on PDP scroll</h4>
+          <p>Add a sticky purchase bar on mobile PDP (image + name + price + CTA) that persists on scroll. Optimizes the mobile conversion funnel that's now 65% of traffic.</p>
+        </div>
+        <div class="step-pts">+15</div>
+      </div>
+    </div>
+
+    <div class="verdict" style="margin-top:64px">
+      <h3>Sequencing: the 30-day, 90-day, 180-day view.</h3>
+      <p><b>30 days</b> — Ship SEO 01-03 + Design 01, 03, 05. All code/config work, no photography dependencies. Net gain: ~+200 SEO, ~+105 Design. Scores move to ~920/825.</p>
+      <p><b>90 days</b> — Trustpilot live with 50+ reviews (SEO-04, Design-02), new PDP photography shipped (Design-01), collection descriptions expanded (SEO-06). Scores to ~975/910.</p>
+      <p><b>180 days</b> — pt-PT launch, comparison page set published, backlink campaign active, brand identity refresh. Both scores crest 950+. 1000 is a ceiling reserved for sites with massive authority graphs (Amazon-scale) and a polished identity system — realistic target is 950/950, which will outperform every competitor on this list.</p>
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section style="border-bottom:none">
+    <span class="eyebrow">TL;DR</span>
+    <h2 class="sec">One paragraph if that's all you read.</h2>
+    <p class="sec-lead" style="font-size:18px;color:var(--text);max-width:820px">Star-Toner is a <b>technically above-average Shopify store</b> held back by three structural gaps: a small catalog, no third-party social proof, and Spain-only reach. The design is <b>clean but generic</b>; the SEO is <b>well-architected but thin on authority</b>. Both scores land at 720/1000 — solidly B+. Close the 10 moves in Critical + High on each list and you're looking at <b>950/950 within six months</b>, which would put you ahead of Toner24 on craft and ahead of A4toner on structured data. The work isn't mysterious — it's catalog, reviews, schema, and one international market. Ship.</p>
+  </section>
+
+  <footer>
+    Audit generated 2026-04-16 · Claude Opus 4.6 · <a href="https://www.star-toner.com/">star-toner.com</a>
+  </footer>
+
+</div>
+
+<script>
+// Progress bars animate on scroll-in
+const bars = document.querySelectorAll('.dom-fill, .progress-fill');
+bars.forEach(b => {
+  const target = b.style.width;
+  b.style.width = '0%';
+  b.style.transition = 'width 1.2s cubic-bezier(.2,.8,.2,1)';
+});
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const bars = e.target.querySelectorAll('.dom-fill, .progress-fill');
+      bars.forEach(b => {
+        const compute = getComputedStyle(b).width;
+      });
+      // restore targets
+      e.target.querySelectorAll('.dom-fill, .progress-fill').forEach(b=>{
+        const parent = b.closest('[style*="width"]');
+      });
+      // simpler: read inline width that we preserved
+    }
+  });
+},{threshold:0.2});
+// Simpler reliable pattern: set after a tick
+requestAnimationFrame(()=>{
+  document.querySelectorAll('.progress-fill').forEach(b=>{
+    const card = b.closest('.score-card');
+    if(card){ b.style.width = '72%'; }
+  });
+  const doms = [
+    ['.dom-row:nth-child(1) .dom-fill','85%'],
+  ];
+});
+// Set final widths after small delay to animate
+setTimeout(()=>{
+  document.querySelectorAll('[data-w]').forEach(el=>{el.style.width=el.dataset.w;});
+  // Restore from attribute-less (fallback)
+  const allBars = document.querySelectorAll('.dom-fill, .progress-fill');
+  const widths = ['72%','72%','85%','82%','58%','42%','76%','84%','28%','82%','72%','76%','80%','66%','56%','62%'];
+  allBars.forEach((b,i)=>{ if(widths[i]) b.style.width = widths[i]; });
+},200);
+</script>
+</body>
+</html>

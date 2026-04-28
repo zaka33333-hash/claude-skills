@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/toner/.claude/**)",
+      "Bash(mkdir -p \"C:/Users/toner/.claude/skills/scroll-stop-prompter\")",
+      "Bash(mkdir -p \"C:/Users/toner/.claude/skills/3d-asset-generator\")",
+      "Bash(cp \"C:/Users/toner/OneDrive/Desktop/assets/SKILL.md\" \"C:/Users/toner/.claude/skills/scroll-stop-prompter/SKILL.md\")",
+      "Bash(cp \"C:/Users/toner/OneDrive/Desktop/assets/prompt-page-template.html\" \"C:/Users/toner/.claude/skills/scroll-stop-prompter/prompt-page-template.html\")",
+      "Bash(cp \"C:/Users/toner/OneDrive/Desktop/assets/3d-asset-skill.md\" \"C:/Users/toner/.claude/skills/3d-asset-generator/SKILL.md\")",
+      "Bash(cp \"C:/Users/toner/OneDrive/Desktop/assets/3d-asset-template.html\" \"C:/Users/toner/.claude/skills/3d-asset-generator/3d-asset-template.html\")"
+    ]
+  }
+}

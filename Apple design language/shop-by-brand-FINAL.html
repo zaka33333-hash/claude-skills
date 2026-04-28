@@ -1,0 +1,356 @@
+{% style %}
+/*! 
+  * STAR-TONER BRAND CATALOG
+  * Version 4.0 — The "Liquid Foundry" 100M$ Edition
+  */
+.sb { width:100%; background:#000; padding:0 5vw; box-sizing:border-box; border-top:1px solid rgba(255,255,255,.06); overflow:hidden; }
+.sb-inner { max-width:1280px; margin:0 auto; padding:140px 0; perspective: 1500px; }
+.sb-eyebrow { display:block; font-size:11px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,.28); margin-bottom:16px; }
+.sb h2 { font-size:clamp(36px,5vw,60px); font-weight:800; letter-spacing:-.04em; line-height:1.04; margin:0 0 48px; color:#f5f5f7; }
+.sb h2 em { font-style:normal; background:linear-gradient(180deg,#fff 10%,rgba(255,255,255,.38) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; padding-bottom:.1em; }
+
+.sb-grid {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 16px;
+  transform-style: preserve-3d;
+}
+
+/* ── THE 3D PHYSICS CARD ── */
+.sb-card {
+  --x: 0; --y: 0; --mouseX: 50%; --mouseY: 50%;
+  position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  min-height: 180px; text-decoration: none; border-radius: 20px;
+  transform-style: preserve-3d;
+  will-change: transform;
+  /* Reset smoothly when mouse leaves */
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Hover physics activation */
+.sb-card:hover {
+  transition: none; /* JS drives the frame-by-frame physics instantly */
+  /* Scale up and tilt heavily. Negative Y rotation for X mouse movement, and vice versa. */
+  transform: scale3d(1.05, 1.05, 1.05) rotateY(calc(var(--x) * 14deg)) rotateX(calc(var(--y) * -14deg));
+  z-index: 10;
+  box-shadow: 
+    0 40px 80px rgba(0,0,0,0.9), 
+    0 0 120px rgba(var(--glow),0.3);
+}
+
+/* ── LAYER 1: MASKED BACKGROUND (Glass & Illumination) ── */
+.sb-card-bg {
+  position: absolute; inset: 0; border-radius: 20px;
+  background: rgba(18, 18, 20, 0.6);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255,255,255, 0.05);
+  overflow: hidden; pointer-events: none; z-index: 1;
+  transition: border-color 0.4s ease, background 0.4s ease;
+}
+.sb-card:hover .sb-card-bg {
+  border-color: rgba(var(--glow), 0.5);
+  background: rgba(18, 18, 20, 0.85); /* Slightly darker on hover to let the LED background pop */
+}
+
+/* The ambient top border light */
+.sb-card-bg::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1.5px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.1), transparent);
+  transition: background 0.4s ease; z-index: 3;
+}
+.sb-card:hover .sb-card-bg::before {
+  background: linear-gradient(90deg, transparent, rgba(var(--glow),0.5), rgba(var(--glow),1) 50%, rgba(var(--glow),0.5), transparent);
+}
+
+/* The dynamic mouse glare */
+.sb-glare {
+  position: absolute; inset: 0; z-index: 4;
+  background: radial-gradient(circle at var(--mouseX) var(--mouseY), rgba(255,255,255,0.15) 0%, transparent 60%);
+  opacity: 0; transition: opacity 0.4s ease; mix-blend-mode: overlay;
+}
+.sb-card:hover .sb-glare { opacity: 1; }
+
+
+/* ── LAYER 1.5: THE ILLUMINATING BACKGROUND LOGO ── */
+.sb-bg-logo {
+  position: absolute; top: 50%; left: 50%; width: 130%; height: auto; max-height: 250%;
+  object-fit: contain;
+  /* Deep Z translation so it looks like it is far behind the glass */
+  transform: translate(-50%, -50%) scale(1) translateZ(-60px);
+  /* The core "$100M dim" effect */
+  filter: blur(24px) grayscale(100%);
+  opacity: 0.03;
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2; pointer-events: none;
+}
+/* Ignition sequence */
+.sb-card:hover .sb-bg-logo {
+  filter: blur(32px) grayscale(0%);
+  opacity: 0.35;
+  /* Pulses forward slightly but stays deep */
+  transform: translate(-50%, -50%) scale(1.15) translateZ(-40px);
+}
+
+
+/* ── LAYER 2: UNMASKED FOREGROUND (Popping out of screen) ── */
+.sb-card-content {
+  position: relative; z-index: 5;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 16px; padding: 24px;
+  /* Floats 30px ABOVE the glass surface */
+  transform: translateZ(30px);
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+/* The actual readable foreground logo */
+.sb-logo {
+  display: block; width: 100%; max-width: 140px; object-fit: contain;
+  /* Default: Pure white, slightly transparent, fully flattened */
+  filter: brightness(0) invert(1) opacity(0.7);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  will-change: transform, filter;
+}
+
+/* Exact optical height normalization */
+.sb-logo-hp      { height: 38px; }
+.sb-logo-canon   { height: 26px; }
+.sb-logo-brother { height: 58px; margin-top:4px; } 
+.sb-logo-epson   { height: 28px; }
+.sb-logo-samsung { height: 60px; margin-top:4px; } 
+.sb-logo-kyocera { height: 32px; filter: brightness(0) invert(1) opacity(0); } /* Handled below for full white base */
+.sb-logo-lexmark { height: 36px; }
+
+/* Foreground explosion */
+.sb-card:hover .sb-logo {
+  /* Restores native RGB colors, bumps opacity */
+  filter: none opacity(1) drop-shadow(0 20px 40px rgba(var(--glow), 0.6));
+  transform: scale(1.15) translateZ(40px); /* Pops out an extra 40px locally */
+}
+/* Special exception for Kyocera which might natively be black — force white + red aura */
+.sb-card:hover .sb-logo.sb-logo-kyocera {
+  filter: brightness(0) invert(1) drop-shadow(0 20px 40px rgba(255,40,20, 0.8));
+}
+
+/* Call to Action */
+.sb-cta {
+  font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(255,255,255,0.2); transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.sb-card:hover .sb-cta {
+  color: rgba(255,255,255,0.9);
+  letter-spacing: 4px;
+  transform: translateY(8px) translateZ(20px);
+  text-shadow: 0 0 16px rgba(var(--glow),0.8);
+}
+
+
+/* ── THE "EXPLORAR TODAS" NEON ANCHOR ── */
+.sb-card--all .sb-card-bg {
+  background: rgba(255,255,255,0.02); border-style: dashed; border-color: rgba(255,255,255,0.1);
+}
+.sb-card--all:hover .sb-card-bg {
+  border-style: solid; border-color: rgba(255,255,255,0.4);
+  background: rgba(255,255,255,0.06);
+}
+.sb-all-label {
+  display: block; color: #fff; font-weight: 700; font-size: 16px; letter-spacing: .02em; line-height: 1.4; opacity: .45; text-align: center;
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.sb-card--all:hover .sb-all-label {
+  opacity: 1; transform: scale(1.1) translateZ(30px);
+  text-shadow: 0 0 20px rgba(255,255,255,0.5);
+}
+
+
+/* ── PHONE OPTIMIZATION (Safe Static Mode) ── */
+@media(max-width:1024px) {
+  .sb-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media(max-width:700px) {
+  .sb-inner { padding: 80px 0; perspective: none; }
+  .sb h2 { font-size: clamp(32px, 8vw, 40px); margin-bottom: 32px; }
+  .sb-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; transform-style: flat; }
+  .sb-card { min-height: 140px; transform-style: flat; }
+  
+  /* Disable complicated 3D physics on mobile for performance */
+  .sb-card:hover { transform: translateY(-4px) scale(1.02); }
+  .sb-card-content { transform: none; }
+  .sb-bg-logo { display: none; } /* Too heavy for mobile browser compositing */
+  
+  /* Resize foreground logos safely */
+  .sb-logo-hp      { height: 28px; }
+  .sb-logo-canon   { height: 20px; }
+  .sb-logo-brother { height: 44px; } 
+  .sb-logo-epson   { height: 22px; }
+  .sb-logo-samsung { height: 46px; } 
+  .sb-logo-kyocera { height: 24px; }
+  .sb-logo-lexmark { height: 26px; }
+  
+  .sb-card:hover .sb-logo { transform: scale(1.08) translateY(-2px); }
+  .sb-card:hover .sb-cta { transform: translateY(4px); letter-spacing: 2.5px; }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .sb-card, .sb-card-bg, .sb-card-content, .sb-logo, .sb-bg-logo, .sb-cta { transition: none !important; transform: none !important; animation: none !important; }
+}
+{% endstyle %}
+
+<!-- UPDATE v4.0.0 LIQUID FOUNDRY DEPLOY START -->
+<section class="sb" id="startoner-brands-v4">
+  <div class="sb-inner">
+    <span class="sb-eyebrow">Compatibles con tu impresora</span>
+    <h2>Elige tu marca.<br><em>Ahorra desde hoy.</em></h2>
+    <div class="sb-grid" id="sb-engine">
+
+      <!-- CARD: HP -->
+      <a class="sb-card" href="/collections/toner-compatible-hp" style="--glow:0,165,255" aria-label="HP">
+        <div class="sb-card-bg">
+          <div class="sb-glare"></div>
+          <img class="sb-bg-logo" src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/HP_logo.png?v=1775435231" alt="" aria-hidden="true" loading="lazy">
+        </div>
+        <div class="sb-card-content">
+          <img class="sb-logo sb-logo-hp" src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/HP_logo.png?v=1775435231" alt="HP" loading="lazy">
+          <span class="sb-cta">Ver tóneres</span>
+        </div>
+      </a>
+
+      <!-- CARD: Canon -->
+      <a class="sb-card" href="/collections/toner-compatible-canon" style="--glow:255,20,40" aria-label="Canon">
+        <div class="sb-card-bg">
+          <div class="sb-glare"></div>
+          <img class="sb-bg-logo" src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Canon_logo.png?v=1775435231" alt="" aria-hidden="true" loading="lazy">
+        </div>
+        <div class="sb-card-content">
+          <img class="sb-logo sb-logo-canon" src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Canon_logo.png?v=1775435231" alt="Canon" loading="lazy">
+          <span class="sb-cta">Ver tóneres</span>
+        </div>
+      </a>
+
+      <!-- CARD: Brother -->
+      <a class="sb-card" href="/collections/toner-compatible-brother" style="--glow:0,170,255" aria-label="Brother">
+        <div class="sb-card-bg">
+          <div class="sb-glare"></div>
+          <img class="sb-bg-logo" src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Brother-Logo.png?v=1775435231" alt="" aria-hidden="true" loading="lazy">
+        </div>
+        <div class="sb-card-content">
+          <img class="sb-logo sb-logo-brother" src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Brother-Logo.png?v=1775435231" alt="Brother" loading="lazy">
+          <span class="sb-cta">Ver tóneres</span>
+        </div>
+      </a>
+
+      <!-- CARD: Epson -->
+      <a class="sb-card" href="/collections/cartuchos-tinta-epson-compatible" style="--glow:0,80,255" aria-label="Epson">
+        <div class="sb-card-bg">
+          <div class="sb-glare"></div>
+          <img class="sb-bg-logo" src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Epson_logo_svg.png?v=1775435232" alt="" aria-hidden="true" loading="lazy">
+        </div>
+        <div class="sb-card-content">
+          <img class="sb-logo sb-logo-epson" src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Epson_logo_svg.png?v=1775435232" alt="Epson" loading="lazy">
+          <span class="sb-cta">Ver tóneres</span>
+        </div>
+      </a>
+
+      <!-- CARD: Samsung -->
+      <a class="sb-card" href="/collections/toner-compatible-samsung" style="--glow:20,50,255" aria-label="Samsung">
+        <div class="sb-card-bg">
+          <div class="sb-glare"></div>
+          <img class="sb-bg-logo" src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Samsung_logo.png?v=1775435231" alt="" aria-hidden="true" loading="lazy">
+        </div>
+        <div class="sb-card-content">
+          <img class="sb-logo sb-logo-samsung" src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Samsung_logo.png?v=1775435231" alt="Samsung" loading="lazy">
+          <span class="sb-cta">Ver tóneres</span>
+        </div>
+      </a>
+
+      <!-- CARD: Kyocera -->
+      <a class="sb-card" href="/collections/toners-copiadoras" style="--glow:255,40,20" aria-label="Kyocera">
+        <div class="sb-card-bg">
+          <div class="sb-glare"></div>
+          <img class="sb-bg-logo" src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Kyocera_logo.png?v=1775435232" alt="" aria-hidden="true" loading="lazy">
+        </div>
+        <div class="sb-card-content">
+          <img class="sb-logo sb-logo-kyocera" src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Kyocera_logo.png?v=1775435232" alt="Kyocera" loading="lazy">
+          <span class="sb-cta">Ver tóneres</span>
+        </div>
+      </a>
+
+      <!-- CARD: Lexmark -->
+      <a class="sb-card" href="/collections/toner-compatible-lexmark" style="--glow:0,230,110" aria-label="Lexmark">
+        <div class="sb-card-bg">
+          <div class="sb-glare"></div>
+          <img class="sb-bg-logo" src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Lexmark_logo.png?v=1775435231" alt="" aria-hidden="true" loading="lazy">
+        </div>
+        <div class="sb-card-content">
+          <img class="sb-logo sb-logo-lexmark" src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Lexmark_logo.png?v=1775435231" alt="Lexmark" loading="lazy">
+          <span class="sb-cta">Ver tóneres</span>
+        </div>
+      </a>
+
+      <!-- CARD: Explorar Todas -->
+      <a class="sb-card sb-card--all" href="/collections/toners-y-tintas-impresoras-productos-mas-vendidos" aria-label="Explorar todas las marcas">
+        <div class="sb-card-bg">
+          <div class="sb-glare"></div>
+        </div>
+        <div class="sb-card-content">
+          <span class="sb-all-label">Explorar todas<br>las marcas</span>
+          <span class="sb-cta">Catálogo Completo</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+<!-- UPDATE v4.0.0 LIQUID FOUNDRY DEPLOY END -->
+
+<!-- 3D Physics Engine -->
+<script>
+(function(){
+  // Only execute complex hover physics on devices that can handle it smoothly
+  if (window.matchMedia("(max-width: 700px)").matches || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
+
+  const engine = document.getElementById('sb-engine');
+  if(!engine) return;
+  const cards = engine.querySelectorAll('.sb-card');
+
+  cards.forEach(card => {
+    let bounds;
+    
+    // Recalculate bounds exactly when hovering begins to ensure perfect ratio
+    card.addEventListener('mouseenter', () => {
+      bounds = card.getBoundingClientRect();
+    });
+
+    card.addEventListener('mousemove', (e) => {
+      if(!bounds) return;
+      // Mouse position within the card
+      const mouseX = e.clientX - bounds.left;
+      const mouseY = e.clientY - bounds.top;
+
+      // Normalize coordinates to -1 to 1 based on card center
+      const xPct = (mouseX / bounds.width - 0.5) * 2;
+      const yPct = (mouseY / bounds.height - 0.5) * 2;
+
+      // Update CSS variables for CSS translation
+      // Using requestAnimationFrame inside CSS inherently!
+      card.style.setProperty('--x', xPct);
+      card.style.setProperty('--y', yPct);
+      
+      // Update glare radial position seamlessly
+      // Bumping mouse coordinate exact pixels into the glare overlay
+      card.style.setProperty('--mouseX', mouseX + 'px');
+      card.style.setProperty('--mouseY', mouseY + 'px');
+    });
+
+    card.addEventListener('mouseleave', () => {
+      // Fluid transition back to 0
+      card.style.setProperty('--x', 0);
+      card.style.setProperty('--y', 0);
+      card.style.setProperty('--mouseX', '50%');
+      card.style.setProperty('--mouseY', '50%');
+    });
+  });
+})();
+</script>

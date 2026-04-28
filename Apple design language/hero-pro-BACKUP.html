@@ -1,0 +1,253 @@
+{% style %}
+  /* ═══ HERO PRO — UPGRADED ═══ */
+  .hero-pro{position:relative;z-index:0;width:100vw;margin-left:calc(-50vw + 50%);height:100vh;min-height:600px;max-height:920px;overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+  /* ── BG + Ken Burns zoom on load ── */
+  .hero-pro-bg{position:absolute;inset:0;z-index:0}
+  .hero-pro-bg img{width:100%;height:100%;object-fit:cover;object-position:65% center;display:block;transform:scale(1.06);transition:transform 10s cubic-bezier(.25,0,.15,1)}
+  .hero-pro.hp-loaded .hero-pro-bg img{transform:scale(1)}
+  .hero-pro-grain{position:absolute;inset:0;z-index:1;opacity:.028;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");background-size:200px 200px;pointer-events:none}
+  .hero-pro-overlay-left{position:absolute;inset:0;background:linear-gradient(105deg,rgba(0,0,0,.95) 0%,rgba(0,0,0,.82) 28%,rgba(0,0,0,.4) 52%,rgba(0,0,0,0) 70%);z-index:2}
+  .hero-pro-overlay-top{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.45) 0%,transparent 25%,transparent 75%,rgba(0,0,0,.35) 100%);z-index:2}
+  .hero-pro-glow{position:absolute;top:50%;left:0;width:550px;height:400px;transform:translateY(-50%);background:radial-gradient(ellipse,rgba(0,207,255,.05) 0%,transparent 70%);z-index:2;pointer-events:none}
+  /* ── Content ── */
+  .hero-pro-content{position:relative;z-index:3;max-width:1300px;width:100%;margin:0 auto;padding:0 6vw;display:grid;grid-template-columns:1fr 280px;align-items:center;gap:48px}
+  .hero-pro-left{display:flex;flex-direction:column;align-items:flex-start;max-width:520px}
+  /* ══ ENTRANCE ANIMATIONS ══ */
+  .hp-r{opacity:0;transform:translateY(32px);transition:opacity .9s cubic-bezier(.4,0,.2,1),transform .9s cubic-bezier(.4,0,.2,1)}
+  .hp-r.on{opacity:1;transform:none}
+  .hp-d1{transition-delay:.1s}
+  .hp-d2{transition-delay:.25s}
+  .hp-d3{transition-delay:.4s}
+  .hp-d4{transition-delay:.55s}
+  .hp-d5{transition-delay:.7s}
+  .hp-r-card{opacity:0;transform:translateY(40px) scale(.97);transition:opacity 1s cubic-bezier(.4,0,.2,1) .6s,transform 1s cubic-bezier(.4,0,.2,1) .6s}
+  .hp-r-card.on{opacity:1;transform:none}
+  .hp-r-ticker{opacity:0;transform:translateY(12px);transition:opacity .7s ease .85s,transform .7s ease .85s}
+  .hp-r-ticker.on{opacity:1;transform:none}
+  /* ── Eyebrow ── */
+  .hero-pro-eyebrow{display:inline-flex;align-items:center;gap:10px;padding:7px 16px 7px 10px;border-radius:100px;margin-bottom:32px;background:rgba(255,255,255,.03);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border:.5px solid rgba(255,255,255,.14);box-shadow:inset 0 1px 0 rgba(255,255,255,.12)}
+  .hero-pro-eyebrow-dot{width:7px;height:7px;border-radius:50%;background:#00cfff;box-shadow:0 0 8px #00cfff,0 0 16px rgba(0,207,255,.5);animation:hp-pulse 2s ease-in-out infinite;flex-shrink:0}
+  @keyframes hp-pulse{0%,100%{box-shadow:0 0 6px #00cfff,0 0 14px rgba(0,207,255,.4)}50%{box-shadow:0 0 10px #00cfff,0 0 24px rgba(0,207,255,.65)}}
+  .hero-pro-eyebrow-text{font-size:10.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.32)}
+  .hero-pro-eyebrow-text b{color:rgba(255,255,255,.65);font-weight:800}
+  /* ── Headline ── */
+  .hero-pro-h1{font-size:clamp(50px,6vw,84px);font-weight:900;line-height:.95;letter-spacing:-.04em;margin:0 0 24px}
+  .hero-pro-h1-cmyk{display:block;background:linear-gradient(90deg,#00e5ff 0%,#d400ff 25%,#ff2d6b 50%,#ffcc00 75%,#00e5ff 100%);background-size:250% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:hp-cmyk 5s linear infinite}
+  @keyframes hp-cmyk{0%{background-position:0% center}100%{background-position:250% center}}
+  .hero-pro-h1-white{display:block;color:#fff;-webkit-text-fill-color:#fff}
+  /* ── Subtitle ── */
+  .hero-pro-sub{font-size:14.5px;color:rgba(255,255,255,.42);line-height:1.75;margin:0 0 40px;max-width:380px}
+  /* ── Buttons — spring physics + shimmer ── */
+  .hero-pro-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px}
+  .hero-pro-btn-primary{position:relative;display:inline-flex;align-items:center;gap:10px;padding:15px 30px;background:#fff;color:#0a0a0a;border-radius:14px;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;overflow:hidden;transition:all .45s cubic-bezier(.34,1.2,.64,1);box-shadow:0 4px 24px rgba(255,255,255,.1)}
+  .hero-pro-btn-primary::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(105deg,transparent 20%,rgba(255,255,255,.5) 50%,transparent 80%);transition:left .6s ease;pointer-events:none}
+  .hero-pro-btn-primary:hover{box-shadow:0 8px 40px rgba(255,255,255,.22);transform:translateY(-3px);gap:14px}
+  .hero-pro-btn-primary:hover::before{left:120%}
+  .hero-pro-btn-secondary{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;background:transparent;backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);color:rgba(255,255,255,.7);border-radius:14px;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;border:.5px solid rgba(255,255,255,.18);box-shadow:inset 0 1px 0 rgba(255,255,255,.1);transition:all .4s cubic-bezier(.34,1.2,.64,1)}
+  .hero-pro-btn-secondary:hover{color:#fff;border-color:rgba(255,255,255,.35);transform:translateY(-2px)}
+  /* ── Stats ── */
+  .hero-pro-stats{display:flex;gap:0}
+  .hero-pro-stat{display:flex;flex-direction:column;gap:3px;padding-right:24px;margin-right:24px;border-right:1px solid rgba(255,255,255,.06)}
+  .hero-pro-stat:last-child{border-right:none;padding-right:0;margin-right:0}
+  .hero-pro-stat-num{font-size:22px;font-weight:900;color:#fff;letter-spacing:-.03em;line-height:1}
+  .hp-suffix{font-weight:900}
+  .hero-pro-stat-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.22)}
+  /* ── Glass card + float ── */
+  .hero-pro-glass-card{position:relative;border-radius:28px;padding:28px 24px;overflow:hidden;background:rgba(255,255,255,.03);backdrop-filter:blur(32px) saturate(180%);-webkit-backdrop-filter:blur(32px) saturate(180%);border:.5px solid rgba(255,255,255,.2);box-shadow:inset 0 1.5px 0 rgba(255,255,255,.25),inset 0 -.5px 0 rgba(255,255,255,.05),inset 1px 0 0 rgba(255,255,255,.06),inset -.5px 0 0 rgba(255,255,255,.03),0 24px 48px rgba(0,0,0,.25),0 4px 12px rgba(0,0,0,.12);animation:hp-float 6s ease-in-out infinite;transition:border-color .4s ease,box-shadow .4s ease}
+  .hero-pro-glass-card:hover{border-color:rgba(255,255,255,.32);box-shadow:inset 0 1.5px 0 rgba(255,255,255,.3),inset 0 -.5px 0 rgba(255,255,255,.06),inset 1px 0 0 rgba(255,255,255,.08),inset -.5px 0 0 rgba(255,255,255,.04),0 32px 64px rgba(0,0,0,.3),0 4px 16px rgba(0,0,0,.15)}
+  @keyframes hp-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+  .hero-pro-glass-card::before{content:'';position:absolute;top:0;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.5) 25%,rgba(255,255,255,.8) 50%,rgba(255,255,255,.5) 75%,transparent 100%)}
+  .hero-pro-glass-card::after{content:'';position:absolute;top:0;left:0;right:0;height:40%;background:linear-gradient(to bottom,rgba(255,255,255,.05) 0%,transparent 100%);border-radius:28px 28px 0 0;pointer-events:none}
+  .hero-pro-card-inner{position:relative;z-index:1}
+  .hero-pro-card-eyebrow{font-size:9.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:10px}
+  .hero-pro-card-saving{font-size:52px;font-weight:900;letter-spacing:-.04em;line-height:1;background:linear-gradient(135deg,#00e5ff 0%,#d400ff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:4px}
+  .hero-pro-card-desc{font-size:11px;color:rgba(255,255,255,.35);margin-bottom:24px;line-height:1.4}
+  .hero-pro-card-divider{height:.5px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.18),transparent);margin-bottom:20px}
+  .hero-pro-card-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px}
+  .hero-pro-card-row:last-child{margin-bottom:0}
+  .hero-pro-card-row-label{font-size:11px;color:rgba(255,255,255,.35);font-weight:600}
+  .hero-pro-card-row-value{font-size:11px;color:rgba(255,255,255,.85);font-weight:700}
+  .hero-pro-card-row-value.green{color:#4dffa0}
+  /* ── Ticker + gradient edge masks ── */
+  .hero-pro-ticker-wrap{position:absolute;bottom:0;left:0;right:0;z-index:3;border-top:.5px solid rgba(255,255,255,.06);background:rgba(0,0,0,.35);backdrop-filter:blur(12px);overflow:hidden;padding:13px 0}
+  .hero-pro-ticker-wrap::before,.hero-pro-ticker-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none}
+  .hero-pro-ticker-wrap::before{left:0;background:linear-gradient(to right,rgba(0,0,0,.8),transparent)}
+  .hero-pro-ticker-wrap::after{right:0;background:linear-gradient(to left,rgba(0,0,0,.8),transparent)}
+  .hero-pro-ticker{display:flex;animation:hp-ticker 22s linear infinite;width:max-content}
+  .hero-pro-ticker:hover{animation-play-state:paused}
+  @keyframes hp-ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+  .hero-pro-ticker-item{display:inline-flex;align-items:center;gap:12px;padding:0 28px;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.2);white-space:nowrap;transition:color .3s ease}
+  .hero-pro-ticker-item:hover{color:rgba(255,255,255,.55)}
+  .hero-pro-ticker-dot{width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.12);flex-shrink:0}
+  /* ══ REDUCED MOTION ══ */
+  @media(prefers-reduced-motion:reduce){
+    .hp-r,.hp-r-card,.hp-r-ticker{transition:none!important;opacity:1!important;transform:none!important}
+    .hero-pro-h1-cmyk{animation:none}
+    .hero-pro-eyebrow-dot{animation:none}
+    .hero-pro-glass-card{animation:none}
+    .hero-pro-ticker{animation:none}
+    .hero-pro-bg img{transition:none;transform:none}
+    .hero-pro-btn-primary::before{display:none}
+  }
+  /* ══ RESPONSIVE ══ */
+  @media(max-width:900px){
+    .hero-pro-content{grid-template-columns:1fr}
+    .hero-pro-glass-card{display:none}
+    .hero-pro-bg img{object-position:75% center}
+    .hero-pro-overlay-left{background:linear-gradient(180deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.75) 50%,rgba(0,0,0,.5) 100%)}
+    .hero-pro-left{max-width:100%}
+    .hero-pro-h1{font-size:clamp(38px,9vw,56px)}
+    .hero-pro-stats{flex-wrap:wrap;gap:16px 0}
+    .hero-pro-stat{padding-right:16px;margin-right:16px}
+  }
+  @media(max-width:480px){
+    .hero-pro{min-height:100svh;max-height:none}
+    .hero-pro-stats{gap:12px 0}
+    .hero-pro-stat{padding-right:12px;margin-right:12px}
+    .hero-pro-stat-num{font-size:18px}
+    .hero-pro-btns{flex-direction:column}
+    .hero-pro-btn-primary,.hero-pro-btn-secondary{width:100%;justify-content:center}
+  }
+{% endstyle %}
+<div class="hero-pro">
+  <div class="hero-pro-bg">
+    <img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Needs_attention_2.png?v=1775333958" alt="startoner productos" loading="eager">
+  </div>
+  <div class="hero-pro-grain"></div>
+  <div class="hero-pro-overlay-left"></div>
+  <div class="hero-pro-overlay-top"></div>
+  <div class="hero-pro-glow"></div>
+  <div class="hero-pro-content">
+    <div class="hero-pro-left">
+      <div class="hero-pro-eyebrow hp-r hp-d1">
+        <div class="hero-pro-eyebrow-dot"></div>
+        <span class="hero-pro-eyebrow-text"><b>ISO 9001</b> · <b>ISO 14001</b> · <b>CE</b> · <b>ROHS</b> · Desde 1998</span>
+      </div>
+      <h1 class="hero-pro-h1 hp-r hp-d2">
+        <span class="hero-pro-h1-cmyk">Imprime más.</span>
+        <span class="hero-pro-h1-white">Gasta menos.</span>
+      </h1>
+      <p class="hero-pro-sub hp-r hp-d3">Tóner y cartuchos compatibles con certificación ISO. Sin renunciar a calidad a una fracción del precio original.</p>
+      <div class="hero-pro-btns hp-r hp-d4">
+        <a href="/collections/all" class="hero-pro-btn-primary">
+          Ver productos
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </a>
+        <a href="/pages/conviertete-en-distribuidores" class="hero-pro-btn-secondary">Hazte distribuidor</a>
+      </div>
+      <div class="hero-pro-stats hp-r hp-d5">
+        <div class="hero-pro-stat">
+          <span class="hero-pro-stat-num" data-hp-count="70"><span class="hp-count-v">0</span><span class="hp-suffix">%</span></span>
+          <span class="hero-pro-stat-label">Ahorro</span>
+        </div>
+        <div class="hero-pro-stat">
+          <span class="hero-pro-stat-num" data-hp-count="24"><span class="hp-count-v">0</span><span class="hp-suffix">h</span></span>
+          <span class="hero-pro-stat-label">Envío</span>
+        </div>
+        <div class="hero-pro-stat">
+          <span class="hero-pro-stat-num" data-hp-count="2"><span class="hp-count-v">0</span><span class="hp-suffix"> años</span></span>
+          <span class="hero-pro-stat-label">Garantía</span>
+        </div>
+        <div class="hero-pro-stat">
+          <span class="hero-pro-stat-num" data-hp-count="500"><span class="hp-count-v">0</span><span class="hp-suffix">+</span></span>
+          <span class="hero-pro-stat-label">Referencias</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-pro-glass-card hp-r-card">
+      <div class="hero-pro-card-inner">
+        <div class="hero-pro-card-eyebrow">Tu ahorro estimado</div>
+        <div class="hero-pro-card-saving">-70%</div>
+        <div class="hero-pro-card-desc">vs consumibles originales OEM</div>
+        <div class="hero-pro-card-divider"></div>
+        <div class="hero-pro-card-row">
+          <span class="hero-pro-card-row-label">Calidad</span>
+          <span class="hero-pro-card-row-value green">ISO 9001 ✓</span>
+        </div>
+        <div class="hero-pro-card-row">
+          <span class="hero-pro-card-row-label">Garantía</span>
+          <span class="hero-pro-card-row-value">2 años</span>
+        </div>
+        <div class="hero-pro-card-row">
+          <span class="hero-pro-card-row-label">Envío</span>
+          <span class="hero-pro-card-row-value green">24h gratis +50€</span>
+        </div>
+        <div class="hero-pro-card-row">
+          <span class="hero-pro-card-row-label">Gtía. impresora</span>
+          <span class="hero-pro-card-row-value green">Protegida ✓</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-pro-ticker-wrap hp-r-ticker">
+    <div class="hero-pro-ticker">
+      <span class="hero-pro-ticker-item">HP<span class="hero-pro-ticker-dot"></span></span>
+      <span class="hero-pro-ticker-item">Canon<span class="hero-pro-ticker-dot"></span></span>
+      <span class="hero-pro-ticker-item">Brother<span class="hero-pro-ticker-dot"></span></span>
+      <span class="hero-pro-ticker-item">Epson<span class="hero-pro-ticker-dot"></span></span>
+      <span class="hero-pro-ticker-item">Samsung<span class="hero-pro-ticker-dot"></span></span>
+      <span class="hero-pro-ticker-item">Lexmark<span class="hero-pro-ticker-dot"></span></span>
+      <span class="hero-pro-ticker-item">Kyocera<span class="hero-pro-ticker-dot"></span></span>
+      <span class="hero-pro-ticker-item">Konica Minolta<span class="hero-pro-ticker-dot"></span></span>
+      <span class="hero-pro-ticker-item">Ricoh<span class="hero-pro-ticker-dot"></span></span>
+      <span class="hero-pro-ticker-item">Xerox<span class="hero-pro-ticker-dot"></span></span>
+      <span class="hero-pro-ticker-item">OKI<span class="hero-pro-ticker-dot"></span></span>
+      <span class="hero-pro-ticker-item">Sharp<span class="hero-pro-ticker-dot"></span></span>
+      <span class="hero-pro-ticker-item">HP<span class="hero-pro-ticker-dot"></span></span>
+      <span class="hero-pro-ticker-item">Canon<span class="hero-pro-ticker-dot"></span></span>
+      <span class="hero-pro-ticker-item">Brother<span class="hero-pro-ticker-dot"></span></span>
+      <span class="hero-pro-ticker-item">Epson<span class="hero-pro-ticker-dot"></span></span>
+      <span class="hero-pro-ticker-item">Samsung<span class="hero-pro-ticker-dot"></span></span>
+      <span class="hero-pro-ticker-item">Lexmark<span class="hero-pro-ticker-dot"></span></span>
+      <span class="hero-pro-ticker-item">Kyocera<span class="hero-pro-ticker-dot"></span></span>
+      <span class="hero-pro-ticker-item">Konica Minolta<span class="hero-pro-ticker-dot"></span></span>
+      <span class="hero-pro-ticker-item">Ricoh<span class="hero-pro-ticker-dot"></span></span>
+      <span class="hero-pro-ticker-item">Xerox<span class="hero-pro-ticker-dot"></span></span>
+      <span class="hero-pro-ticker-item">OKI<span class="hero-pro-ticker-dot"></span></span>
+      <span class="hero-pro-ticker-item">Sharp<span class="hero-pro-ticker-dot"></span></span>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var hero = document.querySelector('.hero-pro');
+  var items = document.querySelectorAll('.hp-r, .hp-r-card, .hp-r-ticker');
+  if (!hero) return;
+  setTimeout(function(){
+    hero.classList.add('hp-loaded');
+    items.forEach(function(el){ el.classList.add('on'); });
+  }, 80);
+  var counters = document.querySelectorAll('[data-hp-count]');
+  var counted = false;
+  function animateCounters(){
+    if(counted) return;
+    counted = true;
+    counters.forEach(function(el){
+      var target = parseInt(el.getAttribute('data-hp-count'), 10);
+      var valEl = el.querySelector('.hp-count-v');
+      if(!valEl) return;
+      var duration = target > 100 ? 1600 : 1200;
+      var start = performance.now();
+      function step(now){
+        var elapsed = now - start;
+        var progress = Math.min(elapsed / duration, 1);
+        var ease = 1 - Math.pow(1 - progress, 3);
+        valEl.textContent = Math.round(target * ease);
+        if(progress < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    });
+  }
+  var statsEl = document.querySelector('.hero-pro-stats');
+  if(statsEl && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ animateCounters(); io.unobserve(e.target); }
+      });
+    },{threshold:0.3});
+    io.observe(statsEl);
+  } else {
+    setTimeout(animateCounters, 800);
+  }
+})();
+</script>

@@ -1,0 +1,487 @@
+{% style %}
+.ft {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.ft-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 5vw;
+}
+
+.ft-strip {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 44px 0;
+}
+
+.ft-strip-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.ft-strip-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .25s ease, background .25s ease, color .25s ease;
+}
+
+.ft-strip-item:hover .ft-strip-icon { transform: scale(1.06); }
+.ft-strip-icon svg { width: 18px; height: 18px; }
+
+.ft-divider { height: 1px; margin: 0; }
+
+.ft-top {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding: 56px 0 36px;
+}
+
+.ft h4 {
+  margin: 0 0 22px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.ft-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.ft-menu li { margin-bottom: 12px; }
+
+.ft-menu a {
+  display: inline-block;
+  position: relative;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+
+.ft-menu a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  transition: width .25s ease;
+}
+
+.ft-menu a:hover::after { width: 100%; }
+
+.ft-brand {
+  display: inline-block;
+  margin-bottom: 18px;
+}
+
+.ft-brand-logo {
+  height: 38px;
+  width: auto;
+}
+
+.ft-newsletter p {
+  margin: 0 0 18px;
+  font-size: 14px;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+.ft-form {
+  position: relative;
+  max-width: 360px;
+  border-radius: 14px;
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+
+.ft-input {
+  width: 100%;
+  height: 52px;
+  border: none;
+  border-radius: 14px;
+  padding: 0 56px 0 18px;
+  background: transparent;
+  font-size: 15px;
+  outline: none;
+}
+
+.ft-submit {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  bottom: 6px;
+  width: 40px;
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.ft-submit:hover { transform: scale(1.05); }
+.ft-form-note { margin: 10px 0 0; font-size: 11px; }
+
+.ft-guides {
+  padding: 0 0 40px;
+}
+
+.ft-guides h4 { margin-bottom: 16px; }
+
+.ft-guide-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.ft-guide-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  transition: transform .2s ease, border-color .2s ease, color .2s ease, background .2s ease;
+}
+
+.ft-guide-links a:hover { transform: translateY(-1px); }
+
+.ft-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 28px 0 40px;
+}
+
+.ft-legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.ft-legal-links a { text-decoration: none; transition: color .2s ease; }
+
+.ft-payment {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ft-payment img {
+  height: 18px;
+  width: auto;
+  object-fit: contain;
+}
+
+.ft-copy {
+  width: 100%;
+  margin-top: 16px;
+  font-size: 11px;
+  letter-spacing: .02em;
+}
+
+.ft-support-btn {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111214;
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.28);
+  z-index: 9999;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+
+.ft-support-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  background: #1a1b20;
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.35);
+}
+
+.ft-support-btn svg {
+  width: 28px;
+  height: 28px;
+}
+
+.ft-dark { background: #000; color: rgba(255, 255, 255, 0.62); }
+.ft-dark .ft-divider { background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent); }
+.ft-dark h4 { color: rgba(255, 255, 255, 0.36); }
+.ft-dark .ft-menu a { color: rgba(255, 255, 255, 0.54); }
+.ft-dark .ft-menu a:hover { color: #fff; }
+.ft-dark .ft-menu a::after { background: #fff; }
+.ft-dark .ft-strip-item { color: rgba(255, 255, 255, 0.72); }
+.ft-dark .ft-strip-icon { background: rgba(255, 255, 255, 0.06); color: rgba(255, 255, 255, 0.58); }
+.ft-dark .ft-strip-item:hover .ft-strip-icon { background: rgba(255, 255, 255, 0.1); color: #fff; }
+.ft-dark .ft-newsletter p { color: rgba(255, 255, 255, 0.48); }
+.ft-dark .ft-form { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); }
+.ft-dark .ft-form:hover { border-color: rgba(255, 255, 255, 0.14); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28); }
+.ft-dark .ft-input { color: #fff; }
+.ft-dark .ft-input::placeholder { color: rgba(255, 255, 255, 0.34); }
+.ft-dark .ft-submit { background: #fff; }
+.ft-dark .ft-submit svg { stroke: #000; }
+.ft-dark .ft-form-note { color: rgba(255, 255, 255, 0.28); }
+.ft-dark .ft-guide-links a { color: rgba(255, 255, 255, 0.82); background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.08); }
+.ft-dark .ft-guide-links a:hover { color: #fff; background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.18); }
+.ft-dark .ft-bottom { border-top: 1px solid rgba(255, 255, 255, 0.06); }
+.ft-dark .ft-legal-links a { color: rgba(255, 255, 255, 0.34); }
+.ft-dark .ft-legal-links a:hover { color: rgba(255, 255, 255, 0.8); }
+.ft-dark .ft-copy { color: rgba(255, 255, 255, 0.24); }
+
+.ft-light { background: #fafafa; color: rgba(0, 0, 0, 0.56); }
+.ft-light .ft-divider { background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.08), transparent); }
+.ft-light h4 { color: rgba(0, 0, 0, 0.34); }
+.ft-light .ft-menu a { color: rgba(0, 0, 0, 0.52); }
+.ft-light .ft-menu a:hover { color: #1d1d1f; }
+.ft-light .ft-menu a::after { background: #1d1d1f; }
+.ft-light .ft-strip-item { color: #1d1d1f; }
+.ft-light .ft-strip-icon { background: rgba(0, 0, 0, 0.04); color: rgba(0, 0, 0, 0.52); }
+.ft-light .ft-strip-item:hover .ft-strip-icon { background: #1d1d1f; color: #fff; }
+.ft-light .ft-newsletter p { color: rgba(0, 0, 0, 0.48); }
+.ft-light .ft-form { background: #fff; border: 1px solid rgba(0, 0, 0, 0.08); box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03); }
+.ft-light .ft-form:hover { border-color: rgba(0, 0, 0, 0.14); box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06); }
+.ft-light .ft-input { color: #1d1d1f; }
+.ft-light .ft-input::placeholder { color: rgba(0, 0, 0, 0.28); }
+.ft-light .ft-submit { background: #1d1d1f; }
+.ft-light .ft-submit svg { stroke: #fff; }
+.ft-light .ft-form-note { color: rgba(0, 0, 0, 0.28); }
+.ft-light .ft-guide-links a { color: #1d1d1f; background: rgba(0, 0, 0, 0.03); border: 1px solid rgba(0, 0, 0, 0.08); }
+.ft-light .ft-guide-links a:hover { background: rgba(0, 0, 0, 0.05); border-color: rgba(0, 0, 0, 0.14); }
+.ft-light .ft-bottom { border-top: 1px solid rgba(0, 0, 0, 0.06); }
+.ft-light .ft-legal-links a { color: rgba(0, 0, 0, 0.38); }
+.ft-light .ft-legal-links a:hover { color: #1d1d1f; }
+.ft-light .ft-copy { color: rgba(0, 0, 0, 0.26); }
+
+@media (max-width: 960px) {
+  .ft-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .ft-col-brand {
+    grid-column: 1 / -1;
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 600px) {
+  .ft-inner { padding: 0 20px; }
+  .ft-top { grid-template-columns: 1fr; gap: 36px; }
+  .ft-bottom { flex-direction: column; align-items: flex-start; }
+  .ft-strip { gap: 20px; padding: 36px 0; }
+  .ft-guide-links a { width: 100%; justify-content: center; }
+  .ft-support-btn { right: 18px; bottom: 18px; width: 58px; height: 58px; }
+}
+{% endstyle %}
+
+{% if template.name == 'index' %}{% assign ft_theme = 'ft-dark' %}{% else %}{% assign ft_theme = 'ft-light' %}{% endif %}
+
+<footer class="ft {{ ft_theme }}">
+  <div class="ft-inner">
+    <div class="ft-strip">
+      <div class="ft-strip-item">
+        <div class="ft-strip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+        Compra 100% segura
+      </div>
+      <div class="ft-strip-item">
+        <div class="ft-strip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg></div>
+        Envio express 24h
+      </div>
+      <div class="ft-strip-item">
+        <div class="ft-strip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
+        ISO 9001 certificado
+      </div>
+      <div class="ft-strip-item">
+        <div class="ft-strip-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"></path></svg></div>
+        Garantia 2 anos
+      </div>
+    </div>
+
+    <div class="ft-divider"></div>
+
+    <div class="ft-top">
+      <div class="ft-col-brand">
+        <a href="/" class="ft-brand">
+          {% if template.name == 'index' %}
+            <img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/startoner_3_1.png?v=1775347975" alt="Startoner" class="ft-brand-logo">
+          {% else %}
+            <img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Startoner_new_logo_saff_1.png?v=1775762572" alt="Startoner" class="ft-brand-logo">
+          {% endif %}
+        </a>
+        <div class="ft-newsletter">
+          <p>Ofertas exclusivas, novedades y descuentos directos en toner compatible. Solo para suscriptores.</p>
+          <form method="post" action="/contact#contact_form" accept-charset="UTF-8" class="ft-form">
+            <input type="hidden" name="form_type" value="customer">
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <input type="email" name="contact[email]" class="ft-input" placeholder="Tu correo electronico" required>
+            <button type="submit" class="ft-submit" aria-label="Suscribirse">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </button>
+          </form>
+          <p class="ft-form-note">Sin spam · Cancelar en cualquier momento</p>
+        </div>
+      </div>
+
+      <div>
+        <h4>Catalogo</h4>
+        <ul class="ft-menu">
+          <li><a href="/collections/toner-laserjet">Toner Laserjet</a></li>
+          <li><a href="/collections/cartuchos-de-tinta">Cartuchos de Tinta</a></li>
+          <li><a href="/collections/cartuchos-tinta-hp">Cartuchos HP</a></li>
+          <li><a href="/collections/toners-copiadoras">Toner para Copiadoras</a></li>
+          <li><a href="/collections/impresoras-termicas">Impresoras Termicas</a></li>
+          <li><a href="/collections/toners-y-tintas-impresoras-productos-mas-vendidos">Los Mas Vendidos</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Empresa</h4>
+        <ul class="ft-menu">
+          <li><a href="/pages/quien-somos">Quienes Somos</a></li>
+          <li><a href="/collections/servicios-mantenimiento-reparacion">Servicio Tecnico</a></li>
+          <li><a href="/pages/conviertete-en-distribuidores">Distribuidores</a></li>
+          <li><a href="/blogs/news">Nuestro Blog</a></li>
+          <li><a href="/pages/ofertas">Ofertas Activas</a></li>
+          <li><a href="/pages/contacto-startoner">Contactar Soporte</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Ayuda</h4>
+        <ul class="ft-menu">
+          <li><a href="/pages/preguntas-frecuentes">Preguntas Frecuentes</a></li>
+          <li><a href="/pages/politica-de-devoluciones-star-toner">Politica de Devoluciones</a></li>
+          <li><a href="/policies/shipping-policy">Envios y Entregas</a></li>
+          <li><a href="/policies/refund-policy">Reembolsos</a></li>
+          <li><a href="/search">Buscar referencias</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ft-guides">
+      <h4>Guias y enlaces clave</h4>
+      <div class="ft-guide-links">
+        <a href="/collections/cartuchos-tinta-hp">Cartuchos HP 364, 903 y 953XL</a>
+        <a href="/blogs/news/cartucho-de-tinta-o-toner-cual-elegir-segun-tu-necesidad">Cartucho o toner: cual elegir</a>
+        <a href="/blogs/news/como-saber-que-toner-necesita-tu-impresora">Como saber que toner necesita tu impresora</a>
+        <a href="/blogs/news/como-alargar-la-vida-de-tus-cartuchos">Como alargar la vida de tus cartuchos</a>
+        <a href="/blogs/news/firmware-hp-bloquea-cartuchos-compatibles-como-protegerte">Firmware HP y cartuchos compatibles</a>
+        <a href="/blogs/news/impresoras-tanque-tinta-ecotank-analisis-real">Analisis real de impresoras EcoTank</a>
+        <a href="/blogs/news/impresora-termica-para-negocios-cuando-tiene-sentido">Impresora termica para negocios</a>
+        <a href="/blogs/news/por-que-el-papel-importa-neurociencia-e-impresion">Por que el papel importa al imprimir</a>
+      </div>
+    </div>
+
+    <div class="ft-divider"></div>
+
+    <div class="ft-bottom">
+      <ul class="ft-legal-links">
+        <li><a href="/policies/privacy-policy">Privacidad</a></li>
+        <li><a href="/policies/terms-of-service">Terminos</a></li>
+        <li><a href="/policies/legal-notice">Aviso legal</a></li>
+        <li><a href="/policies/contact-information">Info legal</a></li>
+        <li><a href="#shopifyReshowConsentBanner">Cookies</a></li>
+      </ul>
+
+      <div class="ft-payment">
+        <img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Visa-logo.png?v=1775584237" alt="Visa" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Matercard-Logo.jpg?v=1775495878" alt="Mastercard" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Paypal-logo.png?v=1775495879" alt="PayPal" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/apple-pay-logo.png?v=1775495879" alt="Apple Pay" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Amex-logo.png?v=1775495878" alt="Amex" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Google-Pay-Logo.png?v=1775495878" alt="Google Pay" loading="lazy">
+        <img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Shop-Pay-logo.png?v=1775495878" alt="Shop Pay" loading="lazy">
+      </div>
+
+      <div class="ft-copy">
+        &copy; 2026 Startoner Spain. Todos los derechos reservados.
+        <a href="/sitemap.xml" style="opacity:0;position:absolute;pointer-events:none;" aria-hidden="true">Sitemap</a>
+      </div>
+    </div>
+
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "@id": "{{ shop.url }}#organization",
+        "name": "Star Toner",
+        "url": "{{ shop.url }}",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Startoner_new_logo_saff_1.png?v=1775762572"
+        },
+        "email": "info@star-toner.com",
+        "contactPoint": [
+          {
+            "@type": "ContactPoint",
+            "telephone": "+34 651 788 090",
+            "contactType": "customer service",
+            "areaServed": "ES",
+            "availableLanguage": ["es"]
+          }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "{{ shop.url }}#website",
+        "url": "{{ shop.url }}",
+        "name": "Star Toner",
+        "publisher": {
+          "@id": "{{ shop.url }}#organization"
+        },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "{{ shop.url }}/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+    </script>
+  </div>
+</footer>
+
+<a href="/pages/contacto-startoner" class="ft-support-btn" aria-label="Abrir soporte">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+</a>

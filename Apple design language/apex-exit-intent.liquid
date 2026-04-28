@@ -1,0 +1,281 @@
+<!-- ═══════════════════════════════════════════════════════════════
+     STARTONER APEX EXIT-INTENT POPUP
+     A $100M lead capture engine. Triggers on exit-intent (desktop)
+     or 15-second scroll delay (mobile). Integrates with Shopify DB.
+     ═══════════════════════════════════════════════════════════════ -->
+
+<style>
+/* ── 1. DIMMED BLUR BACKDROP ── */
+#apex-exit-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999999999;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  padding: 20px;
+}
+#apex-exit-overlay.apex-popup-active {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* ── 2. THE MODAL CONTAINER ── */
+.apex-exit-modal {
+  background: #fff;
+  width: 100%;
+  max-width: 480px;
+  border-radius: 36px;
+  padding: 48px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.3), inset 0 0 0 1px rgba(0,0,0,0.05);
+  transform: translateY(40px) scale(0.95);
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+#apex-exit-overlay.apex-popup-active .apex-exit-modal {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+/* ── 3. CLOSE BUTTON ── */
+.apex-exit-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f5f5f7;
+  border: 1px solid rgba(0,0,0,0.03);
+  color: #1d1d1f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.apex-exit-close:hover {
+  background: #1d1d1f;
+  color: #fff;
+  transform: rotate(90deg) scale(1.1);
+}
+
+/* ── 4. TYPOGRAPHY ── */
+.apex-popup-eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  color: #0071e3;
+  margin-bottom: 24px;
+  background: rgba(0,113,227,0.1);
+  padding: 6px 16px;
+  border-radius: 100px;
+}
+.apex-popup-h2 {
+  font-size: clamp(32px, 5vw, 44px);
+  font-weight: 900;
+  line-height: 1.1;
+  color: #1d1d1f;
+  letter-spacing: -0.04em;
+  margin: 0 0 16px 0;
+}
+.apex-popup-h2 em {
+  font-style: normal;
+  background: linear-gradient(135deg, #1d1d1f 0%, #0071e3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: block;
+}
+.apex-popup-p {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #86868b;
+  font-weight: 500;
+  margin: 0 0 32px 0;
+}
+
+/* ── 5. FORM INPUTS ── */
+.apex-input-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.apex-popup-input {
+  width: 100%;
+  height: 60px;
+  border-radius: 100px;
+  background: #f5f5f7;
+  border: 1px solid rgba(0,0,0,0.04);
+  padding: 0 24px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1d1d1f;
+  outline: none;
+  transition: all 0.3s;
+  text-align: center;
+}
+.apex-popup-input:focus {
+  background: #fff;
+  border-color: #0071e3;
+  box-shadow: 0 8px 24px rgba(0,113,227,0.15);
+}
+.apex-popup-btn {
+  width: 100%;
+  height: 60px;
+  border-radius: 100px;
+  background: #1d1d1f;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+.apex-popup-btn:hover {
+  background: #0071e3;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 32px rgba(0,113,227,0.25);
+}
+
+/* Success Code State */
+.apex-success-box {
+  background: #f5f5f7;
+  border-radius: 20px;
+  padding: 24px;
+  margin: 24px 0;
+  border: 1px dashed rgba(0,0,0,0.1);
+}
+.apex-code-text {
+  font-family: inherit;
+  font-size: 32px;
+  font-weight: 900;
+  color: #0071e3;
+  letter-spacing: 2px;
+  margin: 0;
+}
+.apex-error-text {
+  color: #d93025;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+@media(max-width: 768px) {
+  .apex-exit-modal { padding: 40px 24px; border-radius: 28px; }
+  .apex-exit-close { top: 16px; right: 16px; width: 36px; height: 36px; }
+  .apex-popup-input, .apex-popup-btn { height: 56px; }
+}
+</style>
+
+<!-- ── OVERLAY DOM ── -->
+<div id="apex-exit-overlay" onclick="handleExitOverlayClick(event)">
+  <div class="apex-exit-modal">
+    <button class="apex-exit-close" onclick="closeApexExit()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+    </button>
+    
+    {% form 'customer', id: 'ApexNativeLeadForm' %}
+      {% if form.posted_successfully? %}
+        <span class="apex-popup-eyebrow">¡ENHORABUENA!</span>
+        <h2 class="apex-popup-h2">Descuento<br><em>Desbloqueado</em></h2>
+        <p class="apex-popup-p">Usa este código en la caja antes de pagar.</p>
+        <div class="apex-success-box">
+          <p class="apex-code-text">BIENVENIDA5</p>
+        </div>
+        <button type="button" class="apex-popup-btn" onclick="closeApexExit()">Continuar comprando</button>
+        
+        <!-- Script to keep modal open to show the code after Shopify reloads the page -->
+        <script>
+          document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById('apex-exit-overlay').classList.add('apex-popup-active');
+            sessionStorage.setItem('apex_popup_closed', 'true');
+          });
+        </script>
+        
+      {% else %}
+        
+        <span class="apex-popup-eyebrow">OFERTA DE BIENVENIDA</span>
+        <h2 class="apex-popup-h2">Desbloquea tu<br><em>5% de descuento</em></h2>
+        <p class="apex-popup-p">Introduce tu correo para recibir tu código promocional al instante.</p>
+        
+        {% if form.errors %}
+          <div class="apex-error-text">{{ form.errors | default_errors }}</div>
+        {% endif %}
+        
+        <!-- Hidden input tags lead as 'newsletter' subscriber inside Shopify -->
+        <input type="hidden" name="contact[tags]" value="newsletter, exit_intent_lead">
+        
+        <div class="apex-input-row">
+          <input type="email" name="contact[email]" id="apex-email" required placeholder="Tu correo electrónico" class="apex-popup-input" autocomplete="email">
+          <button type="submit" class="apex-popup-btn">Quiero mi 5% descuento</button>
+        </div>
+        
+        <!-- Script if form triggers an error to keep modal open -->
+        {% if form.errors %}
+         <script>
+          document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById('apex-exit-overlay').classList.add('apex-popup-active');
+          });
+         </script>
+        {% endif %}
+        
+      {% endif %}
+    {% endform %}
+    
+  </div>
+</div>
+
+<!-- ── EXIT INTENT TRIGGER ENGINE ── -->
+<script>
+const exitOverlay = document.getElementById('apex-exit-overlay');
+let popupTriggered = false;
+
+function openApexExit() {
+  if (sessionStorage.getItem('apex_popup_closed') === 'true') return;
+  if (popupTriggered) return;
+  
+  popupTriggered = true;
+  exitOverlay.classList.add('apex-popup-active');
+}
+
+function closeApexExit() {
+  exitOverlay.classList.remove('apex-popup-active');
+  sessionStorage.setItem('apex_popup_closed', 'true');
+}
+
+function handleExitOverlayClick(e) {
+  if (e.target.id === 'apex-exit-overlay') closeApexExit();
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Desktop Trigger: Mouse leaves the top of the browser viewport hitting the tab bar
+  document.addEventListener("mouseleave", (e) => {
+    if (e.clientY < 5 && e.movementY < 0) {
+      openApexExit();
+    }
+  });
+
+  // Mobile Trigger: Failsafe Timer (12 seconds)
+  // Ensures mobile users see the offer even without cursor tracking
+  setTimeout(() => {
+    openApexExit();
+  }, 12000); 
+});
+</script>

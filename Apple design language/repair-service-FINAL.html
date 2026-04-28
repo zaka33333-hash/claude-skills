@@ -1,0 +1,133 @@
+<style>
+/* ═══ REPAIR SERVICE FORM — APEX ENGINE ═══ */
+.rs-sec {
+  width: 100vw; margin-left: calc(-50vw + 50%); background: #fff; color: #1d1d1f;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  padding: 40px 0 80px; -webkit-font-smoothing: antialiased; overflow: hidden;
+}
+.rs-sec * { box-sizing: border-box; }
+.rs-wrap { max-width: 680px; margin: 0 auto; padding: 0 24px; }
+
+.rs-card {
+  background: #fafafa; border: 1px solid rgba(0,0,0,0.06); border-radius: 32px;
+  padding: 56px 48px; position: relative; overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.02);
+}
+.rs-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, #0071e3, #8a2be2, #ff006e, #ff8c00);
+}
+.rs-card h3 { 
+  font-size: 28px; font-weight: 800; color: #1d1d1f; margin: 0 0 12px; 
+  letter-spacing: -0.02em; text-align: center; 
+}
+.rs-card > p { 
+  font-size: 16px; color: #86868b; margin: 0 0 32px; 
+  text-align: center; line-height: 1.5; font-weight: 500;
+}
+
+.rs-form { display: flex; flex-direction: column; gap: 16px; }
+.rs-field { display: flex; flex-direction: column; gap: 6px; }
+.rs-field label { 
+  font-size: 12px; font-weight: 700; letter-spacing: 0.5px; 
+  text-transform: uppercase; color: #86868b; padding-left: 4px;
+}
+.rs-field input, .rs-field textarea {
+  width: 100%; padding: 16px 20px; border: 1.5px solid rgba(0,0,0,0.08); border-radius: 14px;
+  background: #fff; font-size: 16px; font-family: inherit; color: #1d1d1f;
+  outline: none; transition: all .25s; -webkit-appearance: none; appearance: none;
+}
+.rs-field input:focus, .rs-field textarea:focus { border-color: #0071e3; box-shadow: 0 0 0 4px rgba(0,113,227,0.1); background: #fff;}
+.rs-field input::placeholder, .rs-field textarea::placeholder { color: #c7c7cc; }
+.rs-field textarea { min-height: 140px; resize: vertical; margin-bottom: 8px; }
+.rs-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+/* Spinning Glow Button */
+@property --rs-glow { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+@keyframes rsGlowSpin { to { --rs-glow: 360deg; } }
+
+.rs-submit-wrap { position: relative; display: flex; border-radius: 16px; padding: 1.5px; margin-top: 8px; }
+.rs-submit-wrap::before {
+  content: ''; position: absolute; inset: -1.5px; border-radius: 16px;
+  background: conic-gradient(from var(--rs-glow), rgba(0,210,255,0) 0%, rgba(0,210,255,0.15) 35%, #00d2ff 50%, rgba(0,210,255,0.15) 65%, rgba(0,210,255,0) 100%);
+  animation: rsGlowSpin 3s linear infinite; z-index: 0; pointer-events: none;
+}
+.rs-submit-wrap::after {
+  content: ''; position: absolute; inset: -8px; border-radius: 16px;
+  background: conic-gradient(from var(--rs-glow), rgba(0,210,255,0) 0%, rgba(0,210,255,0.15) 35%, #00d2ff 50%, rgba(0,210,255,0.15) 65%, rgba(0,210,255,0) 100%);
+  animation: rsGlowSpin 3s linear infinite; filter: blur(14px); opacity: 0.6; z-index: -1; pointer-events: none;
+}
+
+.rs-submit {
+  position: relative; z-index: 1; width: 100%; padding: 18px; border: none; border-radius: 14px;
+  background: #1d1d1f; color: #fff; font-size: 16px; font-weight: 700; font-family: inherit;
+  cursor: pointer; transition: all .3s; letter-spacing: 0.02em;
+}
+.rs-submit:hover { background: #333; transform: scale(1.01); }
+
+/* Alerts */
+.rs-alert-success { background: #e8f5e9; color: #1b5e20; padding: 16px 20px; border-radius: 12px; font-weight: 600; margin-bottom: 24px; font-size: 14px; text-align: center;}
+.rs-alert-error { background: #fce4e4; color: #c62828; padding: 16px 20px; border-radius: 12px; font-weight: 600; margin-bottom: 24px; font-size: 14px; text-align: center;}
+
+/* ── RESPONSIVE ── */
+@media(max-width:600px){
+  .rs-card { padding: 40px 24px; border-radius: 24px; }
+  .rs-row { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="rs-sec">
+<div class="rs-wrap">
+
+  <div class="rs-card">
+    <h3>Solicitar Soporte Técnico</h3>
+    <p>¿Tu impresora falla o necesitas mantenimiento? Cuéntanos tu caso y nuestro equipo te dará un presupuesto sin compromiso en menos de 24 horas.</p>
+    
+    {% form 'contact' %}
+      <input type="hidden" name="contact[tags]" value="servicio_tecnico,reparacion">
+      
+      {% if form.posted_successfully? %}
+        <div class="rs-alert-success">✓ Solicitud enviada correctamente. Un técnico se pondrá en contacto pronto.</div>
+      {% endif %}
+      {% if form.errors %}
+        <div class="rs-alert-error">⚠ Hay un error en los campos. Por favor, revisa tus datos abajo.</div>
+      {% endif %}
+
+      <div class="rs-form">
+        <div class="rs-row">
+          <div class="rs-field">
+            <label for="rs-name">Nombre / Empresa</label>
+            <input type="text" id="rs-name" name="contact[name]" placeholder="Opcional: Tu nombre o empresa">
+          </div>
+          <div class="rs-field">
+            <label for="rs-email">Correo electrónico</label>
+            <input type="email" id="rs-email" name="contact[email]" placeholder="Para enviarte el presupuesto" required>
+          </div>
+        </div>
+        
+        <div class="rs-row">
+          <div class="rs-field">
+            <label for="rs-phone">Teléfono de contacto</label>
+            <input type="tel" id="rs-phone" name="contact[phone]" placeholder="+34 600 000 000" required>
+          </div>
+          <div class="rs-field">
+            <label for="rs-model">Modelo de Impresora</label>
+            <input type="text" id="rs-model" name="contact[printer]" placeholder="Ej: HP LaserJet Pro M404">
+          </div>
+        </div>
+        
+        <div class="rs-field">
+          <label for="rs-msg">¿Qué le ocurre a la máquina?</label>
+          <textarea id="rs-msg" name="contact[body]" placeholder="Describe el problema de impresión, el código de error o el tipo de mantenimiento que buscas..." required></textarea>
+        </div>
+        
+        <div class="rs-submit-wrap">
+          <button type="submit" class="rs-submit">Solicitar Asistencia Ahora →</button>
+        </div>
+      </div>
+      
+    {% endform %}
+  </div>
+
+</div>
+</div>

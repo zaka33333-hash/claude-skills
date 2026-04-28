@@ -1,0 +1,225 @@
+<style>
+.cl-top-wrap {
+  max-width: 900px;
+  margin: 0 auto 40px;
+  padding: 0 24px;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+}
+
+.cl-top-wrap p {
+  margin: 0;
+  color: #6e6e73;
+  font-size: 17px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.cl-top-wrap strong { color: #1d1d1f; font-weight: 800; }
+
+.cl-top-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 20px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #0071e3;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(0, 113, 227, 0.3);
+}
+
+.cl-top-badge svg { width: 14px; height: 14px; }
+
+.cl-seo-wrap {
+  max-width: 1200px;
+  margin: 80px auto;
+  padding: 0 24px;
+  color: #1d1d1f;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.cl-seo-wrap * { box-sizing: border-box; }
+
+.cl-seo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.cl-seo-card {
+  padding: 48px;
+  border-radius: 24px;
+  background: #fafafa;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.cl-seo-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.03);
+}
+
+.cl-seo-card h2,
+.cl-seo-card h3 {
+  margin: 0 0 12px;
+  color: #1d1d1f;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+.cl-seo-card p {
+  margin: 0;
+  color: #6e6e73;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.cl-seo-brands {
+  grid-column: 1 / -1;
+  padding: 56px 48px;
+  border-radius: 32px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.02);
+}
+
+.cl-seo-brands h3 {
+  margin: 0 0 32px;
+  color: #1d1d1f;
+  font-size: 24px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.cl-brand-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.cl-brand-pill {
+  display: block;
+  padding: 24px;
+  border-radius: 20px;
+  background: #f5f5f7;
+  text-align: center;
+  text-decoration: none;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+
+.cl-brand-pill:hover {
+  transform: translateY(-4px);
+  background: #0071e3;
+  box-shadow: 0 12px 24px rgba(0, 113, 227, 0.22);
+}
+
+.cl-brand-pill h4 {
+  margin: 0 0 8px;
+  color: #1d1d1f;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.cl-brand-pill p {
+  margin: 0;
+  color: #86868b;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.cl-brand-pill:hover h4,
+.cl-brand-pill:hover p { color: #fff; }
+
+.cl-seo-help {
+  margin-top: 24px;
+  padding: 24px;
+  border-radius: 20px;
+  background: rgba(0, 113, 227, 0.06);
+  text-align: center;
+}
+
+.cl-seo-help p {
+  margin: 0;
+  color: #1d1d1f;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+
+.cl-seo-help a {
+  color: #0071e3;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.cl-seo-help a:hover { text-decoration: underline; }
+
+@media (max-width: 900px) {
+  .cl-seo-grid { grid-template-columns: 1fr; }
+  .cl-brand-grid { grid-template-columns: repeat(2, 1fr); }
+  .cl-seo-brands { padding: 40px 24px; }
+}
+
+@media (max-width: 500px) {
+  .cl-brand-grid { grid-template-columns: 1fr; }
+  .cl-seo-card { padding: 32px 24px; }
+}
+</style>
+
+<div class="cl-top-wrap">
+  <span class="cl-top-badge">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+    Calidad ISO 9001
+  </span>
+  <p>Cartuchos de tinta compatible premium para impresoras <strong>HP, Epson, Canon y Brother</strong>. Formatos XL y botellas EcoTank con <strong>hasta un 70% de ahorro</strong> frente al original y rutas directas para encontrar tu referencia correcta.</p>
+</div>
+
+<div class="cl-seo-wrap">
+  <div class="cl-seo-grid">
+    <div class="cl-seo-card">
+      <h2>Tinta compatible de precision</h2>
+      <p>Nuestras colecciones priorizan referencias con mejor disponibilidad, formatos de alta capacidad y compatibilidad clara para reducir devoluciones y errores de compra.</p>
+    </div>
+    <div class="cl-seo-card">
+      <h2>Subcolecciones por marca</h2>
+      <p>La mejor forma de comprar rapido es entrar por tu marca y despues filtrar por serie. Por eso enlazamos directamente a las subcolecciones con mejor rendimiento SEO.</p>
+    </div>
+  </div>
+
+  <div class="cl-seo-brands">
+    <h3>Catalogo por marcas y tecnologia</h3>
+    <div class="cl-brand-grid">
+      <a href="/collections/cartuchos-tinta-hp" class="cl-brand-pill">
+        <h4>HP</h4>
+        <p>Cartuchos 364, 903, 953XL y gamas OfficeJet, DeskJet y PageWide.</p>
+      </a>
+      <a href="/collections/cartuchos-tinta-epson-compatible" class="cl-brand-pill">
+        <h4>Epson</h4>
+        <p>WorkForce, Expression y botellas EcoTank 102, 103, 104 y 106.</p>
+      </a>
+      <a href="/collections/cartuchos-tinta-canon" class="cl-brand-pill">
+        <h4>Canon</h4>
+        <p>PIXMA, MegaTank y cartuchos compatibles para oficina y hogar.</p>
+      </a>
+      <a href="/collections/cartuchos-tinta-brother" class="cl-brand-pill">
+        <h4>Brother</h4>
+        <p>Series LC y referencias para DCP-J y MFC-J de alta capacidad.</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="cl-seo-help">
+    <p>&iquest;Tu maquina no reconoce un cartucho o no das con la referencia? <a href="/pages/contacto-startoner">Contacta con soporte</a>. Tambien puedes empezar por nuestras guias para <a href="/blogs/news/cartuchos-de-tinta-guia-completa-para-elegir-y-comprar">elegir cartuchos</a>, <a href="/blogs/news/como-alargar-la-vida-de-tus-cartuchos">alargar su vida</a> y <a href="/blogs/news/como-saber-que-toner-necesita-tu-impresora">saber que referencia usa tu impresora</a>.</p>
+  </div>
+</div>

@@ -1,0 +1,202 @@
+{% style %}
+/* ═══ PRODUCT PAGE PRO — $100M UPGRADE ═══ */
+
+/* ── Page Background ── */
+.product{background:#fafafa}
+
+/* ── Product Title ── */
+.product__title h1{
+  font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif!important;
+  font-size:clamp(24px,3.5vw,36px)!important;font-weight:800!important;
+  letter-spacing:-0.03em!important;line-height:1.2!important;color:#1d1d1f!important
+}
+
+/* ── Vendor ── */
+.product__vendor{
+  font-size:11px!important;font-weight:700!important;
+  letter-spacing:2px!important;text-transform:uppercase!important;
+  color:#86868b!important
+}
+
+/* ── Price ── */
+.price__container{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.price-item--sale{
+  font-size:28px!important;font-weight:800!important;
+  color:#1d1d1f!important;letter-spacing:-0.03em
+}
+.price-item--regular{
+  font-size:16px!important;color:#aeaeb2!important;
+  text-decoration:line-through!important;font-weight:500!important
+}
+
+/* ── Sale Badge ── */
+.badge.price__badge-sale{
+  background:#ff3b30!important;color:#fff!important;
+  border-radius:100px!important;padding:4px 14px!important;
+  font-size:11px!important;font-weight:700!important;
+  letter-spacing:0.5px!important;text-transform:uppercase!important;
+  border:none!important
+}
+
+/* ── Tax/Shipping Info ── */
+.product__tax{font-size:12px!important;color:#aeaeb2!important}
+.product__tax a{color:#0071e3!important;text-decoration:none!important;font-weight:600!important}
+
+/* ── Quantity Selector ── */
+.quantity{
+  border:1.5px solid rgba(0,0,0,0.08)!important;
+  border-radius:14px!important;overflow:hidden;
+  background:#fff!important
+}
+.quantity__button{
+  background:transparent!important;border:none!important;
+  color:#1d1d1f!important;transition:background .2s!important
+}
+.quantity__button:hover{background:rgba(0,0,0,0.04)!important}
+.quantity__input{
+  font-size:16px!important;font-weight:600!important;
+  color:#1d1d1f!important;background:#fff!important;
+  border-left:1px solid rgba(0,0,0,0.06)!important;
+  border-right:1px solid rgba(0,0,0,0.06)!important
+}
+
+/* ── Add to Cart Button ── */
+.product-form__submit{
+  background:#1d1d1f!important;color:#fff!important;
+  border:none!important;border-radius:16px!important;
+  font-size:16px!important;font-weight:700!important;
+  letter-spacing:0.01em!important;padding:18px 32px!important;
+  transition:all .3s cubic-bezier(.16,1,.3,1)!important;
+  font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',sans-serif!important;
+  text-transform:none!important;min-height:56px!important
+}
+.product-form__submit:hover{
+  background:#333!important;transform:scale(1.02)!important;
+  box-shadow:0 8px 24px rgba(0,0,0,0.15)!important
+}
+
+/* ── Description ── */
+.product__description{
+  font-size:15px!important;line-height:1.7!important;
+  color:#424245!important
+}
+.product__description h2,.product__description h3{
+  font-size:18px!important;font-weight:700!important;
+  color:#1d1d1f!important;margin-top:24px!important;
+  letter-spacing:-0.01em
+}
+.product__description ul{padding-left:20px!important}
+.product__description li{margin-bottom:6px!important;color:#424245!important}
+.product__description strong{color:#1d1d1f!important;font-weight:700!important}
+
+/* ── Image Gallery ── */
+.product__media-item{
+  border-radius:20px!important;overflow:hidden!important;
+  border:1px solid rgba(0,0,0,0.06)!important;
+  background:#fff!important
+}
+
+/* ── Share Button ── */
+.share-button__button{
+  border-radius:12px!important;
+  border:1px solid rgba(0,0,0,0.08)!important;
+  font-size:13px!important;color:#86868b!important;
+  transition:all .25s!important
+}
+.share-button__button:hover{
+  border-color:rgba(0,0,0,0.2)!important;color:#1d1d1f!important
+}
+
+/* ── Pickup Availability ── */
+.pickup-availability-button{
+  font-size:13px!important;color:#86868b!important;
+  border-radius:12px!important
+}
+
+/* ═══ JUDGE.ME REVIEWS WIDGET ═══ */
+
+/* ── Stars Color ── */
+.jdgm-prev-badge__stars .jdgm-star{color:#ff9500!important}
+.jdgm-rev__rating .jdgm-star{color:#ff9500!important}
+
+/* ── Write Review Button ── */
+.jdgm-write-rev-link,
+.jm-button--primary{
+  background:#1d1d1f!important;color:#fff!important;
+  border:none!important;border-radius:14px!important;
+  font-size:14px!important;font-weight:700!important;
+  padding:14px 28px!important;
+  transition:all .3s cubic-bezier(.16,1,.3,1)!important;
+  text-transform:none!important;letter-spacing:0!important
+}
+.jdgm-write-rev-link:hover,
+.jm-button--primary:hover{
+  background:#333!important;transform:scale(1.02)!important
+}
+
+/* ── Review Cards ── */
+.jdgm-rev{
+  border:1px solid rgba(0,0,0,0.06)!important;
+  border-radius:16px!important;padding:24px!important;
+  margin-bottom:16px!important;background:#fff!important;
+  transition:all .3s!important
+}
+.jdgm-rev:hover{box-shadow:0 8px 24px rgba(0,0,0,0.04)!important}
+
+/* ── Reviewer Name ── */
+.jdgm-rev__author{
+  font-weight:700!important;color:#1d1d1f!important;
+  font-size:14px!important
+}
+
+/* ── Review Body ── */
+.jdgm-rev__body{
+  font-size:14px!important;line-height:1.65!important;
+  color:#424245!important
+}
+
+/* ── Review Date ── */
+.jdgm-rev__timestamp{
+  font-size:11px!important;color:#aeaeb2!important;
+  font-weight:500!important
+}
+
+/* ── Review Title ── */
+.jdgm-rev__title{
+  font-size:16px!important;font-weight:700!important;
+  color:#1d1d1f!important;margin-bottom:4px!important
+}
+
+/* ── Sort Dropdown ── */
+.jdgm-sort-dropdown{
+  border-radius:10px!important;
+  border:1px solid rgba(0,0,0,0.08)!important;
+  font-size:13px!important;padding:8px 12px!important
+}
+
+/* ── Pagination ── */
+.jdgm-paginate a{
+  border-radius:10px!important;
+  border:1px solid rgba(0,0,0,0.06)!important;
+  font-weight:600!important;transition:all .25s!important
+}
+.jdgm-paginate a:hover{
+  border-color:#0071e3!important;color:#0071e3!important
+}
+
+/* ── Verified Badge ── */
+.jdgm-rev__buyer-badge{
+  background:rgba(0,113,227,0.08)!important;
+  color:#0071e3!important;border-radius:100px!important;
+  font-size:10px!important;font-weight:700!important;
+  padding:3px 10px!important;border:none!important
+}
+
+/* ── Mobile ── */
+@media(max-width:749px){
+  .product__title h1{font-size:22px!important}
+  .price-item--sale{font-size:24px!important}
+  .product-form__submit{padding:16px 24px!important;border-radius:14px!important}
+  .jdgm-rev{padding:16px!important;border-radius:12px!important}
+}
+{% endstyle %}

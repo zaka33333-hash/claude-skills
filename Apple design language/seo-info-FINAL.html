@@ -1,0 +1,440 @@
+{% style %}
+/*!
+* STAR-TONER SEO INFO SECTION
+* Version 2.0 — The "Liquid Foundry" Brand Integration
+*/
+.iq{width:100%;background:#000;padding:0 5vw;box-sizing:border-box;border-top:1px solid rgba(255,255,255,.06);
+overflow:hidden;}
+.iq-inner{max-width:1280px;margin:0 auto;padding:0 0 140px}
+
+/* scroll animations */
+.iq-r{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.4,0,.2,1),transform .9s
+cubic-bezier(.4,0,.2,1)}
+.iq-r.on{opacity:1;transform:none}
+.iq-r:nth-child(1){transition-delay:0s}
+.iq-r:nth-child(2){transition-delay:.12s}
+.iq-r:nth-child(3){transition-delay:.24s}
+.iq-r:nth-child(4){transition-delay:.36s}
+
+/* header */
+.iq-eyebrow{display:block;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.65);margin-bottom:16px}
+.iq h2{font-size:clamp(34px,4.5vw,56px);font-weight:800;letter-spacing:-.04em;line-height:1.06;margin:0 0
+20px;color:#f5f5f7}
+.iq h2 em{font-style:normal;background:linear-gradient(180deg,#fff 10%,rgba(255,255,255,.38)
+100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;padding-bottom:.08em}
+.iq-lead{font-size:17px;line-height:1.78;color:rgba(255,255,255,.65);max-width:700px;font-weight:400;letter-spacing:-.01em;margin:0
+0 64px}
+
+/* sub-section header */
+.iq-sub-head{margin-bottom:28px}
+.iq-sub-head
+h3{font-size:clamp(22px,2.8vw,34px);font-weight:800;letter-spacing:-.035em;line-height:1.1;color:#f5f5f7;margin:0 0
+10px}
+.iq-sub-head p{font-size:15px;color:rgba(255,255,255,.65);margin:0;line-height:1.65}
+
+/* shared static card */
+.iq-card{border-radius:18px;background:#0d0d0f;border:1px solid rgba(255,255,255,.07);position:relative;overflow:hidden}
+.iq-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08)
+25%,rgba(255,255,255,.2) 50%,rgba(255,255,255,.08) 75%,transparent);pointer-events:none;z-index:2}
+
+/* trust cards */
+.iq-trust{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:72px}
+.iq-tc{padding:28px 22px;transition:transform .45s cubic-bezier(.34,1.2,.64,1),border-color .3s,box-shadow .45s}
+.iq-tc::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50%
+0%,rgba(var(--glow,255,255,255),.35) 0%,transparent 72%);pointer-events:none;opacity:0;transition:opacity
+.35s;z-index:0}
+.iq-tc>*{position:relative;z-index:1}
+.iq-tc-icon{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid
+rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;margin-bottom:18px;transition:background
+.3s,border-color .3s}
+.iq-tc h3{font-size:13px;font-weight:700;color:#f5f5f7;margin:0 0 10px;letter-spacing:-.01em;line-height:1.4}
+.iq-tc p{font-size:12.5px;line-height:1.7;color:rgba(255,255,255,.65);margin:0}
+
+/* ── "LIQUID FOUNDRY" 3D BRAND CARDS ── */
+.iq-brands{margin-bottom:72px}
+.iq-brands-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;perspective:1500px;transform-style:preserve-3d;}
+
+.iq-bc {
+border-radius: 18px; position: relative; padding: 0; min-height: 210px;
+background: transparent; border: none; text-decoration: none; display: block;
+transform-style: flat; will-change: transform;
+transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), border-color
+0.6s;
+box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.iq-bc:hover {
+transform: translateY(-8px) scale(1.02);
+z-index: 10;
+box-shadow: 0 35px 70px rgba(0,0,0,0.8), 0 0 90px rgba(var(--glow), 0.25);
+}
+
+/* Masked Frame for Glass + Logo Array */
+.iq-bc-bg {
+position: absolute; inset: 0; border-radius: 18px;
+background: rgba(18, 18, 20, 0.82);
+backdrop-filter: blur(34px) saturate(190%); -webkit-backdrop-filter: blur(34px) saturate(190%);
+border: 1px solid rgba(255,255,255, 0.04); overflow: hidden; pointer-events: none; z-index: 1;
+transition: border-color 0.45s ease, background 0.45s ease;
+box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+}
+.iq-bc-bg::before {
+content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1.2px;
+background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+transition: background 0.45s ease; z-index: 3;
+}
+.iq-bc:hover .iq-bc-bg {
+border-color: rgba(var(--glow), 0.5);
+background: rgba(14, 14, 16, 0.85); /* Deepen slightly so internal lights pop */
+}
+.iq-bc:hover .iq-bc-bg::before {
+background: linear-gradient(90deg, transparent, rgba(var(--glow),0.5), rgba(var(--glow),1) 50%, rgba(var(--glow),0.5),
+transparent);
+}
+
+/* Static Glare Overlay */
+.iq-bc-glare {
+position: absolute; inset: 0; z-index: 4;
+background: radial-gradient(ellipse at 50% 0%, rgba(255,255,255,0.12) 0%, transparent 60%);
+opacity: 0; transition: opacity 0.5s cubic-bezier(0.23,1,0.32,1); mix-blend-mode: overlay; pointer-events: none;
+}
+.iq-bc:hover .iq-bc-glare { opacity: 1; }
+
+/* The Illuminating Background Logo */
+.iq-bc-img {
+position: absolute; top: 50%; left: 50%; width: 140%; height: auto; max-height: 240%; object-fit: contain;
+transform: translate(-50%, -50%) scale(1);
+filter: blur(32px) grayscale(100%); opacity: 0.05;
+transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); z-index: 2; pointer-events: none;
+}
+.iq-bc:hover .iq-bc-img {
+filter: blur(38px) grayscale(0%); opacity: 0.42;
+transform: translate(-50%, -50%) scale(1.18);
+}
+
+/* Foreground Content (Popping out of glass) */
+.iq-bc-content {
+position: relative; z-index: 5; padding: 26px 24px 24px; pointer-events: none;
+display: flex; flex-direction: column; align-items: flex-start; height: 100%; box-sizing: border-box;
+}
+
+.iq-top-logo {
+display: block; max-width: 105px; object-fit: contain; margin-bottom: 14px;
+filter: grayscale(1) brightness(4) contrast(0) opacity(0.5);
+transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.iq-bc:hover .iq-top-logo {
+filter: brightness(1.1) contrast(1.1) opacity(1) drop-shadow(0 6px 20px rgba(var(--glow),0.7));
+transform: translateY(-5px);
+}
+.iq-bc:hover .iq-top-logo.iq-top-logo-kyocera {
+filter: brightness(1.1) contrast(1.1) opacity(1) drop-shadow(0 6px 20px rgba(255,40,20,0.7));
+}
+
+.iq-top-logo-hp { height: 22px; margin-left: -2px; }
+.iq-top-logo-canon { height: 15px; }
+.iq-top-logo-brother { height: 28px; margin-left: -2px; }
+.iq-top-logo-epson { height: 18px; margin-top:2px; }
+.iq-top-logo-samsung { height: 34px; }
+.iq-top-logo-kyocera { height: 20px; filter: brightness(0) invert(1) opacity(0.5); }
+
+.iq-bc h4 {
+font-size: 17px; font-weight: 800; color: #ededef; margin: 0 0 14px; line-height: 1.3; letter-spacing: -0.015em;
+transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.iq-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+.iq-tag {
+font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 4px 12px; border-radius: 100px;
+background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.06); color: rgba(255,255,255,.5);
+white-space: nowrap; transition: all 0.4s;
+}
+.iq-bc-sub { font-size: 13.5px; line-height: 1.6; color: rgba(255,255,255,.5); margin: 0; transition: color 0.45s; transition-delay: 0.05s; }
+
+/* Content Ignition */
+.iq-bc:hover h4 { color: #fff; transform: translateY(-3px); text-shadow: 0 0 15px rgba(var(--glow), 0.3); }
+.iq-bc:hover .iq-tag { background: rgba(var(--glow),0.15); border-color: rgba(var(--glow),0.4); color: #fff; box-shadow:
+0 4px 12px rgba(0,0,0,0.3); }
+.iq-bc:hover .iq-bc-sub { color: rgba(255,255,255,.85); }
+
+/* process steps */
+.iq-process{margin:0}
+.iq-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.iq-step{padding:28px 24px;border-radius:18px;background:#0d0d0f;border:1px solid
+rgba(255,255,255,.07);position:relative;overflow:hidden;transition:transform .45s
+cubic-bezier(.34,1.2,.64,1),border-color .3s,box-shadow .45s}
+.iq-step::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08)
+25%,rgba(255,255,255,.2) 50%,rgba(255,255,255,.08) 75%,transparent);pointer-events:none;z-index:2}
+.iq-step::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 60% at 50%
+100%,rgba(0,207,255,.3) 0%,transparent 70%);pointer-events:none;opacity:0;transition:opacity .35s;z-index:0}
+.iq-step-n{display:block;font-size:10px;font-weight:800;letter-spacing:2.5px;color:rgba(255,255,255,.65);margin-bottom:16px;
+position:relative; z-index:1}
+.iq-step h4{font-size:14px;font-weight:700;color:#f5f5f7;margin:0 0 10px;letter-spacing:-.01em; position:relative;
+z-index:1}
+.iq-step p{font-size:12.5px;line-height:1.7;color:rgba(255,255,255,.65);margin:0; position:relative; z-index:1}
+
+/* Sticky touch-hover protection on mobile */
+@media (hover: hover) and (pointer: fine) {
+.iq-tc:hover{transform:translateY(-6px);border-color:rgba(var(--glow,255,255,255),.6);box-shadow:0 0 0 1px
+rgba(var(--glow,255,255,255),.3),0 20px 40px rgba(0,0,0,.65),0 0 80px rgba(var(--glow,255,255,255),.25)}
+.iq-tc:hover::after{opacity:1}
+.iq-tc:hover .iq-tc-icon{background:rgba(var(--glow,255,255,255),.2);border-color:rgba(var(--glow,255,255,255),.4)}
+
+.iq-step:hover{transform:translateY(-5px);border-color:rgba(0,207,255,.45);box-shadow:0 0 0 1px rgba(0,207,255,.2),0
+16px 32px rgba(0,0,0,.6),0 0 60px rgba(0,207,255,.2)}
+.iq-step:hover::after{opacity:1}
+}
+
+@media(max-width:960px){
+.iq-trust{grid-template-columns:repeat(2,1fr)}
+.iq-brands-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+.iq-trust,.iq-brands-grid,.iq-steps{grid-template-columns:1fr}
+.iq-inner{padding:0 0 100px}
+.iq-lead{font-size:16px;margin-bottom:48px}
+
+/* Disable 3D Physics on Mobile for UX safety */
+.iq-bc { min-height: 140px; transform-style: flat; }
+.iq-bc:hover { transform: translateY(-4px) scale(1.02); }
+.iq-bc-img { display: none; }
+.iq-bc-content { transform: none; padding: 20px; }
+}
+{% endstyle %}
+
+<!-- UPDATE v4.0 FORCED DEPLOY START -->
+<section class="iq" id="startoner-iq-v4">
+  <div class="iq-inner">
+
+    <div class="iq-r">
+      <span class="iq-eyebrow">Por qué Star Toner</span>
+      <h2>Tóner y cartuchos compatibles.<br><em>El mejor precio en España.</em></h2>
+      <p class="iq-lead">En Star Toner somos tu tienda online especializada en <strong>tóner y cartuchos de tinta
+          compatibles</strong> para las impresoras más utilizadas — HP, Brother, Canon, Epson, Samsung, Lexmark y
+        Kyocera. Envío gratis en pedidos superiores a 50€, entrega urgente desde nuestros almacenes en Cádiz.</p>
+    </div>
+
+    <!-- Trust Cards -->
+    <div class="iq-trust iq-r">
+      <div class="iq-card iq-tc" style="--glow:80,200,120">
+        <div class="iq-tc-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.75)" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+          </svg>
+        </div>
+        <h3>Certificados ISO 9001 · CE</h3>
+        <p>Cada <strong>tóner compatible</strong> es fabricado bajo estrictos estándares internacionales y testado para
+          garantizar el mismo rendimiento y nitidez que el original.</p>
+      </div>
+      <div class="iq-card iq-tc" style="--glow:255,200,60">
+        <div class="iq-tc-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.75)" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="1" x2="12" y2="23" />
+            <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6" />
+          </svg>
+        </div>
+        <h3>Hasta 70% de ahorro</h3>
+        <p>Sin comprometer la calidad de impresión ni la vida de la impresora. Mismo nivel de páginas impresas, a una
+          fracción del precio total.</p>
+      </div>
+      <div class="iq-card iq-tc" style="--glow:80,140,255">
+        <div class="iq-tc-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.75)" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+          </svg>
+        </div>
+        <h3>No anula la garantía</h3>
+        <p>Los <strong>cartuchos de tinta compatibles</strong> certificados no anulan la garantía de tu equipo, avalado
+          por la normativa europea de libre competencia.</p>
+      </div>
+      <div class="iq-card iq-tc" style="--glow:255,130,60">
+        <div class="iq-tc-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.75)" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+        </div>
+        <h3>Envío 24H desde España</h3>
+        <p>Desde nuestros almacenes. Comprar tóner online hoy significa que imprimes mañana. Gratis en pedidos
+          superiores a 50€.</p>
+      </div>
+    </div>
+
+    <!-- The Liquid Foundry Brand Grid -->
+    <div class="iq-brands iq-r">
+      <div class="iq-sub-head">
+        <h3>Catálogo de tóner compatible<br>para todas las marcas</h3>
+        <p>Encuentra tus consumibles para los modelos más fiables del mercado.</p>
+      </div>
+      <div class="iq-brands-grid" id="iq-3d-engine">
+
+        <!-- CARD: HP -->
+        <a href="https://www.star-toner.com/collections/toner-compatible-hp" class="iq-bc" style="--glow: 0, 165, 255;"
+          aria-label="Tóner compatible HP">
+          <div class="iq-bc-bg">
+            <div class="iq-bc-glare"></div>
+            <img class="iq-bc-img" src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/HP_logo.png?v=1775435231"
+              alt="" aria-hidden="true" loading="lazy">
+          </div>
+          <div class="iq-bc-content">
+            <img class="iq-top-logo iq-top-logo-hp"
+              src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/HP_logo.png?v=1775435231" alt="HP"
+              loading="lazy">
+            <h4>Tóner y tinta compatible HP</h4>
+            <div class="iq-tags"><span class="iq-tag">OfficeJet</span><span class="iq-tag">LaserJet</span><span
+                class="iq-tag">ENVY</span></div>
+            <p class="iq-bc-sub">Maximiza el rendimiento de tu impresora HP con ahorros drásticos.</p>
+          </div>
+        </a>
+
+        <!-- CARD: Brother -->
+        <a href="https://www.star-toner.com/collections/toner-compatible-brother" class="iq-bc"
+          style="--glow: 0, 170, 255;" aria-label="Tóner compatible Brother">
+          <div class="iq-bc-bg">
+            <div class="iq-bc-glare"></div>
+            <img class="iq-bc-img"
+              src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Brother-Logo.png?v=1775435231" alt=""
+              aria-hidden="true" loading="lazy">
+          </div>
+          <div class="iq-bc-content">
+            <img class="iq-top-logo iq-top-logo-brother"
+              src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Brother-Logo.png?v=1775435231" alt="Brother"
+              loading="lazy">
+            <h4>Tóner y tinta compatible Brother</h4>
+            <div class="iq-tags"><span class="iq-tag">Serie TN</span><span class="iq-tag">DR (Tambor)</span><span
+                class="iq-tag">MFC</span></div>
+            <p class="iq-bc-sub">Cartuchos de alta capacidad probados para texturas limpias.</p>
+          </div>
+        </a>
+
+        <!-- CARD: Canon -->
+        <a href="https://www.star-toner.com/collections/toner-compatible-canon" class="iq-bc"
+          style="--glow: 255, 20, 40;" aria-label="Tóner compatible Canon">
+          <div class="iq-bc-bg">
+            <div class="iq-bc-glare"></div>
+            <img class="iq-bc-img"
+              src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Canon_logo.png?v=1775435231" alt=""
+              aria-hidden="true" loading="lazy">
+          </div>
+          <div class="iq-bc-content">
+            <img class="iq-top-logo iq-top-logo-canon"
+              src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Canon_logo.png?v=1775435231" alt="Canon"
+              loading="lazy">
+            <h4>Tóner y tinta compatible Canon</h4>
+            <div class="iq-tags"><span class="iq-tag">PIXMA</span><span class="iq-tag">i-SENSYS</span></div>
+            <p class="iq-bc-sub">El color más nítido para fotografía y documentos de oficina.</p>
+          </div>
+        </a>
+
+        <!-- CARD: Samsung -->
+        <a href="https://www.star-toner.com/collections/toner-compatible-samsung" class="iq-bc"
+          style="--glow: 20, 50, 255;" aria-label="Tóner compatible Samsung">
+          <div class="iq-bc-bg">
+            <div class="iq-bc-glare"></div>
+            <img class="iq-bc-img"
+              src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Samsung_logo.png?v=1775435231" alt=""
+              aria-hidden="true" loading="lazy">
+          </div>
+          <div class="iq-bc-content">
+            <img class="iq-top-logo iq-top-logo-samsung"
+              src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Samsung_logo.png?v=1775435231" alt="Samsung"
+              loading="lazy">
+            <h4>Tóner compatible Samsung</h4>
+            <div class="iq-tags"><span class="iq-tag">Xpress</span><span class="iq-tag">Serie ML</span></div>
+            <p class="iq-bc-sub">Alta fidelidad compatible y confiabilidad para cargas de trabajo masivas.</p>
+          </div>
+        </a>
+
+        <!-- CARD: Epson -->
+        <a href="https://www.star-toner.com/collections/cartuchos-tinta-epson-compatible" class="iq-bc"
+          style="--glow: 0, 80, 255;" aria-label="Cartuchos tinta Epson">
+          <div class="iq-bc-bg">
+            <div class="iq-bc-glare"></div>
+            <img class="iq-bc-img"
+              src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Epson_logo_svg.png?v=1775435232" alt=""
+              aria-hidden="true" loading="lazy">
+          </div>
+          <div class="iq-bc-content">
+            <img class="iq-top-logo iq-top-logo-epson"
+              src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Epson_logo_svg.png?v=1775435232" alt="Epson"
+              loading="lazy">
+            <h4>Cartuchos de tinta compatible Epson</h4>
+            <div class="iq-tags"><span class="iq-tag">WorkForce</span><span class="iq-tag">Stylus</span><span
+                class="iq-tag">Expression</span></div>
+            <p class="iq-bc-sub">El estándar en precisión. Cartuchos premium a precios irrisorios.</p>
+          </div>
+        </a>
+
+        <!-- CARD: Kyocera -->
+        <a href="https://www.star-toner.com/collections/toners-copiadoras" class="iq-bc" style="--glow: 255, 40, 20;"
+          aria-label="Tóner compatible Kyocera">
+          <div class="iq-bc-bg">
+            <div class="iq-bc-glare"></div>
+            <img class="iq-bc-img"
+              src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Kyocera_logo.png?v=1775435232" alt=""
+              aria-hidden="true" loading="lazy">
+          </div>
+          <div class="iq-bc-content">
+            <img class="iq-top-logo iq-top-logo-kyocera"
+              src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Kyocera_logo.png?v=1775435232" alt="Kyocera"
+              loading="lazy">
+            <h4>Tóner para Copiadoras Profesionales</h4>
+            <div class="iq-tags"><span class="iq-tag">Kyocera</span><span class="iq-tag">Xerox</span><span
+                class="iq-tag">Lexmark</span></div>
+            <p class="iq-bc-sub">Mantén tus máquinas en funcionamiento por solo una fracción del coste total.</p>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- Process Steps -->
+    <div class="iq-process iq-r">
+      <div class="iq-sub-head">
+        <h3>Comprar tóner online.<br>Así de simple.</h3>
+        <p>Proceso seguro con soporte de nuestro equipo en cada paso.</p>
+      </div>
+      <div class="iq-steps">
+        <div class="iq-step">
+          <span class="iq-step-n">01</span>
+          <h4>Encuentra tu modelo</h4>
+          <p>Busca por marca y modelo de impresora. Más de 500 referencias. ¿Dudas? Nuestro equipo te ayuda a encontrar
+            el cartucho correcto.</p>
+        </div>
+        <div class="iq-step">
+          <span class="iq-step-n">02</span>
+          <h4>Selecciona y paga</h4>
+          <p>Añade al carrito y elige tu método de pago — Visa, Mastercard, PayPal, Apple Pay, Google Pay y
+            transferencia bancaria.</p>
+        </div>
+        <div class="iq-step">
+          <span class="iq-step-n">03</span>
+          <h4>Recíbelo en 24–48h</h4>
+          <p>Envío desde nuestros almacenes en España. Gratis en pedidos superiores a 50€. Garantía de 2 años en todos
+            los productos.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- UPDATE v4.0 FORCED DEPLOY END -->
+
+<script>
+  (function () {
+    // --- Standard Scroll Reveals ---
+    var items = document.querySelectorAll('.iq-r');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+      }, { threshold: 0.12 });
+      items.forEach(function (el) { io.observe(el); });
+    } else {
+      items.forEach(function (el) { el.classList.add('on'); });
+    }
+  })();
+</script>

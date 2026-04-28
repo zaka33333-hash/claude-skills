@@ -1,0 +1,423 @@
+{% style %}
+/* ═══ STARTONER FAQ — PREMIUM LIGHT ENGINE ═══ */
+.faq-pro {
+  position: relative; width: 100vw; margin-left: calc(-50vw + 50%);
+  background: #fff; color: #1d1d1f;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+  padding: 0; box-sizing: border-box; overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+.faq-pro *, .faq-pro *::before, .faq-pro *::after { box-sizing: border-box; }
+.faq-inner { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+/* ── HERO ── */
+.faq-hero {
+  text-align: center; padding: 40px 24px 60px;
+  background: #fff;
+}
+.faq-hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: #1d1d1f; color: #fff; border-radius: 100px;
+  padding: 8px 20px; font-size: 12px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 32px;
+}
+.faq-hero-badge::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: #34c759; box-shadow: 0 0 8px rgba(52,199,89,0.6);
+}
+.faq-hero h1 {
+  font-size: clamp(42px, 6vw, 68px); font-weight: 700; letter-spacing: -0.035em;
+  line-height: 1.08; margin: 0 0 20px; color: #1d1d1f;
+}
+.faq-hero h1 span {
+  background: linear-gradient(135deg, #0071e3 0%, #40a9ff 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.faq-hero-sub {
+  font-size: 19px; color: #86868b; max-width: 520px;
+  margin: 0 auto; line-height: 1.6; font-weight: 400;
+}
+
+/* ── STATS ── */
+.faq-stats {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  background: rgba(0,0,0,0.06); border-radius: 20px; overflow: hidden;
+  margin: -40px auto 72px; max-width: 880px; position: relative; z-index: 2;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.04);
+  padding: 0 24px;
+}
+.faq-stat {
+  background: #fff; padding: 32px 20px; text-align: center;
+}
+.faq-stat-num {
+  font-size: clamp(28px, 3.5vw, 38px); font-weight: 800; letter-spacing: -0.03em;
+  color: #1d1d1f; display: block; margin-bottom: 4px;
+}
+.faq-stat-label {
+  font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px;
+  color: #86868b; font-weight: 600;
+}
+
+/* ── SECTION DIVIDERS ── */
+.faq-sec { margin-bottom: 56px; }
+.faq-sec-head {
+  display: flex; align-items: center; gap: 16px; margin-bottom: 20px;
+}
+.faq-sec-num {
+  width: 36px; height: 36px; border-radius: 10px;
+  background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ed 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 800; color: #86868b;
+  flex-shrink: 0;
+}
+.faq-sec-title {
+  font-size: 13px; font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; color: #86868b; margin: 0;
+}
+
+/* ── ACCORDION ── */
+.faq-acc {
+  border: 1px solid rgba(0,0,0,0.08); border-radius: 16px;
+  margin-bottom: 10px; overflow: hidden;
+  transition: all 0.25s ease;
+  background: #fff;
+}
+.faq-acc:hover { border-color: rgba(0,0,0,0.15); }
+.faq-acc[open] {
+  border-color: #0071e3;
+  box-shadow: 0 0 0 1px #0071e3, 0 4px 16px rgba(0,113,227,0.08);
+}
+
+.faq-acc summary {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 22px 24px; cursor: pointer; gap: 16px;
+  list-style: none; -webkit-user-select: none; user-select: none;
+  transition: background 0.2s;
+}
+.faq-acc summary::-webkit-details-marker { display: none; }
+.faq-acc summary::marker { display: none; content: ''; }
+.faq-acc summary:hover { background: rgba(0,0,0,0.015); }
+
+.faq-acc-q {
+  font-size: 16px; font-weight: 600; color: #1d1d1f;
+  line-height: 1.4; flex: 1;
+}
+
+.faq-acc-icon {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: #f5f5f7; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+  color: #86868b; font-size: 16px; font-weight: 300; line-height: 1;
+}
+.faq-acc[open] .faq-acc-icon {
+  background: #0071e3; color: #fff; transform: rotate(45deg);
+}
+
+.faq-acc-body {
+  padding: 0 24px 24px; font-size: 15px;
+  color: #6e6e73; line-height: 1.8;
+}
+.faq-acc-body strong { color: #1d1d1f; font-weight: 600; }
+.faq-acc-body a { color: #0071e3; text-decoration: none; font-weight: 600; }
+.faq-acc-body a:hover { text-decoration: underline; }
+.faq-acc-body ul, .faq-acc-body ol { margin: 12px 0 8px 20px; padding: 0; }
+.faq-acc-body ul li, .faq-acc-body ol li { margin-bottom: 8px; }
+
+/* Tags */
+.faq-tag {
+  display: inline-block; border-radius: 6px; padding: 3px 10px;
+  font-size: 12px; font-weight: 700; margin: 0 2px; white-space: nowrap;
+  background: #f5f5f7; color: #6e6e73; border: 1px solid rgba(0,0,0,0.06);
+}
+.faq-tag-g { background: #e8f5e9; color: #1b5e20; border-color: rgba(27,94,32,0.1); }
+.faq-tag-b { background: #e3f2fd; color: #0d47a1; border-color: rgba(13,71,161,0.1); }
+.faq-tag-s { background: #fff3e0; color: #e65100; border-color: rgba(230,81,0,0.1); }
+
+/* ── CTA ── */
+.faq-cta {
+  background: #1d1d1f; border-radius: 24px; padding: 72px 48px;
+  text-align: center; margin: 80px auto 24px; max-width: 880px;
+  position: relative; overflow: hidden;
+}
+.faq-cta::before {
+  content: ''; position: absolute; top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: radial-gradient(circle at 50% 0%, rgba(0,113,227,0.12) 0%, transparent 50%);
+  pointer-events: none;
+}
+.faq-cta h3 {
+  color: #fff; font-size: 28px; font-weight: 700;
+  margin: 0 0 12px; letter-spacing: -0.02em; position: relative;
+}
+.faq-cta p {
+  color: rgba(255,255,255,0.5); font-size: 16px;
+  margin: 0 0 36px; line-height: 1.7; max-width: 420px;
+  margin-left: auto; margin-right: auto; position: relative;
+}
+.faq-cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; position: relative; }
+.faq-btn-p {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 16px 32px; border-radius: 100px; font-size: 15px; font-weight: 700;
+  text-decoration: none; background: #0071e3; color: #fff;
+  transition: all 0.25s cubic-bezier(0.16,1,0.3,1);
+  border: none;
+}
+.faq-btn-p:hover { background: #0077ED; transform: scale(1.04); }
+.faq-btn-s {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 16px 32px; border-radius: 100px; font-size: 15px; font-weight: 600;
+  text-decoration: none; color: rgba(255,255,255,0.8);
+  border: 1.5px solid rgba(255,255,255,0.15);
+  transition: all 0.25s cubic-bezier(0.16,1,0.3,1);
+}
+.faq-btn-s:hover { border-color: rgba(255,255,255,0.4); transform: scale(1.04); color: #fff; }
+
+/* ── RESPONSIVE ── */
+@media(max-width: 700px) {
+  .faq-hero { padding: 80px 20px 64px; }
+  .faq-hero h1 { font-size: 36px; }
+  .faq-stats { grid-template-columns: repeat(2, 1fr); margin: -32px 16px 56px; }
+  .faq-inner { padding: 0 16px; }
+  .faq-acc summary { padding: 20px 18px; }
+  .faq-acc-body { padding: 0 18px 20px; }
+  .faq-cta { padding: 48px 24px; border-radius: 20px; margin: 56px 16px 60px; }
+}
+@media(max-width: 400px) {
+  .faq-stats { grid-template-columns: 1fr 1fr; }
+}
+{% endstyle %}
+
+<div class="faq-pro">
+
+<!-- ═══ HERO ═══ -->
+<div class="faq-hero">
+  <div class="faq-hero-badge">Centro de Ayuda</div>
+  <h1>Resolvemos tus <span>dudas</span></h1>
+  <p class="faq-hero-sub">Todo sobre cartuchos compatibles, envíos, garantías y servicio técnico. Respuestas claras en segundos.</p>
+</div>
+
+<!-- ═══ STATS ═══ -->
+<div class="faq-stats">
+  <div class="faq-stat">
+    <span class="faq-stat-num">70%</span>
+    <span class="faq-stat-label">Ahorro vs OEM</span>
+  </div>
+  <div class="faq-stat">
+    <span class="faq-stat-num">24h</span>
+    <span class="faq-stat-label">Envío España</span>
+  </div>
+  <div class="faq-stat">
+    <span class="faq-stat-num">2 años</span>
+    <span class="faq-stat-label">Garantía total</span>
+  </div>
+  <div class="faq-stat">
+    <span class="faq-stat-num">500+</span>
+    <span class="faq-stat-label">Referencias</span>
+  </div>
+</div>
+
+<div class="faq-inner">
+
+<!-- ═══ 1 · COMPATIBILIDAD ═══ -->
+<div class="faq-sec">
+  <div class="faq-sec-head">
+    <div class="faq-sec-num">01</div>
+    <div class="faq-sec-title">Compatibilidad y Modelos</div>
+  </div>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Cómo sé si un cartucho es compatible con mi impresora?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body">Cada producto en nuestra tienda indica exactamente los modelos compatibles. Busca tu modelo en la barra de búsqueda o filtra por marca. Si tienes dudas, <a href="/pages/contacto-startoner">contáctanos</a> con el modelo exacto y te confirmamos la referencia en minutos.<br><br><strong>Marcas:</strong> <span class="faq-tag">HP</span> <span class="faq-tag">Canon</span> <span class="faq-tag">Brother</span> <span class="faq-tag">Epson</span> <span class="faq-tag">Samsung</span> <span class="faq-tag">Lexmark</span> <span class="faq-tag">Kyocera</span> <span class="faq-tag">Xerox</span> <span class="faq-tag">OKI</span></div>
+  </details>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Los cartuchos compatibles pueden dañar mi impresora?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body"><strong>No.</strong> Nuestros cartuchos están fabricados bajo certificación <span class="faq-tag faq-tag-g">ISO 9001</span> y superan los mismos estándares que los originales. Son 100% seguros y <strong>no anulan la garantía del fabricante</strong> según el Reglamento UE 2017/1369.<br><br>Llevamos más de <strong>25 años</strong> vendiendo en España sin un solo caso documentado de daño.</div>
+  </details>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Pierdo la garantía de mi impresora si uso compatibles?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body"><strong>No, es ilegal que te la retiren.</strong> La Directiva 1999/44/CE y el Reglamento de Bloqueo 2018/302 prohíben que los fabricantes anulen la garantía por usar consumibles de terceros. HP, Canon y Brother no pueden rechazar una reparación por este motivo.</div>
+  </details>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Funcionan con impresoras multifunción?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body">Sí. Funcionan en impresoras multifunción (impresión + copia + escáner + fax) exactamente igual. Las funciones de escáner, copia y fax no dependen del cartucho.</div>
+  </details>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Puedo mezclar cartuchos originales y compatibles?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body">Sí, es perfectamente seguro. Puedes usar un tóner negro compatible junto a tóners de color originales (o viceversa). Cada cartucho actúa de forma independiente. Ideal para probar los compatibles de forma gradual.</div>
+  </details>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">Mi impresora muestra "cartucho no reconocido" — ¿qué hago?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body">Algunos fabricantes (especialmente HP) actualizan el firmware para bloquear compatibles. Soluciones:<ul><li><strong>No actualices el firmware</strong> si tu impresora funciona correctamente</li><li>Si ya actualizaste, <a href="/pages/contacto-startoner">contáctanos</a> — tenemos soluciones por modelo</li><li>Nuestros cartuchos <strong>con chip actualizado</strong> superan estas restricciones</li><li>Si no funciona por este motivo: <strong>reemplazo o reembolso sin coste</strong></li></ul></div>
+  </details>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Cuál es la diferencia entre "compatible" y "remanufacturado"?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body"><ul><li><strong>Compatible (nuevo):</strong> Fabricado desde cero con componentes 100% nuevos. Es lo que vendemos.</li><li><strong>Remanufacturado:</strong> Un cartucho usado que se ha limpiado y rellenado.</li></ul>Nuestros cartuchos son <strong>siempre nuevos</strong>, nunca remanufacturados.</div>
+  </details>
+</div>
+
+<!-- ═══ 2 · CALIDAD ═══ -->
+<div class="faq-sec">
+  <div class="faq-sec-head">
+    <div class="faq-sec-num">02</div>
+    <div class="faq-sec-title">Calidad de Impresión</div>
+  </div>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿La calidad es realmente igual que la del original?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body">En la mayoría de casos, sí. Nuestros cartuchos alcanzan una precisión <span class="faq-tag faq-tag-b">ΔE &lt; 3</span> — el estándar para considerar dos colores "indistinguibles" al ojo humano. Rendimiento validado bajo <span class="faq-tag">ISO/IEC 19752</span> negro y <span class="faq-tag">ISO/IEC 19798</span> color.<br><br>Para fotografía profesional, <a href="/pages/contacto-startoner">consúltanos</a> para la referencia óptima.</div>
+  </details>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Cuántas páginas imprime cada cartucho?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body">Varía según modelo. Cada producto muestra el rendimiento estimado al <strong>5% de cobertura</strong> (estándar ISO). Documentos con mucho color rinden menos. Nuestros tóners láser: <strong>1.000 a 12.000 páginas</strong> según referencia.</div>
+  </details>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Cuánto ahorro realmente?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body">El ahorro medio es del <strong>60-70%</strong>. Ejemplos:<ul><li>HP 79A original: ~€85 → Compatible: ~€24 <span class="faq-tag faq-tag-g">-72%</span></li><li>Brother TN2420 original: ~€55 → Compatible: ~€16 <span class="faq-tag faq-tag-g">-71%</span></li><li>HP 305XL original: ~€22 → Compatible: ~€8 <span class="faq-tag faq-tag-g">-64%</span></li></ul>Una empresa con €500/año en consumibles ahorra <strong>€300–€350</strong>.</div>
+  </details>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Cómo debo almacenar los cartuchos?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body"><ul><li>En su <strong>embalaje original sellado</strong></li><li>Lugar <strong>fresco y seco</strong> (15-30°C)</li><li>Sin exposición directa al sol</li><li><strong>No retirar cintas protectoras</strong> hasta la instalación</li></ul>Vida útil almacenado: mínimo <strong>24 meses</strong>.</div>
+  </details>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">La impresión sale borrosa o con rayas — ¿qué hago?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body"><ol><li><strong>Agita el cartucho</strong> suavemente 5-6 veces</li><li><strong>Limpieza de cabezales</strong> desde el menú de la impresora</li><li><strong>Imprime páginas de prueba</strong></li><li>Verifica que <strong>no quede cinta protectora</strong></li></ol>Si persiste, <a href="/pages/contacto-startoner">envíanos una foto</a> → reemplazo gratuito.</div>
+  </details>
+</div>
+
+<!-- ═══ 3 · ENVÍOS ═══ -->
+<div class="faq-sec">
+  <div class="faq-sec-head">
+    <div class="faq-sec-num">03</div>
+    <div class="faq-sec-title">Envíos y Entregas</div>
+  </div>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Cuánto tarda en llegar mi pedido?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body"><ul><li><strong>Algeciras / Campo de Gibraltar:</strong> Antes de las 12:00h → <span class="faq-tag faq-tag-g">mismo día</span></li><li><strong>España peninsular:</strong> <span class="faq-tag faq-tag-g">24–48h hábiles</span></li><li><strong>Baleares:</strong> 2-3 días hábiles</li><li><strong>Canarias, Ceuta, Melilla:</strong> 3-5 días hábiles</li><li><strong>Portugal:</strong> 2-3 días hábiles</li><li><strong>Resto de Europa:</strong> 5-10 días hábiles</li></ul></div>
+  </details>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Los envíos son gratuitos?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body"><strong>Gratis a partir de 50 €</strong> en España peninsular. Por debajo, tarifa según peso.<br><br>💡 <strong>Consejo:</strong> Agrupa varios cartuchos en un solo pedido para superar el mínimo.</div>
+  </details>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Puedo hacer seguimiento en tiempo real?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body">Sí. Recibirás un email con <strong>número de seguimiento</strong> y enlace directo al tracking del transportista. También consultable desde tu cuenta startoner.</div>
+  </details>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Qué transportistas utilizáis?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body"><ul><li><strong>Correos Express</strong> — Nacionales urgentes</li><li><strong>DHL</strong> — Nacionales e internacionales</li><li><strong>GLS</strong> — Peninsulares</li></ul>El transportista se asigna automáticamente según tu zona.</div>
+  </details>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Hacéis envíos internacionales?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body">Sí. Toda la UE y más. Plazos: <strong>5-15 días hábiles</strong>. Fuera de la UE pueden aplicarse <strong>tasas aduaneras</strong> a cargo del receptor.</div>
+  </details>
+</div>
+
+<!-- ═══ 4 · GARANTÍA ═══ -->
+<div class="faq-sec">
+  <div class="faq-sec-head">
+    <div class="faq-sec-num">04</div>
+    <div class="faq-sec-title">Garantía y Devoluciones</div>
+  </div>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Qué garantía tienen los productos?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body"><strong>2 años de garantía</strong> desde la fecha de compra. Defecto = reemplazo o reembolso sin coste.<br><br><strong>Cubre:</strong> defectos de fabricación, fugas, chips defectuosos, rendimiento inferior.<br><strong>No cubre:</strong> mal uso, instalación incorrecta o incompatibilidad no verificada.</div>
+  </details>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Qué hago si el cartucho llega defectuoso?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body"><ol><li><a href="/pages/contacto-startoner"><strong>Contáctanos</strong></a> con tu número de pedido</li><li><strong>Envía foto o descripción</strong> — normalmente <strong>no necesitamos devolución</strong></li><li><strong>Reemplazo o reembolso</strong> en menos de 48h</li></ol></div>
+  </details>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Puedo devolver si cambié de opinión?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body"><strong>14 días naturales</strong> desde la recepción. Sin abrir, embalaje original. Sin explicaciones necesarias. Reembolso en 5-7 días hábiles. <a href="/policies/refund-policy">Más detalles →</a></div>
+  </details>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Cuánto tardan los reembolsos?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body">Máximo <strong>7 días hábiles</strong> tras validación. Siempre al mismo método de pago original. Para defectos sin devolución física: <strong>24-48h</strong>.</div>
+  </details>
+</div>
+
+<!-- ═══ 5 · PAGOS ═══ -->
+<div class="faq-sec">
+  <div class="faq-sec-head">
+    <div class="faq-sec-num">05</div>
+    <div class="faq-sec-title">Pagos y Facturación</div>
+  </div>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Qué métodos de pago aceptáis?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body"><ul><li><strong>Tarjetas:</strong> Visa, MasterCard, American Express</li><li><strong>PayPal</strong></li><li><strong>Apple Pay / Google Pay</strong></li><li><strong>Shop Pay</strong></li><li><strong>Transferencia bancaria</strong> (mayoristas)</li></ul>Todas las operaciones cumplen normativa <span class="faq-tag faq-tag-b">PSD2</span> de doble autenticación.</div>
+  </details>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Emitís facturas con IVA?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body"><strong>Sí.</strong> Facturas con desglose de IVA para empresas y autónomos. Indícalo en las notas del pedido con tu NIF/CIF, o escríbenos a <a href="mailto:info@star-toner.com">info@star-toner.com</a>.</div>
+  </details>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Es seguro comprar aquí?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body"><strong>Totalmente.</strong> Infraestructura <strong>Shopify</strong>. Cifrado <span class="faq-tag faq-tag-b">TLS 1.3</span>. Cumplimiento <span class="faq-tag faq-tag-b">PCI-DSS</span>. Registro legal: CHICTRATEC S.L. · CIF B72834534.</div>
+  </details>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Los precios incluyen IVA?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body">Sí, <strong>todos los precios incluyen el 21% de IVA</strong>. Precio final sin sorpresas.</div>
+  </details>
+</div>
+
+<!-- ═══ 6 · SERVICIO TÉCNICO ═══ -->
+<div class="faq-sec">
+  <div class="faq-sec-head">
+    <div class="faq-sec-num">06</div>
+    <div class="faq-sec-title">Servicio Técnico</div>
+  </div>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Ofrecéis reparación de impresoras?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body">Sí. Técnicos certificados para láser e inkjet:<ul><li>Diagnóstico y reparación de averías</li><li>Limpieza y mantenimiento preventivo</li><li>Contratos para empresas</li><li>Calibración y ajuste de calidad</li><li>Sustitución de piezas</li></ul><a href="/pages/contacto-startoner">Presupuesto sin compromiso →</a></div>
+  </details>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Cómo instalo un cartucho de tóner?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body"><ol><li><strong>Apaga la impresora</strong> y abre la cubierta</li><li><strong>Retira el cartucho antiguo</strong></li><li><strong>Saca el nuevo</strong>, retira la cinta y agítalo 5-6 veces</li><li><strong>Inserta hasta escuchar "clic"</strong> y cierra</li></ol>¿No lo reconoce? Apaga y enciende. Si persiste, <a href="/pages/contacto-startoner">contáctanos</a>.</div>
+  </details>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Cada cuánto hacer mantenimiento?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body"><ul><li><strong>Doméstico</strong> (&lt;200 pág/mes): Cada 6-12 meses</li><li><strong>Empresarial</strong> (200-1.000 pág/mes): Cada 3-6 meses</li><li><strong>Alto volumen</strong> (&gt;1.000 pág/mes): Mensual</li></ul></div>
+  </details>
+</div>
+
+<!-- ═══ 7 · EMPRESA ═══ -->
+<div class="faq-sec">
+  <div class="faq-sec-head">
+    <div class="faq-sec-num">07</div>
+    <div class="faq-sec-title">Sobre startoner.</div>
+  </div>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Quién es startoner?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body">Distribuidor español de consumibles compatibles, operado por <strong>CHICTRATEC S.L.</strong>, fundado en <strong>1998</strong>. +25 años desde Los Barrios (Cádiz). Certificaciones: <span class="faq-tag faq-tag-g">ISO 9001</span> <span class="faq-tag faq-tag-g">ISO 14001</span> <span class="faq-tag faq-tag-g">CE</span> <span class="faq-tag faq-tag-g">ROHS</span><br><br>Empresa directa, sin intermediarios. Precio más competitivo del mercado.</div>
+  </details>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Tenéis tienda física?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body">Sí. <strong>Calle Océano Atlántico Nº 38</strong>, Palmones, Los Barrios · 11379 Cádiz. Recogida en persona con entrega el mismo día para clientes locales.</div>
+  </details>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Precios especiales para empresas?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body"><strong>Programa mayorista:</strong><ul><li>Precios por volumen</li><li>Gestor comercial dedicado</li><li>Prioridad de stock</li><li>Soporte técnico incluido</li><li>Pago flexible</li></ul>Si gastas +€200/mes en consumibles, hablemos. <a href="/pages/conviertete-en-distribuidores">Ver programa →</a></div>
+  </details>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Cómo contactar con startoner?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body"><ul><li><strong>Web:</strong> <a href="/pages/contacto-startoner">Formulario</a> — &lt;2h de respuesta</li><li><strong>Email:</strong> <a href="mailto:info@star-toner.com">info@star-toner.com</a></li><li><strong>Teléfono:</strong> 651 788 090</li><li><strong>Horario:</strong> Lunes a Viernes, 09:00 - 14:00h</li></ul></div>
+  </details>
+
+  <details class="faq-acc"><summary><span class="faq-acc-q">¿Son ecológicos los cartuchos compatibles?</span><span class="faq-acc-icon">+</span></summary>
+    <div class="faq-acc-body">Sí, <strong>más sostenibles que los originales</strong>:<ul><li>Proveedores certificados <span class="faq-tag faq-tag-g">ISO 14001</span></li><li>Materiales reciclables, tintas no tóxicas</li><li>Cumplimiento directiva <span class="faq-tag faq-tag-g">ROHS</span></li><li>Menos obsolescencia programada</li></ul></div>
+  </details>
+</div>
+
+</div>
+
+<!-- ═══ CTA ═══ -->
+<div class="faq-inner">
+<div class="faq-cta">
+  <h3>¿No encontraste tu respuesta?</h3>
+  <p>Nuestro equipo responde en menos de 2 horas. Sin robots, sin formularios eternos.</p>
+  <div class="faq-cta-btns">
+    <a class="faq-btn-p" href="/pages/contacto-startoner">Contactar ahora →</a>
+    <a class="faq-btn-s" href="/collections/all">Ver catálogo</a>
+  </div>
+</div>
+</div>
+
+</div>

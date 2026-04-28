@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Asset Prompts — {{OBJECT_NAME}}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --font-body: 'Archivo', sans-serif;
+      --font-display: 'Space Grotesk', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --lime: #BFF549;
+      --blue: #60a5fa;
+      --yellow: #FACC15;
+      --purple: #a78bfa;
+      --bg: #02040a;
+      --card-bg: rgba(255,255,255,0.03);
+      --card-border: rgba(255,255,255,0.06);
+      --text-secondary: #99A1AF;
+      --sidebar-w: 340px;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    ::selection { background-color: var(--lime); color: #000; }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--lime); }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: #fff;
+      -webkit-font-smoothing: antialiased;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+    }
+
+    h1,h2,h3,h4,h5,h6 { font-family: var(--font-display); }
+
+    .bg-grid {
+      position: fixed; inset: 0;
+      background: linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+                  linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: radial-gradient(ellipse at 20% 50%, black 20%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse at 20% 50%, black 20%, transparent 75%);
+      pointer-events: none; z-index: 0;
+    }
+
+    .bg-orb-1 {
+      position: fixed; top: -20%; left: -15%; width: 600px; height: 600px;
+      background: var(--purple); border-radius: 50%; filter: blur(280px);
+      opacity: 0.07; pointer-events: none; z-index: 0;
+      animation: orbFloat 22s ease-in-out infinite;
+    }
+    .bg-orb-2 {
+      position: fixed; bottom: -15%; right: 30%; width: 400px; height: 400px;
+      background: var(--lime); border-radius: 50%; filter: blur(240px);
+      opacity: 0.05; pointer-events: none; z-index: 0;
+      animation: orbFloat 28s ease-in-out infinite reverse;
+    }
+
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0,0); }
+      50% { transform: translate(30px, 20px); }
+    }
+
+    canvas.confetti-canvas { position: fixed; inset: 0; pointer-events: none; z-index: 9999; }
+
+    /* ─── LEFT SIDEBAR (Generator) ─── */
+    .sidebar {
+      position: relative; z-index: 1;
+      width: var(--sidebar-w); flex-shrink: 0;
+      height: 100vh; overflow-y: auto;
+      border-right: 1px solid var(--card-border);
+      background: rgba(4,6,12,0.6); backdrop-filter: blur(20px);
+      display: flex; flex-direction: column;
+    }
+
+    .sidebar-header {
+      padding: 1.75rem 1.5rem 1.5rem;
+      border-bottom: 1px solid var(--card-border);
+      flex-shrink: 0;
+    }
+
+    .sidebar-badge {
+      display: inline-flex; align-items: center; gap: 0.45rem;
+      padding: 0.3rem 0.75rem; margin-bottom: 1rem; border-radius: 980px;
+      border: 1px solid rgba(191,245,73,0.25); background: rgba(191,245,73,0.05);
+      color: var(--lime); font-size: 0.6rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.2em;
+    }
+    .sidebar-badge svg { width: 10px; height: 10px; }
+
+    .sidebar-header h1 {
+      font-size: 1.65rem; font-weight: 900; letter-spacing: -0.05em;
+      line-height: 0.92; margin-bottom: 0.6rem;
+    }
+    .sidebar-header h1 .lime { color: var(--lime); }
+    .sidebar-header h1 .faded {
+      background: linear-gradient(to right, #fff, rgba(255,255,255,0.35));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+
+    .asset-meta {
+      display: flex; flex-direction: column; gap: 0.35rem; margin-top: 0.85rem;
+    }
+    .meta-row {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.7rem; color: var(--text-secondary);
+    }
+    .meta-row svg { width: 11px; height: 11px; flex-shrink: 0; color: var(--lime); }
+    .meta-row span { font-weight: 500; }
+
+    /* Prompt selector nav */
+    .prompt-nav {
+      padding: 1.25rem 1rem;
+      display: flex; flex-direction: column; gap: 0.5rem;
+      flex-shrink: 0;
+    }
+
+    .nav-item {
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.85rem 1rem; border-radius: 14px;
+      border: 1px solid var(--card-border); background: var(--card-bg);
+      cursor: pointer; transition: all 0.3s cubic-bezier(0.16,1,0.3,1);
+      position: relative; overflow: hidden;
+    }
+    .nav-item::before {
+      content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 3px; border-radius: 0 2px 2px 0;
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    .nav-item[data-tab="A"]::before { background: var(--lime); }
+    .nav-item[data-tab="B"]::before { background: var(--blue); }
+    .nav-item[data-tab="C"]::before { background: var(--yellow); }
+    .nav-item:hover { border-color: rgba(255,255,255,0.1); background: rgba(255,255,255,0.04); }
+    .nav-item.active { border-color: rgba(255,255,255,0.12); background: rgba(255,255,255,0.05); }
+    .nav-item.active::before { opacity: 1; }
+
+    .nav-letter {
+      width: 30px; height: 30px; border-radius: 9px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.78rem; font-weight: 900; font-family: var(--font-display);
+      transition: all 0.3s ease;
+    }
+    .nav-item[data-tab="A"] .nav-letter { background: rgba(191,245,73,0.15); color: var(--lime); }
+    .nav-item[data-tab="B"] .nav-letter { background: rgba(96,165,250,0.15); color: var(--blue); }
+    .nav-item[data-tab="C"] .nav-letter { background: rgba(250,204,21,0.15); color: var(--yellow); }
+    .nav-item.active[data-tab="A"] .nav-letter { background: var(--lime); color: #000; }
+    .nav-item.active[data-tab="B"] .nav-letter { background: var(--blue); color: #000; }
+    .nav-item.active[data-tab="C"] .nav-letter { background: var(--yellow); color: #000; }
+
+    .nav-text { flex: 1; min-width: 0; }
+    .nav-title { font-size: 0.82rem; font-weight: 700; line-height: 1.2; }
+    .nav-sub { font-size: 0.65rem; color: var(--text-secondary); margin-top: 2px; }
+
+    .nav-copy-btn {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      padding: 0.35rem 0.7rem; border-radius: 980px;
+      border: 1px solid var(--card-border); background: transparent;
+      color: var(--text-secondary); font-size: 0.68rem; font-weight: 600;
+      cursor: pointer; transition: all 0.2s ease; font-family: var(--font-body);
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .nav-copy-btn:hover { background: var(--lime); color: #000; border-color: var(--lime); }
+    .nav-copy-btn.copied { background: var(--lime); color: #000; border-color: var(--lime); }
+    .nav-copy-btn svg { width: 11px; height: 11px; }
+
+    /* Tools section at bottom of sidebar */
+    .tools-section {
+      margin-top: auto; padding: 1.25rem 1rem 1.5rem;
+      border-top: 1px solid var(--card-border);
+    }
+    .tools-label {
+      font-size: 0.6rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.15em; color: var(--text-secondary); margin-bottom: 0.75rem;
+    }
+    .tools-grid { display: flex; flex-direction: column; gap: 0.4rem; }
+    .tool-row {
+      display: flex; align-items: center; gap: 0.6rem;
+      padding: 0.5rem 0.6rem; border-radius: 10px;
+      background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.04);
+    }
+    .tool-dot {
+      width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
+    }
+    .tool-row.for-a .tool-dot { background: var(--lime); }
+    .tool-row.for-b .tool-dot { background: var(--blue); }
+    .tool-row.for-c .tool-dot { background: var(--yellow); }
+    .tool-row span { font-size: 0.7rem; color: rgba(255,255,255,0.6); }
+
+    /* ─── MAIN CONTENT (Right) ─── */
+    .main {
+      position: relative; z-index: 1;
+      flex: 1; min-width: 0; height: 100vh;
+      display: flex; flex-direction: column;
+    }
+
+    .main-header {
+      padding: 1.5rem 2rem 1.25rem;
+      border-bottom: 1px solid var(--card-border);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-shrink: 0;
+    }
+
+    .main-header-left { display: flex; align-items: center; gap: 0.85rem; }
+
+    .main-icon {
+      width: 40px; height: 40px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; font-weight: 900; font-family: var(--font-display);
+      flex-shrink: 0; transition: all 0.35s ease;
+    }
+    .main-icon.a { background: var(--lime); color: #000; }
+    .main-icon.b { background: var(--blue); color: #000; }
+    .main-icon.c { background: var(--yellow); color: #000; }
+
+    .main-meta .main-eyebrow {
+      font-size: 0.58rem; text-transform: uppercase; letter-spacing: 0.18em;
+      color: var(--text-secondary); font-weight: 700;
+    }
+    .main-meta .main-title {
+      font-size: 1.1rem; font-weight: 700; letter-spacing: -0.025em;
+    }
+
+    .main-tag {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.35rem 0.85rem; border-radius: 980px;
+      font-size: 0.65rem; font-weight: 600;
+    }
+    .main-tag.img { background: rgba(191,245,73,0.08); color: var(--lime); border: 1px solid rgba(191,245,73,0.15); }
+    .main-tag.tex { background: rgba(96,165,250,0.08); color: var(--blue); border: 1px solid rgba(96,165,250,0.15); }
+    .main-tag.ref { background: rgba(250,204,21,0.08); color: var(--yellow); border: 1px solid rgba(250,204,21,0.15); }
+    .main-tag svg { width: 11px; height: 11px; }
+
+    .main-body {
+      flex: 1; min-height: 0; position: relative;
+      padding: 0;
+    }
+
+    .prompt-panel {
+      display: none; position: absolute; inset: 0;
+      opacity: 0; transform: translateX(12px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .prompt-panel.active {
+      display: block; opacity: 1; transform: translateX(0);
+    }
+
+    .prompt-text {
+      font-family: var(--font-mono); font-size: 0.8rem; line-height: 1.85;
+      color: rgba(255,255,255,0.72); white-space: pre-wrap; word-break: break-word;
+      padding: 2rem; height: 100%; overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* keyboard shortcut hint */
+    .shortcuts {
+      position: absolute; bottom: 1.5rem; right: 2rem;
+      display: flex; gap: 0.5rem; z-index: 2;
+    }
+    .shortcut-chip {
+      display: inline-flex; align-items: center; gap: 0.35rem;
+      padding: 0.3rem 0.6rem; border-radius: 8px;
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06);
+      font-size: 0.6rem; color: var(--text-secondary); font-family: var(--font-mono);
+    }
+    .shortcut-chip kbd {
+      background: rgba(255,255,255,0.08); border-radius: 4px;
+      padding: 0.1rem 0.35rem; font-size: 0.6rem; font-family: var(--font-mono);
+    }
+
+    /* ─── MOBILE ─── */
+    @media (max-width: 768px) {
+      body { flex-direction: column; overflow: auto; height: auto; }
+      .sidebar {
+        width: 100%; height: auto; border-right: none;
+        border-bottom: 1px solid var(--card-border);
+      }
+      .main { height: auto; min-height: 60vh; }
+      .main-body { position: relative; height: 60vh; }
+      .prompt-text { padding: 1.25rem; font-size: 0.73rem; line-height: 1.7; }
+      .shortcuts { display: none; }
+      .tools-section { margin-top: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-grid"></div>
+  <div class="bg-orb-1"></div>
+  <div class="bg-orb-2"></div>
+  <canvas class="confetti-canvas" id="confettiCanvas"></canvas>
+
+  <!-- LEFT: Generator Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-badge">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        3D Asset Generator
+      </div>
+      <h1>{{ASSET_TITLE}} <span class="faded">{{ASSET_SUBTITLE}}</span> <span class="lime">3D.</span></h1>
+      <div class="asset-meta">
+        <div class="meta-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span>{{ASSET_STYLE}}</span>
+        </div>
+        <div class="meta-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+          <span>{{POLY_BUDGET}}</span>
+        </div>
+        <div class="meta-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          <span>{{USE_CASE}}</span>
+        </div>
+      </div>
+    </div>
+
+    <nav class="prompt-nav">
+      <div class="nav-item active" data-tab="A" onclick="switchTab('A')">
+        <div class="nav-letter">A</div>
+        <div class="nav-text">
+          <div class="nav-title">Text-to-3D</div>
+          <div class="nav-sub">Generation prompt</div>
+        </div>
+        <button class="nav-copy-btn" id="copyA" onclick="copyPrompt(event,'A')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+
+      <div class="nav-item" data-tab="B" onclick="switchTab('B')">
+        <div class="nav-letter">B</div>
+        <div class="nav-text">
+          <div class="nav-title">PBR Texture</div>
+          <div class="nav-sub">Material & surface prompt</div>
+        </div>
+        <button class="nav-copy-btn" id="copyB" onclick="copyPrompt(event,'B')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+
+      <div class="nav-item" data-tab="C" onclick="switchTab('C')">
+        <div class="nav-letter">C</div>
+        <div class="nav-text">
+          <div class="nav-title">Image Reference</div>
+          <div class="nav-sub">For image-to-3D pipeline</div>
+        </div>
+        <button class="nav-copy-btn" id="copyC" onclick="copyPrompt(event,'C')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+          Copy
+        </button>
+      </div>
+    </nav>
+
+    <div class="tools-section">
+      <div class="tools-label">Recommended Tools</div>
+      <div class="tools-grid" id="toolsGrid">
+        <!-- populated by JS -->
+      </div>
+    </div>
+  </aside>
+
+  <!-- RIGHT: Prompt Content -->
+  <main class="main">
+    <div class="main-header">
+      <div class="main-header-left">
+        <div class="main-icon a" id="mainIcon">A</div>
+        <div class="main-meta">
+          <div class="main-eyebrow" id="mainEyebrow">Prompt A &mdash; Text-to-3D</div>
+          <div class="main-title" id="mainTitle">Generation Prompt</div>
+        </div>
+      </div>
+      <div class="main-tag img" id="mainTag">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+        <span id="mainTagText">Meshy · Tripo3D · Hyper3D</span>
+      </div>
+    </div>
+
+    <div class="main-body">
+      <div class="prompt-panel active" id="panelA">
+        <div class="prompt-text">{{PROMPT_A}}</div>
+      </div>
+      <div class="prompt-panel" id="panelB">
+        <div class="prompt-text">{{PROMPT_B}}</div>
+      </div>
+      <div class="prompt-panel" id="panelC">
+        <div class="prompt-text">{{PROMPT_C}}</div>
+      </div>
+    </div>
+
+    <div class="shortcuts">
+      <div class="shortcut-chip"><kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> switch</div>
+      <div class="shortcut-chip"><kbd>⌘C</kbd> copy active</div>
+    </div>
+  </main>
+
+  <script>
+    // ── Confetti ──────────────────────────────────────────────────────────────
+    const canvas = document.getElementById('confettiCanvas');
+    const ctx = canvas.getContext('2d');
+    let pieces = [], animating = false;
+    function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    resizeCanvas(); window.addEventListener('resize', resizeCanvas);
+    const colors = ['#BFF549','#FACC15','#60a5fa','#a78bfa','#f472b6','#34d399','#fb923c','#fff'];
+    function launchConfetti() {
+      pieces = [];
+      for (let i = 0; i < 140; i++) {
+        pieces.push({
+          x: Math.random() * window.innerWidth * 0.4 + window.innerWidth * 0.05,
+          y: window.innerHeight * 0.5,
+          vx: (Math.random() - 0.3) * 18, vy: -(Math.random() * 16 + 5),
+          w: Math.random() * 10 + 4, h: Math.random() * 5 + 3,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          rot: Math.random() * 360, rotS: (Math.random() - 0.5) * 14,
+          g: 0.32 + Math.random() * 0.16, op: 1,
+          decay: 0.007 + Math.random() * 0.009,
+          shape: Math.random() > 0.5 ? 'rect' : 'circle'
+        });
+      }
+      if (!animating) { animating = true; tick(); }
+    }
+    function tick() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      let alive = 0;
+      for (const p of pieces) {
+        if (p.op <= 0) continue; alive++;
+        p.x += p.vx; p.vy += p.g; p.y += p.vy; p.vx *= 0.99;
+        p.rot += p.rotS; p.op -= p.decay;
+        ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot * Math.PI / 180);
+        ctx.globalAlpha = Math.max(0, p.op); ctx.fillStyle = p.color;
+        if (p.shape === 'rect') ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+        else { ctx.beginPath(); ctx.arc(0, 0, p.w/2, 0, Math.PI*2); ctx.fill(); }
+        ctx.restore();
+      }
+      if (alive > 0) requestAnimationFrame(tick);
+      else { animating = false; ctx.clearRect(0, 0, canvas.width, canvas.height); }
+    }
+
+    // ── Tab state ─────────────────────────────────────────────────────────────
+    const tabsMeta = {
+      A: {
+        eyebrow: 'Prompt A — Text-to-3D', title: 'Generation Prompt',
+        iconClass: 'a', tagClass: 'img',
+        tagIcon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>',
+        tagText: '{{TOOLS_A}}'
+      },
+      B: {
+        eyebrow: 'Prompt B — PBR Texture', title: 'Material & Surface Prompt',
+        iconClass: 'b', tagClass: 'tex',
+        tagIcon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 000 20M12 2a14.5 14.5 0 010 20M2 12h20"/></svg>',
+        tagText: '{{TOOLS_B}}'
+      },
+      C: {
+        eyebrow: 'Prompt C — Image Reference', title: 'Image-to-3D Pipeline',
+        iconClass: 'c', tagClass: 'ref',
+        tagIcon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>',
+        tagText: '{{TOOLS_C}}'
+      }
+    };
+
+    let currentTab = 'A';
+
+    function switchTab(tab) {
+      if (tab === currentTab) return;
+      currentTab = tab;
+      document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+      document.querySelector(`.nav-item[data-tab="${tab}"]`).classList.add('active');
+      const m = tabsMeta[tab];
+      const icon = document.getElementById('mainIcon');
+      icon.textContent = tab; icon.className = 'main-icon ' + m.iconClass;
+      document.getElementById('mainEyebrow').textContent = m.eyebrow.replace('&mdash;','—');
+      document.getElementById('mainTitle').textContent = m.title;
+      const tag = document.getElementById('mainTag');
+      tag.className = 'main-tag ' + m.tagClass;
+      tag.innerHTML = m.tagIcon + '<span>' + m.tagText + '</span>';
+      document.querySelectorAll('.prompt-panel').forEach(p => p.classList.remove('active'));
+      requestAnimationFrame(() => { document.getElementById('panel' + tab).classList.add('active'); });
+    }
+
+    function copyPrompt(e, tab) {
+      e.stopPropagation();
+      const text = document.querySelector('#panel' + tab + ' .prompt-text').textContent;
+      const btn = document.getElementById('copy' + tab);
+      navigator.clipboard.writeText(text).then(() => {
+        launchConfetti();
+        btn.classList.add('copied');
+        btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> ✓';
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy';
+        }, 2000);
+      });
+    }
+
+    // ── Tools grid ────────────────────────────────────────────────────────────
+    const toolsData = {
+      A: '{{TOOLS_A}}'.split(',').map(t => t.trim()),
+      B: '{{TOOLS_B}}'.split(',').map(t => t.trim()),
+      C: '{{TOOLS_C}}'.split(',').map(t => t.trim())
+    };
+    const grid = document.getElementById('toolsGrid');
+    ['A','B','C'].forEach(t => {
+      toolsData[t].forEach(tool => {
+        const row = document.createElement('div');
+        row.className = 'tool-row for-' + t.toLowerCase();
+        row.innerHTML = `<div class="tool-dot"></div><span>${tool}</span>`;
+        grid.appendChild(row);
+      });
+    });
+
+    // ── Keyboard shortcuts ────────────────────────────────────────────────────
+    document.addEventListener('keydown', (e) => {
+      if (e.key === '1') switchTab('A');
+      if (e.key === '2') switchTab('B');
+      if (e.key === '3') switchTab('C');
+      if ((e.metaKey || e.ctrlKey) && e.key === 'c' && !window.getSelection().toString()) {
+        e.preventDefault(); copyPrompt({ stopPropagation: () => {} }, currentTab);
+      }
+    });
+  </script>
+</body>
+</html>

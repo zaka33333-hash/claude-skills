@@ -1,0 +1,569 @@
+- generic [active] [ref=e1]:
+  - alertdialog "Consentimiento para el uso de cookies" [ref=e2]:
+    - generic [ref=e3]:
+      - generic [ref=e4]:
+        - heading "Consentimiento para el uso de cookies" [level=2] [ref=e5]
+        - paragraph [ref=e6]:
+          - text: Nosotros y nuestros partners, incluido Shopify, utilizamos cookies y otras tecnologías para personalizar tu experiencia, mostrarte anuncios y realizar informes y estadísticas, y no utilizaremos cookies ni otras tecnologías para estos fines a menos que las aceptes. Obtén más información en nuestra
+          - link "Política de privacidad" [ref=e7] [cursor=pointer]:
+            - /url: https://www.star-toner.com/policies/privacy-policy
+      - generic [ref=e8]:
+        - button "Administrar preferencias" [ref=e9]
+        - button "Aceptar" [ref=e10]
+        - button "Rechazar" [ref=e11]
+  - link "Ir directamente al contenido" [ref=e12] [cursor=pointer]:
+    - /url: "#MainContent"
+  - generic:
+    - generic:
+      - generic:
+        - generic:
+          - generic:
+            - generic:
+              - searchbox "Buscar un producto o marca..."
+              - button:
+                - img
+            - navigation:
+              - link "Catálogo Principal":
+                - /url: https://www.star-toner.com/collections/all
+              - generic:
+                - link "Tóner Laserjet Certificados":
+                  - /url: /collections/toner-laserjet
+                - link "Cartuchos de Tinta Alta Capacidad":
+                  - /url: /collections/cartuchos-de-tinta
+                - link "Tóner Masivo para Copiadoras":
+                  - /url: /collections/toners-copiadoras
+                - link "Equipos Impresoras Laserjet":
+                  - /url: /collections/impresoras-laserjet
+                - link "Equipos Impresoras Térmicas":
+                  - /url: /collections/impresoras-termicas
+                - link "Servicio de Mantenimiento Oficial":
+                  - /url: /collections/servicios-mantenimiento-reparacion
+              - link "Ofertas Exclusivas":
+                - /url: /pages/ofertas
+              - link "Cuentas Mayoristas":
+                - /url: /pages/conviertete-en-distribuidores
+              - link "Sobre Startoner":
+                - /url: /pages/quien-somos
+            - generic:
+              - link "Mi Cuenta":
+                - /url: /account
+                - img
+                - text: Mi Cuenta
+              - link "Soporte":
+                - /url: /pages/contacto-startoner
+                - img
+                - text: Soporte
+        - generic [ref=e13]:
+          - img [ref=e15] [cursor=pointer]
+          - link "Star Toner — tóner y cartuchos compatibles" [ref=e16] [cursor=pointer]:
+            - /url: /
+            - img "Star Toner — tóner y cartuchos compatibles" [ref=e17]
+          - generic [ref=e18]:
+            - link "Llamar a Star Toner al 651 78 80 90" [ref=e19] [cursor=pointer]:
+              - /url: tel:+34651788090
+              - img [ref=e20]
+            - link "Carrito" [ref=e22] [cursor=pointer]:
+              - /url: /cart
+              - img [ref=e23]
+        - link "Chatear por WhatsApp con Star Toner" [ref=e26] [cursor=pointer]:
+          - /url: https://wa.me/34651788090?text=Hola%2C%20necesito%20ayuda%20con%20un%20t%C3%B3ner
+          - img [ref=e27]
+  - main [ref=e29]:
+    - generic [ref=e33]:
+      - img "Tóner compatible y cartuchos de tinta — Star Toner España" [ref=e36]
+      - generic [ref=e37]:
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - generic [ref=e41]: ISO 9001 · CE · ROHS · Certificados
+            - heading "Tóner Compatible y Cartuchos de Tinta Imprime más. Gasta menos. Imprime más. Gasta menos." [level=1] [ref=e43]:
+              - generic [ref=e44]: Tóner Compatible y Cartuchos de Tinta
+              - generic [ref=e45]:
+                - text: Imprime más.
+                - text: Gasta menos. Imprime más. Gasta menos.
+          - paragraph [ref=e46]:
+            - text: Cartuchos de tinta y tóner compatible con calidad nivel OEM.
+            - text: Mismo rendimiento que el original con certificación ISO 9001.
+            - text: Garantía de 2 años y envío express 24h en toda España.
+          - generic [ref=e47]:
+            - link "Comprar ahora" [ref=e49] [cursor=pointer]:
+              - /url: /collections/all
+              - text: Comprar ahora
+              - img [ref=e50]
+            - link "Hazte distribuidor" [ref=e53] [cursor=pointer]:
+              - /url: /pages/conviertete-en-distribuidores
+          - generic [ref=e54]:
+            - generic [ref=e55]:
+              - generic [ref=e56]: ★★★★★
+              - generic [ref=e57]: 4.8/5 en reseñas certificadas
+            - generic [ref=e58]:
+              - link "Comprar Tóner Compatible HP Tóner compatible HP" [ref=e59] [cursor=pointer]:
+                - /url: /collections/toner-compatible-hp
+                - generic [ref=e60]: Comprar Tóner Compatible HP
+                - img "Tóner compatible HP" [ref=e61]
+              - link "Comprar Tóner Compatible Canon Tóner compatible Canon" [ref=e62] [cursor=pointer]:
+                - /url: /collections/toner-compatible-canon
+                - generic [ref=e63]: Comprar Tóner Compatible Canon
+                - img "Tóner compatible Canon" [ref=e64]
+              - link "Comprar Tóner Compatible Brother Tóner compatible Brother" [ref=e65] [cursor=pointer]:
+                - /url: /collections/toner-compatible-brother
+                - generic [ref=e66]: Comprar Tóner Compatible Brother
+                - img "Tóner compatible Brother" [ref=e67]
+              - link "Comprar Cartuchos Tinta Compatible Epson Cartuchos compatibles Epson" [ref=e68] [cursor=pointer]:
+                - /url: /collections/cartuchos-tinta-epson-compatible
+                - generic [ref=e69]: Comprar Cartuchos Tinta Compatible Epson
+                - img "Cartuchos compatibles Epson" [ref=e70]
+              - link "Comprar Tóner Compatible Samsung Tóner compatible Samsung" [ref=e71] [cursor=pointer]:
+                - /url: /collections/toner-compatible-samsung
+                - generic [ref=e72]: Comprar Tóner Compatible Samsung
+                - img "Tóner compatible Samsung" [ref=e73]
+        - generic [ref=e75]:
+          - generic [ref=e76]:
+            - generic [ref=e77]: "-70%"
+            - heading "Ahorro frente al precio original OEM" [level=2] [ref=e78]
+          - generic [ref=e79]:
+            - img [ref=e81]
+            - generic [ref=e83]:
+              - heading "Garantía 2 Años" [level=3] [ref=e84]
+              - generic [ref=e85]: Sustitución directa
+          - generic [ref=e86]:
+            - img [ref=e88]
+            - generic [ref=e92]:
+              - heading "Envío Express" [level=3] [ref=e93]
+              - generic [ref=e94]: Gratis pedidos +50€
+    - generic [ref=e99]:
+      - generic [ref=e100]: Catalogo
+      - heading "Encuentra tu toner en segundos." [level=2] [ref=e101]:
+        - text: Encuentra tu toner
+        - emphasis [ref=e102]: en segundos.
+      - paragraph [ref=e103]: Mas de 500 referencias en stock para todas las marcas. Elige tu categoria, compara formatos XL y recibe tu pedido en 24 horas.
+      - generic [ref=e104]:
+        - link "01 Mas vendido Toner LaserJet compatible Toner LaserJet Compatible HP, Canon, Brother y Samsung para oficina y negocio. Explorar 120+ refs" [ref=e105] [cursor=pointer]:
+          - /url: /collections/toner-laserjet
+          - generic [ref=e106]:
+            - generic [ref=e107]: "01"
+            - generic [ref=e108]: Mas vendido
+            - img "Toner LaserJet compatible" [ref=e109]
+          - generic [ref=e110]:
+            - heading "Toner LaserJet Compatible" [level=3] [ref=e111]
+            - paragraph [ref=e112]: HP, Canon, Brother y Samsung para oficina y negocio.
+            - generic [ref=e113]:
+              - generic [ref=e114]:
+                - text: Explorar
+                - img [ref=e115]
+              - generic [ref=e117]: 120+ refs
+        - link "02 Cartuchos de tinta compatibles Cartuchos de Tinta HP, Epson, Canon y Brother con formatos XL y EcoTank. Explorar 200+ refs" [ref=e118] [cursor=pointer]:
+          - /url: /collections/cartuchos-de-tinta
+          - generic [ref=e119]:
+            - generic [ref=e120]: "02"
+            - img "Cartuchos de tinta compatibles" [ref=e121]
+          - generic [ref=e122]:
+            - heading "Cartuchos de Tinta" [level=3] [ref=e123]
+            - paragraph [ref=e124]: HP, Epson, Canon y Brother con formatos XL y EcoTank.
+            - generic [ref=e125]:
+              - generic [ref=e126]:
+                - text: Explorar
+                - img [ref=e127]
+              - generic [ref=e129]: 200+ refs
+        - link "03 B2B Toner para copiadoras compatible Toner para Copiadoras Konica Minolta, Kyocera, Canon y Ricoh de alto rendimiento. Explorar 80+ refs" [ref=e130] [cursor=pointer]:
+          - /url: /collections/toners-copiadoras
+          - generic [ref=e131]:
+            - generic [ref=e132]: "03"
+            - generic [ref=e133]: B2B
+            - img "Toner para copiadoras compatible" [ref=e134]
+          - generic [ref=e135]:
+            - heading "Toner para Copiadoras" [level=3] [ref=e136]
+            - paragraph [ref=e137]: Konica Minolta, Kyocera, Canon y Ricoh de alto rendimiento.
+            - generic [ref=e138]:
+              - generic [ref=e139]:
+                - text: Explorar
+                - img [ref=e140]
+              - generic [ref=e142]: 80+ refs
+        - link "04 Impresoras termicas Impresoras Termicas Equipos para tickets, etiquetas y puntos de venta. Explorar 30+ refs" [ref=e143] [cursor=pointer]:
+          - /url: /collections/impresoras-termicas
+          - generic [ref=e144]:
+            - generic [ref=e145]: "04"
+            - img "Impresoras termicas" [ref=e146]
+          - generic [ref=e147]:
+            - heading "Impresoras Termicas" [level=3] [ref=e148]
+            - paragraph [ref=e149]: Equipos para tickets, etiquetas y puntos de venta.
+            - generic [ref=e150]:
+              - generic [ref=e151]:
+                - text: Explorar
+                - img [ref=e152]
+              - generic [ref=e154]: 30+ refs
+        - link "05 Servicio tecnico de impresoras Servicio Tecnico Mantenimiento, reparacion y soporte profesional en Espana. Explorar Presupuesto" [ref=e155] [cursor=pointer]:
+          - /url: /collections/servicios-mantenimiento-reparacion
+          - generic [ref=e156]:
+            - generic [ref=e157]: "05"
+            - img "Servicio tecnico de impresoras" [ref=e158]
+          - generic [ref=e159]:
+            - heading "Servicio Tecnico" [level=3] [ref=e160]
+            - paragraph [ref=e161]: Mantenimiento, reparacion y soporte profesional en Espana.
+            - generic [ref=e162]:
+              - generic [ref=e163]:
+                - text: Explorar
+                - img [ref=e164]
+              - generic [ref=e166]: Presupuesto
+      - generic [ref=e167]:
+        - link "Cartuchos HP 364, 903 y 953XL" [ref=e168] [cursor=pointer]:
+          - /url: /collections/cartuchos-tinta-hp
+        - link "Cartuchos Canon PIXMA y MegaTank" [ref=e169] [cursor=pointer]:
+          - /url: /collections/cartuchos-tinta-canon
+        - link "Cartuchos Brother LC y MFC" [ref=e170] [cursor=pointer]:
+          - /url: /collections/cartuchos-tinta-brother
+        - 'link "Guia: cartucho o toner" [ref=e171] [cursor=pointer]':
+          - /url: /blogs/news/cartucho-de-tinta-o-toner-cual-elegir-segun-tu-necesidad
+        - 'link "Guia: encontrar tu referencia" [ref=e172] [cursor=pointer]':
+          - /url: /blogs/news/como-saber-que-toner-necesita-tu-impresora
+        - 'link "Guia: firmware HP y compatibles" [ref=e173] [cursor=pointer]':
+          - /url: /blogs/news/firmware-hp-bloquea-cartuchos-compatibles-como-protegerte
+    - generic [ref=e178]:
+      - generic [ref=e179]: Compatibles con tu impresora
+      - heading "Elige tu marca. Ahorra desde hoy." [level=2] [ref=e180]:
+        - text: Elige tu marca.
+        - emphasis [ref=e181]: Ahorra desde hoy.
+      - generic [ref=e182]:
+        - link "Tóner compatible HP Ver tóneres →" [ref=e183] [cursor=pointer]:
+          - /url: /collections/toner-compatible-hp
+          - generic: H
+          - img "Tóner compatible HP" [ref=e184]
+          - generic [ref=e185]: Ver tóneres →
+        - link "Tóner compatible Canon Ver tóneres →" [ref=e186] [cursor=pointer]:
+          - /url: /collections/toner-compatible-canon
+          - generic: C
+          - img "Tóner compatible Canon" [ref=e187]
+          - generic [ref=e188]: Ver tóneres →
+        - link "Tóner compatible Brother Ver tóneres →" [ref=e189] [cursor=pointer]:
+          - /url: /collections/toner-compatible-brother
+          - generic: B
+          - img "Tóner compatible Brother" [ref=e190]
+          - generic [ref=e191]: Ver tóneres →
+        - link "Cartuchos compatibles Epson Ver tóneres →" [ref=e192] [cursor=pointer]:
+          - /url: /collections/cartuchos-tinta-epson-compatible
+          - generic: E
+          - img "Cartuchos compatibles Epson" [ref=e193]
+          - generic [ref=e194]: Ver tóneres →
+        - link "Tóner compatible Samsung Ver tóneres →" [ref=e195] [cursor=pointer]:
+          - /url: /collections/toner-compatible-samsung
+          - generic: S
+          - img "Tóner compatible Samsung" [ref=e196]
+          - generic [ref=e197]: Ver tóneres →
+        - link "Tóner compatible Kyocera Ver tóneres →" [ref=e198] [cursor=pointer]:
+          - /url: /collections/toners-copiadoras
+          - generic: K
+          - img "Tóner compatible Kyocera" [ref=e199]
+          - generic [ref=e200]: Ver tóneres →
+        - link "Tóner compatible Lexmark Ver tóneres →" [ref=e201] [cursor=pointer]:
+          - /url: /collections/toner-compatible-lexmark
+          - generic: L
+          - img "Tóner compatible Lexmark" [ref=e202]
+          - generic [ref=e203]: Ver tóneres →
+        - link "Explorar todas las marcas Ver catálogo completo →" [ref=e204] [cursor=pointer]:
+          - /url: /collections/toners-y-tintas-impresoras-productos-mas-vendidos
+          - generic [ref=e205]:
+            - text: Explorar todas
+            - text: las marcas
+          - generic [ref=e206]: Ver catálogo completo →
+    - generic [ref=e209]:
+      - generic [ref=e211]:
+        - generic [ref=e212]: Desde 1998 · Los Barrios, Cádiz
+        - heading "Tóner y Tinta Compatible. Calidad Profesional." [level=2] [ref=e213]:
+          - generic [ref=e214]: Tóner y Tinta Compatible.
+          - generic [ref=e215]: Calidad Profesional.
+        - paragraph [ref=e216]:
+          - text: Especialistas en
+          - strong [ref=e217]: tóner compatible y cartuchos de tinta
+          - text: . Certificación ISO 9001. Sin intermediarios. Calidad real, precio justo — envío a toda España.
+        - generic [ref=e218]:
+          - generic [ref=e219]:
+            - strong [ref=e220]: 70%
+            - generic [ref=e221]: Ahorro vs OEM
+          - generic [ref=e222]:
+            - strong [ref=e223]: ISO 9001
+            - generic [ref=e224]: Certificado
+          - generic [ref=e225]:
+            - strong [ref=e226]: 500+
+            - generic [ref=e227]: Referencias
+          - generic [ref=e228]:
+            - strong [ref=e229]: 2 años
+            - generic [ref=e230]: Garantía
+        - button "Conócenos mejor" [ref=e233] [cursor=pointer]:
+          - img [ref=e235]
+          - text: Conócenos mejor
+      - dialog "Vídeo Startoner":
+        - generic:
+          - button "Cerrar":
+            - img
+    - generic [ref=e241]:
+      - generic [ref=e242]:
+        - generic [ref=e243]: Por que Star Toner
+        - heading "Toner y cartuchos compatibles. El mejor precio en Espana." [level=2] [ref=e244]:
+          - text: Toner y cartuchos compatibles.
+          - emphasis [ref=e245]: El mejor precio en Espana.
+        - paragraph [ref=e246]:
+          - text: En Star Toner somos tu tienda online especializada en
+          - strong [ref=e247]: toner y cartuchos de tinta compatibles
+          - text: para las impresoras mas usadas del mercado. Envio rapido desde Espana, soporte tecnico real y un catalogo pensado para que encuentres la referencia correcta sin perder tiempo.
+      - generic [ref=e248]:
+        - generic [ref=e249]:
+          - img [ref=e251]
+          - heading "Certificados ISO 9001 y CE" [level=3] [ref=e253]
+          - paragraph [ref=e254]: Cada toner compatible pasa controles de calidad para asegurar reconocimiento, rendimiento y nitidez consistentes.
+        - generic [ref=e255]:
+          - img [ref=e257]
+          - heading "Hasta 70% de ahorro" [level=3] [ref=e259]
+          - paragraph [ref=e260]: Reduce el coste por pagina sin renunciar a una impresion fiable para oficina, hogar y negocio.
+        - generic [ref=e261]:
+          - img [ref=e263]
+          - heading "Compatibles con garantia" [level=3] [ref=e265]
+          - paragraph [ref=e266]: Seleccionamos formatos de alta capacidad y consumibles testados para proteger la continuidad de tu impresora.
+        - generic [ref=e267]:
+          - img [ref=e269]
+          - heading "Envio 24h desde Espana" [level=3] [ref=e272]
+          - paragraph [ref=e273]: Despacho rapido desde stock nacional para que el pedido llegue a tiempo a casa, oficina o almacén.
+      - generic [ref=e274]:
+        - generic [ref=e275]:
+          - heading "Catalogo compatible por marca" [level=3] [ref=e276]
+          - paragraph [ref=e277]: Rutas directas a las colecciones y marcas que mejor convierten y mejor responden en SEO.
+        - generic [ref=e278]:
+          - link "HP Toner y tinta compatible HP LaserJet OfficeJet PageWide Colecciones de toner HP y acceso rapido a cartuchos HP 364, 903 y 953XL." [ref=e279] [cursor=pointer]:
+            - /url: /collections/toner-compatible-hp
+            - img "HP"
+            - heading "Toner y tinta compatible HP" [level=4] [ref=e280]
+            - generic [ref=e281]:
+              - generic [ref=e282]: LaserJet
+              - generic [ref=e283]: OfficeJet
+              - generic [ref=e284]: PageWide
+            - paragraph [ref=e285]: Colecciones de toner HP y acceso rapido a cartuchos HP 364, 903 y 953XL.
+          - link "Brother Toner y tinta compatible Brother Serie TN MFC LC Desde toner TN hasta cartuchos de tinta LC para DCP y MFC." [ref=e286] [cursor=pointer]:
+            - /url: /collections/toner-compatible-brother
+            - img "Brother"
+            - heading "Toner y tinta compatible Brother" [level=4] [ref=e287]
+            - generic [ref=e288]:
+              - generic [ref=e289]: Serie TN
+              - generic [ref=e290]: MFC
+              - generic [ref=e291]: LC
+            - paragraph [ref=e292]: Desde toner TN hasta cartuchos de tinta LC para DCP y MFC.
+          - link "Canon Toner y tinta compatible Canon PIXMA i-SENSYS MegaTank Colecciones de toner Canon y rutas directas a referencias de tinta Canon PIXMA." [ref=e293] [cursor=pointer]:
+            - /url: /collections/toner-compatible-canon
+            - img "Canon"
+            - heading "Toner y tinta compatible Canon" [level=4] [ref=e294]
+            - generic [ref=e295]:
+              - generic [ref=e296]: PIXMA
+              - generic [ref=e297]: i-SENSYS
+              - generic [ref=e298]: MegaTank
+            - paragraph [ref=e299]: Colecciones de toner Canon y rutas directas a referencias de tinta Canon PIXMA.
+          - link "Samsung Toner compatible Samsung Xpress ML Formatos compatibles para impresoras Samsung de oficina y uso intensivo." [ref=e300] [cursor=pointer]:
+            - /url: /collections/toner-compatible-samsung
+            - img "Samsung"
+            - heading "Toner compatible Samsung" [level=4] [ref=e301]
+            - generic [ref=e302]:
+              - generic [ref=e303]: Xpress
+              - generic [ref=e304]: ML
+            - paragraph [ref=e305]: Formatos compatibles para impresoras Samsung de oficina y uso intensivo.
+          - link "Epson Cartuchos y botellas Epson EcoTank 603XL 604XL Rutas directas a tinta Epson para EcoTank, WorkForce y Expression." [ref=e306] [cursor=pointer]:
+            - /url: /collections/cartuchos-tinta-epson-compatible
+            - img "Epson"
+            - heading "Cartuchos y botellas Epson" [level=4] [ref=e307]
+            - generic [ref=e308]:
+              - generic [ref=e309]: EcoTank
+              - generic [ref=e310]: 603XL
+              - generic [ref=e311]: 604XL
+            - paragraph [ref=e312]: Rutas directas a tinta Epson para EcoTank, WorkForce y Expression.
+          - link "Kyocera Toner para copiadoras Kyocera Konica Canon Coleccion final sin redirect para copiadoras de alto rendimiento y B2B." [ref=e313] [cursor=pointer]:
+            - /url: /collections/toners-copiadoras
+            - img "Kyocera"
+            - heading "Toner para copiadoras" [level=4] [ref=e314]
+            - generic [ref=e315]:
+              - generic [ref=e316]: Kyocera
+              - generic [ref=e317]: Konica
+              - generic [ref=e318]: Canon
+            - paragraph [ref=e319]: Coleccion final sin redirect para copiadoras de alto rendimiento y B2B.
+      - generic [ref=e320]:
+        - generic [ref=e321]:
+          - heading "Guias recomendadas" [level=3] [ref=e322]
+          - paragraph [ref=e323]: Enlaces internos pensados para reforzar las URLs con menor apoyo interno detectadas en la auditoria.
+        - button "Ver mas guias" [ref=e324] [cursor=pointer]:
+          - generic [ref=e325]: Ver mas guias
+          - img [ref=e326]
+        - generic:
+          - link "Cartuchos HP 364, 903 y 953XL" [ref=e328] [cursor=pointer]:
+            - /url: /collections/cartuchos-tinta-hp
+          - 'link "Cartucho o toner: cual elegir" [ref=e329] [cursor=pointer]':
+            - /url: /blogs/news/cartucho-de-tinta-o-toner-cual-elegir-segun-tu-necesidad
+          - link "Como alargar la vida de tus cartuchos" [ref=e330] [cursor=pointer]:
+            - /url: /blogs/news/como-alargar-la-vida-de-tus-cartuchos
+          - link "Como saber que toner usa tu impresora" [ref=e331] [cursor=pointer]:
+            - /url: /blogs/news/como-saber-que-toner-necesita-tu-impresora
+          - link "Firmware HP y compatibles" [ref=e332] [cursor=pointer]:
+            - /url: /blogs/news/firmware-hp-bloquea-cartuchos-compatibles-como-protegerte
+          - link "Analisis real de impresoras EcoTank" [ref=e333] [cursor=pointer]:
+            - /url: /blogs/news/impresoras-tanque-tinta-ecotank-analisis-real
+          - link "Impresora termica para negocios" [ref=e334] [cursor=pointer]:
+            - /url: /blogs/news/impresora-termica-para-negocios-cuando-tiene-sentido
+          - link "Por que el papel importa" [ref=e335] [cursor=pointer]:
+            - /url: /blogs/news/por-que-el-papel-importa-neurociencia-e-impresion
+      - generic [ref=e336]:
+        - generic [ref=e337]:
+          - heading "Comprar toner online. Asi de simple." [level=3] [ref=e338]
+          - paragraph [ref=e339]: Proceso claro, seguro y pensado para encontrar la referencia correcta con menos friccion.
+        - generic [ref=e340]:
+          - generic [ref=e341]:
+            - generic [ref=e342]: "01"
+            - heading "Encuentra tu modelo" [level=4] [ref=e343]
+            - paragraph [ref=e344]: Busca por marca, serie o referencia y usa las colecciones especificas para reducir errores de compra.
+          - generic [ref=e345]:
+            - generic [ref=e346]: "02"
+            - heading "Compara y paga" [level=4] [ref=e347]
+            - paragraph [ref=e348]: Revisa formatos XL, capacidad y compatibilidad antes de pasar al carrito o consultar soporte.
+          - generic [ref=e349]:
+            - generic [ref=e350]: "03"
+            - heading "Recibelo rapido" [level=4] [ref=e351]
+            - paragraph [ref=e352]: Envio desde Espana y soporte para incidencias de reconocimiento, firmware o instalacion.
+  - generic [ref=e357]:
+    - generic [ref=e358]:
+      - generic [ref=e359]:
+        - img [ref=e361]
+        - text: Compra 100% segura
+      - generic [ref=e363]:
+        - img [ref=e365]
+        - text: Envío 24h en España
+      - generic [ref=e370]:
+        - img [ref=e372]
+        - text: ISO 9001 certificado
+      - generic [ref=e374]:
+        - img [ref=e376]
+        - text: Garantía 2 años
+    - generic [ref=e378]:
+      - generic [ref=e379]:
+        - link "Star Toner — inicio" [ref=e380] [cursor=pointer]:
+          - /url: /
+          - img "Star Toner" [ref=e381]
+        - generic [ref=e382]:
+          - paragraph [ref=e383]: Hasta un 70% de ahorro vs OEM. Ofertas exclusivas y novedades en tóner compatible, directas a tu bandeja.
+          - generic [ref=e384]:
+            - textbox "Tu correo electrónico" [ref=e385]
+            - button "Suscribirse" [ref=e386] [cursor=pointer]:
+              - img [ref=e387]
+          - paragraph [ref=e389]:
+            - text: Sin spam · Cancelar cuando quieras ·
+            - link "Política de privacidad" [ref=e390] [cursor=pointer]:
+              - /url: /policies/privacy-policy
+      - generic [ref=e391]:
+        - heading "Catálogo" [level=4] [ref=e392]
+        - list [ref=e393]:
+          - listitem [ref=e394]:
+            - link "Tóner Laserjet" [ref=e395] [cursor=pointer]:
+              - /url: /collections/toner-laserjet
+          - listitem [ref=e396]:
+            - link "Cartuchos de Tinta" [ref=e397] [cursor=pointer]:
+              - /url: /collections/cartuchos-de-tinta
+          - listitem [ref=e398]:
+            - link "Cartuchos HP" [ref=e399] [cursor=pointer]:
+              - /url: /collections/cartuchos-tinta-hp
+          - listitem [ref=e400]:
+            - link "Tóner para Copiadoras" [ref=e401] [cursor=pointer]:
+              - /url: /collections/toners-copiadoras
+          - listitem [ref=e402]:
+            - link "Impresoras Térmicas" [ref=e403] [cursor=pointer]:
+              - /url: /collections/impresoras-termicas
+          - listitem [ref=e404]:
+            - link "Los Más Vendidos" [ref=e405] [cursor=pointer]:
+              - /url: /collections/toners-y-tintas-impresoras-productos-mas-vendidos
+      - generic [ref=e406]:
+        - heading "Empresa" [level=4] [ref=e407]
+        - list [ref=e408]:
+          - listitem [ref=e409]:
+            - link "Quiénes Somos" [ref=e410] [cursor=pointer]:
+              - /url: /pages/quien-somos
+          - listitem [ref=e411]:
+            - link "Servicio Técnico" [ref=e412] [cursor=pointer]:
+              - /url: /collections/servicios-mantenimiento-reparacion
+          - listitem [ref=e413]:
+            - link "Distribuidores" [ref=e414] [cursor=pointer]:
+              - /url: /pages/conviertete-en-distribuidores
+          - listitem [ref=e415]:
+            - link "Nuestro Blog" [ref=e416] [cursor=pointer]:
+              - /url: /blogs/news
+          - listitem [ref=e417]:
+            - link "Ofertas Activas" [ref=e418] [cursor=pointer]:
+              - /url: /pages/ofertas
+          - listitem [ref=e419]:
+            - link "Contactar Soporte" [ref=e420] [cursor=pointer]:
+              - /url: /pages/contacto-startoner
+      - generic [ref=e421]:
+        - heading "Ayuda" [level=4] [ref=e422]
+        - list [ref=e423]:
+          - listitem [ref=e424]:
+            - link "Preguntas Frecuentes" [ref=e425] [cursor=pointer]:
+              - /url: /pages/preguntas-frecuentes
+          - listitem [ref=e426]:
+            - link "Política de Devoluciones" [ref=e427] [cursor=pointer]:
+              - /url: /pages/politica-de-devoluciones-star-toner
+          - listitem [ref=e428]:
+            - link "Envíos y Entregas" [ref=e429] [cursor=pointer]:
+              - /url: /policies/shipping-policy
+          - listitem [ref=e430]:
+            - link "Reembolsos" [ref=e431] [cursor=pointer]:
+              - /url: /policies/refund-policy
+          - listitem [ref=e432]:
+            - link "Buscar referencias" [ref=e433] [cursor=pointer]:
+              - /url: /search
+    - generic [ref=e434]:
+      - heading "Guías y enlaces clave" [level=4] [ref=e435]
+      - generic [ref=e436]:
+        - link "Cartuchos HP 364, 903 y 953XL" [ref=e437] [cursor=pointer]:
+          - /url: /collections/cartuchos-tinta-hp
+        - 'link "Cartucho o tóner: cuál elegir" [ref=e438] [cursor=pointer]':
+          - /url: /blogs/news/cartucho-de-tinta-o-toner-cual-elegir-segun-tu-necesidad
+        - link "Cómo saber qué tóner necesita tu impresora" [ref=e439] [cursor=pointer]:
+          - /url: /blogs/news/como-saber-que-toner-necesita-tu-impresora
+        - link "Cómo alargar la vida de tus cartuchos" [ref=e440] [cursor=pointer]:
+          - /url: /blogs/news/como-alargar-la-vida-de-tus-cartuchos
+        - link "Firmware HP y cartuchos compatibles" [ref=e441] [cursor=pointer]:
+          - /url: /blogs/news/firmware-hp-bloquea-cartuchos-compatibles-como-protegerte
+        - link "Análisis real de impresoras EcoTank" [ref=e442] [cursor=pointer]:
+          - /url: /blogs/news/impresoras-tanque-tinta-ecotank-analisis-real
+        - link "Impresora térmica para negocios" [ref=e443] [cursor=pointer]:
+          - /url: /blogs/news/impresora-termica-para-negocios-cuando-tiene-sentido
+        - link "Por qué el papel importa al imprimir" [ref=e444] [cursor=pointer]:
+          - /url: /blogs/news/por-que-el-papel-importa-neurociencia-e-impresion
+    - generic [ref=e445]:
+      - generic [ref=e446]:
+        - text: CHICTRATEC S.L. · CIF B72834534 · Calle Océano Atlántico 38, Palmones, 11379 Los Barrios, Cádiz · Tel.
+        - link "651 78 80 90" [ref=e447] [cursor=pointer]:
+          - /url: tel:+34651788090
+        - text: ·
+        - link "info@star-toner.com" [ref=e448] [cursor=pointer]:
+          - /url: mailto:info@star-toner.com
+        - text: Inscrita en el Registro Mercantil de Cádiz, Tomo 2465, Folio 113, Sección 8, Hoja CA-61491
+      - list [ref=e449]:
+        - listitem [ref=e450]:
+          - link "Privacidad" [ref=e451] [cursor=pointer]:
+            - /url: /policies/privacy-policy
+        - listitem [ref=e452]:
+          - link "Términos" [ref=e453] [cursor=pointer]:
+            - /url: /policies/terms-of-service
+        - listitem [ref=e454]:
+          - link "Aviso legal" [ref=e455] [cursor=pointer]:
+            - /url: /policies/legal-notice
+        - listitem [ref=e456]:
+          - link "Información legal" [ref=e457] [cursor=pointer]:
+            - /url: /policies/contact-information
+        - listitem [ref=e458]:
+          - link "Cookies" [ref=e459] [cursor=pointer]:
+            - /url: "#shopifyReshowConsentBanner"
+      - generic [ref=e460]:
+        - img "Visa"
+        - img "Mastercard"
+        - img "PayPal"
+        - img "Apple Pay"
+        - img "American Express"
+        - img "Google Pay"
+        - img "Shop Pay"
+      - generic [ref=e461]: © 2026 Star Toner · CHICTRATEC S.L. Todos los derechos reservados.
+  - generic "Chat de la tienda online de Shopify" [ref=e462]:
+    - button "Chat 1" [ref=e464] [cursor=pointer]:
+      - img [ref=e465]
+      - generic [ref=e467]: Chat
+      - generic [ref=e468]: "1"

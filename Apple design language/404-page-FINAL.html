@@ -1,0 +1,160 @@
+<style>
+/* ── HIDE DAWN'S BORING DEFAULT 404 ── */
+.template-404 .title, 
+.template-404 .title + p, 
+.template-404 .button,
+.template-404 .title-wrapper { 
+  display: none !important; 
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   STARTONER 404 APEX ENGINE 
+   ═══════════════════════════════════════════════════════════════ */
+.fs-wrap {
+  max-width: 900px;
+  margin: 60px auto 120px;
+  text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  padding: 0 24px;
+  -webkit-font-smoothing: antialiased;
+}
+.fs-404-number {
+  font-size: clamp(100px, 15vw, 160px);
+  font-weight: 900;
+  line-height: 1;
+  margin: 0 0 16px;
+  background: linear-gradient(135deg, #1d1d1f 0%, #0071e3 50%, #40a9ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.06em;
+  user-select: none;
+  text-shadow: 0 24px 48px rgba(0,113,227,0.1);
+}
+.fs-wrap h1 {
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800;
+  color: #1d1d1f;
+  margin: 0 0 16px;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+.fs-wrap > p {
+  font-size: 18px;
+  color: #6e6e73;
+  margin: 0 auto 48px;
+  max-width: 500px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* ── 404 RECOVERY GRID ── */
+.fs-nav { 
+  display: grid; 
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px; 
+  text-align: left; 
+}
+.fs-card { 
+  background: #fafafa; 
+  border-radius: 24px; 
+  padding: 32px 24px; 
+  text-decoration: none; 
+  color: #1d1d1f; 
+  transition: all 0.3s cubic-bezier(0.16,1,0.3,1); 
+  border: 1px solid rgba(0,0,0,0.04); 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: flex-start; 
+  min-height: 180px;
+}
+.fs-card h3 { 
+  font-size: 18px; 
+  font-weight: 800; 
+  margin: 0 0 8px; 
+  letter-spacing: -0.01em;
+}
+.fs-card p { 
+  font-size: 14px; 
+  color: #86868b; 
+  margin: 0; 
+  line-height: 1.5; 
+  font-weight: 500;
+}
+.fs-card .fs-icon { 
+  display: inline-flex; 
+  margin-bottom: 24px; 
+  width: 48px; 
+  height: 48px; 
+  border-radius: 14px; 
+  background: #fff; 
+  align-items: center; 
+  justify-content: center; 
+  color: #0071e3; 
+  box-shadow: 0 8px 16px rgba(0,0,0,0.03); 
+  transition: all 0.3s;
+}
+.fs-card:hover { 
+  background: #0071e3; 
+  color: #fff; 
+  transform: translateY(-4px) scale(1.02); 
+  box-shadow: 0 24px 48px rgba(0,113,227,0.25); 
+  border-color: transparent;
+}
+.fs-card:hover p { color: rgba(255,255,255,0.8); }
+.fs-card:hover .fs-icon { 
+  color: #fff; 
+  background: rgba(255,255,255,0.2); 
+  transform: translateY(-2px);
+}
+
+@media(max-width: 900px) {
+  .fs-nav { grid-template-columns: 1fr; }
+  .fs-wrap { margin: 40px auto 60px; }
+  .fs-card { 
+    min-height: auto; 
+    flex-direction: row; 
+    align-items: center; 
+    padding: 20px 24px; 
+    gap: 20px; 
+  }
+  .fs-card .fs-icon { margin-bottom: 0; flex-shrink: 0; }
+}
+</style>
+
+<div class="fs-wrap">
+  <div class="fs-404-number">404</div>
+  <h1>Cartucho no encontrado</h1>
+  <p>Parece que te has quedado sin tinta en la navegación o esta URL ha caducado. Volvamos a poner tu impresora en marcha al mejor precio.</p>
+  
+  <div class="fs-nav">
+    <a href="/collections/cartuchos-de-tinta" class="fs-card">
+      <div class="fs-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      </div>
+      <div>
+        <h3>Cartuchos de Tinta</h3>
+        <p>Inyección premium con formatos de máxima capacidad XL.</p>
+      </div>
+    </a>
+    
+    <a href="/collections/toner-laserjet" class="fs-card">
+      <div class="fs-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+      </div>
+      <div>
+        <h3>Tóner Compatible</h3>
+        <p>Rendimiento láser profesional para grandes volúmenes.</p>
+      </div>
+    </a>
+    
+    <a href="/pages/contacto-startoner" class="fs-card">
+      <div class="fs-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+      </div>
+      <div>
+        <h3>Consultar Modelo</h3>
+        <p>Dinos qué impresora tienes y lo encontramos por ti 24/7.</p>
+      </div>
+    </a>
+  </div>
+</div>

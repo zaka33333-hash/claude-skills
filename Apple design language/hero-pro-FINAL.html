@@ -1,0 +1,662 @@
+{% style %}
+/* HERO PRO V5 — conversion-first polish */
+.hero-pro {
+  --hp-bg: #020202;
+  --hp-text: #ffffff;
+  --hp-muted: rgba(255,255,255,.72);
+  --hp-soft: rgba(255,255,255,.46);
+  --hp-card: rgba(18,18,20,.42);
+  --hp-card-hover: rgba(28,28,32,.56);
+  --hp-border: rgba(255,255,255,.10);
+  --hp-cyan: #12d8ff;
+  --hp-blue: #3b82ff;
+  --hp-violet: #7b61ff;
+  --hp-pink: #ff2d87;
+  --hp-red: #ff4d4d;
+  position: relative;
+  z-index: 0;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  min-height: 680px;
+  height: 100vh;
+  max-height: 940px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background:
+    radial-gradient(circle at 18% 42%, rgba(18,216,255,.14), transparent 30%),
+    radial-gradient(circle at 78% 68%, rgba(255,45,135,.16), transparent 28%),
+    linear-gradient(180deg, #020202 0%, #050507 100%);
+  contain: layout style paint;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.hero-pro-bg,
+.hero-pro-overlay-left,
+.hero-pro-overlay-top,
+.hero-pro-overlay-bot {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-pro-bg { z-index: 0; }
+.hero-pro-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 64% center;
+  display: block;
+  transform: scale(1.03);
+  transition: transform 16s cubic-bezier(.22,1,.36,1), opacity .7s ease;
+  filter: saturate(1.02) brightness(.76) contrast(1.04);
+}
+.hero-pro.hp-loaded .hero-pro-bg img { transform: scale(1); }
+
+.hero-pro-overlay-left {
+  z-index: 2;
+  background: linear-gradient(105deg, rgba(0,0,0,.94) 0%, rgba(0,0,0,.82) 34%, rgba(0,0,0,.42) 58%, rgba(0,0,0,.12) 76%, transparent 100%);
+}
+.hero-pro-overlay-top {
+  z-index: 2;
+  background: linear-gradient(to bottom, rgba(0,0,0,.52) 0%, transparent 22%);
+  pointer-events: none;
+}
+.hero-pro-overlay-bot {
+  z-index: 2;
+  background: linear-gradient(to top, rgba(0,0,0,.82) 0%, rgba(0,0,0,.18) 22%, transparent 38%);
+  pointer-events: none;
+}
+
+.hero-pro-content {
+  position: relative;
+  z-index: 3;
+  width: min(1320px, 100%);
+  margin: 0 auto;
+  padding: 0 6vw;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, .92fr);
+  gap: clamp(36px, 4vw, 72px);
+  align-items: center;
+}
+
+.hero-pro-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 700px;
+}
+
+.hero-pro-right {
+  display: flex;
+  justify-content: flex-end;
+  perspective: 1200px;
+}
+
+.hp-r {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity .95s cubic-bezier(.16,1,.3,1), transform .95s cubic-bezier(.16,1,.3,1);
+}
+.hp-r.on {
+  opacity: 1;
+  transform: none;
+}
+.hp-d1 { transition-delay: .08s; }
+.hp-d2 { transition-delay: .16s; }
+.hp-d3 { transition-delay: .24s; }
+.hp-d4 { transition-delay: .32s; }
+.hp-d5 { transition-delay: .40s; }
+
+.hero-pro-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 14px;
+  margin-bottom: 22px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.11);
+  backdrop-filter: blur(8px);
+}
+.hero-pro-eyebrow-text {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.62);
+}
+.hero-pro-eyebrow-text b { color: rgba(255,255,255,.96); }
+
+.hero-pro-heading {
+  margin: 0 0 22px;
+  color: var(--hp-text);
+}
+
+.hero-pro-kicker {
+  display: block;
+  margin-bottom: 14px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  color: #d8d8dc;
+}
+
+.hero-pro-h1 {
+  margin: 0;
+  font-size: clamp(40px, 5.4vw, 74px);
+  line-height: .98;
+  letter-spacing: -.055em;
+  font-weight: 800;
+}
+
+.hero-pro-h1-keywords {
+  display: block;
+  margin-bottom: 12px;
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.08;
+  letter-spacing: -.03em;
+  color: rgba(255,255,255,.92);
+}
+
+.hero-pro-h1-cmyk {
+  position: relative;
+  display: inline-block;
+  background: linear-gradient(90deg, var(--hp-cyan) 0%, var(--hp-blue) 24%, var(--hp-violet) 48%, var(--hp-pink) 72%, var(--hp-red) 100%);
+  background-size: 180% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: hpInkFlow 7s linear infinite;
+  text-wrap: balance;
+}
+
+.hero-pro-h1-cmyk::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: inherit;
+  background-size: inherit;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  opacity: .36;
+  filter: blur(16px);
+  animation: hpInkFlow 7s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes hpInkFlow {
+  0% { background-position: 0% center; }
+  100% { background-position: -180% center; }
+}
+
+.hero-pro-sub {
+  margin: 0 0 34px;
+  max-width: 560px;
+  font-size: 17px;
+  line-height: 1.62;
+  letter-spacing: -.012em;
+  color: var(--hp-muted);
+}
+
+.hero-pro-btns {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 34px;
+}
+
+.hp-btn-wrap {
+  position: relative;
+  display: inline-flex;
+  padding: 1.5px;
+  border-radius: 999px;
+}
+
+.hp-btn-wrap::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(18,216,255,.85), rgba(123,97,255,.85), rgba(255,45,135,.85));
+  opacity: 0;
+  transition: opacity .28s ease;
+}
+
+.hp-btn-wrap:hover::before { opacity: 1; }
+
+.hp-btn-primary,
+.hp-btn-secondary {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 56px;
+  padding: 16px 30px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: transform .28s cubic-bezier(.16,1,.3,1), background .28s ease, border-color .28s ease, box-shadow .28s ease;
+}
+
+.hp-btn-primary {
+  background: #fff;
+  color: #000;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .03em;
+  box-shadow: 0 10px 28px rgba(255,255,255,.12);
+}
+.hp-btn-primary:hover {
+  transform: translateY(-1px);
+  background: #f5f5f7;
+  box-shadow: 0 14px 34px rgba(255,255,255,.18);
+}
+
+.hp-btn-secondary {
+  background: rgba(19,19,23,.72);
+  border: 1px solid rgba(255,255,255,.14);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+.hp-btn-secondary:hover {
+  transform: translateY(-1px);
+  background: rgba(26,26,32,.88);
+  border-color: rgba(255,255,255,.26);
+}
+
+.hp-trust-cluster {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.hp-trust-stars {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hp-stars-icon {
+  font-size: 13px;
+  letter-spacing: 1.4px;
+  color: #fff;
+}
+.hp-stars-text {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--hp-soft);
+}
+.hp-stars-text b {
+  font-weight: 700;
+  color: rgba(255,255,255,.88);
+}
+
+.hp-brand-logos {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  flex-wrap: wrap;
+}
+.hp-brand-logos a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: .52;
+  transition: transform .35s cubic-bezier(.16,1,.3,1), opacity .35s ease, filter .35s ease;
+}
+.hp-brand-logos a:hover {
+  opacity: 1;
+  transform: translateY(-2px) scale(1.06);
+}
+.hp-brand-logos img {
+  display: block;
+  height: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+}
+.hp-logo-hp img { width: 30px; }
+.hp-logo-canon img,
+.hp-logo-brother img { width: 68px; }
+.hp-logo-epson img { width: 62px; }
+.hp-logo-samsung img { width: 80px; }
+
+.hp-bento-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+  max-width: 448px;
+}
+
+.hp-bento-block {
+  position: relative;
+  overflow: hidden;
+  padding: 24px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255,255,255,.05) 0%, rgba(255,255,255,.02) 100%), var(--hp-card);
+  border: 1px solid var(--hp-border);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  box-shadow: 0 24px 52px rgba(0,0,0,.26), inset 0 1px 0 rgba(255,255,255,.07);
+  transition: transform .35s cubic-bezier(.16,1,.3,1), background .35s ease, border-color .35s ease, box-shadow .35s ease;
+}
+
+.hp-bento-block::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(18,216,255,.08), transparent 35%, transparent 65%, rgba(255,45,135,.08));
+  opacity: .8;
+  pointer-events: none;
+}
+
+.hp-bento-block:hover {
+  transform: translateY(-4px);
+  background: linear-gradient(180deg, rgba(255,255,255,.06) 0%, rgba(255,255,255,.02) 100%), var(--hp-card-hover);
+  border-color: rgba(255,255,255,.16);
+  box-shadow: 0 30px 64px rgba(0,0,0,.34), inset 0 1px 0 rgba(255,255,255,.11);
+}
+
+.hp-bento-main {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 38px 24px;
+}
+
+.hp-bento-metric {
+  margin-bottom: 8px;
+  font-size: 78px;
+  line-height: .9;
+  letter-spacing: -.06em;
+  font-weight: 800;
+  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,.38) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.hp-bento-label {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: -.01em;
+  color: rgba(255,255,255,.56);
+}
+
+.hp-bento-chip {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+}
+
+.hp-chip-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+  color: #000;
+}
+.hp-chip-icon svg {
+  width: 16px;
+  height: 16px;
+}
+.hp-chip-title {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -.01em;
+  color: #fff;
+}
+.hp-chip-sub {
+  margin-top: 4px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: rgba(255,255,255,.46);
+}
+
+.hp-bento-block.hp-r {
+  opacity: 0;
+  transform: translateY(28px) scale(.97);
+  transition: opacity 1s cubic-bezier(.16,1,.3,1), transform 1s cubic-bezier(.16,1,.3,1);
+}
+.hp-bento-block.hp-r.on {
+  opacity: 1;
+  transform: none;
+}
+.hp-b1 { transition-delay: .40s; }
+.hp-b2 { transition-delay: .48s; }
+.hp-b3 { transition-delay: .56s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-pro-bg img,
+  .hero-pro-h1-cmyk,
+  .hero-pro-h1-cmyk::after,
+  .hp-r,
+  .hp-bento-block,
+  .hp-btn-primary,
+  .hp-btn-secondary,
+  .hp-brand-logos a {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero-pro {
+    min-height: 100svh;
+    height: auto;
+    max-height: none;
+    padding: 108px 0 64px;
+  }
+
+  .hero-pro-content {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .hero-pro-left {
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-pro-right { justify-content: center; }
+
+  .hero-pro-bg img {
+    object-position: 58% center;
+    opacity: .62;
+  }
+
+  .hero-pro-overlay-left {
+    background: linear-gradient(180deg, rgba(0,0,0,.94) 0%, rgba(0,0,0,.78) 40%, rgba(0,0,0,.44) 100%);
+  }
+
+  .hero-pro-h1 {
+    font-size: clamp(34px, 8vw, 56px);
+  }
+
+  .hero-pro-h1-keywords {
+    font-size: clamp(16px, 3.2vw, 20px);
+  }
+
+  .hero-pro-sub {
+    max-width: 92%;
+    font-size: 16px;
+  }
+
+  .hero-pro-btns {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .hp-btn-wrap,
+  .hp-btn-primary,
+  .hp-btn-secondary {
+    width: 100%;
+  }
+
+  .hp-brand-logos {
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .hp-logo-hp img { width: 22px; }
+  .hp-logo-canon img,
+  .hp-logo-brother img { width: 50px; }
+  .hp-logo-epson img { width: 46px; }
+  .hp-logo-samsung img { width: 58px; }
+}
+
+@media (max-width: 480px) {
+  .hero-pro-heading { margin-bottom: 18px; }
+  .hero-pro-kicker {
+    font-size: 11px;
+    letter-spacing: .2em;
+  }
+  .hero-pro-h1 {
+    font-size: clamp(30px, 9.2vw, 44px);
+  }
+  .hero-pro-sub {
+    margin-bottom: 28px;
+    font-size: 15px;
+  }
+  .hp-btn-primary,
+  .hp-btn-secondary {
+    min-height: 52px;
+    padding: 15px 22px;
+    font-size: 14px;
+  }
+  .hp-bento-grid { grid-template-columns: 1fr; }
+  .hp-bento-main { padding: 32px 20px; }
+  .hp-bento-metric { font-size: 64px; }
+}
+{% endstyle %}
+
+<div class="hero-pro" id="HeroPro">
+  <div class="hero-pro-bg">
+    <picture>
+      <source media="(max-width: 900px)" srcset="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Needs_attention_2.png?v=1775333958&amp;width=800&amp;format=webp" width="800" height="450">
+      <source media="(min-width: 901px)" srcset="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Needs_attention_2.png?v=1775333958&amp;width=1920&amp;format=webp" width="1920" height="1080">
+      <img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Needs_attention_2.png?v=1775333958&amp;width=1920&amp;format=webp" alt="Tóner compatible y cartuchos de tinta - Star Toner España" width="1920" height="1080" loading="eager" fetchpriority="high" decoding="async">
+    </picture>
+  </div>
+
+  <div class="hero-pro-overlay-left"></div>
+  <div class="hero-pro-overlay-top"></div>
+  <div class="hero-pro-overlay-bot"></div>
+
+  <div class="hero-pro-content">
+    <div class="hero-pro-left">
+      <div class="hero-pro-eyebrow hp-r hp-d1">
+        <span class="hero-pro-eyebrow-text"><b>ISO 9001</b> · CE · ROHS · Certificados</span>
+      </div>
+
+      <div class="hero-pro-heading hp-r hp-d2">
+        <span class="hero-pro-kicker">Tóner Compatible</span>
+        <h1 class="hero-pro-h1">
+          <span class="hero-pro-h1-keywords">Tóner Compatible y Cartuchos de Tinta</span>
+          <span class="hero-pro-h1-cmyk" data-text="Imprime más. Gasta menos.">Imprime más.<br>Gasta menos.</span>
+        </h1>
+      </div>
+
+      <p class="hero-pro-sub hp-r hp-d3">
+        Cartuchos de tinta y tóner compatible con calidad nivel OEM. Mismo rendimiento que el original, certificados ISO 9001 y envío express 24h en toda España.
+      </p>
+
+      <div class="hero-pro-btns hp-r hp-d4">
+        <span class="hp-btn-wrap">
+          <a href="/collections/all" class="hp-btn-primary">
+            Comprar ahora
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+          </a>
+        </span>
+        <span class="hp-btn-wrap">
+          <a href="/pages/conviertete-en-distribuidores" class="hp-btn-secondary">
+            Hazte distribuidor
+          </a>
+        </span>
+      </div>
+
+      <div class="hp-trust-cluster hp-r hp-d5">
+        <div class="hp-trust-stars">
+          <span class="hp-stars-icon">★★★★★</span>
+          <span class="hp-stars-text"><b>4.8/5</b> en reseñas certificadas</span>
+        </div>
+        <div class="hp-brand-logos">
+          <a href="/collections/toner-compatible-hp" class="hp-logo-hp"><span class="visually-hidden">Comprar Tóner Compatible HP</span><img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/HP-logo.png?v=1775435231&amp;width=60&amp;format=webp" loading="lazy" width="60" height="60" alt="Tóner compatible HP"></a>
+          <a href="/collections/toner-compatible-canon" class="hp-logo-canon"><span class="visually-hidden">Comprar Tóner Compatible Canon</span><img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Canon-logo.png?v=1775435231&amp;width=136&amp;format=webp" loading="lazy" width="136" height="136" alt="Tóner compatible Canon"></a>
+          <a href="/collections/toner-compatible-brother" class="hp-logo-brother"><span class="visually-hidden">Comprar Tóner Compatible Brother</span><img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Brother-Logo.png?v=1775435231&amp;width=136&amp;format=webp" loading="lazy" width="136" height="60" alt="Tóner compatible Brother"></a>
+          <a href="/collections/cartuchos-tinta-epson-compatible" class="hp-logo-epson"><span class="visually-hidden">Comprar Cartuchos Tinta Compatible Epson</span><img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Epson-logo.png?v=1775435232&amp;width=124&amp;format=webp" loading="lazy" width="124" height="124" alt="Cartuchos compatibles Epson"></a>
+          <a href="/collections/toner-compatible-samsung" class="hp-logo-samsung"><span class="visually-hidden">Comprar Tóner Compatible Samsung</span><img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Samsung-logo.png?v=1775435231&amp;width=160&amp;format=webp" loading="lazy" width="160" height="80" alt="Tóner compatible Samsung"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-pro-right">
+      <div class="hp-bento-grid">
+        <div class="hp-bento-block hp-bento-main hp-r hp-b1">
+          <div class="hp-bento-metric">-70%</div>
+          <h2 class="hp-bento-label">Ahorro frente al precio original OEM</h2>
+        </div>
+
+        <div class="hp-bento-block hp-bento-chip hp-r hp-b2">
+          <div class="hp-chip-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          </div>
+          <div>
+            <h3 class="hp-chip-title">Garantía 2 Años</h3>
+            <div class="hp-chip-sub">Sustitución directa</div>
+          </div>
+        </div>
+
+        <div class="hp-bento-block hp-bento-chip hp-r hp-b3">
+          <div class="hp-chip-icon" style="background: transparent; border: 1.5px solid #fff; color: #fff;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 18H3c-.6 0-1-.4-1-1m0 0V5c0-.6.4-1 1-1h13c.6 0 1 .4 1 1v12c0 .6-.4 1-1 1h-2M2 9h15m2 9c0 .6-.4 1-1 1h-1m0-3h3a1 1 0 0 0 1-1v-4l-3-4h-3v8z"></path><circle cx="8" cy="18" r="2"></circle><circle cx="16" cy="18" r="2"></circle></svg>
+          </div>
+          <div>
+            <h3 class="hp-chip-title">Envío Express</h3>
+            <div class="hp-chip-sub">Gratis pedidos +50€</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initHeroProV5() {
+    var heroEl = document.getElementById("HeroPro");
+    if (!heroEl || heroEl.classList.contains("hp-loaded")) return;
+
+    var items = heroEl.querySelectorAll(".hp-r");
+    window.setTimeout(function () {
+      heroEl.classList.add("hp-loaded");
+      items.forEach(function (el) { el.classList.add("on"); });
+    }, 40);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initHeroProV5);
+  } else {
+    initHeroProV5();
+  }
+
+  document.addEventListener("shopify:section:select", initHeroProV5);
+  document.addEventListener("shopify:section:load", initHeroProV5);
+</script>

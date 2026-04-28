@@ -1,0 +1,102 @@
+Issue Id,Issue Type,Issue,Failed checks,Total checks,Changed from last audit
+1,ERROR,5xx errors,0,264,0
+2,ERROR,4xx errors,0,264,0
+3,ERROR,Title tag is missing or empty,0,251,0
+4,NOTICE,Blocked from crawling,2,253,0
+6,ERROR,Duplicate title tag,0,44688,0
+7,ERROR,Duplicate content,0,0,0
+8,ERROR,Broken internal links,0,7447,0
+9,ERROR,Pages not crawled,0,264,0
+10,ERROR,DNS resolution issue,0,264,0
+11,ERROR,We couldn't open the page?s URL,0,0,0
+12,WARNING,Broken external links,0,1,0
+13,ERROR,Broken internal images,0,3704,0
+14,WARNING,Broken external images,0,0,0
+15,ERROR,Duplicate meta descriptions,5,44730,0
+16,ERROR,Invalid robots.txt format,0,1,0
+17,ERROR,Invalid sitemap.xml format,0,5,0
+18,ERROR,Incorrect pages found in sitemap.xml,0,205,0
+19,ERROR,www resolve issues,0,2,0
+20,ERROR,Viewport not configured,0,0,0
+21,ERROR,Large HTML page size,0,258,0
+22,ERROR,Missing canonical tags in AMP pages,0,0,0
+23,ERROR,Issues with hreflang values,0,307,0
+24,ERROR,Hreflang conflicts within page source code,46,307,0
+25,ERROR,Issues with incorrect hreflang links,0,281,0
+26,ERROR,Non-secure pages,0,0,0
+27,ERROR,Certificate Expiration,0,2,0
+28,ERROR,Old security protocol version,0,2,0
+29,ERROR,Certificate registered to incorrect name,0,2,0
+30,ERROR,Issues with mixed content,0,30988,0
+31,WARNING,Links lead to HTTP pages for HTTPS site,0,7441,0
+32,ERROR,Neither canonical URL nor 301 redirect from HTTP homepage,0,0,0
+33,ERROR,Redirect chains and loops,0,18383,0
+34,ERROR,AMP Pages with HTML Issues,0,0,0
+35,ERROR,AMP Pages with Style and Layout Issues,0,0,0
+36,ERROR,AMP Pages with Templating Issues,0,0,0
+38,ERROR,Broken canonical URLs,0,251,0
+39,ERROR,Multiple canonical URLs,0,251,0
+40,ERROR,Meta refresh redirects,0,251,0
+41,ERROR,Broken internal JavaScript and CSS files,0,8511,0
+42,ERROR,Insecure encryption algorithms,0,2,0
+43,ERROR,Sitemap file too large,0,5,0
+44,ERROR,Malformed links,0,7688,0
+45,ERROR,Structured data that contains markup errors,0,1562,0
+46,ERROR,Viewport width not set,0,0,0
+101,WARNING,Title element is too short,0,251,0
+102,WARNING,Title element is too long,0,251,0
+103,WARNING,Missing h1,52,251,0
+104,NOTICE,Multiple h1 tags,13,199,0
+105,WARNING,Duplicate content in h1 and title,3,199,0
+106,WARNING,Missing meta description,0,251,0
+108,WARNING,Too many on-page links,0,251,0
+109,WARNING,Temporary redirects,0,18383,0
+110,WARNING,Missing ALT attributes,0,4650,0
+111,ERROR,Slow page load speed,0,251,0
+112,WARNING,Low text to HTML ratio,251,251,0
+113,WARNING,Too many URL parameters,0,251,0
+114,WARNING,Missing hreflang and lang attributes,0,251,0
+115,WARNING,Encoding not declared,0,251,0
+116,WARNING,Doctype not declared,0,251,0
+117,WARNING,Low word count,0,251,0
+120,WARNING,Incompatible plugins used,0,251,0
+121,WARNING,Frames used,0,251,0
+122,WARNING,Underscores in URL,0,251,0
+123,WARNING,Nofollow attributes in internal links,168,7609,0
+124,WARNING,Sitemap.xml not specified in robots.txt,0,1,0
+125,WARNING,Sitemap.xml not found,0,5,0
+126,WARNING,HTTPS encryption not used,0,0,0
+127,WARNING,No SNI support,0,2,0
+128,WARNING,HTTP URLs in sitemap.xml for HTTPS site,0,209,0
+129,WARNING,Uncompressed pages,0,251,0
+130,WARNING,Disallowed internal resources,0,10614,0
+131,WARNING,Uncompressed JavaScript and CSS files,0,8762,0
+132,WARNING,Uncached JavaScript and CSS files,251,8762,0
+133,WARNING,Too large JavaScript and CSS total size,0,258,0
+134,WARNING,Too many JavaScript and CSS files,0,251,0
+135,WARNING,Unminified JavaScript and CSS files,251,8762,0
+136,WARNING,Warning - Too long URLs,0,7688,0
+137,NOTICE,Llms.txt not found,0,1,0
+201,NOTICE,Too long URLs,0,251,0
+202,NOTICE,Nofollow attributes in external links,228,230,0
+203,NOTICE,Robots.txt not found,0,1,0
+204,NOTICE,Hreflang language mismatch issues,0,243,0
+205,NOTICE,No HSTS support,0,2,0
+206,NOTICE,Orphaned pages (Google Analytics),0,0,0
+207,NOTICE,Orphaned sitemap pages,4,209,0
+208,NOTICE,Pages have high Document Interactive Time,0,0,0
+209,NOTICE,Blocked by X-Robots-Tag: noindex HTTP header,0,1,0
+210,NOTICE,Disallowed external resources,0,325,0
+211,NOTICE,Broken external JavaScript and CSS files,0,325,0
+212,NOTICE,Page crawl depth,4,258,0
+213,NOTICE,Pages with only one internal link,10,251,0
+214,NOTICE,Permanent redirects,255,18383,0
+215,NOTICE,Resources formatted as page links,0,7671,0
+216,NOTICE,Links with no anchor text,0,12023,0
+217,NOTICE,Links with non-descriptive anchor text,0,11179,0
+218,NOTICE,External pages or resources with 403 HTTP status code,74,326,0
+219,NOTICE,Llms.txt has formatting issues,1,1,0
+220,NOTICE,Too much content,0,251,0
+221,NOTICE,Outdated content,0,251,0
+222,NOTICE,Low Semantic HTML usage,0,251,0
+223,NOTICE,Content not optimized,0,251,0

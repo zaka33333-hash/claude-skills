@@ -1,0 +1,659 @@
+<style>
+/* ── THE MILLION DOLLAR FLOATING HEADER ──────────────────────────── */
+.mdh-layer {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  pointer-events: none; /* Let clicks pass through empty space */
+  z-index: 9999;
+  padding: 24px 20px;
+  display: flex;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+}
+
+{% if template.name == 'index' or template == 'index' %}
+/* On Homepage: No padding, and the ghost layer becomes a solid black backdrop */
+main, #MainContent { padding-top: 0 !important; }
+.mdh-ghost { background: #000 !important; }
+{% else %}
+/* On Inner Pages: Force Shopify main content down to protect page titles */
+main, #MainContent { padding-top: 116px !important; }
+{% endif %}
+
+/* Base structural fixes for Dawn themes */
+.mdh-layer *, .mdh-drawer * { box-sizing: border-box; }
+.mdh-layer ul, .mdh-drawer ul, .mdh-layer li, .mdh-drawer li { margin: 0; padding: 0; list-style: none; }
+.mdh-layer a, .mdh-drawer a { text-decoration: none !important; border: none; }
+
+/* The Glass Pill */
+.mdh-pill {
+  pointer-events: auto; /* Re-enable clicks for the pill */
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  height: 68px;
+  background: rgba(10, 10, 12, 0.55);
+  backdrop-filter: blur(48px);
+  -webkit-backdrop-filter: blur(48px);
+  border-radius: 100px; /* Perfect pill */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px 0 16px;
+  box-shadow: 
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+    0 24px 48px rgba(0, 0, 0, 0.4),
+    0 12px 24px rgba(0,0,0,0.4),
+    0 0 80px rgba(0,180,255,0.06); /* Subtly electric cyan ambient glow */
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mdh-pill:hover {
+  background: rgba(14, 14, 18, 0.7);
+  box-shadow: 
+    0 0 0 1px rgba(255, 255, 255, 0.12) inset,
+    0 32px 64px rgba(0, 0, 0, 0.5),
+    0 0 100px rgba(0,180,255,0.08); /* Increase glow on hover */
+}
+
+/* ── LOGO ─────────────────────────────── */
+.mdh-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0 12px;
+  z-index: 10;
+}
+.mdh-logo img {
+  height: 32px;
+  width: auto;
+  opacity: 0.95;
+  transition: all .3s;
+}
+.mdh-logo:hover img {
+  opacity: 1;
+  filter: drop-shadow(0 0 16px rgba(255, 255, 255, .3));
+}
+
+/* ── DESKTOP NAV ──────────────────────── */
+.mdh-nav {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.mdh-nav > li {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative; /* For absolutely positioning the mega wrappers */
+}
+.mdh-nav > li > a {
+  position: relative;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  padding: 8px 20px;
+  border-radius: 100px;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+/* Hover pill slide logic faked natively */
+.mdh-nav > li > a::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.08); /* Frosted hover pill */
+  border-radius: 100px;
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: -1;
+}
+
+.mdh-nav > li > a:hover {
+  color: #fff;
+}
+.mdh-nav > li > a:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── THE MEGA TRAY DROPDOWN (Structurally Indestructible) ── */
+
+/* The Wrapper handles the physical hitbox (0 gap from the button) */
+.mdh-mega-wrapper {
+  position: absolute;
+  top: 100%; /* Directly attaches to bottom of the 68px li */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 720px;
+  padding-top: 10px; /* Represents the visual gap, but physically solid hitbox */
+  
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 100;
+}
+.mdh-mega-wrapper.sm { width: 330px; }
+
+/* Desktop edge-collision modifiers */
+.mdh-mega-wrapper.align-left {
+  left: -16px;
+  transform: none;
+}
+.mdh-mega-wrapper.align-right {
+  left: auto;
+  right: -16px;
+  transform: none;
+}
+
+/* Display the wrapper when hovered */
+.mdh-nav > li:hover .mdh-mega-wrapper {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto; /* Re-enable pointer events so it holds the hover */
+}
+
+/* The actual glass tray UI */
+.mdh-mega {
+  width: 100%;
+  background: rgba(14, 14, 16, 0.96); /* Solid/Tinted Glass */
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border-radius: 28px;
+  border: 1px solid rgba(255,255,255,0.09);
+  box-shadow: 
+    0 40px 80px rgba(0,0,0,0.8),
+    0 0 0 1px rgba(255,255,255,0.04) inset;
+  padding: 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  
+  /* Physical presentation animation */
+  transform: translateY(12px) scale(0.96) rotateX(-4deg);
+  transform-origin: top center;
+  perspective: 1000px;
+  transition: all 0.35s cubic-bezier(0.2, 1, 0.3, 1);
+}
+.mdh-mega.sm { grid-template-columns: 1fr; padding: 24px; }
+
+/* Fire animation when parent li hovered */
+.mdh-nav > li:hover .mdh-mega {
+  transform: translateY(0) scale(1) rotateX(0deg);
+}
+
+/* The Point-Up Triangle Arrow */
+.mdh-mega-wrapper::after {
+  content: ''; position: absolute; top: 4px; left: 50%; transform: translateX(-50%);
+  border-left: 8px solid transparent; border-right: 8px solid transparent;
+  border-bottom: 8px solid rgba(255,255,255,0.09);
+  opacity: 0;
+  transition: all 0.35s cubic-bezier(0.2, 1, 0.3, 1);
+  z-index: 101;
+}
+.mdh-nav > li:hover .mdh-mega-wrapper::after {
+  opacity: 1;
+  top: 3px;
+}
+.mdh-mega-wrapper.align-left::after {
+  left: 90px;
+  transform: none;
+}
+.mdh-mega-wrapper.align-right::after {
+  left: auto;
+  right: 50px;
+  transform: none;
+}
+
+
+/* Mega Tray Internals */
+.mdh-mega-col h4 {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.3);
+  margin: 0 0 16px 0;
+}
+.mdh-mega-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.mdh-mega-links a {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 12px 16px;
+  border-radius: 16px;
+  color: rgba(255,255,255,0.7);
+  transition: all 0.2s ease;
+  background: rgba(255,255,255,0);
+}
+.mdh-mega-links a:hover {
+  background: rgba(255,255,255,0.06);
+  color: #fff;
+  transform: translateX(4px);
+}
+.mdh-icon-box {
+  width: 40px; height: 40px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+.mdh-icon-box svg {
+  width: 20px; height: 20px;
+  display: block;
+}
+.mdh-mega-links a:hover .mdh-icon-box {
+  background: #fff; color: #000;
+  transform: scale(1.1);
+}
+
+/* ── ICONS & ACTIONS ─────────────────── */
+.mdh-acts {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.mdh-btn {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.7);
+  transition: all 0.2s ease;
+  position: relative;
+}
+.mdh-btn:hover {
+  background: rgba(255,255,255,0.08); /* Frosted circle logic */
+  color: #fff;
+  transform: scale(1.05);
+}
+.mdh-btn svg { width: 20px; height: 20px; }
+
+/* Glowing Cartesian Badge */
+.mdh-badge {
+  position: absolute;
+  top: 6px; right: 4px;
+  background: #00e0ff; /* Electric blue badge */
+  color: #000;
+  font-size: 10px; font-weight: 800;
+  height: 16px; min-width: 16px;
+  border-radius: 100px;
+  display: flex; align-items: center; justify-content: center;
+  padding: 0 4px;
+  box-shadow: 0 2px 10px rgba(0, 224, 255, 0.5);
+  animation: pulseBadge 2s infinite ease-in-out;
+}
+
+@keyframes pulseBadge {
+  0% { box-shadow: 0 0 0 0 rgba(0, 224, 255, 0.4); }
+  70% { box-shadow: 0 0 0 8px rgba(0, 224, 255, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 224, 255, 0); }
+}
+
+/* ── APPLE iOS MOBILE STATE ─────────── */
+#mdh-toggle { display: none; }
+.mdh-mobile-btn { 
+  display: none; 
+  cursor: pointer; /* Critical to prevent iOS Safari input event drops */
+  -webkit-tap-highlight-color: transparent; 
+}
+
+/* Enforce pure scroll-lock on the body when drawer is open (Modern Browser Spec) */
+body:has(#mdh-toggle:checked) {
+  overflow: hidden !important;
+}
+
+/* The Deep Glass Overlay Drawer */
+.mdh-drawer {
+  position: fixed;
+  inset: 0;
+  background: rgba(6, 6, 8, 0.98);
+  backdrop-filter: blur(60px);
+  -webkit-backdrop-filter: blur(60px);
+  z-index: 9998;
+  padding-top: 120px !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+  padding-bottom: 60px !important;
+  padding-bottom: calc(40px + env(safe-area-inset-bottom)) !important;
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s cubic-bezier(0.86, 0, 0.07, 1); /* Apple drawer physics */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+#mdh-toggle:checked ~ .mdh-drawer {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Inner drawer geometry for strict layout mapping */
+.mdh-drawer-inner {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+/* Premium Drawer Search Bar */
+.mdh-m-search {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  margin-bottom: 32px;
+  transition: all 0.3s ease;
+}
+.mdh-m-search:focus-within {
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(255,255,255,0.2);
+}
+.mdh-m-search input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  padding: 16px;
+  outline: none;
+}
+.mdh-m-search input::placeholder { color: rgba(255,255,255,0.3); }
+.mdh-m-search button {
+  background: transparent;
+  color: #fff;
+  border: none;
+  padding: 0 16px;
+}
+
+/* Drawer Routing Logic */
+.mdh-drawer-nav {
+  display: flex; flex-direction: column; gap: 8px;
+}
+.mdh-drawer-nav > a {
+  display: block; font-size: 34px; font-weight: 800; letter-spacing: -1px;
+  color: rgba(255,255,255,0.4); padding: 14px 0; border-bottom: 1px solid rgba(255,255,255,0.05) !important;
+  transition: color 0.3s ease;
+  text-decoration: none !important;
+}
+.mdh-drawer-nav > a:hover { color: #fff; }
+.mdh-drawer-nav > a.active { color: #fff; border-bottom: 2px solid rgba(255,255,255,0.15); }
+
+.mdh-sub-drawer {
+  padding: 12px 0 12px 24px; border-left: 2px solid rgba(255,255,255,0.1);
+  display: flex; flex-direction: column; gap: 16px; margin: 8px 0 24px 16px;
+}
+.mdh-sub-drawer a {
+  font-size: 18px; font-weight: 500; border: none; padding: 0; letter-spacing: 0;
+  color: rgba(255,255,255,0.6);
+}
+.mdh-sub-drawer a:hover { color: #fff; }
+
+/* Lower Utility Footer */
+.mdh-drawer-footer {
+  margin-top: auto;
+  padding-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.mdh-drawer-footer a {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 16px; background: rgba(255,255,255,0.05); border-radius: 14px;
+  color: rgba(255,255,255,0.8); font-size: 14px; font-weight: 700;
+}
+
+/* Mobile Tweakpoints */
+@media(max-width: 960px) {
+  .mdh-layer { padding: 12px 16px; }
+  
+  .mdh-pill { 
+    height: 52px; /* Sleeker, less chunky height */
+    padding: 0 16px;
+    background: rgba(18, 18, 20, 0.85); /* Pitch dark glass */
+    box-shadow: 0 12px 24px rgba(0,0,0,0.2), 0 0 0 1px rgba(255,255,255,0.06) inset;
+  }
+  
+  .mdh-logo img { height: 20px; } /* Centered perfectly in 52px space */
+  
+  .mdh-btn { width: 36px; height: 36px; } /* Snug untouch-target */
+  .mdh-btn svg { width: 22px; height: 22px; }
+  
+  /* Fix Cartesian badge positioning */
+  .mdh-badge { top: -2px; right: -2px; height: 16px; min-width: 16px; font-size: 10px; }
+  
+  /* Layout Flow */
+  .mdh-nav { display: none; }
+  .mdh-acts > a { display: none; }
+  .mdh-acts > .mdh-cart-icon { display: flex; } 
+  .mdh-mobile-btn { display: flex; z-index: 10000; }
+  .mdh-logo { position: absolute; left: 50%; transform: translateX(-50%); }
+  
+  /* Morph Burger to X */
+  .mdh-mobile-btn svg { width: 24px; height: 24px; transition: transform 0.3s ease; }
+  .icon-close { display: none; }
+  #mdh-toggle:checked ~ .mdh-layer .mdh-pill .icon-open { display: none; }
+  #mdh-toggle:checked ~ .mdh-layer .mdh-pill .icon-close { display: block; }
+  #mdh-toggle:checked ~ .mdh-layer .mdh-pill { background: transparent; backdrop-filter: none; box-shadow: none; border: none; }
+  
+  /* DRAWER SLIMMING - Removing the ugly chunky text */
+  .mdh-drawer {
+    padding-top: 90px !important; /* Pill is smaller, clear it tightly */
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+  .mdh-drawer-nav > a {
+    font-size: 22px;
+    font-weight: 700;
+    padding: 16px 0;
+    letter-spacing: -0.5px;
+  }
+  .mdh-sub-drawer {
+    margin: 4px 0 16px 14px;
+    padding-left: 16px;
+    border-left: 1px solid rgba(255,255,255,0.08); /* Thinner accent line */
+    gap: 14px;
+  }
+  .mdh-sub-drawer a {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.55);
+  }
+  
+  /* Hard override Shopify Dawn input styles */
+  .mdh-m-search {
+    border-radius: 12px;
+    margin-bottom: 24px;
+    background: rgba(255,255,255,0.06) !important;
+    border: 1px solid rgba(255,255,255,0.08) !important;
+  }
+  .mdh-m-search input {
+    padding: 12px 16px;
+    font-size: 15px;
+    background: transparent !important; 
+    border: none !important;
+    box-shadow: none !important;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+}
+
+@media(max-width: 480px){
+  .mdh-logo img { height: 18px; } 
+}
+
+/* The Ghost Spacer pushes Shopify's body down where possible */
+.mdh-ghost { height: 116px; width: 100%; background: transparent; pointer-events: none; }
+</style>
+
+<input type="checkbox" id="mdh-toggle">
+
+<!-- Mobile Full Screen Deep Glass Drawer -->
+<div class="mdh-drawer">
+  <div class="mdh-drawer-inner">
+  
+    <!-- Deep Embedded Search Matrix -->
+    <form action="/search" method="get" class="mdh-m-search">
+      <input type="search" name="q" placeholder="Buscar un producto o marca..." required>
+      <button type="submit">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" width="20" height="20">
+          <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+      </button>
+    </form>
+
+    <nav class="mdh-drawer-nav">
+      <a href="/collections/toners-y-tintas-impresoras-productos-mas-vendidos" class="active">Catálogo Principal</a>
+      <div class="mdh-sub-drawer">
+        <a href="/collections/toner-laserjet">Tóner Laserjet Certificados</a>
+        <a href="/collections/cartuchos-de-tinta">Cartuchos de Tinta Alta Capacidad</a>
+        <a href="/collections/toners-copiadoras">Tóner Masivo para Copiadoras</a>
+        <a href="/collections/impresoras-laserjet">Equipos Impresoras Laserjet</a>
+        <a href="/collections/impresoras-termicas">Equipos Impresoras Térmicas</a>
+        <a href="/collections/servicios-mantenimiento-reparacion">Servicio de Mantenimiento Oficial</a>
+      </div>
+      <a href="/pages/ofertas">Ofertas Exclusivas</a>
+      <a href="/pages/conviertete-en-distribuidores">Cuentas Mayoristas</a>
+      <a href="/pages/quien-somos">Sobre Startoner</a>
+    </nav>
+    
+    <!-- Mobile Utility Footer for Missing Account Functions -->
+    <div class="mdh-drawer-footer">
+      <a href="/account">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        Mi Cuenta
+      </a>
+      <a href="/pages/contacto-startoner">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+        Soporte
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- Floating Island Layer -->
+<div class="mdh-layer">
+  <div class="mdh-pill">
+    
+    <!-- Mobile Hamburger Toggle -->
+    <label for="mdh-toggle" class="mdh-btn mdh-mobile-btn">
+      <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+    </label>
+
+    <!-- Desktop Navigation -->
+    <ul class="mdh-nav">
+      <li>
+        <a href="/collections/toners-y-tintas-impresoras-productos-mas-vendidos">Catálogo Principal</a>
+        
+        <!-- NEW INDESTRUCTIBLE WRAPPER ARCHITECTURE -->
+        <div class="mdh-mega-wrapper align-left">
+          <div class="mdh-mega">
+            <div class="mdh-mega-col">
+              <h4>Consumibles Top</h4>
+              <div class="mdh-mega-links">
+                <a href="/collections/toner-laserjet">
+                  <div class="mdh-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></div>
+                  <div><strong>Tóner Laserjet</strong><br><span style="font-size:11px;opacity:0.6;line-height:1;">ISO 9001 Certificados Completos</span></div>
+                </a>
+                <a href="/collections/cartuchos-de-tinta">
+                  <div class="mdh-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></div>
+                  <div><strong>Cartuchos de Tinta</strong><br><span style="font-size:11px;opacity:0.6;line-height:1;">Formatos de Alta Capacidad XL</span></div>
+                </a>
+                <a href="/collections/toners-copiadoras">
+                  <div class="mdh-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg></div>
+                  <div><strong>Tóner Copiadoras</strong><br><span style="font-size:11px;opacity:0.6;line-height:1;">Rendimiento Masivo por Página</span></div>
+                </a>
+              </div>
+            </div>
+            <div class="mdh-mega-col">
+              <h4>Hardware & Soporte Oficial</h4>
+              <div class="mdh-mega-links">
+                <a href="/collections/impresoras-laserjet">
+                  <div class="mdh-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg></div>
+                  <div><strong>Impresoras Profesionales</strong><br><span style="font-size:11px;opacity:0.6;line-height:1;">Equipos Especializados</span></div>
+                </a>
+                <a href="/collections/impresoras-termicas">
+                  <div class="mdh-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v18l-3-3-3 3-3-3-3 3-3-3-3 3z"/></svg></div>
+                  <div><strong>Impresoras Térmicas</strong><br><span style="font-size:11px;opacity:0.6;line-height:1;">Para Puntos de Venta</span></div>
+                </a>
+                 <a href="/collections/servicios-mantenimiento-reparacion">
+                  <div class="mdh-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+                  <div><strong>Mantenimiento Oficial</strong><br><span style="font-size:11px;opacity:0.6;line-height:1;">Servicio Técnico Autorizado</span></div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li><a href="/pages/ofertas">Ofertas Exclusivas</a></li>
+      <li><a href="/pages/conviertete-en-distribuidores">Distribuidores</a></li>
+      <li>
+        <a href="/pages/quien-somos">Empresa</a>
+        <!-- NEW INDESTRUCTIBLE WRAPPER ARCHITECTURE -->
+        <div class="mdh-mega-wrapper sm align-right">
+          <div class="mdh-mega sm">
+             <div class="mdh-mega-links">
+                <a href="/pages/quien-somos">
+                  <div class="mdh-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
+                  <div><strong>Quiénes Somos</strong><br><span style="font-size:11px;opacity:0.6;line-height:1;">Conozca nuestro equipo</span></div>
+                </a>
+                <a href="/blogs/cartucho-tinta-toner-compatible-noticias">
+                  <div class="mdh-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
+                  <div><strong>Nuestro Blog</strong><br><span style="font-size:11px;opacity:0.6;line-height:1;">Noticias y Novedades</span></div>
+                </a>
+                <a href="/pages/contacto-startoner">
+                  <div class="mdh-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div>
+                  <div><strong>Contacto Rápido</strong><br><span style="font-size:11px;opacity:0.6;line-height:1;">Línea Directa de Soporte</span></div>
+                </a>
+             </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <!-- Centered Auto-Morph Logo -->
+    <a href="/" class="mdh-logo">
+      <!-- 40px Height establishes brand authority at the highest level without overwhelming the pill -->
+      <img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/startoner_3_1.png?v=1775347975" alt="Startoner Logo" width="160" height="40">
+    </a>
+
+    <!-- Application Engine Actions -->
+    <div class="mdh-acts">
+      <a href="/search" class="mdh-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      </a>
+      <a href="/account" class="mdh-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+      </a>
+      
+      <!-- Active Cart Core -->
+      <a href="/cart" class="mdh-btn mdh-cart-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+        
+        <!-- Animated Shopify Counter with Liquid Binders -->
+        {% if cart != empty %}
+          <span class="mdh-badge">{{ cart.item_count }}</span>
+        {% else %}
+          <span class="mdh-badge">0</span>
+        {% endif %}
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<!-- Establishes semantic hierarchy in DOM preventing layout-shift -->
+<div class="mdh-ghost"></div>

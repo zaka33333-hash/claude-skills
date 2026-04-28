@@ -1,0 +1,147 @@
+{% style %}
+/* ═══ STARTONER DISTRIBUTOR FORM — APEX ENGINE ═══ */
+.df-section{position:relative;width:100vw;margin-left:calc(-50vw + 50%);background:#fff;font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','Segoe UI',Roboto,sans-serif;padding:0 0 100px;-webkit-font-smoothing:antialiased;overflow:hidden}
+.df-section *,.df-section *::before,.df-section *::after{box-sizing:border-box}
+.df-wrap{max-width:1200px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+
+/* ── LEFT COLUMN — Info ── */
+.df-info{padding:80px 0}
+.df-info-tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#0071e3;padding:6px 16px;background:rgba(0,113,227,0.06);border-radius:100px;margin-bottom:24px}
+.df-info h2{font-size:clamp(32px,4vw,48px);font-weight:800;color:#1d1d1f;margin:0 0 20px;letter-spacing:-0.04em;line-height:1.1}
+.df-info>p{font-size:17px;color:#86868b;line-height:1.7;margin:0 0 40px}
+
+.df-features{display:flex;flex-direction:column;gap:24px;margin-bottom:40px}
+.df-feat{display:flex;gap:16px;align-items:flex-start}
+.df-feat-icon{width:44px;height:44px;border-radius:12px;background:#f5f5f7;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#1d1d1f;transition:all .3s}
+.df-feat-icon svg{width:20px;height:20px}
+.df-feat:hover .df-feat-icon{background:#0071e3;color:#fff}
+.df-feat h4{font-size:16px;font-weight:700;color:#1d1d1f;margin:0 0 2px}
+.df-feat p{font-size:14px;color:#86868b;margin:0;line-height:1.5}
+
+.df-trust-row{display:flex;align-items:center;gap:20px;padding:20px 0;border-top:1px solid rgba(0,0,0,0.06)}
+.df-trust-badge{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#86868b;display:flex;align-items:center;gap:6px}
+.df-trust-badge svg{width:14px;height:14px;color:#2e7d32}
+
+/* ── RIGHT COLUMN — Form ── */
+.df-form-wrap{padding:80px 0}
+.df-card{background:#fafafa;border:1px solid rgba(0,0,0,0.06);border-radius:32px;padding:48px;position:relative;overflow:hidden}
+.df-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#0071e3,#8a2be2,#ff006e,#ff8c00)}
+.df-card h3{font-size:24px;font-weight:700;color:#1d1d1f;margin:0 0 8px;letter-spacing:-0.02em}
+.df-card>p{font-size:14px;color:#86868b;margin:0 0 32px}
+
+.df-form{display:flex;flex-direction:column;gap:16px}
+.df-field{display:flex;flex-direction:column;gap:6px}
+.df-field label{font-size:12px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:#86868b}
+.df-field input,.df-field textarea,.df-field select{width:100%;padding:16px 20px;border:1.5px solid rgba(0,0,0,0.08);border-radius:14px;background:#fff;font-size:16px;font-family:inherit;color:#1d1d1f;outline:none;transition:all .25s;-webkit-appearance:none;appearance:none}
+.df-field input:focus,.df-field textarea:focus,.df-field select:focus{border-color:#0071e3;box-shadow:0 0 0 3px rgba(0,113,227,0.1)}
+.df-field input::placeholder,.df-field textarea::placeholder{color:#c7c7cc}
+.df-field textarea{min-height:120px;resize:vertical}
+.df-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+
+/* Submit Button with white spinning glow (Hazte Distribuidor effect) */
+@property --df-glow{syntax:'<angle>';initial-value:0deg;inherits:false}
+@keyframes dfGlowSpin{to{--df-glow:360deg}}
+
+.df-submit-wrap{position:relative;display:flex;border-radius:16px;padding:1.5px;margin-top:8px}
+.df-submit-wrap::before{content:'';position:absolute;inset:-1.5px;border-radius:16px;background:conic-gradient(from var(--df-glow),rgba(0,210,255,0) 0%,rgba(0,210,255,0.15) 35%,#00d2ff 50%,rgba(0,210,255,0.15) 65%,rgba(0,210,255,0) 100%);animation:dfGlowSpin 3s linear infinite;z-index:0;pointer-events:none}
+.df-submit-wrap::after{content:'';position:absolute;inset:-8px;border-radius:16px;background:conic-gradient(from var(--df-glow),rgba(0,210,255,0) 0%,rgba(0,210,255,0.15) 35%,#00d2ff 50%,rgba(0,210,255,0.15) 65%,rgba(0,210,255,0) 100%);animation:dfGlowSpin 3s linear infinite;filter:blur(14px);opacity:0.6;z-index:-1;pointer-events:none}
+
+.df-submit{position:relative;z-index:1;width:100%;padding:18px;border:none;border-radius:14px;background:#1d1d1f;color:#fff;font-size:16px;font-weight:700;font-family:inherit;cursor:pointer;transition:all .3s;letter-spacing:0.02em}
+.df-submit:hover{background:#333;transform:scale(1.01)}
+
+.df-note{font-size:12px;color:#86868b;text-align:center;margin-top:12px;line-height:1.5}
+.df-note a{color:#0071e3;text-decoration:none;font-weight:600}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .df-wrap{grid-template-columns:1fr;gap:0}
+  .df-info{padding:60px 0 20px;text-align:center}
+  .df-features{align-items:center}
+  .df-feat{flex-direction:column;align-items:center;text-align:center}
+  .df-trust-row{justify-content:center}
+  .df-form-wrap{padding:20px 0 60px}
+  .df-card{padding:32px 24px}
+  .df-row{grid-template-columns:1fr}
+}
+{% endstyle %}
+
+<div class="df-section">
+<div class="df-wrap">
+
+  <!-- LEFT: Info Column -->
+  <div class="df-info">
+    <span class="df-info-tag">Solicitud</span>
+    <h2>Solicita tu cuenta de distribuidor</h2>
+    <p>Completa el formulario y nuestro equipo comercial te contactará en menos de 24 horas con las condiciones de tu zona.</p>
+
+    <div class="df-features">
+      <div class="df-feat">
+        <div class="df-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div><h4>Respuesta en 24h</h4><p>Nuestro equipo evalúa cada solicitud de forma personalizada.</p></div>
+      </div>
+      <div class="df-feat">
+        <div class="df-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div><h4>Sin compromiso</h4><p>La solicitud es gratuita y no genera ninguna obligación.</p></div>
+      </div>
+      <div class="df-feat">
+        <div class="df-feat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+        <div><h4>Gestor asignado</h4><p>Un ejecutivo comercial dedicado a tu cuenta desde el primer día.</p></div>
+      </div>
+    </div>
+
+    <div class="df-trust-row">
+      <span class="df-trust-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> ISO 9001</span>
+      <span class="df-trust-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> ISO 14001</span>
+      <span class="df-trust-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> +25 años</span>
+    </div>
+  </div>
+
+  <!-- RIGHT: Form Card -->
+  <div class="df-form-wrap">
+    <div class="df-card">
+      <h3>Formulario de solicitud</h3>
+      <p>Rellena tus datos y te enviaremos las condiciones de distribución.</p>
+      
+      {% form 'contact' %}
+        <input type="hidden" name="contact[tags]" value="distribuidor,mayorista">
+        <div class="df-form">
+          <div class="df-row">
+            <div class="df-field">
+              <label for="df-name">Nombre / Empresa</label>
+              <input type="text" id="df-name" name="contact[company]" placeholder="Tu empresa o nombre" required>
+            </div>
+            <div class="df-field">
+              <label for="df-email">Correo electrónico</label>
+              <input type="email" id="df-email" name="contact[email]" placeholder="email@tuempresa.com" required>
+            </div>
+          </div>
+          <div class="df-row">
+            <div class="df-field">
+              <label for="df-cif">CIF / NIF</label>
+              <input type="text" id="df-cif" name="contact[cif]" placeholder="B12345678">
+            </div>
+            <div class="df-field">
+              <label for="df-phone">Teléfono</label>
+              <input type="tel" id="df-phone" name="contact[phone]" placeholder="+34 600 000 000">
+            </div>
+          </div>
+          <div class="df-field">
+            <label for="df-zone">Zona de actuación</label>
+            <input type="text" id="df-zone" name="contact[zone]" placeholder="Provincia o comunidad autónoma">
+          </div>
+          <div class="df-field">
+            <label for="df-msg">Mensaje</label>
+            <textarea id="df-msg" name="contact[body]" placeholder="Cuéntanos sobre tu negocio, volumen estimado o cualquier duda..."></textarea>
+          </div>
+          <div class="df-submit-wrap">
+            <button type="submit" class="df-submit">Enviar solicitud →</button>
+          </div>
+        </div>
+      {% endform %}
+      
+      <p class="df-note">Al enviar, aceptas nuestra <a href="/policies/privacy-policy">política de privacidad</a>. Respondemos en menos de 24h.</p>
+    </div>
+  </div>
+
+</div>
+</div>

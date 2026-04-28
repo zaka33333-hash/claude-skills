@@ -1,0 +1,393 @@
+{% style %}
+.cl {
+  width: 100%;
+  background: #000;
+  padding: 0 5vw;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.cl-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.cl-label {
+  display: block;
+  margin-bottom: 14px;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+}
+
+.cl h2 {
+  margin: 0 0 12px;
+  color: #f5f5f7;
+  font-size: clamp(38px, 5.5vw, 64px);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.04;
+}
+
+.cl h2 em {
+  display: block;
+  font-style: normal;
+  background: linear-gradient(180deg, #fff 10%, rgba(255, 255, 255, 0.5) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.cl-subtitle {
+  max-width: 560px;
+  margin: 0 0 48px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.cl-subtitle b { color: rgba(255, 255, 255, 0.78); }
+
+.cl-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity .8s cubic-bezier(.4, 0, .2, 1), transform .8s cubic-bezier(.4, 0, .2, 1);
+}
+
+.cl-reveal.on {
+  opacity: 1;
+  transform: none;
+}
+
+.cl-reveal-d1 { transition-delay: .04s; }
+.cl-reveal-d2 { transition-delay: .10s; }
+.cl-reveal-d3 { transition-delay: .16s; }
+.cl-reveal-d4 { transition-delay: .22s; }
+.cl-reveal-d5 { transition-delay: .28s; }
+
+.cl-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 14px;
+}
+
+.cl-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 22px;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 12px 32px rgba(0, 0, 0, 0.26);
+  transition: transform .28s ease, border-color .28s ease, box-shadow .28s ease, background .28s ease;
+}
+
+.cl-card:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(var(--glow, 255, 255, 255), 0.34);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 24px 54px rgba(0, 0, 0, 0.38);
+}
+
+.cl-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 6%;
+  right: 6%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  pointer-events: none;
+}
+
+.cl-well {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: radial-gradient(ellipse 65% 55% at 50% 58%, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 52%, transparent 82%);
+}
+
+.cl-well img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 18px;
+  display: block;
+  object-fit: contain;
+  transition: transform .35s ease;
+}
+
+.cl-card:hover .cl-well img { transform: scale(1.04); }
+
+.cl-num {
+  position: absolute;
+  top: 14px;
+  left: 16px;
+  z-index: 2;
+  color: rgba(255, 255, 255, 0.24);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.cl-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.cl-badge-hot { background: rgba(255, 45, 107, 0.16); color: #ff6a95; }
+.cl-badge-new { background: rgba(0, 207, 255, 0.14); color: #00d0ff; }
+
+.cl-body {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 7px;
+  padding: 18px 18px 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.cl-body h3 {
+  margin: 0;
+  color: #efeff2;
+  font-size: 13.5px;
+  font-weight: 700;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+
+.cl-body-desc {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 10.5px;
+  line-height: 1.45;
+}
+
+.cl-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.cl-go {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+}
+
+.cl-count {
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.cl-linkbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.cl-linkbar a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  padding: 9px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  transition: transform .2s ease, border-color .2s ease, background .2s ease;
+}
+
+.cl-linkbar a:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+@media (max-width: 1024px) {
+  .cl-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .cl-card,
+  .cl-card:hover {
+    background: rgba(20, 20, 24, 0.88) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-color: rgba(255, 255, 255, 0.09) !important;
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.28) !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .cl-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .cl-linkbar a { width: 100%; justify-content: center; }
+}
+
+@media (max-width: 380px) {
+  .cl-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cl-card,
+  .cl-well img,
+  .cl-reveal {
+    transition: none !important;
+  }
+
+  .cl-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+{% endstyle %}
+
+<div class="cl" id="startoner-collections-seo">
+  <div class="cl-inner">
+    <span class="cl-label cl-reveal">Catalogo</span>
+    <h2 class="cl-reveal">Encuentra tu toner<br><em>en segundos.</em></h2>
+    <p class="cl-subtitle cl-reveal">Mas de <b>500 referencias</b> en stock para todas las marcas. Elige tu categoria, compara formatos XL y recibe tu pedido en <b>24 horas</b>.</p>
+
+    <div class="cl-grid">
+      <a href="/collections/toner-laserjet" class="cl-card cl-card-hero cl-reveal cl-reveal-d1" style="--glow:255,180,40;">
+        <div class="cl-well">
+          <span class="cl-num">01</span>
+          <span class="cl-badge cl-badge-hot">Mas vendido</span>
+          <img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Best_sellers_pic_1.png?v=1775432244" alt="Toner LaserJet compatible" loading="lazy">
+        </div>
+        <div class="cl-body">
+          <h3>Toner LaserJet Compatible</h3>
+          <p class="cl-body-desc">HP, Canon, Brother y Samsung para oficina y negocio.</p>
+          <div class="cl-bottom">
+            <span class="cl-go">Explorar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+            <span class="cl-count">120+ refs</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/collections/cartuchos-de-tinta" class="cl-card cl-reveal cl-reveal-d2" style="--glow:0,180,255;">
+        <div class="cl-well">
+          <span class="cl-num">02</span>
+          <img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Use_this_for_cartuchos.png?v=1775433207" alt="Cartuchos de tinta compatibles" loading="lazy">
+        </div>
+        <div class="cl-body">
+          <h3>Cartuchos de Tinta</h3>
+          <p class="cl-body-desc">HP, Epson, Canon y Brother con formatos XL y EcoTank.</p>
+          <div class="cl-bottom">
+            <span class="cl-go">Explorar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+            <span class="cl-count">200+ refs</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/collections/toners-copiadoras" class="cl-card cl-reveal cl-reveal-d3" style="--glow:140,80,230;">
+        <div class="cl-well">
+          <span class="cl-num">03</span>
+          <span class="cl-badge cl-badge-new">B2B</span>
+          <img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Copiadoras.png?v=1775433565" alt="Toner para copiadoras compatible" loading="lazy">
+        </div>
+        <div class="cl-body">
+          <h3>Toner para Copiadoras</h3>
+          <p class="cl-body-desc">Konica Minolta, Kyocera, Canon y Ricoh de alto rendimiento.</p>
+          <div class="cl-bottom">
+            <span class="cl-go">Explorar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+            <span class="cl-count">80+ refs</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/collections/impresoras-termicas" class="cl-card cl-reveal cl-reveal-d4" style="--glow:0,210,160;">
+        <div class="cl-well">
+          <span class="cl-num">04</span>
+          <img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Startoner_5.png?v=1775433188" alt="Impresoras termicas" loading="lazy">
+        </div>
+        <div class="cl-body">
+          <h3>Impresoras Termicas</h3>
+          <p class="cl-body-desc">Equipos para tickets, etiquetas y puntos de venta.</p>
+          <div class="cl-bottom">
+            <span class="cl-go">Explorar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+            <span class="cl-count">30+ refs</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/collections/servicios-mantenimiento-reparacion" class="cl-card cl-reveal cl-reveal-d5" style="--glow:180,180,200;">
+        <div class="cl-well">
+          <span class="cl-num">05</span>
+          <img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Untitled_design_3.png?v=1774796711" alt="Servicio tecnico de impresoras" loading="lazy">
+        </div>
+        <div class="cl-body">
+          <h3>Servicio Tecnico</h3>
+          <p class="cl-body-desc">Mantenimiento, reparacion y soporte profesional en Espana.</p>
+          <div class="cl-bottom">
+            <span class="cl-go">Explorar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"></path></svg></span>
+            <span class="cl-count">Presupuesto</span>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <div class="cl-linkbar cl-reveal cl-reveal-d5">
+      <a href="/collections/cartuchos-tinta-hp">Cartuchos HP 364, 903 y 953XL</a>
+      <a href="/collections/cartuchos-tinta-canon">Cartuchos Canon PIXMA y MegaTank</a>
+      <a href="/collections/cartuchos-tinta-brother">Cartuchos Brother LC y MFC</a>
+      <a href="/blogs/news/cartucho-de-tinta-o-toner-cual-elegir-segun-tu-necesidad">Guia: cartucho o toner</a>
+      <a href="/blogs/news/como-saber-que-toner-necesita-tu-impresora">Guia: encontrar tu referencia</a>
+      <a href="/blogs/news/firmware-hp-bloquea-cartuchos-compatibles-como-protegerte">Guia: firmware HP y compatibles</a>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  var reveals = document.querySelectorAll("#startoner-collections-seo .cl-reveal");
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("on");
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+    reveals.forEach(function (el) { io.observe(el); });
+  } else {
+    reveals.forEach(function (el) { el.classList.add("on"); });
+  }
+})();
+</script>

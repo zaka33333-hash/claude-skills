@@ -1,0 +1,8 @@
+.product__media-item{border-radius:24px!important}
+.price-item--sale{font-weight:800!important;font-size:26px!important}
+.badge.price__badge-sale{background:#ff3b30!important;border:none!important}
+.product-form__submit{border-radius:16px!important;transition:.2s!important}
+.product-form__submit:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,.15)!important}
+.quantity{border-radius:16px!important}
+.jdgm-rev{border-radius:20px!important}
+.jdgm-star{color:#ff9500!important}

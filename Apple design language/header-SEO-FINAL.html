@@ -1,0 +1,521 @@
+<style>
+:root {
+  --hd-h: 68px;
+}
+
+.hd-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 9000;
+}
+
+.hd {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: var(--hd-h);
+  display: flex;
+  align-items: center;
+  padding: 0 5vw;
+  background: rgba(10, 10, 12, 0.84);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.hd::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent);
+  pointer-events: none;
+}
+
+.hd-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hd * { box-sizing: border-box; }
+.hd ul,
+.hd li { margin: 0; padding: 0; list-style: none; }
+.hd a { text-decoration: none !important; }
+
+.hd-logo {
+  display: flex;
+  align-items: center;
+  margin-right: 48px;
+}
+
+.hd-logo img {
+  height: 34px;
+  width: auto;
+  opacity: 0.95;
+  transition: opacity .25s ease, filter .25s ease;
+}
+
+.hd-logo:hover img {
+  opacity: 1;
+  filter: drop-shadow(0 0 14px rgba(255, 255, 255, 0.16));
+}
+
+.hd-nav {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  flex: 1;
+}
+
+.hd-nav > li { position: relative; }
+
+.hd-nav > li > a {
+  display: block;
+  padding: 24px 0;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .4px;
+  transition: color .2s ease;
+}
+
+.hd-nav > li > a:hover { color: #fff; }
+
+.hd-drop {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px);
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px;
+  opacity: 0;
+  visibility: hidden;
+  background: rgba(18, 18, 20, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  box-shadow: 0 24px 52px rgba(0, 0, 0, 0.55);
+  transition: opacity .28s ease, transform .28s ease, visibility .28s ease;
+}
+
+.hd-nav li:hover .hd-drop {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.hd-drop a {
+  display: block;
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 13px;
+  font-weight: 500;
+  transition: background .2s ease, color .2s ease, padding-left .2s ease;
+}
+
+.hd-drop a:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  padding-left: 18px;
+}
+
+.hd-acts {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.hd-acts a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  color: rgba(255, 255, 255, 0.78);
+  transition: color .2s ease, transform .2s ease;
+}
+
+.hd-acts a:hover {
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.hd-acts svg {
+  width: 22px;
+  height: 22px;
+}
+
+.hd-cart-badge {
+  position: absolute;
+  top: -2px;
+  right: -6px;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #fff;
+  color: #000;
+  font-size: 10px;
+  font-weight: 800;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.45);
+}
+
+#hd-toggle { display: none; }
+
+.hd-menu-btn {
+  display: none;
+  color: rgba(255, 255, 255, 0.82);
+  cursor: pointer;
+}
+
+.hd-menu-btn svg {
+  width: 26px;
+  height: 26px;
+}
+
+.hd-menu-btn .hd-icon-close { display: none; }
+#hd-toggle:checked ~ .hd .hd-icon-open { display: none; }
+#hd-toggle:checked ~ .hd .hd-icon-close { display: block; }
+
+.hd-mobile-panel {
+  position: fixed;
+  top: var(--hd-h);
+  left: 0;
+  width: 100%;
+  height: calc(100vh - var(--hd-h));
+  padding: 24px 5vw;
+  background: rgba(10, 10, 12, 0.98);
+  transform: translateY(-10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .28s ease, transform .28s ease, visibility .28s ease;
+  overflow-y: auto;
+  z-index: 8900;
+}
+
+#hd-toggle:checked ~ .hd-mobile-panel {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+#hd-toggle:checked ~ .hd {
+  background: rgba(10, 10, 12, 0.98);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+.hd-mobile-nav {
+  display: flex;
+  flex-direction: column;
+  padding-top: 12px;
+}
+
+.hd-mobile-nav a {
+  display: block;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.hd-mobile-nav .hd-sub-link {
+  padding: 16px 0 16px 20px;
+  border-bottom: none;
+  color: rgba(255, 255, 255, 0.64);
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.hd-breadcrumb {
+  position: relative;
+  z-index: 1;
+  background: rgba(10, 10, 12, 0.94);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+.hd-breadcrumb-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 11px 5vw 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+}
+
+.hd-breadcrumb a {
+  color: rgba(255, 255, 255, 0.62);
+  text-decoration: none !important;
+  transition: color .2s ease;
+}
+
+.hd-breadcrumb a:hover { color: #fff; }
+.hd-breadcrumb-sep { color: rgba(255, 255, 255, 0.22); }
+.hd-breadcrumb [aria-current="page"] { color: #fff; }
+
+.hd-ghost {
+  height: var(--hd-h);
+  width: 100%;
+  background: transparent;
+}
+
+@media (max-width: 960px) {
+  .hd {
+    background: rgba(10, 10, 12, 0.96);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .hd-nav { display: none; }
+
+  .hd-menu-btn {
+    display: block;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hd-acts {
+    gap: 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hd-logo {
+    margin-right: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .hd-breadcrumb-inner {
+    padding: 10px 5vw;
+    gap: 8px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hd-logo img { height: 26px; }
+  .hd-acts { gap: 16px; }
+  .hd-acts svg { width: 22px; height: 22px; }
+}
+</style>
+
+<div class="hd-wrapper">
+  <input type="checkbox" id="hd-toggle">
+
+  <header class="hd">
+    <div class="hd-inner">
+      <label for="hd-toggle" class="hd-menu-btn" aria-label="Toggle Menu">
+        <svg class="hd-icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="8" x2="20" y2="8"></line><line x1="4" y1="16" x2="20" y2="16"></line></svg>
+        <svg class="hd-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"></line><line x1="6" y1="18" x2="18" y2="6"></line></svg>
+      </label>
+
+      <a href="/" class="hd-logo">
+        <img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/startoner_3_1.png?v=1775347975" alt="Startoner" width="160" height="42">
+      </a>
+
+      <ul class="hd-nav">
+        <li>
+          <a href="/collections/toners-y-tintas-impresoras-productos-mas-vendidos">Cat&aacute;logo</a>
+          <div class="hd-drop">
+            <a href="/collections/toner-laserjet">T&oacute;ner Laserjet</a>
+            <a href="/collections/cartuchos-de-tinta">Cartuchos de Tinta</a>
+            <a href="/collections/toners-copiadoras">T&oacute;ner para Copiadoras</a>
+            <a href="/collections/impresoras-laserjet">Impresoras Laserjet</a>
+            <a href="/collections/impresoras-termicas">Impresoras T&eacute;rmicas</a>
+            <a href="/collections/cartuchos-tinta-hp">Cartuchos HP</a>
+          </div>
+        </li>
+        <li><a href="/pages/ofertas">Ofertas</a></li>
+        <li><a href="/pages/conviertete-en-distribuidores">Distribuidores</a></li>
+        <li>
+          <a href="/pages/quien-somos">Empresa</a>
+          <div class="hd-drop">
+            <a href="/pages/quien-somos">Qui&eacute;nes Somos</a>
+            <a href="/pages/preguntas-frecuentes">Preguntas Frecuentes</a>
+            <a href="/blogs/news">Nuestro Blog</a>
+            <a href="/pages/contacto-startoner">Contacto</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="hd-acts">
+        <a href="/search" aria-label="Buscar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </a>
+        <a href="/account" aria-label="Cuenta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </a>
+        <a href="/cart" aria-label="Carrito" id="cart-icon-bubble">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          {% if cart != empty %}
+            <span class="hd-cart-badge">{{ cart.item_count }}</span>
+          {% else %}
+            <span class="hd-cart-badge">0</span>
+          {% endif %}
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="hd-mobile-panel">
+    <div class="hd-mobile-nav">
+      <a href="/collections/toners-y-tintas-impresoras-productos-mas-vendidos">Cat&aacute;logo Principal</a>
+      <a href="/collections/toner-laserjet" class="hd-sub-link">T&oacute;ner Laserjet</a>
+      <a href="/collections/cartuchos-de-tinta" class="hd-sub-link">Cartuchos de Tinta</a>
+      <a href="/collections/cartuchos-tinta-hp" class="hd-sub-link">Cartuchos HP</a>
+      <a href="/collections/toners-copiadoras" class="hd-sub-link">T&oacute;ner Copiadoras</a>
+
+      <a href="/pages/ofertas" style="margin-top:16px;">Ofertas Especiales</a>
+      <a href="/pages/conviertete-en-distribuidores">Distribuidores</a>
+
+      <a href="/pages/quien-somos" style="margin-top:16px;">Empresa y Soporte</a>
+      <a href="/pages/preguntas-frecuentes" class="hd-sub-link">Preguntas Frecuentes</a>
+      <a href="/blogs/news" class="hd-sub-link">Blog de Impresion</a>
+      <a href="/pages/contacto-startoner" class="hd-sub-link">Contacto</a>
+    </div>
+  </div>
+</div>
+
+<div class="hd-ghost"></div>
+
+{% unless template.name == 'index' %}
+{% assign hd_breadcrumb_collection = blank %}
+{% if template.name == 'product' and product and collection %}
+  {% assign hd_breadcrumb_collection = collection %}
+{% elsif template.name == 'product' and product and product.collections.size > 0 %}
+  {% assign hd_breadcrumb_collection = product.collections.first %}
+{% endif %}
+
+<nav class="hd-breadcrumb" aria-label="Breadcrumb">
+  <div class="hd-breadcrumb-inner">
+    <a href="/">Inicio</a>
+
+    {% if template.name == 'collection' and collection %}
+      <span class="hd-breadcrumb-sep">/</span>
+      <a href="/collections/all">Catalogo</a>
+      <span class="hd-breadcrumb-sep">/</span>
+      <span aria-current="page">{{ collection.title }}</span>
+    {% elsif template.name == 'product' and product %}
+      <span class="hd-breadcrumb-sep">/</span>
+      {% if hd_breadcrumb_collection %}
+        <a href="{{ hd_breadcrumb_collection.url }}">{{ hd_breadcrumb_collection.title }}</a>
+      {% else %}
+        <a href="/collections/all">Catalogo</a>
+      {% endif %}
+      <span class="hd-breadcrumb-sep">/</span>
+      <span aria-current="page">{{ product.title }}</span>
+    {% elsif template.name == 'article' and article and blog %}
+      <span class="hd-breadcrumb-sep">/</span>
+      <a href="{{ blog.url }}">{{ blog.title }}</a>
+      <span class="hd-breadcrumb-sep">/</span>
+      <span aria-current="page">{{ article.title }}</span>
+    {% elsif template.name == 'blog' and blog %}
+      <span class="hd-breadcrumb-sep">/</span>
+      <span aria-current="page">{{ blog.title }}</span>
+    {% elsif template.name == 'page' and page %}
+      <span class="hd-breadcrumb-sep">/</span>
+      <span aria-current="page">{{ page.title }}</span>
+    {% endif %}
+  </div>
+</nav>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "{{ shop.url }}/"
+    }
+    {% if template.name == 'collection' and collection %}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Catalogo",
+      "item": "{{ shop.url }}/collections/all"
+    }
+    ,{
+      "@type": "ListItem",
+      "position": 3,
+      "name": {{ collection.title | json }},
+      "item": "{{ shop.url }}{{ collection.url }}"
+    }
+    {% elsif template.name == 'product' and product %}
+      {% if hd_breadcrumb_collection %}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ hd_breadcrumb_collection.title | json }},
+      "item": "{{ shop.url }}{{ hd_breadcrumb_collection.url }}"
+    }
+      {% else %}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Catalogo",
+      "item": "{{ shop.url }}/collections/all"
+    }
+      {% endif %}
+    ,{
+      "@type": "ListItem",
+      "position": 3,
+      "name": {{ product.title | json }},
+      "item": "{{ shop.url }}{{ product.url }}"
+    }
+    {% elsif template.name == 'article' and article and blog %}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ blog.title | json }},
+      "item": "{{ shop.url }}{{ blog.url }}"
+    }
+    ,{
+      "@type": "ListItem",
+      "position": 3,
+      "name": {{ article.title | json }},
+      "item": "{{ shop.url }}{{ article.url }}"
+    }
+    {% elsif template.name == 'blog' and blog %}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ blog.title | json }},
+      "item": "{{ shop.url }}{{ blog.url }}"
+    }
+    {% elsif template.name == 'page' and page %}
+    ,{
+      "@type": "ListItem",
+      "position": 2,
+      "name": {{ page.title | json }},
+      "item": "{{ shop.url }}{{ page.url }}"
+    }
+    {% endif %}
+  ]
+}
+</script>
+{% endunless %}

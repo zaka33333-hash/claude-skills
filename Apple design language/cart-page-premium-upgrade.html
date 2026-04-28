@@ -1,0 +1,377 @@
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   STARTONER CART — APEX ENGINE v3.0
+   Pure CSS aesthetic overlay for Dawn theme cart page.
+   Zero structural changes. Zero JS. Zero breakage.
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── 1. GLOBAL CANVAS ── */
+#main-cart-items,
+.section-template--cart-items,
+[id*="main-cart-items"] {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif !important;
+  -webkit-font-smoothing: antialiased !important;
+}
+
+/* ── 2. PREMIUM TITLE ── */
+.cart .title,
+h1.title--primary {
+  font-size: clamp(28px, 4vw, 44px) !important;
+  font-weight: 800 !important;
+  letter-spacing: -0.04em !important;
+  color: #1d1d1f !important;
+}
+
+/* "Seguir comprando" link */
+.cart .underlined-link,
+a[href="/collections/all"] {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px !important;
+  color: #0071e3 !important;
+  text-decoration: none !important;
+  text-transform: uppercase !important;
+  transition: opacity 0.2s !important;
+}
+.cart .underlined-link:hover,
+a[href="/collections/all"]:hover {
+  opacity: 0.7 !important;
+}
+
+/* ── 3. TABLE HEADER ROW ── */
+.cart-items thead th {
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  color: #86868b !important;
+  border-bottom: 1px solid rgba(0,0,0,0.06) !important;
+  padding-bottom: 16px !important;
+}
+
+/* ── 4. EACH LINE ITEM ROW ── */
+.cart-item {
+  border-bottom: 1px solid rgba(0,0,0,0.04) !important;
+  padding: 24px 0 !important;
+  transition: background 0.2s !important;
+}
+.cart-item:hover {
+  background: rgba(0,113,227,0.015) !important;
+}
+
+/* ── 5. PRODUCT THUMBNAIL ── */
+.cart-item__media {
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  border: 1px solid rgba(0,0,0,0.04) !important;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.04) !important;
+  background: #fafafa !important;
+  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1) !important;
+}
+.cart-item:hover .cart-item__media {
+  transform: scale(1.03) !important;
+}
+
+/* ── 6. PRODUCT NAME & DETAILS ── */
+.cart-item__name {
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #1d1d1f !important;
+  text-decoration: none !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.3 !important;
+  transition: color 0.2s !important;
+}
+.cart-item__name:hover {
+  color: #0071e3 !important;
+}
+
+/* Variant/SKU info text */
+.cart-item .product-option,
+.cart-item dd {
+  font-size: 13px !important;
+  color: #86868b !important;
+  font-weight: 500 !important;
+}
+
+/* Per-unit price */
+.cart-item .price,
+.cart-item__price-wrapper {
+  font-weight: 700 !important;
+  color: #6e6e73 !important;
+  font-size: 14px !important;
+}
+
+/* Line total (right column) */
+.cart-item__totals .price {
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  color: #1d1d1f !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* ── 7. QUANTITY SELECTOR — Apple Capsule ── */
+.quantity {
+  background: #f5f5f7 !important;
+  border: 1px solid rgba(0,0,0,0.04) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  transition: border-color 0.2s !important;
+}
+.quantity:hover {
+  border-color: rgba(0,113,227,0.3) !important;
+}
+.quantity__button {
+  color: #1d1d1f !important;
+  transition: background 0.15s !important;
+  border: none !important;
+}
+.quantity__button:hover {
+  background: rgba(0,0,0,0.06) !important;
+}
+.quantity__input {
+  font-weight: 700 !important;
+  font-size: 15px !important;
+  color: #1d1d1f !important;
+  border-color: transparent !important;
+  background: transparent !important;
+}
+
+/* ── 8. REMOVE / TRASH BUTTON ── */
+cart-remove-button a,
+cart-remove-button .button,
+.cart-item a[href*="/cart/change"] {
+  width: 40px !important;
+  height: 40px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 12px !important;
+  background: rgba(255,59,48,0.04) !important;
+  color: #c7c7cc !important;
+  transition: all 0.25s cubic-bezier(0.16,1,0.3,1) !important;
+  border: none !important;
+  text-decoration: none !important;
+}
+cart-remove-button a:hover,
+cart-remove-button .button:hover,
+.cart-item a[href*="/cart/change"]:hover {
+  background: #ff3b30 !important;
+  color: #fff !important;
+  transform: scale(1.1) !important;
+}
+
+/* ── 9. SUBTOTAL / CHECKOUT AREA ── */
+.cart__footer,
+.cart__blocks {
+  margin-top: 40px !important;
+  position: relative !important;
+}
+
+/* Subtotal text */
+.totals {
+  padding: 24px 0 !important;
+  border-top: 2px solid #1d1d1f !important;
+}
+.totals__subtotal {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  color: #86868b !important;
+}
+.totals__subtotal-value {
+  font-size: clamp(24px, 4vw, 36px) !important;
+  font-weight: 800 !important;
+  color: #1d1d1f !important;
+  letter-spacing: -0.03em !important;
+}
+
+/* Tax note */
+.tax-note,
+.cart__blocks small,
+.rte a {
+  font-size: 13px !important;
+  color: #86868b !important;
+  font-weight: 500 !important;
+}
+
+/* ── 10. CHECKOUT BUTTON — The Money Button ── */
+#checkout,
+.cart__checkout-button,
+button[name="checkout"] {
+  background: #1d1d1f !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: 14px !important;
+  min-height: 60px !important;
+  font-size: 16px !important;
+  font-weight: 800 !important;
+  letter-spacing: 1px !important;
+  text-transform: uppercase !important;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.16,1,0.3,1) !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+#checkout:hover,
+.cart__checkout-button:hover,
+button[name="checkout"]:hover {
+  background: #0071e3 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 12px 28px rgba(0,113,227,0.35) !important;
+}
+#checkout:active,
+.cart__checkout-button:active,
+button[name="checkout"]:active {
+  transform: translateY(0) !important;
+}
+
+/* ── 11. DYNAMIC PAYMENT BUTTONS (Shop Pay, PayPal, GPay) ── */
+.cart__dynamic-checkout-buttons {
+  margin-top: 12px !important;
+}
+.cart__dynamic-checkout-buttons [role="button"],
+.shopify-cleanslate [role="button"] {
+  border-radius: 14px !important;
+  min-height: 52px !important;
+  overflow: hidden !important;
+}
+
+/* ── 12. FREE SHIPPING PROGRESS BAR (injected via JS below) ── */
+.apx-ship-bar {
+  max-width: 100%;
+  margin: 0 0 32px;
+  padding: 20px 24px;
+  background: #f5f5f7;
+  border-radius: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  border: 1px solid rgba(0,0,0,0.04);
+}
+.apx-ship-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1d1d1f;
+  margin-bottom: 12px;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+.apx-ship-text svg { width: 18px; height: 18px; color: #0071e3; vertical-align: -4px; margin-right: 6px; display: inline-block; }
+.apx-ship-text strong { color: #0071e3; font-weight: 800; }
+.apx-ship-track {
+  width: 100%;
+  height: 6px;
+  background: rgba(0,0,0,0.06) !important;
+  border-radius: 100px;
+  overflow: hidden;
+  display: block;
+}
+.apx-ship-fill {
+  display: block;
+  height: 100%;
+  border-radius: 100px;
+  background: linear-gradient(90deg, #0071e3, #40a9ff) !important;
+  transition: width 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+.apx-ship-bar.apx-free .apx-ship-fill {
+  background: linear-gradient(90deg, #34c759, #30d158) !important;
+}
+.apx-ship-bar.apx-free .apx-ship-text strong { color: #34c759; }
+
+/* ── 13. TRUST BADGES ROW ── */
+.apx-trust {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 20px;
+  padding: 16px 0;
+  border-top: 1px solid rgba(0,0,0,0.04);
+}
+.apx-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #86868b;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+.apx-trust-item svg { width: 16px; height: 16px; color: #34c759; }
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const FREE_SHIPPING_THRESHOLD = 30; // euros
+  
+  // ── Shipping Progress Bar ──
+  const totalsArea = document.querySelector('.totals') || document.querySelector('.cart__footer') || document.querySelector('.cart__blocks');
+  if (totalsArea && !document.querySelector('.apx-ship-bar')) {
+    let totalPrice = 0;
+    let rawPriceText = "";
+    
+    // Massive net of all known Shopify theme classes for the Cart Subtotal
+    const possibleSelectors = [
+      '.totals__subtotal-value', '.totals__price', '.cart-subtotal__price', 
+      '[data-cart-subtotal]', '.cart__subtotal', '.cart-subtotal .money', 
+      '[data-subtotal]', '.totals .price'
+    ];
+    
+    // Extract text from the first valid selector found
+    for(let sel of possibleSelectors) {
+      let el = document.querySelector(sel);
+      if(el) { rawPriceText = el.textContent; break; }
+    }
+    
+    // Total Fail-safe: If no class matches, string-search the whole footer block for the price numbers
+    if (!rawPriceText) {
+       let blockText = totalsArea.textContent;
+       let match = blockText.match(/(?:Total|estimado|Subtotal)[\s\S]*?(?:€|EUR)?\s*([\d\.,]+)/i);
+       if (match) { rawPriceText = match[1]; }
+    }
+
+    if (rawPriceText) {
+      // Clean string completely: removes € EUR, Letters, and Spaces. "Total: €18,97 EUR" -> "18,97"
+      let clean = rawPriceText.replace(/[€A-Za-z\s]/gi, '').trim();
+      // European format switch: "1.234,56" -> "1234.56", "18,97" -> "18.97"
+      if (clean.includes(',')) {
+        clean = clean.replace(/\./g, '').replace(',', '.');
+      }
+      totalPrice = parseFloat(clean) || 0;
+    }
+    
+    const remaining = Math.max(0, FREE_SHIPPING_THRESHOLD - totalPrice);
+    const pct = Math.min(100, (totalPrice / FREE_SHIPPING_THRESHOLD) * 100);
+    const isFree = remaining <= 0;
+    const remainStr = remaining.toFixed(2).replace('.', ',');
+    
+    const bar = document.createElement('div');
+    bar.className = 'apx-ship-bar' + (isFree ? ' apx-free' : '');
+    bar.innerHTML = `
+      <p class="apx-ship-text">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        ${isFree 
+          ? '✓ <strong>¡Envío gratis desbloqueado!</strong> Tu pedido califica para entrega gratuita.'
+          : `Añade <strong>€${remainStr}</strong> más para conseguir <strong>envío gratis</strong>`}
+      </p>
+      <div class="apx-ship-track"><div class="apx-ship-fill" style="width:${pct}%"></div></div>
+    `;
+    totalsArea.parentNode.insertBefore(bar, totalsArea);
+  }
+  
+  // ── Trust Badges ──
+  const checkoutBtns = document.querySelector('.cart__ctas') || document.querySelector('.cart__checkout-button')?.parentNode;
+  if (checkoutBtns && !document.querySelector('.apx-trust')) {
+    const trust = document.createElement('div');
+    trust.className = 'apx-trust';
+    trust.innerHTML = `
+      <span class="apx-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Pago Seguro SSL</span>
+      <span class="apx-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Envío 24h</span>
+      <span class="apx-trust-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Garantía 2 Años</span>
+    `;
+    checkoutBtns.appendChild(trust);
+  }
+});
+</script>

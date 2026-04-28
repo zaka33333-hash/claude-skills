@@ -1,0 +1,352 @@
+<style>
+/* ── HEADER PRO ──────────────────────────── */
+:root {
+  --hd-h: 68px; /* Height of the slim premium bar */
+}
+
+.hd-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 9000;
+}
+
+.hd {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--hd-h);
+  background: rgba(10, 10, 12, 0.72);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border-bottom: 1px solid rgba(255, 255, 255, .06);
+  display: flex;
+  align-items: center;
+  padding: 0 5vw;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  transition: background .3s;
+}
+
+.hd::before {
+  content:''; position:absolute; inset:0; 
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent); 
+  pointer-events: none; z-index: 0;
+}
+
+.hd-inner {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
+/* Base structural fixes for Dawn themes */
+.hd * { box-sizing: border-box; }
+.hd ul, .hd li { margin: 0; padding: 0; list-style: none; }
+.hd a { text-decoration: none !important; }
+
+/* ── LOGO ─────────────────────────────── */
+.hd-logo {
+  display: flex;
+  align-items: center;
+  margin-right: 48px;
+}
+.hd-logo img {
+  height: 34px;
+  width: auto;
+  opacity: 0.95;
+  transition: all .3s;
+}
+.hd-logo:hover img {
+  opacity: 1;
+  filter: drop-shadow(0 0 16px rgba(255, 255, 255, .25));
+}
+
+/* ── DESKTOP NAV ──────────────────────── */
+.hd-nav {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  flex: 1; /* Pushes acts to the right */
+}
+.hd-nav>li { position: relative; }
+.hd-nav>li>a {
+  color: rgba(255, 255, 255, .7);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .4px;
+  transition: color .2s, text-shadow .2s;
+  display: block;
+  padding: 24px 0; /* Huge hit area to prevent dropdown clipping */
+}
+.hd-nav>li>a:hover {
+  color: #fff;
+  text-shadow: 0 0 12px rgba(255,255,255,.3);
+}
+
+/* Dropdowns */
+.hd-drop {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translateX(-50%) translateY(12px) scale(0.95);
+  background: rgba(18, 18, 20, 0.85);
+  backdrop-filter: blur(36px);
+  -webkit-backdrop-filter: blur(36px);
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: 14px;
+  padding: 10px;
+  min-width: 220px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all .35s cubic-bezier(.34, 1.56, .64, 1);
+  box-shadow: 0 24px 52px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, .1);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  z-index: 100;
+}
+.hd-nav li:hover .hd-drop {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+.hd-drop::before {
+  content:''; position:absolute; top:-6px; left:50%; transform:translateX(-50%);
+  border-left: 6px solid transparent; border-right: 6px solid transparent;
+  border-bottom: 6px solid rgba(255,255,255,.08);
+}
+.hd-drop a {
+  padding: 10px 14px;
+  border-radius: 8px;
+  transition: background .2s, color .2s, padding-left .3s;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, .65);
+  display: block;
+}
+.hd-drop a:hover {
+  background: rgba(255, 255, 255, .08);
+  color: #fff;
+  padding-left: 18px; /* Elegant strict slide */
+}
+
+/* ── ACTION ICONS ─────────────────────── */
+.hd-acts {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.hd-acts a {
+  color: rgba(255, 255, 255, .75);
+  transition: color .2s, transform .2s cubic-bezier(.34, 1.56, .64, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 4px;
+}
+.hd-acts a:hover {
+  color: #fff;
+  transform: scale(1.1) translateY(-1px);
+  filter: drop-shadow(0 4px 12px rgba(255,255,255,.3));
+}
+.hd-acts svg {
+  width: 22px;
+  height: 22px;
+}
+.hd-cart-badge {
+  position: absolute;
+  top: -2px;
+  right: -6px;
+  background: #fff; /* Premium white badge */
+  color: #000;
+  font-size: 10px;
+  font-weight: 800;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  box-sizing: border-box;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,.6);
+}
+
+/* ── MOBILE MENU SYSTEM (Zero JS) ─────── */
+#hd-toggle { display: none; }
+.hd-menu-btn {
+  display: none;
+  color: rgba(255, 255, 255, .8);
+  cursor: pointer;
+  padding: 4px;
+  transition: color .2s;
+}
+.hd-menu-btn:hover { color: #fff; }
+.hd-menu-btn svg { width: 26px; height: 26px; }
+
+.hd-mobile-panel {
+  position: fixed;
+  top: var(--hd-h);
+  left: 0;
+  width: 100%;
+  height: calc(100vh - var(--hd-h));
+  background: rgba(10, 10, 12, 0.95);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  z-index: 8900;
+  transform: translateY(-10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all .4s cubic-bezier(.34, 1.56, .64, 1);
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 24px 5vw;
+}
+
+#hd-toggle:checked ~ .hd-mobile-panel {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+#hd-toggle:checked ~ .hd {
+  background: rgba(10, 10, 12, 0.95); /* Solidify header when menu open */
+  border-bottom-color: rgba(255,255,255,.12);
+}
+
+/* Morph Hamburger to X */
+.hd-menu-btn .hd-icon-close { display: none; }
+#hd-toggle:checked ~ .hd .hd-menu-btn .hd-icon-open { display: none; }
+#hd-toggle:checked ~ .hd .hd-menu-btn .hd-icon-close { display: block; }
+
+.hd-mobile-nav { display: flex; flex-direction: column; padding-top: 12px; }
+.hd-mobile-nav a {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, .08);
+  letter-spacing: -.02em;
+}
+.hd-mobile-nav .hd-sub-link {
+  font-size: 17px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, .6);
+  padding: 16px 0 16px 20px;
+  border-bottom: none;
+}
+
+/* Responsive Overrides */
+@media(max-width: 960px) {
+  .hd-nav { display: none; }
+  .hd-menu-btn { display: block; position: relative; z-index: 2; }
+  .hd-acts { gap: 20px; position: relative; z-index: 2; }
+  .hd-logo { 
+    margin-right: 0; 
+    position: absolute; 
+    left: 50%; 
+    transform: translateX(-50%); 
+  }
+}
+@media(max-width: 480px){
+  .hd-logo img { height: 26px; }
+  .hd-acts svg { width: 22px; height: 22px; }
+  .hd-acts { gap: 16px; }
+}
+
+/* Ghost Spacer to push Dawn content below fixed header */
+.hd-ghost { height: var(--hd-h); width: 100%; background: transparent; }
+</style>
+
+<div class="hd-wrapper">
+  
+  <input type="checkbox" id="hd-toggle">
+  
+  <header class="hd">
+    <div class="hd-inner">
+      
+      <!-- Mobile Hamburger -->
+      <label for="hd-toggle" class="hd-menu-btn" aria-label="Toggle Menu">
+        <svg class="hd-icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="8" x2="20" y2="8"/><line x1="4" y1="16" x2="20" y2="16"/></svg>
+        <svg class="hd-icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
+      </label>
+
+      <!-- Logo -->
+      <a href="/" class="hd-logo">
+        <img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/startoner_3_1.png?v=1775347975" alt="Startoner" width="160" height="42">
+      </a>
+
+      <!-- Desktop Nav -->
+      <ul class="hd-nav">
+        <li><a href="/collections/toners-y-tintas-impresoras-productos-mas-vendidos">Catálogo</a>
+          <div class="hd-drop">
+            <a href="/collections/toner-laserjet">Tóner Laserjet</a>
+            <a href="/collections/cartuchos-de-tinta">Cartuchos de Tinta</a>
+            <a href="/collections/toners-copiadoras">Tóner para Copiadoras</a>
+            <a href="/collections/impresoras-laserjet">Impresoras Laserjet</a>
+            <a href="/collections/impresoras-termicas">Impresoras Térmicas</a>
+          </div>
+        </li>
+        <li><a href="/pages/ofertas">Ofertas</a></li>
+        <li><a href="/pages/conviertete-en-distribuidores">Distribuidores</a></li>
+        <li><a href="/pages/quien-somos">Empresa</a>
+          <div class="hd-drop">
+            <a href="/pages/quien-somos">Quiénes Somos</a>
+            <a href="/pages/preguntas-frecuentes">Preguntas Frecuentes</a>
+            <a href="/blogs/cartucho-tinta-toner-compatible-noticias">Nuestro Blog</a>
+            <a href="/pages/contacto-startoner">Contacto</a>
+          </div>
+        </li>
+      </ul>
+
+      <!-- Action Icons -->
+      <div class="hd-acts">
+        <a href="/search" aria-label="Buscar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </a>
+        <a href="/account" aria-label="Cuenta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+        </a>
+        <a href="/cart" aria-label="Carrito" id="cart-icon-bubble">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+          
+          <!-- Native Liquid logic to sync with Shopify Cart -->
+          {% if cart != empty %}
+            <span class="hd-cart-badge">{{ cart.item_count }}</span>
+          {% else %}
+            <!-- Fallback rendering 0 if viewed outside Shopify context -->
+            <span class="hd-cart-badge">0</span>
+          {% endif %}
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Panel -->
+  <div class="hd-mobile-panel">
+    <div class="hd-mobile-nav">
+      <a href="/collections/toners-y-tintas-impresoras-productos-mas-vendidos">Catálogo Principal</a>
+      <a href="/collections/toner-laserjet" class="hd-sub-link">Tóner Laserjet</a>
+      <a href="/collections/cartuchos-de-tinta" class="hd-sub-link">Cartuchos de Tinta</a>
+      <a href="/collections/toners-copiadoras" class="hd-sub-link">Tóner Copiadoras</a>
+      
+      <a href="/pages/ofertas" style="margin-top:16px;">Ofertas Especiales</a>
+      <a href="/pages/conviertete-en-distribuidores">Distribuidores</a>
+      
+      <a href="/pages/quien-somos" style="margin-top:16px;">Empresa y Soporte</a>
+      <a href="/pages/preguntas-frecuentes" class="hd-sub-link">Preguntas Frecuentes</a>
+      <a href="/pages/contacto-startoner" class="hd-sub-link">Contacto</a>
+    </div>
+  </div>
+
+</div>
+
+<!-- The Ghost pushes Shopify's native page content down so it doesn't get eclipsed by our absolute Header -->
+<div class="hd-ghost"></div>

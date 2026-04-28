@@ -1,0 +1,296 @@
+{% style %}
+/*! 
+  * STAR-TONER COLLECTIONS GRID 
+  * Version 2.1 — Production Cache-Bust Update
+  */
+.cl { width:100%; background:#000; padding:0 5vw; box-sizing:border-box; overflow:hidden; }
+.cl-inner { max-width:1280px; margin:0 auto; }
+
+/* ── Section header ── */
+.cl-label { display:block; font-size:10px; font-weight:800; letter-spacing:3.5px; text-transform:uppercase; color:rgba(255,255,255,.35); margin-bottom:14px; }
+.cl h2 { font-size:clamp(38px,5.5vw,64px); font-weight:800; letter-spacing:-0.04em; line-height:1.04; margin:0 0 12px; color:#f5f5f7; }
+.cl h2 em { font-style:normal; display:block; background:linear-gradient(180deg,#fff 10%,rgba(255,255,255,.50) 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; padding-bottom:.1em; }
+.cl-subtitle { font-size:15px; color:rgba(255,255,255,.48); line-height:1.65; margin:0 0 48px; max-width:520px; }
+.cl-subtitle b { color:rgba(255,255,255,.72); font-weight:700; }
+
+/* ── Scroll reveal ── */
+.cl-reveal { opacity:0; transform:translateY(36px); transition:opacity .8s cubic-bezier(.4,0,.2,1), transform .8s cubic-bezier(.4,0,.2,1); }
+.cl-reveal.on { opacity:1; transform:none; }
+.cl-reveal-d1 { transition-delay:.05s; }
+.cl-reveal-d2 { transition-delay:.12s; }
+.cl-reveal-d3 { transition-delay:.2s; }
+.cl-reveal-d4 { transition-delay:.28s; }
+.cl-reveal-d5 { transition-delay:.36s; }
+
+/* ── Grid ── */
+.cl-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:14px; }
+
+/* ═══ LIQUID GLASS CARDS ═══ */
+.cl-card {
+  display:flex; flex-direction:column; border-radius:22px; overflow:hidden;
+  text-decoration:none; position:relative; will-change:transform;
+  
+  /* Liquid glass — stronger idle presence */
+  background:rgba(255,255,255,.035);
+  backdrop-filter:blur(24px) saturate(180%) brightness(1.04);
+  -webkit-backdrop-filter:blur(24px) saturate(180%) brightness(1.04);
+  border:0.5px solid rgba(255,255,255,.12);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.12),
+    0 12px 40px rgba(0,0,0,.3);
+    
+  /* Parallax via JS */
+  transform:perspective(800px) rotateX(var(--crx,0deg)) rotateY(var(--cry,0deg));
+  transform-style:preserve-3d;
+  transition:
+    background .5s cubic-bezier(.4,0,.2,1),
+    backdrop-filter .5s cubic-bezier(.4,0,.2,1),
+    -webkit-backdrop-filter .5s cubic-bezier(.4,0,.2,1),
+    border-color .3s ease,
+    box-shadow .5s cubic-bezier(.4,0,.2,1),
+    transform .12s ease-out !important; 
+    /* added !important to transform transition to prevent flicker */
+}
+
+/* Hover: glass clears + per-category colored glow via --glow */
+.cl-card:hover {
+  background:rgba(255,255,255,.04);
+  backdrop-filter:blur(10px) saturate(260%) brightness(1.22);
+  -webkit-backdrop-filter:blur(10px) saturate(260%) brightness(1.22);
+  border-color:rgba(var(--glow, 255,255,255),.35);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.3),
+    0 32px 64px rgba(0,0,0,.5),
+    0 0 50px rgba(var(--glow, 0,207,255),.08),
+    0 0 100px rgba(var(--glow, 0,207,255),.04);
+}
+
+/* Top specular highlight — picks up category glow color on hover */
+.cl-card::before { content:''; position:absolute; top:0; left:6%; right:6%; height:1px; z-index:5; background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,.15) 20%,rgba(255,255,255,.4) 50%,rgba(255,255,255,.15) 80%,transparent 100%); transition:background .4s ease; }
+.cl-card:hover::before { background:linear-gradient(90deg,transparent 0%,rgba(var(--glow,255,255,255),.5) 15%,rgba(var(--glow,255,255,255),.9) 50%,rgba(var(--glow,255,255,255),.5) 85%,transparent 100%); }
+
+/* Upper light wash — colored on hover */
+.cl-card::after { content:''; position:absolute; top:0; left:0; right:0; height:45%; background:linear-gradient(to bottom,rgba(255,255,255,.025) 0%,transparent 100%); border-radius:22px 22px 0 0; pointer-events:none; z-index:0; transition:background .4s ease; }
+.cl-card:hover::after { background:linear-gradient(to bottom,rgba(var(--glow,255,255,255),.08) 0%,transparent 100%); }
+
+/* ── Image well ── */
+.cl-well { aspect-ratio:4/3; position:relative; overflow:hidden; background:radial-gradient(ellipse 65% 55% at 50% 58%,rgba(255,255,255,.055) 0%,rgba(255,255,255,.01) 50%,transparent 80%),linear-gradient(170deg,rgba(255,255,255,.02) 0%,transparent 55%); }
+.cl-well img { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; padding:18px; z-index:1; display:block; transition:transform .5s cubic-bezier(.34,1.2,.64,1); }
+.cl-card:hover .cl-well img { transform:scale(1.07); }
+
+/* ── Badge ("Más vendido" etc) ── */
+.cl-badge { position:absolute; top:12px; right:12px; z-index:6; font-size:8.5px; font-weight:800; letter-spacing:1.5px; text-transform:uppercase; padding:5px 10px; border-radius:8px; backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border:0.5px solid rgba(255,255,255,.12); box-shadow:inset 0 1px 0 rgba(255,255,255,.15); }
+.cl-badge-hot { background:rgba(255,45,107,.15); color:#ff5c8a; }
+.cl-badge-new { background:rgba(0,207,255,.12); color:#00cfff; }
+
+/* ── Number ── */
+.cl-num { position:absolute; top:14px; left:16px; font-size:9px; font-weight:800; letter-spacing:2.5px; color:rgba(255,255,255,.2); z-index:4; transition:color .35s ease; }
+.cl-card:hover .cl-num { color:rgba(255,255,255,.45); }
+
+/* ── Body — more breathing room ── */
+.cl-body { padding:18px 18px 22px; display:flex; flex-direction:column; gap:7px; flex:1; border-top:0.5px solid rgba(255,255,255,.07); position:relative; z-index:1; transition:border-color .35s ease; }
+.cl-card:hover .cl-body { border-top-color:rgba(var(--glow,255,255,255),.25); }
+.cl-body h3 { font-size:13.5px; font-weight:700; color:#ededef; margin:0; line-height:1.45; letter-spacing:-0.01em; transition:color .35s ease,text-shadow .35s ease; }
+.cl-card:hover .cl-body h3 { color:#fff; text-shadow:0 0 20px rgba(var(--glow,255,255,255),.2); }
+.cl-body-desc { font-size:10.5px; color:rgba(255,255,255,.45); line-height:1.4; margin:0; transition:color .35s ease; }
+.cl-card:hover .cl-body-desc { color:rgba(255,255,255,.75); }
+.cl-bottom { display:flex; justify-content:space-between; align-items:center; margin-top:auto; padding-top:8px; }
+.cl-go { display:inline-flex; align-items:center; gap:6px; font-size:9.5px; font-weight:700; letter-spacing:1.8px; text-transform:uppercase; color:rgba(255,255,255,.42); transition:color .3s ease,gap .3s ease,text-shadow .3s ease; }
+.cl-go svg { transition:transform .3s cubic-bezier(.34,1.56,.64,1); }
+.cl-card:hover .cl-go { color:rgba(var(--glow,255,255,255),1); gap:10px; text-shadow:0 0 14px rgba(var(--glow,255,255,255),.3); }
+.cl-card:hover .cl-go svg { transform:translateX(4px); }
+.cl-count { font-size:9px; font-weight:700; letter-spacing:.5px; color:rgba(255,255,255,.35); padding:4px 8px; border-radius:6px; background:rgba(255,255,255,.05); border:0.5px solid rgba(255,255,255,.1); transition:color .35s ease,background .35s ease,border-color .35s ease; }
+.cl-card:hover .cl-count { color:rgba(var(--glow,255,255,255),.8); background:rgba(var(--glow,255,255,255),.06); border-color:rgba(var(--glow,255,255,255),.25); }
+
+/* ═══ HERO CARD — Animated RGB shimmer for #1 category ═══ */
+@property --cl-hero-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes clHeroShimmer { to { --cl-hero-angle: 360deg; } }
+
+.cl-card-hero {
+  /* Slightly brighter idle — the money card */
+  background: rgba(255,255,255,.045);
+  border-color: rgba(255,180,40,.15);
+}
+.cl-card-hero::after {
+  /* Warm ambient wash even at idle */
+  background: linear-gradient(to bottom, rgba(255,180,40,.03) 0%, transparent 100%) !important;
+}
+
+/* Animated shimmer ring — only visible on hover */
+.cl-card-hero .cl-shimmer {
+  position: absolute; inset: -1px; border-radius: 22px;
+  background: conic-gradient(from var(--cl-hero-angle),
+    transparent 0%, transparent 70%,
+    rgba(255,180,40,.5) 78%, rgba(255,120,0,.7) 82%,
+    rgba(255,200,60,.4) 86%, transparent 92%, transparent 100%
+  );
+  animation: clHeroShimmer 4s linear infinite;
+  opacity: 0; transition: opacity .5s ease;
+  z-index: -1; pointer-events: none;
+}
+.cl-card-hero:hover .cl-shimmer { opacity: 1; }
+
+/* ══ RESPONSIVE ══ */
+@media(max-width:1024px){.cl-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:900px){
+  /* Performance: disable expensive GPU effects on mobile */
+  .cl-card, .cl-card:hover {
+    backdrop-filter:none !important; -webkit-backdrop-filter:none !important;
+    background:rgba(20,20,24,.85) !important;
+    box-shadow: 0 12px 40px rgba(0,0,0,.3) !important;
+    border-color: rgba(255,255,255,.09) !important;
+    transform: none !important;
+  }
+  .cl-card::before, .cl-card::after, .cl-card:hover::before, .cl-card:hover::after {display:none !important}
+  .cl-card-hero .cl-shimmer { display: none !important; }
+  .cl-card-hero { background: rgba(20,20,24,.85) !important; border-color: rgba(255,255,255,.09) !important; }
+}
+@media(max-width:640px){.cl-grid{grid-template-columns:repeat(2,1fr);gap:10px}}
+@media(max-width:380px){.cl-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){
+  .cl-card { transition:none !important; }
+  .cl-reveal { transition:none !important; opacity:1 !important; transform:none !important; }
+}
+{% endstyle %}
+
+<!-- UPDATE v2.1.0 FORCED DEPLOY START -->
+<div class="cl" id="startoner-collections-v21">
+  <div class="cl-inner">
+    <span class="cl-label cl-reveal">Catálogo</span>
+    <h2 class="cl-reveal">Encuentra tu tóner<br><em>en segundos.</em></h2>
+    <p class="cl-subtitle cl-reveal">Más de <b>500 referencias</b> en stock para todas las marcas. Elige tu categoría, selecciona tu modelo y recíbelo en <b>24 horas</b>.</p>
+
+    <div class="cl-grid">
+
+      <a href="/collections/toner-laserjet" class="cl-card cl-card-hero cl-reveal cl-reveal-d1" style="--glow: 255,180,40;">
+        <div class="cl-shimmer"></div>
+        <div class="cl-well">
+          <span class="cl-num">01</span>
+          <span class="cl-badge cl-badge-hot">Más vendido</span>
+          <img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Best_sellers_pic_1.png?v=1775432244" alt="Tóner LaserJet compatible">
+        </div>
+        <div class="cl-body">
+          <h3>Tóner LaserJet Compatible</h3>
+          <p class="cl-body-desc">HP, Canon, Brother, Samsung — Todos los modelos</p>
+          <div class="cl-bottom">
+            <span class="cl-go">Explorar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            <span class="cl-count">120+ refs</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/collections/cartuchos-de-tinta" class="cl-card cl-reveal cl-reveal-d2" style="--glow: 0,180,255;">
+        <div class="cl-well">
+          <span class="cl-num">02</span>
+          <img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Use_this_for_cartuchos.png?v=1775433207" alt="Cartuchos de Tinta compatibles">
+        </div>
+        <div class="cl-body">
+          <h3>Cartuchos de Tinta</h3>
+          <p class="cl-body-desc">Inyección de tinta — HP, Epson, Canon, Brother</p>
+          <div class="cl-bottom">
+            <span class="cl-go">Explorar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            <span class="cl-count">200+ refs</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/collections/toner-copiadora-compatible-konica-minolta-kyocera" class="cl-card cl-reveal cl-reveal-d3" style="--glow: 140,80,230;">
+        <div class="cl-well">
+          <span class="cl-num">03</span>
+          <span class="cl-badge cl-badge-new">B2B</span>
+          <img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Copiadoras.png?v=1775433565" alt="Tóner para copiadora compatible">
+        </div>
+        <div class="cl-body">
+          <h3>Tóner para Copiadoras</h3>
+          <p class="cl-body-desc">Gran formato — Konica Minolta, Kyocera, Ricoh</p>
+          <div class="cl-bottom">
+            <span class="cl-go">Explorar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            <span class="cl-count">80+ refs</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/collections/impresoras-termicas" class="cl-card cl-reveal cl-reveal-d4" style="--glow: 0,210,160;">
+        <div class="cl-well">
+          <span class="cl-num">04</span>
+          <img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Startoner_5.png?v=1775433188" alt="Impresoras Térmicas">
+        </div>
+        <div class="cl-body">
+          <h3>Impresoras Térmicas</h3>
+          <p class="cl-body-desc">Etiquetas y tickets — Ideal para comercios y almacenes</p>
+          <div class="cl-bottom">
+            <span class="cl-go">Explorar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            <span class="cl-count">30+ refs</span>
+          </div>
+        </div>
+      </a>
+
+      <a href="/collections/servicios-mantenimiento-reparacion" class="cl-card cl-reveal cl-reveal-d5" style="--glow: 180,180,200;">
+        <div class="cl-well">
+          <span class="cl-num">05</span>
+          <img src="https://cdn.shopify.com/s/files/1/0940/7614/1907/files/Untitled_design_3.png?v=1774796711" alt="Servicio técnico impresoras">
+        </div>
+        <div class="cl-body">
+          <h3>Servicio Técnico</h3>
+          <p class="cl-body-desc">Mantenimiento y reparación profesional de impresoras</p>
+          <div class="cl-bottom">
+            <span class="cl-go">Explorar <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+            <span class="cl-count">Presupuesto</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</div>
+<!-- UPDATE v2.1.0 FORCED DEPLOY END -->
+
+<script>
+(function(){
+  /* ── Scroll reveals ── */
+  var reveals = document.querySelectorAll('.cl-reveal');
+  if ('IntersectionObserver' in window) {
+    var clio = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('on');
+          clio.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(function(el) { clio.observe(el); });
+  } else {
+    reveals.forEach(function(el) { el.classList.add('on'); });
+  }
+
+  /* ── Parallax tilt per card ── */
+  var isMobile = ('ontouchstart' in window) || (window.innerWidth < 901);
+  if (!isMobile) {
+    var cards = document.querySelectorAll('.cl-card');
+    cards.forEach(function(card) {
+      card.addEventListener('mousemove', function(e) {
+        var rect = card.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width;
+        var y = (e.clientY - rect.top) / rect.height;
+        var ry = ((x - 0.5) * 10).toFixed(2); /* max ±5° */
+        var rx = (-(y - 0.5) * 8).toFixed(2); /* max ±4° */
+        card.style.setProperty('--cry', ry + 'deg');
+        card.style.setProperty('--crx', rx + 'deg');
+      });
+
+      card.addEventListener('mouseleave', function() {
+        card.style.transition = 'transform .5s cubic-bezier(.34,1.2,.64,1), background .5s, backdrop-filter .5s, -webkit-backdrop-filter .5s, border-color .3s, box-shadow .5s';
+        card.style.setProperty('--cry', '0deg');
+        card.style.setProperty('--crx', '0deg');
+        setTimeout(function(){
+          card.style.transition = '';
+        }, 500);
+      });
+    });
+  }
+})();
+</script>

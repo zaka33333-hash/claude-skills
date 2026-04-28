@@ -1,0 +1,203 @@
+<style>
+/* ═══ STARTONER ABOUT PAGE — APEX ENGINE ═══ */
+.qs-section {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background: #fff;
+  color: #1d1d1f;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  overflow: hidden;
+  padding-bottom: 24px;
+  -webkit-font-smoothing: antialiased;
+}
+.qs-section * { box-sizing: border-box; }
+.qs-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ── HERO ── */
+.qs-hero {
+  padding: 40px 24px 60px;
+  text-align: center;
+  position: relative;
+}
+.qs-hero::before {
+  content: ''; position: absolute;
+  top: -200px; left: 50%; transform: translateX(-50%);
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(0,113,227,0.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+.qs-pill {
+  display: inline-block;
+  font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase;
+  color: #0071e3; padding: 8px 20px; background: rgba(0,113,227,0.08);
+  border-radius: 100px; margin-bottom: 24px;
+}
+.qs-hero h1 {
+  font-size: clamp(48px, 8vw, 82px);
+  font-weight: 800; letter-spacing: -0.04em; line-height: 1.05;
+  margin: 0 0 24px; color: #1d1d1f;
+}
+.qs-hero p {
+  font-size: 22px; color: #86868b;
+  max-width: 680px; margin: 0 auto; line-height: 1.5; font-weight: 500;
+}
+
+/* ── METRICS GRID ── */
+.qs-metrics {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  background: rgba(0,0,0,0.06); border-radius: 28px; overflow: hidden;
+  margin-bottom: 40px; box-shadow: 0 12px 32px rgba(0,0,0,0.03);
+}
+.qs-metric {
+  background: #fff; padding: 48px 24px; text-align: center;
+}
+.qs-metric strong {
+  display: block; font-size: clamp(40px, 5vw, 56px); font-weight: 800;
+  letter-spacing: -0.04em; color: #1d1d1f; line-height: 1; margin-bottom: 8px;
+}
+.qs-metric span {
+  font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
+  text-transform: uppercase; color: #86868b;
+}
+
+/* ── BENTO STORY ── */
+.qs-bento {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+}
+.qs-bento-card {
+  background: #fff; border-radius: 32px; padding: 64px 48px;
+  border: 1px solid rgba(0,0,0,0.04); display: flex; flex-direction: column;
+  justify-content: center; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.02); overflow: hidden; position: relative;
+}
+.qs-bento-card:hover {
+  transform: translateY(-4px); border-color: rgba(0,113,227,0.15);
+  box-shadow: 0 24px 48px rgba(0,113,227,0.08);
+}
+.qs-bento-icon {
+  width: 56px; height: 56px; background: rgba(0,113,227,0.08); color: #0071e3;
+  border-radius: 16px; display: flex; align-items: center; justify-content: center;
+  margin-bottom: 24px;
+}
+.qs-bento-icon svg { width: 28px; height: 28px; }
+.qs-bento h2 {
+  font-size: 32px; font-weight: 800; letter-spacing: -0.03em;
+  margin: 0 0 16px; color: #1d1d1f; z-index: 1; position: relative;
+}
+.qs-bento p {
+  font-size: 17px; color: #6e6e73; line-height: 1.6; margin: 0;
+  z-index: 1; position: relative;
+}
+
+/* Center Large Bento */
+.qs-bento-card.large {
+  grid-column: span 2; align-items: center; text-align: center;
+  padding: 80px 48px; background: #1d1d1f; color: #fff;
+  border: none;
+}
+.qs-bento-card.large::before {
+  content: ''; position: absolute; top: -50%; left: 50%; transform: translateX(-50%);
+  width: 800px; height: 800px;
+  background: radial-gradient(circle, rgba(0,113,227,0.15) 0%, transparent 60%);
+  pointer-events: none;
+}
+.qs-bento-card.large h2 { color: #fff; }
+.qs-bento-card.large p { color: rgba(255,255,255,0.6); max-width: 600px; }
+
+/* ── CERTS ── */
+.qs-certs {
+  display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; z-index: 1; position: relative;
+}
+.qs-cert {
+  display: flex; align-items: center; gap: 6px; padding: 10px 20px;
+  background: #f5f5f7; border-radius: 100px; font-size: 13px; font-weight: 700; color: #1d1d1f;
+}
+.qs-cert svg { width: 16px; height: 16px; color: #34c759; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .qs-metrics { grid-template-columns: repeat(2, 1fr); }
+  .qs-bento { grid-template-columns: 1fr; }
+  .qs-bento-card.large { grid-column: span 1; text-align: left; align-items: flex-start; padding: 48px 32px; }
+}
+@media (max-width: 600px) {
+  .qs-hero h1 { font-size: 42px; }
+  .qs-hero p { font-size: 18px; }
+  .qs-hero { padding: 100px 20px 60px; }
+  .qs-metrics { grid-template-columns: 1fr; border-radius: 20px; }
+  .qs-bento-card { padding: 40px 32px; border-radius: 24px; }
+  .qs-metric strong { font-size: 44px; }
+}
+</style>
+
+<div class="qs-section">
+<div class="qs-wrap">
+
+  <!-- ── HERO ── -->
+  <div class="qs-hero">
+    <span class="qs-pill">Operado por CHICTRATEC S.L.</span>
+    <h1>No somos<br>intermediarios.</h1>
+    <p>Desde 1998, diseñamos la operativa perfecta para que imprimas con la máxima calidad internacional, apostando por el mercado directo a una fracción del coste original.</p>
+  </div>
+
+  <!-- ── METRICS ── -->
+  <div class="qs-metrics">
+    <div class="qs-metric">
+      <strong>1998</strong>
+      <span>Fundación</span>
+    </div>
+    <div class="qs-metric">
+      <strong>500+</strong>
+      <span>Referencias en Stock</span>
+    </div>
+    <div class="qs-metric">
+      <strong>24h</strong>
+      <span>Logística Express</span>
+    </div>
+    <div class="qs-metric">
+      <strong style="color: #0071e3;">70%</strong>
+      <span>Ahorro vs OEM</span>
+    </div>
+  </div>
+
+  <!-- ── BENTO GRID ── -->
+  <div class="qs-bento">
+    
+    <!-- Large Black Card -->
+    <div class="qs-bento-card large">
+      <h2>Desde Cádiz, para toda España</h2>
+      <p>Nuestra sede central y almacén logístico de más de 1.000m² se encuentra en Palmones, Los Barrios (Cádiz). Al centralizar nuestro stock, controlamos todo el proceso para garantizar entregas en 24 horas y precios directos de fábrica, revolucionando la distribución de consumibles.</p>
+    </div>
+
+    <!-- Quality Card -->
+    <div class="qs-bento-card">
+      <div class="qs-bento-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h2>Calidad Certificada</h2>
+      <p>Nos negamos a competir en el mercado del "tóner barato" de baja calidad. Todos nuestros cartuchos de tinta y tóner startoner son producidos bajo los más altos estándares, verificados hoja por hoja antes de ser empaquetados.</p>
+      
+      <div class="qs-certs">
+        <span class="qs-cert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> ISO 9001</span>
+        <span class="qs-cert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> ISO 14001</span>
+        <span class="qs-cert"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg> CE/ROHS</span>
+      </div>
+    </div>
+
+    <!-- Guarantee Card -->
+    <div class="qs-bento-card">
+      <div class="qs-bento-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16 12l-4-4-4 4M12 8v8"/></svg>
+      </div>
+      <h2>Dos Años de Garantía</h2>
+      <p>Confiamos tanto en la precisión de nuestros consumibles que ofrecemos 2 años de garantía total. Si un tóner presenta un fallo de rendimiento, un error de chip o no iguala al original, lo reemplazamos inmediatamente.</p>
+    </div>
+
+  </div>
+
+</div>
+</div>

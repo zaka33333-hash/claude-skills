@@ -1,0 +1,136 @@
+<style>
+/* ═══ STARTONER ENDORSEMENT MARQUEE ═══ */
+.tb-section {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);  /* Forces full width on any Shopify theme */
+  padding: 80px 0;
+  background: #fff;
+  overflow: hidden;
+  border-top: 1px solid rgba(0,0,0,0.04);
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+}
+
+.tb-label {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #86868b;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.tb-wrap {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 15%, #000 85%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 15%, #000 85%, transparent 100%);
+}
+
+.tb-track {
+  display: flex;
+  width: max-content;
+  animation: tb-scroll 35s linear infinite;
+}
+
+.tb-track:hover {
+  animation-play-state: paused;
+}
+
+.tb-list {
+  display: flex;
+  gap: 80px;
+  padding-right: 80px; /* MATCHES GAP FOR SEAMLESS LOOP */
+  align-items: center;
+}
+
+.tb-item {
+  position: relative;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #1d1d1f;
+  white-space: nowrap;
+  opacity: 0.6;
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s;
+  cursor: default;
+}
+
+.tb-item:hover {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+/* The blue dot separator */
+.tb-item::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: -42px; /* perfectly centers in the 80px gap */
+  width: 5px;
+  height: 5px;
+  background: #0071e3;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  opacity: 0.4;
+}
+
+@keyframes tb-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } 
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .tb-section { padding: 48px 0; }
+  .tb-label { font-size: 11px; margin-bottom: 32px; letter-spacing: 2px; }
+  .tb-list { gap: 56px; padding-right: 56px; }
+  .tb-item { font-size: 20px; }
+  .tb-item::after { right: -30px; width: 4px; height: 4px; }
+}
+</style>
+
+<div class="tb-section">
+  <div class="tb-label">Más de 2.000 empresas e instituciones confían en nosotros</div>
+  
+  <div class="tb-wrap">
+    <div class="tb-track">
+      
+      <!-- GROUP 1 -->
+      <div class="tb-list">
+        <div class="tb-item">IPROSUR</div>
+        <div class="tb-item">Autocristales Tomelloso</div>
+        <div class="tb-item">Norsur Marine</div>
+        <div class="tb-item">Mackay Marine</div>
+        <div class="tb-item">Unimars</div>
+        <div class="tb-item">Eléctrica Chaves</div>
+        <div class="tb-item">Maderas Nuñez</div>
+        <div class="tb-item">Safe Box</div>
+        <div class="tb-item">Indacar</div>
+        <div class="tb-item">SM Cars Premium</div>
+        <div class="tb-item">Bricolaje Cruz</div>
+        <div class="tb-item">Movitrans</div>
+      </div>
+      
+      <!-- GROUP 2 (Exact duplicate for seamless infinite scrolling) -->
+      <div class="tb-list">
+        <div class="tb-item">IPROSUR</div>
+        <div class="tb-item">Autocristales Tomelloso</div>
+        <div class="tb-item">Norsur Marine</div>
+        <div class="tb-item">Mackay Marine</div>
+        <div class="tb-item">Unimars</div>
+        <div class="tb-item">Eléctrica Chaves</div>
+        <div class="tb-item">Maderas Nuñez</div>
+        <div class="tb-item">Safe Box</div>
+        <div class="tb-item">Indacar</div>
+        <div class="tb-item">SM Cars Premium</div>
+        <div class="tb-item">Bricolaje Cruz</div>
+        <div class="tb-item">Movitrans</div>
+      </div>
+
+    </div>
+  </div>
+</div>
