@@ -6,8 +6,8 @@ A personal collection of Claude Code skills — local snapshot of `~/.claude/ski
 
 ```
 claude-skills/
-├── loose-skills/       82 top-level skills installed in ~/.claude/skills/
-├── plugin-skills/      26 skills extracted from the claude-plugins-official marketplace
+├── loose-skills/       119 top-level skills installed in ~/.claude/skills/
+├── plugin-skills/      52 skills extracted from installed marketplace plugins
 ├── Apple design language/   work-in-progress design assets
 ├── Zaka´s ai/               work-in-progress AI/skill experiments
 └── scroll-stop-builder-skill/   in-development scroll-stopping content skill
@@ -37,6 +37,18 @@ The `loose-skills/` folder is the source of truth for everything that loads auto
 
 **Memory & context (1)** — `remembering-conversations`
 
+**Web scraping & research (12)** — `firecrawl`, `firecrawl-agent`, `firecrawl-search`, `firecrawl-scrape`, `firecrawl-crawl`, `firecrawl-map`, `firecrawl-download`, `firecrawl-interact`, `firecrawl-build-onboarding`, `firecrawl-build-scrape`, `firecrawl-build-search`, `firecrawl-build-interact`
+
+**Plugin & MCP development (10)** — `agent-development`, `command-development`, `hook-development`, `mcp-integration`, `plugin-settings`, `plugin-structure`, `skill-development`, `build-mcp-server`, `build-mcp-app`, `build-mcpb`
+
+**Setup & maintenance (4)** — `claude-automation-recommender`, `claude-md-improver`, `session-report`, `playground`
+
+**Channel routing (6)** — `discord-access`, `discord-configure`, `imessage-access`, `imessage-configure`, `telegram-access`, `telegram-configure`
+
+**Meta-skill (1)** — `skill-router` (auto-routes prompts to the right cluster of skills; full catalog at `loose-skills/skill-router/references/catalog.md`)
+
+**Other (4)** — `example-command`, `example-skill`, `math-olympiad`, `writing-hookify-rules`
+
 ## Categories — `plugin-skills/` (marketplace plugins)
 
 **Plugin development** — `plugin-dev--agent-development`, `plugin-dev--command-development`, `plugin-dev--hook-development`, `plugin-dev--mcp-integration`, `plugin-dev--plugin-settings`, `plugin-dev--plugin-structure`, `plugin-dev--skill-development`
@@ -52,6 +64,7 @@ The `loose-skills/` folder is the source of truth for everything that loads auto
 ## Notable skills
 
 - **`seo-aeo-playbook/`** — Custom-built SEO/AEO growth-operator playbook with a 7-step order of operations, weekly data-driven loop, and the polcititch correction baked in. Bundled `STRATEGY.md` documents the 4-cadence usage (setup, weekly, monthly, quarterly).
+- **`skill-router/`** — Custom-built meta-skill. Auto-scans the full installed-skills catalog at the start of every non-simple prompt, picks 1–3 most relevant, invokes them. Bundled `references/catalog.md` is an alphabetized index of all 118 loose skills with one-line summaries. Acts as the orchestrator that fires other skills.
 - **`accesslint-audit-and-fix/`** — Accessibility audit→edit→verify loop. Static fallback works without an MCP server; live-DOM mode requires the AccessLint MCP.
 - **`ui-ux-pro-max/`** — UI/UX reference DB with 50+ styles, 161 color palettes, 57 font pairings, 99 UX guidelines, 25 chart types across 10 stacks.
 
