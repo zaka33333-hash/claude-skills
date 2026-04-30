@@ -6,7 +6,7 @@ A personal collection of Claude Code skills — local snapshot of `~/.claude/ski
 
 ```
 claude-skills/
-├── loose-skills/       81 top-level skills installed in ~/.claude/skills/
+├── loose-skills/       82 top-level skills installed in ~/.claude/skills/
 ├── plugin-skills/      26 skills extracted from the claude-plugins-official marketplace
 ├── Apple design language/   work-in-progress design assets
 ├── Zaka´s ai/               work-in-progress AI/skill experiments
@@ -25,7 +25,7 @@ The `loose-skills/` folder is the source of truth for everything that loads auto
 
 **Design & UI (10)** — `frontend-design`, `bencium-innovative-ux-designer`, `design`, `design-audit`, `design-system`, `ui-styling`, `ui-ux-pro-max`, `web-design-guidelines`, `typography`, `relationship-design`
 
-**Marketing & growth (28)** — `seo-aeo-playbook`, `bencium-aeo`, `schema-markup`, `programmatic-seo`, `site-architecture`, `directory-submissions`, `analytics-tracking`, `paid-ads`, `ad-creative`, `competitive-ads-extractor`, `competitor-alternatives`, `content-strategy`, `content-research-writer`, `copy-editing`, `marketing-ideas`, `marketing-psychology`, `community-marketing`, `social-content`, `video`, `lead-magnets`, `lead-research-assistant`, `referral-program`, `pricing-strategy`, `product-marketing-context`, `free-tool-strategy`, `popup-cro`, `page-cro`, `form-cro`, `ab-test-setup`, `organic-first-campaign`
+**Marketing & growth (30)** — `seo-aeo-playbook`, `bencium-aeo`, `schema-markup`, `programmatic-seo`, `site-architecture`, `directory-submissions`, `analytics-tracking`, `paid-ads`, `ad-creative`, `competitive-ads-extractor`, `competitor-alternatives`, `content-strategy`, `content-research-writer`, `copy-editing`, `marketing-ideas`, `marketing-psychology`, `community-marketing`, `social-content`, `video`, `lead-magnets`, `lead-research-assistant`, `referral-program`, `pricing-strategy`, `product-marketing-context`, `free-tool-strategy`, `popup-cro`, `page-cro`, `form-cro`, `ab-test-setup`, `organic-first-campaign`
 
 **Creative content (5)** — `algorithmic-art`, `canvas-design`, `banner-design`, `slides`, `scroll-stop-prompter`
 
