@@ -270,6 +270,8 @@ When the user asks about the following situations, fire these in order:
 | "Pull the most recent orders" | `mcp__shopify-mcp__get-orders` |
 | "Live page indexing audit" | `seo-aeo-playbook` (Week 1 procedure) |
 | "Make a video / scroll-stopping post" | `scroll-stop-prompter` (or `video` skill) |
+| "Add audio / music / SFX to a rendered video" | `video-processing-editing` (FFmpeg automation) |
+| "Cut, trim, or concatenate video clips" | `video-processing-editing` |
 
 ## Conflict resolution — when two skills both seem to fit
 

@@ -1,6 +1,6 @@
 # Skill catalog
 
-Auto-generated alphabetical index of 118 installed loose-skills.
+Auto-generated alphabetical index of 119 installed loose-skills.
 
 Use this when the cluster map in `SKILL.md` doesn't have the exact intent. Search this file (Ctrl+F) for keywords matching the user's request.
 
@@ -343,6 +343,9 @@ Run verification commands and confirm output before claiming success
 
 ### `video`
 "When the user wants to create, generate, or produce video content using AI tools or programmatic frameworks.
+
+### `video-processing-editing`
+FFmpeg automation for cutting, trimming, concatenating videos.
 
 ### `web-asset-generator`
 Generate web assets including favicons, app icons (PWA), and social media meta images (Open Graph) for Facebook, Twitter, WhatsApp, and LinkedIn.
