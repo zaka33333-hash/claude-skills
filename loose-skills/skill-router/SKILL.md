@@ -117,7 +117,14 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Parallel-agent investigations | `dispatching-parallel-agents` |
 | Git worktree for isolation | `using-git-worktrees` |
 | Finish a feature branch | `finishing-a-development-branch` |
-| Documentation | `engineering:documentation` |
+| Documentation | `engineering:documentation`, `ruflo-docs:*` (auto-maintained) |
+| Git diff risk scoring + reviewer suggestion | `ruflo-jujutsu:*` |
+| ADR / architecture decision record | `engineering:architecture`, `ruflo-adr:*` |
+| Domain-driven design scaffolding (contexts, aggregates, events) | `ruflo-ddd:*` |
+| SPARC 5-phase methodology with quality gates | `ruflo-sparc:*` |
+| Local LLM routing (Ollama, etc.) | `ruflo-ruvllm:*` |
+| Sandboxed WebAssembly agents | `ruflo-wasm:*` |
+| Background timer-scheduled tasks (12 auto-triggered workers) | `ruflo-loop-workers:*`, `loop`, `schedule` |
 | Standup updates | `engineering:standup` |
 
 ### Engineering — debugging
@@ -254,6 +261,11 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Search past Claude sessions semantically | `claude-mem:mem-search`, `mcp__plugin_claude-mem_mcp-search__*` |
 | Build AI-queryable knowledge base from observations | `claude-mem:knowledge-agent` |
 | Project narrative / "Journey Into [Project]" report | `claude-mem:timeline-report` |
+| Save / restore agent memory across sessions (ruflo) | `ruflo-rvf:*` |
+| Fast vector DB for agent memory (HNSW-indexed) | `ruflo-agentdb:*` |
+| Hybrid search + graph hops + diversity ranking | `ruflo-rag-memory:*` |
+| Entity relationship maps / knowledge graphs | `ruflo-knowledge-graph:*` |
+| GPU-accelerated Graph RAG (103 tools, ruvector) | `ruflo-ruvector:*` |
 
 ### Operations workflow
 
@@ -263,6 +275,9 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Process documentation | `operations:process-doc` |
 | Risk assessment | `operations:risk-assessment` |
 | Vendor evaluation | `operations:vendor-review`, `legal:vendor-check` |
+| IoT device management (trust scoring, anomaly detection, fleets) | `ruflo-iot-cognitum:*` |
+| Algo trading agents (4 agents, backtesting, 112+ tools) | `ruflo-neural-trader:*` |
+| Market data ingestion / OHLCV vectorization / pattern detection | `ruflo-market-data:*` |
 | Reusable multi-step task templates (parameterized) | `ruflo-workflows:*` |
 | Run agents autonomously in a loop (delegated, not turn-based) | `ruflo-autopilot:*` |
 | Token usage budgets / cost alerts | `ruflo-cost-tracker:*` |
