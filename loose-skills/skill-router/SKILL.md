@@ -139,6 +139,8 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Browser testing with Playwright | `webapp-testing` |
 | Accessibility audit (WCAG) | `design:accessibility-review`, `accesslint-audit-and-fix` |
 | Test strategy planning | `engineering:testing-strategy` |
+| Auto-find missing tests + generate them | `ruflo-testgen:*` |
+| Browser automation testing (Playwright agent) | `ruflo-browser:*`, `webapp-testing` |
 
 ### Engineering — incident & deploy
 
@@ -146,6 +148,9 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 |---|---|
 | Production incident workflow | `engineering:incident-response` |
 | Pre-deploy verification | `engineering:deploy-checklist` |
+| Database schema migrations (safe rollouts) | `ruflo-migrations:*` |
+| Structured logs / traces / metrics | `ruflo-observability:*` |
+| CVE scans + vulnerability fixes | `ruflo-security-audit:*`, `/security-review` |
 
 ### Plugin / MCP development
 
@@ -161,6 +166,7 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Plugin settings / structure | `plugin-settings`, `plugin-structure` |
 | Skill development | `skill-development`, `anthropic-skills:skill-creator` |
 | Hookify rule | `writing-hookify-rules` |
+| Scaffold + validate + publish your own plugin | `ruflo-plugin-creator:*` |
 
 ### Problem-solving / when stuck
 
@@ -212,6 +218,7 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Schema integrity | `schema-markup`, manual curl checks |
 | Typography correctness | `typography` |
 | Vanity/over-engineering check | `vanity-engineering-review` |
+| PII detection / prompt-injection blocking / safety scanning | `ruflo-aidefence:*` |
 
 ### Communication & coordination
 
@@ -268,6 +275,8 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Agents that learn from past success patterns | `ruflo-intelligence:*` |
 | Break large goals into trackable plans | `ruflo-goals:*` |
 | Foundation server / health checks / plugin discovery | `ruflo-core:*` |
+| Cross-machine agent collaboration (zero-trust mTLS) | `ruflo-federation:*` |
+| Dynamic agent behavior / cognitive patterns | `ruflo-daa:*` |
 
 ## Common combinations (pre-mapped)
 
