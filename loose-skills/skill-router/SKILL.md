@@ -110,7 +110,10 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Tech debt audit | `engineering:tech-debt`, `vanity-engineering-review` |
 | Security review | `/security-review`, `security-guidance` plugin |
 | Implementation planning | `writing-plans` → `executing-plans` |
+| Phased plan with doc discovery (claude-mem variant) | `claude-mem:make-plan` → `claude-mem:do` |
 | Subagent-driven dev (fresh agent per task) | `subagent-driven-development` |
+| Map codebase into feature flowcharts | `claude-mem:pathfinder` |
+| Token-optimized AST code search (vs full file Read) | `claude-mem:smart-explore` |
 | Parallel-agent investigations | `dispatching-parallel-agents` |
 | Git worktree for isolation | `using-git-worktrees` |
 | Finish a feature branch | `finishing-a-development-branch` |
@@ -241,6 +244,9 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Memory consolidation | `anthropic-skills:consolidate-memory` |
 | Two-tier memory system | `productivity:memory-management` |
 | Read/write Obsidian notes (Gemma vault) | `mcp__obsidian__*` (CRUD via Local REST API plugin on port 27124) |
+| Search past Claude sessions semantically | `claude-mem:mem-search`, `mcp__plugin_claude-mem_mcp-search__*` |
+| Build AI-queryable knowledge base from observations | `claude-mem:knowledge-agent` |
+| Project narrative / "Journey Into [Project]" report | `claude-mem:timeline-report` |
 
 ### Operations workflow
 
