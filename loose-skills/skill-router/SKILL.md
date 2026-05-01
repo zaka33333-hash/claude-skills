@@ -30,6 +30,7 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Full marketing campaign | `marketing:campaign-plan` |
 | Solo-founder grassroots launch | `organic-first-campaign` |
 | Daily / weekly briefings | `sales:daily-briefing`, `legal:brief`, `enterprise-search:digest` |
+| Build / refresh marketing context doc | `product-marketing-context` |
 
 ### Building / creating
 
@@ -45,6 +46,8 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Generative art (p5.js) | `algorithmic-art` |
 | Posters, static art | `canvas-design` |
 | 3D asset prompts | `3d-asset-generator` |
+| Interactive HTML playgrounds (single-file explorers) | `playground` |
+| AI-first interfaces with memory + trust evolution | `relationship-design` |
 | HTML presentations with Chart.js | `slides` |
 | Pitch decks / .pptx files | `anthropic-skills:pptx` |
 | Word docs | `anthropic-skills:docx` |
@@ -60,6 +63,8 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Programmatic SEO at scale | `programmatic-seo` |
 | Site architecture / URL hierarchy | `site-architecture` |
 | Backlinks via directories | `directory-submissions` |
+| Build / leverage online communities for growth | `community-marketing` |
+| Referral / affiliate / word-of-mouth program | `referral-program` |
 | AEO-specific content optimization (FAQ schema, evidence panels) | `bencium-aeo` |
 | Competitor alternatives pages ("X vs Y") | `competitor-alternatives` |
 | Pull competitor ad library data | `competitive-ads-extractor` |
@@ -97,6 +102,8 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Video content | `video` |
 | Apply behavioral psychology | `marketing-psychology` |
 | Brand voice review | `marketing:brand-review`, `brand-voice:enforce-voice` |
+| Marketing performance report (KPIs, wins/misses) | `marketing:performance-report` |
+| Brand-voice discovery / guidelines / enforcement | `brand-voice:discover-brand` → `brand-voice:guideline-generation` → `brand-voice:brand-voice-enforcement` |
 
 ### Engineering — code work
 
@@ -106,6 +113,8 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | System design | `engineering:system-design`, `human-architect-mindset`, `renaissance-architecture` |
 | Code review (general) | `engineering:code-review`, `requesting-code-review` |
 | Automated PR review (5-agent) | `/code-review` slash command (from code-review plugin) |
+| Code-review skill (PR/diff focused review) | `code-review:code-review` |
+| Review changed code for reuse / quality / efficiency | `simplify` |
 | Receive code review feedback | `receiving-code-review` |
 | Tech debt audit | `engineering:tech-debt`, `vanity-engineering-review` |
 | Security review | `/security-review`, `security-guidance` plugin |
@@ -172,6 +181,7 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Configure MCP integration | `mcp-integration` |
 | Plugin settings / structure | `plugin-settings`, `plugin-structure` |
 | Skill development | `skill-development`, `anthropic-skills:skill-creator` |
+| Build Claude API / Anthropic SDK apps (with prompt caching) | `claude-api` |
 | Hookify rule | `writing-hookify-rules` |
 | Scaffold + validate + publish your own plugin | `ruflo-plugin-creator:*` |
 
@@ -206,7 +216,17 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Browser automation in scrape | `firecrawl-interact`, `firecrawl-agent` |
 | Search past Claude conversations | `remembering-conversations` |
 | Library docs lookup (current versions) | `context7` (MCP), `firecrawl-build-onboarding` |
+| Cross-source unified search (multi-MCP) | `enterprise-search:search`, `enterprise-search:search-strategy`, `enterprise-search:knowledge-synthesis`, `enterprise-search:source-management` |
+| Design optimal RAG system for given data | `anthropic-skills:rag-architect` |
+| Download entire site as local files (markdown / screenshots) | `firecrawl-download` |
+| Integrate firecrawl scrape/search/interact into product code | `firecrawl-build-scrape`, `firecrawl-build-search`, `firecrawl-build-interact` |
 | Data-driven analysis (CSV / DB) | `data:analyze`, `data:explore-data` |
+| SQL writing across dialects | `data:sql-queries`, `data:write-query` |
+| Data visualization (Python — matplotlib/seaborn/plotly) | `data:create-viz`, `data:data-visualization` |
+| Build interactive HTML dashboard (charts/filters/tables) | `data:build-dashboard` |
+| Statistical analysis (descriptive, trends, outliers) | `data:statistical-analysis` |
+| QA an analysis before sharing | `data:validate-data` |
+| Extract company-specific data context from analysts | `data:data-context-extractor` |
 | Competitor research | `marketing:competitive-brief`, `product-management:competitive-brief`, `sales:competitive-intelligence` |
 | Lead research | `lead-research-assistant`, `sales:account-research` |
 | Customer research | `customer-support:customer-research`, `design:user-research` |
@@ -225,6 +245,10 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Schema integrity | `schema-markup`, manual curl checks |
 | Typography correctness | `typography` |
 | Vanity/over-engineering check | `vanity-engineering-review` |
+| Generate dev handoff specs from a design | `design:design-handoff` |
+| Audit / extend design system | `design:design-system`, `design-system` |
+| UX copy review (microcopy, errors, CTAs) | `design:ux-copy` |
+| Synthesize user research into themes | `design:research-synthesis` |
 | PII detection / prompt-injection blocking / safety scanning | `ruflo-aidefence:*` |
 
 ### Communication & coordination
@@ -235,6 +259,9 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Stakeholder update | `product-management:stakeholder-update`, `operations:status-report` |
 | Customer email response | `customer-support:draft-response` |
 | Sales outreach | `sales:draft-outreach`, `apollo:prospect` |
+| Lead enrichment from name / company / LinkedIn / email | `apollo:enrich-lead` |
+| Bulk-add leads to Apollo outreach sequence | `apollo:sequence-load` |
+| Customer support ticket triage / KB article / escalation | `customer-support:ticket-triage`, `customer-support:kb-article`, `customer-support:customer-escalation` |
 | Email sequence | `marketing:email-sequence` |
 | Brainstorming session | `brainstorming`, `product-management:product-brainstorming` |
 | Self-interview / clarify thinking | `inversion-exercise` (adjacent) |
@@ -247,6 +274,8 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Invoice & receipt organization | `invoice-organizer` |
 | Image quality enhancement | `image-enhancer` |
 | Generate changelog from git | `changelog-generator` |
+| Open / view / annotate / sign / fill-form a PDF (interactive) | `pdf-viewer:open`, `pdf-viewer:view-pdf`, `pdf-viewer:annotate`, `pdf-viewer:sign`, `pdf-viewer:fill-form` |
+| PDF read / extract / manipulate (programmatic) | `anthropic-skills:pdf` |
 
 ### Documentation / project memory
 
@@ -257,6 +286,7 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Session usage report | `session-report` |
 | Memory consolidation | `anthropic-skills:consolidate-memory` |
 | Two-tier memory system | `productivity:memory-management` |
+| Shared TASKS.md task management | `productivity:task-management`, `productivity:start`, `productivity:update` |
 | Read/write Obsidian notes (Gemma vault) | `mcp__obsidian__*` (CRUD via Local REST API plugin on port 27124) |
 | Search past Claude sessions semantically | `claude-mem:mem-search`, `mcp__plugin_claude-mem_mcp-search__*` |
 | Build AI-queryable knowledge base from observations | `claude-mem:knowledge-agent` |
@@ -275,6 +305,26 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Process documentation | `operations:process-doc` |
 | Risk assessment | `operations:risk-assessment` |
 | Vendor evaluation | `operations:vendor-review`, `legal:vendor-check` |
+
+### Claude Code harness configuration
+
+| Intent | Skill |
+|---|---|
+| Configure settings.json / hooks / permissions / env vars | `update-config` |
+| Customize keyboard shortcuts / chord bindings | `keybindings-help` |
+| Reduce permission prompts (auto-allowlist common Bash/MCP) | `fewer-permission-prompts` |
+| Run prompt on recurring interval | `loop` |
+| Cron-scheduled remote agents | `schedule`, `anthropic-skills:schedule` |
+| Cowork setup wizard | `anthropic-skills:setup-cowork` |
+
+### Specialized / niche
+
+| Intent | Skill |
+|---|---|
+| Apply Anthropic's official brand colors + typography | `anthropic-skills:brand-guidelines` |
+| Review n8n workflows for errors / inefficiencies | `anthropic-skills:n8n-workflow-reviewer` |
+| Full-stack client acquisition + delivery (improvised-intelligence) | `anthropic-skills:improvised-intelligence` |
+| Competition math (IMO/Putnam/USAMO/AIME) | `math-olympiad` |
 | IoT device management (trust scoring, anomaly detection, fleets) | `ruflo-iot-cognitum:*` |
 | Algo trading agents (4 agents, backtesting, 112+ tools) | `ruflo-neural-trader:*` |
 | Market data ingestion / OHLCV vectorization / pattern detection | `ruflo-market-data:*` |
