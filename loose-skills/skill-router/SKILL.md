@@ -256,6 +256,18 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Process documentation | `operations:process-doc` |
 | Risk assessment | `operations:risk-assessment` |
 | Vendor evaluation | `operations:vendor-review`, `legal:vendor-check` |
+| Reusable multi-step task templates (parameterized) | `ruflo-workflows:*` |
+| Run agents autonomously in a loop (delegated, not turn-based) | `ruflo-autopilot:*` |
+| Token usage budgets / cost alerts | `ruflo-cost-tracker:*` |
+
+### Multi-agent orchestration
+
+| Intent | Skill |
+|---|---|
+| Coordinate multiple agents as a team (parallel work) | `ruflo-swarm:*` (hierarchical / mesh / adaptive topologies) |
+| Agents that learn from past success patterns | `ruflo-intelligence:*` |
+| Break large goals into trackable plans | `ruflo-goals:*` |
+| Foundation server / health checks / plugin discovery | `ruflo-core:*` |
 
 ## Common combinations (pre-mapped)
 
