@@ -196,6 +196,7 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Customer research | `customer-support:customer-research`, `design:user-research` |
 | Live store data (Shopify) | `mcp__shopify-mcp__*` (31 tools) |
 | Shopify API/Liquid docs | `mcp__shopify-dev-mcp__*` |
+| Search Obsidian vault notes | `mcp__obsidian__simple_search`, `mcp__obsidian__complex_search` |
 
 ### Verification / QA
 
@@ -239,6 +240,7 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Session usage report | `session-report` |
 | Memory consolidation | `anthropic-skills:consolidate-memory` |
 | Two-tier memory system | `productivity:memory-management` |
+| Read/write Obsidian notes (Gemma vault) | `mcp__obsidian__*` (CRUD via Local REST API plugin on port 27124) |
 
 ### Operations workflow
 
@@ -270,6 +272,8 @@ When the user asks about the following situations, fire these in order:
 | "Pull the most recent orders" | `mcp__shopify-mcp__get-orders` |
 | "Live page indexing audit" | `seo-aeo-playbook` (Week 1 procedure) |
 | "Make a video / scroll-stopping post" | `scroll-stop-prompter` (or `video` skill) |
+| "Find / read / write a note in my vault" | `mcp__obsidian__simple_search` → `mcp__obsidian__get_file_contents` → `mcp__obsidian__patch_content` (or `append_content`) |
+| "Save this to my Obsidian" | `mcp__obsidian__append_content` (or create new note via Local REST API) |
 | "Add audio / music / SFX to a rendered video" | `video-processing-editing` (FFmpeg automation) |
 | "Cut, trim, or concatenate video clips" | `video-processing-editing` |
 
