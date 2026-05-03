@@ -42,6 +42,9 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Comprehensive design suite (logo, CIP, branded assets) | `design` |
 | Banners (social/ads/web hero) | `banner-design` |
 | AI image/video prompts for scroll-stopping content | `scroll-stop-prompter` |
+| Math/algorithm explainer videos (3Blue1Brown style, Manim CE) | `manim-video` |
+| Infographics: 21 layouts × 21 styles (bento-grid, hand-craft, etc.) | `baoyu-infographic` |
+| Kinetic typography / DOM-free text-as-geometry (Cheng Lou's pretext) | `pretext` |
 | Favicons, app icons, OG images | `web-asset-generator` |
 | Generative art (p5.js) | `algorithmic-art` |
 | Posters, static art | `canvas-design` |
@@ -97,6 +100,7 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Brainstorm content topics | `content-strategy`, `marketing-ideas` |
 | Long-form article writing with research | `content-research-writer` |
 | Edit / refresh existing copy | `copy-editing` |
+| Strip AI-isms from prose (de-AI scrub before publish) | `humanizer` |
 | Channel-specific content | `marketing:content-creation`, `marketing:draft-content` |
 | Social media content | `social-content` |
 | Video content | `video` |
@@ -121,6 +125,7 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Implementation planning | `writing-plans` → `executing-plans` |
 | Phased plan with doc discovery (claude-mem variant) | `claude-mem:make-plan` → `claude-mem:do` |
 | Subagent-driven dev (fresh agent per task) | `subagent-driven-development` |
+| Collapse multi-step pipelines into one Python script (zero-context-cost) | `subagent-python-rpc` |
 | Map codebase into feature flowcharts | `claude-mem:pathfinder` |
 | Token-optimized AST code search (vs full file Read) | `claude-mem:smart-explore` |
 | Parallel-agent investigations | `dispatching-parallel-agents` |
@@ -231,6 +236,7 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Lead research | `lead-research-assistant`, `sales:account-research` |
 | Customer research | `customer-support:customer-research`, `design:user-research` |
 | Live store data (Shopify) | `mcp__shopify-mcp__*` (31 tools) |
+| Passive domain reconnaissance (subdomains, SSL, WHOIS, DNS, no API keys) | `domain-intel` |
 | Shopify API/Liquid docs | `mcp__shopify-dev-mcp__*` |
 | Search Obsidian vault notes | `mcp__obsidian__simple_search`, `mcp__obsidian__complex_search` |
 
@@ -250,6 +256,7 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | UX copy review (microcopy, errors, CTAs) | `design:ux-copy` |
 | Synthesize user research into themes | `design:research-synthesis` |
 | PII detection / prompt-injection blocking / safety scanning | `ruflo-aidefence:*` |
+| Offensive red-team / LLM jailbreak techniques (Parseltongue, GODMODE, ULTRAPLINIAN) | `godmode` |
 
 ### Communication & coordination
 
@@ -259,6 +266,7 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Stakeholder update | `product-management:stakeholder-update`, `operations:status-report` |
 | Customer email response | `customer-support:draft-response` |
 | Sales outreach | `sales:draft-outreach`, `apollo:prospect` |
+| Talk to Claude from your phone (Telegram bot bridge to Claude Code CLI) | `telegram-gateway` |
 | Lead enrichment from name / company / LinkedIn / email | `apollo:enrich-lead` |
 | Bulk-add leads to Apollo outreach sequence | `apollo:sequence-load` |
 | Customer support ticket triage / KB article / escalation | `customer-support:ticket-triage`, `customer-support:kb-article`, `customer-support:customer-escalation` |
@@ -273,6 +281,7 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Organize files / find dupes | `file-organizer` |
 | Invoice & receipt organization | `invoice-organizer` |
 | Image quality enhancement | `image-enhancer` |
+| Transcribe voice memos / audio → text (Whisper API + faster-whisper + whisper.cpp fallback) | `voice-memo-transcription` |
 | Generate changelog from git | `changelog-generator` |
 | Open / view / annotate / sign / fill-form a PDF (interactive) | `pdf-viewer:open`, `pdf-viewer:view-pdf`, `pdf-viewer:annotate`, `pdf-viewer:sign`, `pdf-viewer:fill-form` |
 | PDF read / extract / manipulate (programmatic) | `anthropic-skills:pdf` |
@@ -291,6 +300,7 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Search past Claude sessions semantically | `claude-mem:mem-search`, `mcp__plugin_claude-mem_mcp-search__*` |
 | Build AI-queryable knowledge base from observations | `claude-mem:knowledge-agent` |
 | Project narrative / "Journey Into [Project]" report | `claude-mem:timeline-report` |
+| Multi-day usage dashboard (hours, projects, skills, tokens, $) | `cross-session-insights` |
 | Save / restore agent memory across sessions (ruflo) | `ruflo-rvf:*` |
 | Fast vector DB for agent memory (HNSW-indexed) | `ruflo-agentdb:*` |
 | Hybrid search + graph hops + diversity ranking | `ruflo-rag-memory:*` |
