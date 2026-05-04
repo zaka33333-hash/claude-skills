@@ -37,6 +37,7 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Intent | Skill |
 |---|---|
 | Distinctive web UI, avoiding "AI slop" | `frontend-design` (Anthropic original), `bencium-innovative-ux-designer` |
+| Translate Figma designs into production code with 1:1 visual fidelity | `figma-implement-design` |
 | Tactical UI components with shadcn/Tailwind | `ui-styling`, `web-design-guidelines` |
 | Reference DB for design choices (palettes, fonts, styles) | `ui-ux-pro-max` |
 | Comprehensive design suite (logo, CIP, branded assets) | `design` |
@@ -47,6 +48,7 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Kinetic typography / DOM-free text-as-geometry (Cheng Lou's pretext) | `pretext` |
 | Favicons, app icons, OG images | `web-asset-generator` |
 | Generative art (p5.js) | `algorithmic-art` |
+| Custom interactive D3.js visualizations / SVG charts | `d3-viz` |
 | Posters, static art | `canvas-design` |
 | 3D asset prompts | `3d-asset-generator` |
 | Interactive HTML playgrounds (single-file explorers) | `playground` |
@@ -123,6 +125,18 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Tech debt audit | `engineering:tech-debt`, `vanity-engineering-review` |
 | Security review | `/security-review`, `security-guidance` plugin |
 | Implementation planning | `writing-plans` → `executing-plans` |
+| Concise plan from a prompt (single-message output) | `create-plan` |
+| Gated SPEC → PLAN → TASKS → IMPLEMENT (human approval per phase) | `spec-driven-development` |
+| Verify code against official docs (detect stack → fetch → cite) | `source-driven-development` |
+| Find deepening opportunities / refactor shallow → deep modules | `improve-codebase-architecture` |
+| Large multi-file migrations / framework upgrades (Composio CLI, batched PRs) | `codebase-migrate` |
+| Sunset old systems / Strangler / Adapter / feature-flag migrations | `deprecation-and-migration` |
+| Optimize agent context (CLAUDE.md tiers, scope, trust levels) | `context-engineering` |
+| Get a higher-level map of the area before editing | `zoom-out` |
+| Next.js patterns — RSC, route handlers, file conventions, async APIs, metadata | `next-best-practices` |
+| React/Next.js performance optimization (Vercel Engineering) | `vercel-react-best-practices` |
+| Stripe integration — API choice (Checkout vs PaymentIntents), Connect, Billing, webhooks | `stripe-best-practices` |
+| Postgres / Supabase — schema, RLS, indexing, query optimization | `supabase-postgres-best-practices` |
 | Phased plan with doc discovery (claude-mem variant) | `claude-mem:make-plan` → `claude-mem:do` |
 | Subagent-driven dev (fresh agent per task) | `subagent-driven-development` |
 | Collapse multi-step pipelines into one Python script (zero-context-cost) | `subagent-python-rpc` |
@@ -146,9 +160,12 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Intent | Skill |
 |---|---|
 | Generic structured debug | `engineering:debug` |
+| Disciplined hard-bug loop (reproduce → minimise → hypothesise → instrument → fix) | `diagnose` |
 | Trace deep error to root cause | `root-cause-tracing` |
 | Validate at every layer (defense in depth) | `defense-in-depth` |
 | Verify before claiming done | `verification-before-completion` |
+| Sentry issue diagnosis (pull events / breadcrumbs / suspect commits via Composio) | `sentry-triage` |
+| GitHub Actions PR check failures — pull logs, summarise, plan + fix | `gh-fix-ci` |
 
 ### Engineering — testing
 
@@ -158,6 +175,7 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Avoid mock-testing anti-patterns | `testing-anti-patterns` |
 | Async race condition fix | `condition-based-waiting` |
 | Browser testing with Playwright | `webapp-testing` |
+| Live browser testing via Chrome DevTools MCP (DOM / console / network / perf) | `browser-testing-with-devtools` |
 | Accessibility audit (WCAG) | `design:accessibility-review`, `accesslint-audit-and-fix` |
 | Test strategy planning | `engineering:testing-strategy` |
 | Auto-find missing tests + generate them | `ruflo-testgen:*` |
@@ -169,6 +187,10 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 |---|---|
 | Production incident workflow | `engineering:incident-response` |
 | Pre-deploy verification | `engineering:deploy-checklist` |
+| CI/CD pipeline setup (GitHub Actions, quality gates, branch protection) | `ci-cd-and-automation` |
+| Husky pre-commit hooks + lint-staged + Prettier + typecheck | `setup-pre-commit` |
+| Block dangerous git commands via PreToolUse hook (push, reset --hard, etc.) | `git-guardrails-claude-code` |
+| Pre-launch checklist + feature-flag rollout + rollback plan | `shipping-and-launch` |
 | Database schema migrations (safe rollouts) | `ruflo-migrations:*` |
 | Structured logs / traces / metrics | `ruflo-observability:*` |
 | CVE scans + vulnerability fixes | `ruflo-security-audit:*`, `/security-review` |
@@ -177,7 +199,7 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 
 | Intent | Skill |
 |---|---|
-| Build an MCP server | `build-mcp-server`, `anthropic-skills:mcp-builder` |
+| Build an MCP server | `build-mcp-server`, `mcp-builder`, `anthropic-skills:mcp-builder` |
 | Build MCP UI app | `build-mcp-app` |
 | Bundle MCP for distribution | `build-mcpb` |
 | Create a Claude Code agent | `agent-development` |
@@ -189,6 +211,25 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Build Claude API / Anthropic SDK apps (with prompt caching) | `claude-api` |
 | Hookify rule | `writing-hookify-rules` |
 | Scaffold + validate + publish your own plugin | `ruflo-plugin-creator:*` |
+
+### GitHub / PR & issue workflows
+
+| Intent | Skill |
+|---|---|
+| Address PR review/issue comments via gh CLI on the current branch | `gh-address-comments` |
+| Fix failing GitHub Actions checks on the PR | `gh-fix-ci` |
+| Break a plan/PRD/spec into vertical-slice issues (tracer bullets) | `to-issues` |
+| Synthesize current context into a PRD and publish to issue tracker | `to-prd` |
+| Triage issues through state machine (`needs-triage` → `ready-for-agent` etc.) | `triage` |
+| Scaffold per-repo agent config (issue tracker, label vocab, CONTEXT.md/ADR layout) | `setup-matt-pocock-skills` |
+
+### Plan stress-testing & idea refinement
+
+| Intent | Skill |
+|---|---|
+| Refine a rough idea via structured divergent → convergent thinking | `idea-refine` |
+| Stress-test a plan via relentless interview (one question at a time) | `grill-me` |
+| Stress-test a plan against existing CONTEXT.md / ADRs and update docs inline | `grill-with-docs` |
 
 ### Problem-solving / when stuck
 
@@ -215,6 +256,8 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Intent | Skill |
 |---|---|
 | Web search with content extraction | `firecrawl-search`, WebSearch |
+| Typed JSON access to 90+ real websites (Google, Amazon, Reddit, GitHub, etc.) | `openweb` |
+| Autonomous recursive research up to PhD depth, with source tiering and disk checkpoints | `recursive-research` |
 | Scrape JS-heavy page | `firecrawl-scrape` |
 | Crawl entire site/section | `firecrawl-crawl` |
 | Map all URLs on a site | `firecrawl-map` |
@@ -251,6 +294,7 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Schema integrity | `schema-markup`, manual curl checks |
 | Typography correctness | `typography` |
 | Vanity/over-engineering check | `vanity-engineering-review` |
+| Language-specific (Python / JS / Go) security best-practice review | `security-best-practices` |
 | Generate dev handoff specs from a design | `design:design-handoff` |
 | Audit / extend design system | `design:design-system`, `design-system` |
 | UX copy review (microcopy, errors, CTAs) | `design:ux-copy` |
@@ -266,6 +310,9 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Stakeholder update | `product-management:stakeholder-update`, `operations:status-report` |
 | Customer email response | `customer-support:draft-response` |
 | Sales outreach | `sales:draft-outreach`, `apollo:prospect` |
+| Ultra-terse output mode (drops filler / articles / hedging — ~75% fewer tokens) | `caveman` |
+| Draft / rewrite / condense email (cold outreach, replies, escalations) | `email-draft-polish` |
+| Customer-support ticket triage (Zendesk/Intercom/Help Scout) — categorise, draft reply | `support-ticket-triage` |
 | Talk to Claude from your phone (Telegram bot bridge to Claude Code CLI) | `telegram-gateway` |
 | Lead enrichment from name / company / LinkedIn / email | `apollo:enrich-lead` |
 | Bulk-add leads to Apollo outreach sequence | `apollo:sequence-load` |
@@ -283,6 +330,7 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Image quality enhancement | `image-enhancer` |
 | Transcribe voice memos / audio → text (Whisper API + faster-whisper + whisper.cpp fallback) | `voice-memo-transcription` |
 | Generate changelog from git | `changelog-generator` |
+| Analyse meeting transcripts for communication patterns / filler words / interruptions | `meeting-insights-analyzer` |
 | Open / view / annotate / sign / fill-form a PDF (interactive) | `pdf-viewer:open`, `pdf-viewer:view-pdf`, `pdf-viewer:annotate`, `pdf-viewer:sign`, `pdf-viewer:fill-form` |
 | PDF read / extract / manipulate (programmatic) | `anthropic-skills:pdf` |
 
@@ -321,6 +369,7 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Intent | Skill |
 |---|---|
 | Configure settings.json / hooks / permissions / env vars | `update-config` |
+| Compress LLM context via 49 MCP tools, AST-aware reads, 90+ shell patterns (auto-installs) | `lean-ctx` |
 | Customize keyboard shortcuts / chord bindings | `keybindings-help` |
 | Reduce permission prompts (auto-allowlist common Bash/MCP) | `fewer-permission-prompts` |
 | Run prompt on recurring interval | `loop` |
@@ -334,6 +383,7 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Apply Anthropic's official brand colors + typography | `anthropic-skills:brand-guidelines` |
 | Review n8n workflows for errors / inefficiencies | `anthropic-skills:n8n-workflow-reviewer` |
 | Full-stack client acquisition + delivery (improvised-intelligence) | `anthropic-skills:improvised-intelligence` |
+| Excel / Google Sheets formulas, pivots, array formulas, dialect translation | `spreadsheet-formula-helper` |
 | Competition math (IMO/Putnam/USAMO/AIME) | `math-olympiad` |
 | IoT device management (trust scoring, anomaly detection, fleets) | `ruflo-iot-cognitum:*` |
 | Algo trading agents (4 agents, backtesting, 112+ tools) | `ruflo-neural-trader:*` |

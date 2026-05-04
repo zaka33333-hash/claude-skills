@@ -1,6 +1,6 @@
 # Skill catalog
 
-Auto-generated alphabetical index of 119 installed loose-skills.
+Auto-generated alphabetical index of 159 installed loose-skills.
 
 Use this when the cluster map in `SKILL.md` doesn't have the exact intent. Search this file (Ctrl+F) for keywords matching the user's request.
 
@@ -44,6 +44,9 @@ Create distinctive, production-grade frontend interfaces with high design qualit
 ### `brainstorming`
 Interactive idea refinement using Socratic method to develop fully-formed designs
 
+### `browser-testing-with-devtools`
+Tests in real browsers using Chrome DevTools MCP — live DOM, console, network, performance. Bridges static analysis and runtime.
+
 ### `build-mcp-app`
 This skill should be used when the user wants to build an "MCP app", add "interactive UI" or "widgets" to an MCP server, "render components in chat", build "MCP UI resources", make a tool that shows a "form", "picker", "dashboard" or "confi
 
@@ -56,14 +59,23 @@ This skill should be used when the user wants to "package an MCP server", "bundl
 ### `canvas-design`
 Create beautiful visual art in .png and .pdf documents using design philosophy.
 
+### `caveman`
+Ultra-compressed communication mode. ~75% fewer tokens by dropping filler/articles/hedging while keeping technical accuracy.
+
 ### `changelog-generator`
 Automatically creates user-facing changelogs from git commits by analyzing commit history, categorizing changes, and transforming technical commits into clear, customer-friendly release notes.
+
+### `ci-cd-and-automation`
+Set up CI/CD pipelines — quality gates (lint/types/tests/build), GitHub Actions config, deploy strategies with feature flags.
 
 ### `claude-automation-recommender`
 Analyze a codebase and recommend Claude Code automations (hooks, subagents, skills, plugins, MCP servers).
 
 ### `claude-md-improver`
 Audit and improve CLAUDE.md files in repositories.
+
+### `codebase-migrate`
+Run large codebase migrations (framework upgrades, API renames). Composio CLI for issue tracking + batched PRs + CI verification.
 
 ### `collision-zone-thinking`
 Force unrelated concepts together to discover emergent properties - "What if we treated X like Y?"
@@ -89,11 +101,23 @@ Assists in writing high-quality content by conducting research, adding citations
 ### `content-strategy`
 When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover.
 
+### `context-engineering`
+Optimize agent context — CLAUDE.md rules, scoped specs, trust levels for loaded files. Use when output quality declines.
+
 ### `copy-editing`
 "When the user wants to edit, review, or improve existing marketing copy, or refresh outdated content.
 
+### `create-plan`
+Turn a prompt into a single concise actionable plan (read-only mode, 6–10 atomic checklist items, optional open questions).
+
+### `d3-viz`
+Custom interactive D3.js visualizations — bespoke charts, network diagrams, geographic viz, SVG with fine-grained transition/interaction control.
+
 ### `defense-in-depth`
 Validate at every layer data passes through to make bugs impossible
+
+### `deprecation-and-migration`
+Sunset old systems safely — Strangler / Adapter / feature-flag patterns. Decision framework for advisory vs compulsory removal.
 
 ### `design`
 "Comprehensive design skill: brand identity, design tokens, UI styling, logo generation (55 styles, Gemini AI), corporate identity program (50 deliverables, CIP mockups), HTML presentations (Chart.js), banner design (22 styles, social/ads/w
@@ -103,6 +127,9 @@ Validate at every layer data passes through to make bugs impossible
 
 ### `design-system`
 Token architecture, component specifications, and slide generation.
+
+### `diagnose`
+Disciplined hard-bug loop: build feedback loop → reproduce → 3-5 ranked falsifiable hypotheses → instrument → fix → regression test.
 
 ### `directory-submissions`
 When the user wants to submit their product to startup, SaaS, AI, agent, MCP, no-code, or review directories for backlinks, domain rating, and discovery.
@@ -116,6 +143,9 @@ Set up the Discord channel — save the bot token and review access policy.
 ### `dispatching-parallel-agents`
 Use multiple Claude agents to investigate and fix independent problems concurrently
 
+### `email-draft-polish`
+Draft / rewrite / condense emails to fit tone, length, audience. Cold outreach, replies, escalations, status updates.
+
 ### `example-command`
 An example user-invoked skill that demonstrates frontmatter options and the skills/<name>/SKILL.md layout
 
@@ -124,6 +154,9 @@ This skill should be used when the user asks to "demonstrate skills", "show skil
 
 ### `executing-plans`
 Execute detailed plans in batches with review checkpoints
+
+### `figma-implement-design`
+Translates Figma designs into production-ready code with 1:1 visual fidelity. Reads Figma files / URLs and generates matching components.
 
 ### `file-organizer`
 Intelligently organizes your files and folders across your computer by understanding context, finding duplicates, suggesting better structures, and automating cleanup tasks.
@@ -176,11 +209,29 @@ When the user wants to plan, evaluate, or build a free tool for marketing purpos
 ### `frontend-design`
 Create distinctive, production-grade frontend interfaces with high design quality.
 
+### `gh-address-comments`
+Find the open PR for the current branch via gh CLI, list review threads, ask user which to address, apply fixes.
+
+### `gh-fix-ci`
+Inspect failing GitHub Actions PR checks via gh, pull logs, summarise the failure, plan a fix, implement after approval.
+
+### `git-guardrails-claude-code`
+Set up a PreToolUse hook that blocks dangerous git commands (push, reset --hard, clean -f, branch -D, checkout/restore .).
+
+### `grill-me`
+Interview the user relentlessly about a plan one question at a time, recommending answers as you walk the design tree.
+
+### `grill-with-docs`
+Same grilling loop but cross-references CONTEXT.md domain glossary and ADRs, updating docs inline as decisions crystallise.
+
 ### `hook-development`
-This skill should be used when the user asks to "create a hook", "add a PreToolUse/PostToolUse/Stop hook", "validate tool use", "implement prompt-based hooks", "use ${CLAUDE_PLUGIN_ROOT}", "set up event-driven automation", "block dangerous 
+This skill should be used when the user asks to "create a hook", "add a PreToolUse/PostToolUse/Stop hook", "validate tool use", "implement prompt-based hooks", "use ${CLAUDE_PLUGIN_ROOT}", "set up event-driven automation", "block dangerous
 
 ### `human-architect-mindset`
 Systematic architectural thinking for irreplaceable human capabilities - domain modeling, systems thinking, constraint navigation, and AI-aware problem decomposition.
+
+### `idea-refine`
+Refine raw ideas through structured divergent (variations, lenses) and convergent (cluster, stress-test, ship) thinking.
 
 ### `image-enhancer`
 Improves the quality of images, especially screenshots, by enhancing resolution, sharpness, and clarity.
@@ -190,6 +241,9 @@ Manage iMessage channel access — approve pairings, edit allowlists, set DM/gro
 
 ### `imessage-configure`
 Check iMessage channel setup and review access policy.
+
+### `improve-codebase-architecture`
+Find deepening opportunities — refactor shallow modules into deep ones (high leverage behind small interfaces). Uses CONTEXT.md / ADRs.
 
 ### `inversion-exercise`
 Flip core assumptions to reveal hidden constraints and alternative approaches - "what if the opposite were true?"
@@ -203,6 +257,9 @@ When the user wants to create, plan, or optimize a lead magnet for email capture
 ### `lead-research-assistant`
 Identifies high-quality leads for your product or service by analyzing your business, searching for target companies, and providing actionable contact strategies.
 
+### `lean-ctx`
+Context Runtime for AI Agents — 49 MCP tools, 10 read modes, 90+ shell patterns, tree-sitter AST for 18 languages. Compresses LLM context up to 99%. Auto-installs.
+
 ### `marketing-ideas`
 "When the user needs marketing ideas, inspiration, or strategies for their SaaS or software product.
 
@@ -212,14 +269,26 @@ Identifies high-quality leads for your product or service by analyzing your busi
 ### `math-olympiad`
 "Solve competition math problems (IMO, Putnam, USAMO, AIME) with adversarial verification that catches the errors self-verification misses.
 
+### `mcp-builder`
+Guide for creating high-quality MCP servers — agent-centric tool design, FastMCP/TypeScript SDK, evaluation-driven development.
+
 ### `mcp-integration`
 This skill should be used when the user asks to "add MCP server", "integrate MCP", "configure MCP in plugin", "use .mcp.json", "set up Model Context Protocol", "connect external service", mentions "${CLAUDE_PLUGIN_ROOT} with MCP", or discus
+
+### `meeting-insights-analyzer`
+Analyse meeting transcripts for communication patterns — conflict avoidance, speaking ratios, filler words, listening signals.
 
 ### `meta-pattern-recognition`
 Spot patterns appearing in 3+ domains to find universal principles
 
 ### `negentropy-lens`
 > A decision-support framework that evaluates systems, architectures, and strategies through the entropy (decay) vs negentropy (growth) lens, while surfacing tacit knowledge gaps.
+
+### `next-best-practices`
+Next.js patterns — file conventions, RSC boundaries, data patterns, async APIs, metadata, error handling, route handlers, image/font optimization, bundling.
+
+### `openweb`
+Typed JSON access to 90+ real websites (Google, Amazon, Reddit, YouTube, GitHub, Bloomberg, Zillow, etc.) for search/shop/social/finance/news/dev. Requires `openweb` CLI.
 
 ### `organic-first-campaign`
 > Grassroots-first campaign design for anyone being outspent — startups vs.
@@ -257,6 +326,9 @@ When the user wants to create SEO-driven pages at scale using templates and data
 ### `receiving-code-review`
 Receive and act on code review feedback with technical rigor, not performative agreement or blind implementation
 
+### `recursive-research`
+Autonomous recursive research up to PhD level across any domain. Source tiering, WDM + Munger inversion for autonomous decisions, disk checkpoints to survive context compaction.
+
 ### `referral-program`
 "When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-of-mouth strategy.
 
@@ -284,11 +356,26 @@ When the user wants to add, fix, or optimize schema markup and structured data o
 ### `scroll-stop-prompter`
 > Generates AI image and video prompts for scroll-stopping content.
 
+### `security-best-practices`
+Language-specific security best-practice review for python, javascript/typescript, go. Trigger only on explicit security-review requests.
+
+### `sentry-triage`
+Pull Sentry issues / events / suspect commits via Composio CLI, map stack frames to local source, propose a fix without copy-paste.
+
 ### `seo-aeo-playbook`
 The "Claude as SEO/AEO growth operator" playbook — a weekly data-driven loop that turns Google Search Console exports, GA4 referral data, and competitor analysis into a prioritized opportunity list, then ships content + schema + performance
 
 ### `session-report`
 Generate an explorable HTML report of Claude Code session usage (tokens, cache, subagents, skills, expensive prompts) from ~/.claude/projects transcripts.
+
+### `setup-matt-pocock-skills`
+Scaffold per-repo agent config (Agent skills block in CLAUDE.md/AGENTS.md, docs/agents/) — issue tracker, triage labels, domain doc layout.
+
+### `setup-pre-commit`
+Set up Husky + lint-staged + Prettier pre-commit hooks with typecheck and test in current repo. Detects package manager.
+
+### `shipping-and-launch`
+Pre-launch checklist (code/security/perf/a11y/infra) + feature-flag staged rollout (5 → 25 → 50 → 100%) + rollback plan.
 
 ### `simplification-cascades`
 Find one insight that eliminates multiple components - "if this is true, we don't need X, Y, or Z"
@@ -305,8 +392,26 @@ Create strategic HTML presentations with Chart.js, design tokens, responsive lay
 ### `social-content`
 "When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, Facebook, or other platforms.
 
+### `source-driven-development`
+Detect stack/versions, fetch official docs, implement from them, cite sources. Avoid coding from stale memory.
+
+### `spec-driven-development`
+Gated SPECIFY → PLAN → TASKS → IMPLEMENT workflow. Surface assumptions; reframe vague requirements as success criteria.
+
+### `spreadsheet-formula-helper`
+Write/debug Excel & Google Sheets formulas, pivots, array formulas. Translate between dialects with worked examples.
+
+### `stripe-best-practices`
+Stripe integration patterns — API selection (Checkout Sessions vs PaymentIntents), Connect setup (Accounts v2, controller properties), Billing/Subscriptions, Treasury, deprecated-API migrations, security (restricted keys, webhooks).
+
 ### `subagent-driven-development`
 Execute implementation plan by dispatching fresh subagent for each task, with code review between tasks
+
+### `supabase-postgres-best-practices`
+Postgres performance + best practices from Supabase. Use when writing/reviewing/optimizing queries, schemas, or DB configurations.
+
+### `support-ticket-triage`
+Triage support tickets (Zendesk/Intercom/Help Scout) — categorise, set priority, draft response, propose fix and tracking IDs.
 
 ### `telegram-access`
 Manage Telegram channel access — approve pairings, edit allowlists, set DM/group policy.
@@ -320,8 +425,17 @@ Write the test first, watch it fail, write minimal code to pass
 ### `testing-anti-patterns`
 Never test mock behavior.
 
+### `to-issues`
+Break a plan / spec / PRD into independently-grabbable issues using vertical-slice tracer bullets, marked HITL or AFK.
+
+### `to-prd`
+Synthesize current conversation + codebase into a PRD (problem, solution, user stories, implementation/testing decisions, out-of-scope).
+
 ### `tracing-knowledge-lineages`
 Understand how ideas evolved over time to find old solutions for new problems and avoid repeating past failures
+
+### `triage`
+Move issues through a small state machine (`needs-triage` → `needs-info` / `ready-for-agent` / `ready-for-human` / `wontfix`).
 
 ### `typography`
 > Professional typography rules for UI design, web applications, software interfaces, and all screen-based text.
@@ -337,6 +451,9 @@ Create isolated git worktrees with smart directory selection and safety verifica
 
 ### `vanity-engineering-review`
 > Reviews codebases, architectures, PRs, and technical plans for vanity engineering — code and systems built for the developer's ego, resume, or intellectual pleasure rather than delivering user or business value.
+
+### `vercel-react-best-practices`
+React + Next.js performance optimization guidelines from Vercel Engineering. Triggers on React components, Next pages, data fetching, bundle/perf work.
 
 ### `verification-before-completion`
 Run verification commands and confirm output before claiming success
@@ -365,3 +482,5 @@ This skill should be used when the user asks to "create a hookify rule", "write 
 ### `writing-plans`
 Create detailed implementation plans with bite-sized tasks for engineers with zero codebase context
 
+### `zoom-out`
+Ask agent to give a broader map of relevant modules and callers using project domain glossary vocabulary.
