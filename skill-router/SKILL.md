@@ -121,8 +121,13 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Review changed code for reuse / quality / efficiency | `simplify` |
 | Receive code review feedback | `receiving-code-review` |
 | Tech debt audit | `engineering:tech-debt`, `vanity-engineering-review` |
+| Sunset old systems / migrate users (Strangler, Adapter, Feature Flag patterns) | `deprecation-and-migration` |
 | Security review | `/security-review`, `security-guidance` plugin |
 | Implementation planning | `writing-plans` → `executing-plans` |
+| Spec-first gated workflow (SPECIFY -> PLAN -> TASKS -> IMPLEMENT) | `spec-driven-development` |
+| Idea diverge/converge -> actionable one-pager | `idea-refine` |
+| Verify code against official docs before implementing | `source-driven-development` |
+| Optimize agent context (rules files, session setup, anti-hallucination) | `context-engineering` |
 | Phased plan with doc discovery (claude-mem variant) | `claude-mem:make-plan` → `claude-mem:do` |
 | Concise execution plan for a coding task | `create-plan` |
 | Large codebase migration / multi-file refactor in batches | `codebase-migrate` |
@@ -173,6 +178,7 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Avoid mock-testing anti-patterns | `testing-anti-patterns` |
 | Async race condition fix | `condition-based-waiting` |
 | Browser testing with Playwright | `webapp-testing` |
+| Live runtime inspection: DOM, console, network, perf (Chrome DevTools MCP) | `browser-testing-with-devtools` |
 | Accessibility audit (WCAG) | `design:accessibility-review`, `accesslint-audit-and-fix` |
 | Test strategy planning | `engineering:testing-strategy` |
 | Auto-find missing tests + generate them | `ruflo-testgen:*` |
@@ -184,6 +190,8 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 |---|---|
 | Production incident workflow | `engineering:incident-response` |
 | Pre-deploy verification | `engineering:deploy-checklist` |
+| Full CI/CD pipeline setup (GitHub Actions, quality gates, feature flags, staged rollouts) | `ci-cd-and-automation` |
+| Production launch checklist + staged rollout + rollback strategy | `shipping-and-launch` |
 | Database schema migrations (safe rollouts) | `ruflo-migrations:*` |
 | Structured logs / traces / metrics | `ruflo-observability:*` |
 | CVE scans + vulnerability fixes | `ruflo-security-audit:*`, `/security-review` |
