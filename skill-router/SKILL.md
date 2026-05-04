@@ -1,4 +1,4 @@
----
+﻿---
 name: skill-router
 description: Use this at the start of every non-simple prompt to identify which other skills should be invoked. Triggers on ANY substantive request — building, fixing, debugging, writing, designing, planning, auditing, optimizing, deciding, researching, or anything more than a one-line factual lookup. This is the meta-skill that scans the full installed-skills catalog and routes to the relevant skills (often combining several). Use when the user mentions a project, asks for a deliverable, shares a screenshot or link, says "do X" or "help me with Y", or otherwise gives a substantive task. Trigger on phrases like "what should I do", "how do I", "build me", "review this", "audit", "fix the", "plan for", "analyze", "write a", "design a", "help with", "what's wrong with", "why isn't", or sharing GSC/GA4/CSV/code/screenshots.
 ---
@@ -142,12 +142,24 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Sandboxed WebAssembly agents | `ruflo-wasm:*` |
 | Background timer-scheduled tasks (12 auto-triggered workers) | `ruflo-loop-workers:*`, `loop`, `schedule` |
 | Standup updates | `engineering:standup` |
+| Stress-test a plan against domain model, build shared CONTEXT.md + ADRs | `grill-with-docs` |
+| Stress-test a plan without domain docs (relentless interviewing) | `grill-me` |
+| Find shallow modules / deepening opportunities in a codebase | `improve-codebase-architecture` |
+| Break plan/PRD into independently-grabbable vertical-slice GitHub issues | `to-issues` |
+| Synthesize conversation context into a PRD, publish to issue tracker | `to-prd` |
+| State-machine issue triage (needs-triage / ready-for-agent / wontfix) | `triage` |
+| Map all relevant modules and callers for unfamiliar code | `zoom-out` |
+| Configure per-repo issue tracker + triage labels + domain doc layout | `setup-matt-pocock-skills` |
+| Set up Husky pre-commit hooks (lint-staged + Prettier + typecheck + tests) | `setup-pre-commit` |
+| Block dangerous git commands via PreToolUse hook | `git-guardrails-claude-code` |
+| Ultra-compressed ~75% token reduction mode | `caveman` |
 
 ### Engineering — debugging
 
 | Intent | Skill |
 |---|---|
 | Generic structured debug | `engineering:debug` |
+| 6-phase disciplined debug loop (feedback loop first, bisect, regression-test) | `diagnose` |
 | Trace deep error to root cause | `root-cause-tracing` |
 | Diagnose Sentry issues (map stack frames to local source) | `sentry-triage` |
 | Validate at every layer (defense in depth) | `defense-in-depth` |
@@ -434,3 +446,5 @@ This skill complements (does not replace) the user's standing memory rules:
 ## Catalog reference
 
 For a full alphabetized index of every installed skill with a one-line description and trigger phrases, see `references/catalog.md`.
+
+
