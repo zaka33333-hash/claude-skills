@@ -294,6 +294,12 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Draft / rewrite / condense emails (any audience) | `email-draft-polish` |
 | Sales outreach | `sales:draft-outreach`, `apollo:prospect` |
 | Talk to Claude from your phone (Telegram bot bridge to Claude Code CLI) | `telegram-gateway` |
+| Set up the Telegram channel (save bot token, review access policy) | `telegram-configure` |
+| Manage Telegram channel access (approve pairings, allowlists, DM policy) | `telegram-access` |
+| Set up the Discord channel (save bot token, configure access policy) | `discord-configure` |
+| Manage Discord channel access (approve pairings, allowlists, DM policy) | `discord-access` |
+| Check iMessage channel setup / review access policy | `imessage-configure` |
+| Manage iMessage channel access (approve pairings, allowlists) | `imessage-access` |
 | Lead enrichment from name / company / LinkedIn / email | `apollo:enrich-lead` |
 | Bulk-add leads to Apollo outreach sequence | `apollo:sequence-load` |
 | Customer support ticket triage / KB article / escalation | `customer-support:ticket-triage`, `customer-support:kb-article`, `customer-support:customer-escalation`, `support-ticket-triage` |
@@ -320,6 +326,7 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 |---|---|
 | Initialize / improve CLAUDE.md | `init`, `claude-md-improver` |
 | Recommend Claude Code automations | `claude-automation-recommender` |
+| Reference template / scaffolding for a new skill (SKILL.md format) | `example-skill`, `example-command` |
 | Session usage report | `session-report` |
 | Memory consolidation | `anthropic-skills:consolidate-memory` |
 | Two-tier memory system | `productivity:memory-management` |
@@ -364,6 +371,7 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 | Review n8n workflows for errors / inefficiencies | `anthropic-skills:n8n-workflow-reviewer` |
 | Full-stack client acquisition + delivery (improvised-intelligence) | `anthropic-skills:improvised-intelligence` |
 | Competition math (IMO/Putnam/USAMO/AIME) | `math-olympiad` |
+| Control Philips Hue lights / scenes / rooms via OpenHue CLI | `openhue` |
 | IoT device management (trust scoring, anomaly detection, fleets) | `ruflo-iot-cognitum:*` |
 | Algo trading agents (4 agents, backtesting, 112+ tools) | `ruflo-neural-trader:*` |
 | Market data ingestion / OHLCV vectorization / pattern detection | `ruflo-market-data:*` |
