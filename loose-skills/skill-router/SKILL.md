@@ -38,6 +38,7 @@ If the prompt is genuinely simple (one-line factual answer, casual chat, trivial
 |---|---|
 | Distinctive web UI, avoiding "AI slop" | `frontend-design` (Anthropic original), `bencium-innovative-ux-designer` |
 | Translate Figma designs into production code with 1:1 visual fidelity | `figma-implement-design` |
+| Reverse-engineer design tokens (colors, type, spacing, shadows) from any public URL | `extract-design-system` |
 | Tactical UI components with shadcn/Tailwind | `ui-styling`, `web-design-guidelines` |
 | Reference DB for design choices (palettes, fonts, styles) | `ui-ux-pro-max` |
 | Comprehensive design suite (logo, CIP, branded assets) | `design` |

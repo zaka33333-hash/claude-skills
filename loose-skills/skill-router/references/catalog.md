@@ -1,6 +1,6 @@
 # Skill catalog
 
-Auto-generated alphabetical index of 159 installed loose-skills.
+Auto-generated alphabetical index of 160 installed loose-skills.
 
 Use this when the cluster map in `SKILL.md` doesn't have the exact intent. Search this file (Ctrl+F) for keywords matching the user's request.
 
@@ -154,6 +154,9 @@ This skill should be used when the user asks to "demonstrate skills", "show skil
 
 ### `executing-plans`
 Execute detailed plans in batches with review checkpoints
+
+### `extract-design-system`
+Reverse-engineers design primitives from any public website — extracts colors, typography, spacing, border-radius, shadows. Outputs JSON tokens + CSS variables. Ships with CLI + MCP server.
 
 ### `figma-implement-design`
 Translates Figma designs into production-ready code with 1:1 visual fidelity. Reads Figma files / URLs and generates matching components.
