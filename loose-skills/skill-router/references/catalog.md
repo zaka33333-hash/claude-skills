@@ -1,6 +1,6 @@
 # Skill catalog
 
-Auto-generated alphabetical index of 160 installed loose-skills.
+Auto-generated alphabetical index of 161 installed loose-skills.
 
 Use this when the cluster map in `SKILL.md` doesn't have the exact intent. Search this file (Ctrl+F) for keywords matching the user's request.
 
@@ -427,6 +427,9 @@ Write the test first, watch it fail, write minimal code to pass
 
 ### `testing-anti-patterns`
 Never test mock behavior.
+
+### `three-brain`
+Auto-router that delegates work between Claude (driver/code), Codex (reviewer via `/codex:*`), and Gemini (senses — video/audio/long-context via `/cc-gemini-plugin:gemini`). Triggers on phrases like "review with codex", "watch this clip", "ask all three". Includes forced adversarial review on edits to `src/auth/**`, `**/migrations/**`, `**/billing/**`. Extracted from Jack Roberts' "Three Model Brain" video.
 
 ### `to-issues`
 Break a plan / spec / PRD into independently-grabbable issues using vertical-slice tracer bullets, marked HITL or AFK.

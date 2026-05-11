@@ -430,6 +430,15 @@ When the user asks about the following situations, fire these in order:
 | "Add audio / music / SFX to a rendered video" | `video-processing-editing` (FFmpeg automation) |
 | "Cut, trim, or concatenate video clips" | `video-processing-editing` |
 
+### Multi-model orchestration (token-saving routing)
+
+| Intent | Skill |
+|---|---|
+| Auto-route between Claude / Codex / Gemini based on phrase + context (driver / reviewer / senses pattern) | `three-brain` |
+| Manually invoke Codex for review or rescue | `codex:review`, `codex:adversarial-review`, `codex:rescue` |
+| Manually invoke Gemini for long-context exploration or multimodal | `cc-gemini-plugin:gemini`, `gemini:rescue` |
+| Delegate bulk translation to Gemini (free under AI Pro, saves Claude tokens) | call `gemini -p` directly from Bash |
+
 ## Conflict resolution — when two skills both seem to fit
 
 | Tension | Pick |
