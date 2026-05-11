@@ -1,23 +1,50 @@
 ---
 name: skill-router
-description: Use this at the start of every non-simple prompt to identify which other skills should be invoked. Triggers on ANY substantive request — building, fixing, debugging, writing, designing, planning, auditing, optimizing, deciding, researching, or anything more than a one-line factual lookup. This is the meta-skill that scans the full installed-skills catalog and routes to the relevant skills (often combining several). Use when the user mentions a project, asks for a deliverable, shares a screenshot or link, says "do X" or "help me with Y", or otherwise gives a substantive task. Trigger on phrases like "what should I do", "how do I", "build me", "review this", "audit", "fix the", "plan for", "analyze", "write a", "design a", "help with", "what's wrong with", "why isn't", or sharing GSC/GA4/CSV/code/screenshots.
+description: Activate at the START of EVERY user prompt — no matter how trivial. Two jobs per turn (1) match the request to 0-3 skills from the catalog and (2) pick the cheapest model that still delivers 10/10 quality. Triggers on ANY user input including one-word replies, casual chat, screenshots, links, file paths, code, "do X", "fix Y", "build me", "translate", "review", "watch this", or any substantive task. Token savings and model selection are non-negotiable — Gemini (free under AI Pro) preferred whenever quota allows.
 ---
 
-# Skill Router — auto-select and invoke skills per turn
+# Skill Router — auto-select skills AND the cheapest 10/10 model per turn
 
-This skill encodes the routing logic for matching a user's request to the right skill(s) from the installed catalog. It does NOT do the work itself — it picks the tools and dispatches.
+This skill is the per-turn dispatcher. Two jobs:
 
-## Procedure
+1. **Skill match** — pick 0–3 skills from the catalog that fit the request
+2. **Model match** — pick the cheapest model that still hits 10/10 quality
 
-For every non-simple prompt:
+Priority order is fixed: **quality 10/10 is non-negotiable, token savings second**. Never downgrade the model if the task demands the bigger one — but never overspend either.
 
-1. **Categorize** the request (build / fix / write / audit / plan / decide / debug / research / verify / etc.)
-2. **Match** to a skill cluster below
-3. **Select 1–3** most relevant skills (rarely more — overload reduces quality)
-4. **Invoke directly** via the `Skill` tool — no asking, no announcing
-5. **If two skills overlap heavily**, use the conflict-resolution table at the bottom
+## Procedure (run on every prompt)
 
-If the prompt is genuinely simple (one-line factual answer, casual chat, trivial command), skip this skill entirely. Overhead exceeds value.
+1. **Categorize** the request — trivial / medium / complex (use the model-match table below)
+2. **Skill match** — pick the 1–3 most relevant skills, or **none** if the prompt is a one-word confirm / casual reply
+3. **Model match** — pick the cheapest model that meets the bar (table below)
+4. **Invoke** the selected skills via the `Skill` tool — no asking, no announcing
+5. **If you're already on the right model and skill**, proceed silently. No need to narrate the routing.
+
+If the prompt is one word ("ok", "yes", "done") or a casual ack, skip the skill step but still answer in the cheapest mode that fits.
+
+## Model selection — cheapest 10/10 wins
+
+| Task profile | Use this | Why |
+|---|---|---|
+| Trivial Q / one-liner / lookup / format / typo / one-word reply / confirm | **Haiku 4.5** OR `gemini -p` with **gemini-2.5-flash** | Same quality as bigger models on trivial tasks; ~10× cheaper than Sonnet, free under AI Pro for Gemini |
+| Medium reasoning / single-file edit / structured task / data formatting / SEO rewrite | **Sonnet 4.6** OR `gemini -p` with **gemini-2.5-pro** | Best price/quality ratio; Gemini 2.5 Pro is free under AI Pro |
+| Complex multi-file refactor / architecture / hard reasoning / production-critical code | **Opus 4.7** (current default) — keep going | The expensive one earns its keep when the task is hard |
+| Second opinion on complex code | `/codex:adversarial-review` or `/codex:review` | GPT-5.5 catches what Claude misses; uses ChatGPT subscription, not Claude tokens |
+| Translation / multimodal (video, audio, large PDFs) / >500k-token context scan | `gemini -p` (Gemini 2.5 Pro) | 1M context, multilingual depth, **free under AI Pro** — always prefer when AI Pro quota is healthy |
+| Background long-running task | `/codex:rescue` or `/gemini:rescue` | Delegate while Claude keeps working in foreground |
+
+**Rules:**
+- **Default to Gemini whenever the task fits.** AI Pro covers it free; saves Claude quota for hard work.
+- **Drop to Haiku/Flash freely.** Trivial tasks don't need Opus.
+- **Never downgrade if quality demands the bigger model.** 10/10 quality is the floor.
+- **If the user is on Opus 4.7 for a trivial task**, you don't need to switch models mid-session — but for the next session or batch job, route the appropriate way.
+
+## When to skip skill-router entirely
+
+For these prompts, skill-router consumes more tokens than it saves — answer directly in the current model:
+- Pure ack: "ok", "yes", "done", "thanks", "got it"
+- A typo in the previous prompt being corrected
+- Continuing a task already routed correctly earlier in the turn
 
 ## Cluster map
 
