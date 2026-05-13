@@ -1,6 +1,6 @@
 # Skill catalog
 
-Auto-generated alphabetical index of 161 installed loose-skills.
+Auto-generated alphabetical index of 162 installed loose-skills.
 
 Use this when the cluster map in `SKILL.md` doesn't have the exact intent. Search this file (Ctrl+F) for keywords matching the user's request.
 
@@ -226,6 +226,9 @@ Interview the user relentlessly about a plan one question at a time, recommendin
 
 ### `grill-with-docs`
 Same grilling loop but cross-references CONTEXT.md domain glossary and ADRs, updating docs inline as decisions crystallise.
+
+### `gstack` (46 skills)
+Garry Tan's opinionated engineering-team-in-a-box framework. 46 prefixed slash commands (`/gstack-autoplan`, `/gstack-design-consultation`, `/gstack-design-shotgun`, `/gstack-design-html`, `/gstack-qa`, `/gstack-pair-agent`, `/gstack-canary`, `/gstack-document-release`, `/gstack-retro`, `/gstack-setup-gbrain`, `/gstack-learn`, etc.) Requires bun + Playwright. Repo: github.com/garrytan/gstack. Install: `git clone --single-branch --depth 1 https://github.com/garrytan/gstack.git ~/.claude/skills/gstack && cd ~/.claude/skills/gstack && ./setup --prefix`
 
 ### `hook-development`
 This skill should be used when the user asks to "create a hook", "add a PreToolUse/PostToolUse/Stop hook", "validate tool use", "implement prompt-based hooks", "use ${CLAUDE_PLUGIN_ROOT}", "set up event-driven automation", "block dangerous
