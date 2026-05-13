@@ -1,0 +1,415 @@
+You are a master Arabic copywriting analyst. Below is a corpus of 12 posts from Badr Shaqer
+(@badrshaqer on Instagram) — an Arabic-language business/marketing consultant with 315K
+followers and one of the most engaging accounts in Arab business content. The user has
+asked me to extract his writing style so I can replicate it for his own brand
+(@almobadir, founded by Badr Shaqer himself — so the user is essentially Badr's brand-
+mate).
+
+YOUR JOB: Output a complete, production-ready SKILL.md file that captures Badr Shaqer's
+writing style precisely enough that any LLM can write authentic-sounding posts in his
+voice.
+
+The output MUST start with YAML frontmatter:
+
+---
+name: badrshaquer-writing-skills
+description: <one-sentence trigger description — list trigger phrases like "write like badr", "badr shaqer style", "arabic marketing post", "carousel rule list", "@almobadir post" etc>
+---
+
+After frontmatter, structure the body as:
+
+## Voice fingerprint
+3-5 sentences. What does Badr's writing FEEL like? (e.g. "punchy, founder-to-founder,
+not corporate, uses second-person 'you' constantly, mixes Gulf colloquial with formal
+Arabic, dramatic short lines, contrarian hooks, abundant ✅❌").
+
+## Structural archetypes (the templates he reuses)
+Document each archetype with:
+- ARCHETYPE NAME (in English + Arabic if relevant)
+- WHEN TO USE
+- TEMPLATE (literal Arabic placeholder template with [X] slots)
+- EXAMPLE from the corpus
+At minimum cover these archetypes you'll spot in the corpus:
+  1. "Rule-list carousel" (the ❌/✅ paired format, e.g. discount post)
+  2. "Counter-intuitive hook" (long-caption opinion: workaholic, scaling)
+  3. "Founder mindset shift" (Old thinking: X / New thinking: Y)
+  4. "Minimal-caption mega-question" (1 line caption, content all on slides)
+  5. "Philosophical entrepreneurial" (DNtWL-cZFmz — long emotional)
+  6. "Authority-quote opener" (Rory Sutherland format)
+
+## Hook patterns (the first 1-3 lines that decide if someone keeps reading)
+List 8-12 hook templates he uses verbatim, in Arabic, with translation. E.g.:
+- "هل سمعت عن X؟" (Have you heard of X?)
+- "هل تعرف لماذا لن تصبح ثرياً؟" (Do you know why you'll never be rich?)
+- "أي واحد يناسبك A أو B؟" (Which suits you, A or B?)
+- ...etc
+
+## Sentence rhythm rules
+6-10 concrete rules about line breaks, sentence length, paragraph spacing,
+ellipses, em-dashes, mixing single-word lines with longer ones, etc.
+
+## Punctuation & symbol vocabulary
+List every recurring punctuation/symbol pattern with what it signals. Include:
+- ✅ / ❌ pairs
+- … (ellipses) for dramatic pause
+- 👇🏽 / 👈🏽 (pointing arrows for CTA setup)
+- ❤️ at end of sentences (warmth)
+- 🫰 (audacious promise — "$100K/month")
+- 😩 / 😅 (emotional bait)
+- Em-dash — for sharp turn
+- « » French guillemets for QUOTED RECURRING-PHRASES
+- Spacing around question marks (؟) in Arabic vs English style
+- Numbers in Eastern Arabic numerals vs Western (٥٠ vs 50)
+
+## Vocabulary signatures
+20-30 phrases he reuses. Group by:
+- Authority words (مؤسس / رائد / مستشار)
+- Pain-button words (سجن / مخدر / إرهاق / تيه / حيرة / يخرب)
+- Reframe words (التحول / النضج / الفرق / السبب)
+- Closing-warmth words (مستمر في دعمك / لا تيأس / انت على الصراط المستقيم)
+
+## CTA / closing template
+Document his exact closing block. Include the verbatim Arabic with placeholders for
+substituting the marketing claim. Note that virtually every post ends with:
+- @badrshaqer mention
+- "مستمر في دعمك في مشروعك بمحتوى يغنيك عن كتب ودورات كاملة ❤️"
+- "اطلع على حسابي مستحيل منشوراتي ما توصلك ل١٠٠ الف $ بالشهر 🫰"
+- — divider
+- Hashtag cluster
+
+## Hashtag clusters
+Group hashtags he reuses by topic (marketing / management / wealth / entrepreneurship).
+
+## What to AVOID (anti-patterns)
+List 6-10 things his style does NOT do. Things to suppress when writing in his voice:
+- No corporate jargon
+- No long unbroken paragraphs
+- No "Sure!" / "Happy to help!" politeness
+- No US-marketing tropes ("game-changer", "synergy", etc.)
+- No moralizing
+- No emoji walls (he uses 1-3 per post)
+...etc
+
+## How to use this skill
+3-5 bullets on when to fire it, what arguments it expects, what output to produce.
+Include a worked example: "USER ASKS: 'Write a Badr-style post about pricing.'
+SKILL OUTPUT: <full Arabic post in his voice>"
+
+## Special note for THIS user
+The user is @almobadir — Badr Shaqer's brand-mate / co-founded entity. When the user
+asks for content in this voice, they ARE Badr's brand. So:
+- Sign-off lines should reference @almobadir where appropriate (not @badrshaqer)
+- Maintain the same authority/warmth balance
+- Same audience (Arab founders, marketers, entrepreneurs)
+
+Write the SKILL.md verbatim — no preamble, no markdown code fence wrapping, no
+"Here's the file:". Start with the YAML frontmatter and write the file content.
+
+THE CORPUS (12 posts) FOLLOWS BELOW:
+
+
+==========
+POST URL: https://www.instagram.com/badrshaqer/reel/C4oW1V_q8bv/
+LIKES: 1.9K  COMMENTS: 37  SHARES: 4
+DATE: 2024-03-17 (112w ago, oldest post in this sample — represents early format)
+TYPE: REEL — caption fully matches slide content, all-in-one piece
+
+CAPTION/SLIDE-CONTENT (FULL, this also represents his typical carousel-slide formatting):
+متى تستخدم التخفيض في تسويقك 👇🏽
+
+يقول احد افضل المسوقين في العالم "روري سوثرلاند"
+التخفيض هو رشوة تقدمها الشركات للمستهلكين لانهم غير قادرين لاقناعهم بطريقة اخرى.. وهو اغلى أنواع التسويق…
+
+صحيح انه ينفع بعض الاحيان، وهذا ما سأقوله لك الان :
+
+✅ = استخدم التخفيض
+لا تستخدم التخفيض = ❌
+
+العميل هو لي طالب تخفيض ❌
+اخراج السلعة القديمة، لجلب الجديدة ✅
+
+هامشك الربحي ضئييل (اقل من ١٥٪؜) ❌
+العميل يشتري كميات كبييرة جدا ✅
+
+صديقك يطلب عشوائيا ❌
+العميل طلب منتجات/خدمات عديدة ✅
+
+عندما يهدد العميل انه سيذهب لجهة ارخص ❌
+الطرح الأولي مثلا "اول ٥٠ مشتري سيحصل على التخفيض" ✅
+
+عميل يشتكي ان سعرك مبالغ فيه ❌
+عميل مخلص معاك لسنوات ✅
+
+إذا كنت معجب بالمحتوى الذي اقدمه لك
+اريد ان تطلب منك ان تنشر هذا الفيديو مع صديق مهتم بالتجارة والبزنس. (واحد فقط)
+
+الفيديو من انتاج : @almobadir_media
+
+————
+#التخفيض #تسويق_الكتروني #تسويق_رقمي #التسويق_بالريلز #التسويق
+
+CRITICAL PATTERN — THIS IS THE "RULE-LIST CAROUSEL" TEMPLATE:
+1. Hook = "متى تستخدم X؟" (When to use X?)
+2. Authority quote (روري سوثرلاند / Rory Sutherland)
+3. Counter-intuitive reframe
+4. Legend: ✅ = do  /  ❌ = don't
+5. Paired ❌/✅ scenarios (5-7 pairs)
+6. CTA to share with ONE friend
+7. Brand credit (@almobadir_media)
+8. Hashtag cluster
+
+==========
+POST URL: https://www.instagram.com/badrshaqer/p/C_s-I_bK_QB/
+LIKES: 54.2K  COMMENTS: 301  SHARES: 17  (MEGAVIRAL — 54K likes)
+DATE: 2024-09-09 (87w ago, older post — strong format match)
+TYPE: Ultra-minimal caption — content entirely on carousel/reel
+
+CAPTION:
+اخبرني عن معاناتك مع القيام بالأشياء الصعبة ؟ 😩
+
+#انضباط #تحفيز #تطويرالذات
+(Tell me about your struggle with doing hard things ?)
+(#discipline #motivation #self-development)
+
+NOTES: Megaviral self-development post. Single open-ended question caption.
+The hashtags reveal the topic cluster: discipline / motivation / self-development.
+Pattern: Question-as-hook → invites commenter responses → drives engagement metrics.
+
+==========
+POST URL: https://www.instagram.com/badrshaqer/p/DFXgftVMCMq/
+LIKES: 21.7K  COMMENTS: 210  SHARES: 7  (HIGH VIRAL ENGAGEMENT)
+DATE: 2025-01-28 (67w ago)
+TYPE: Ultra-short caption (one rhetorical question) — content is entirely on carousel slides
+
+CAPTION:
+من الآن فصاعداً هل اين ستنافس ؟
+(From now on, where will you compete?)
+
+NOTES: This is Badr's "minimal caption, big carousel" pattern. The 210 comments
+mention "x36 theory", "competition focus", and a discussion of where to compete.
+Carousel must contain a competitive-positioning framework with 36 or so positions.
+
+==========
+POST URL: https://www.instagram.com/badrshaqer/p/DN3n8sr0Es2/
+LIKES: 4.4K  COMMENTS: 71  SHARES: 102
+DATE: 2025-08-27 (37w ago)
+TYPE: Long-caption founder/systems-thinking post
+
+CAPTION:
+كل مؤسس يحتاج هذا التحول :
+
+التفكير القديم: « إذا ما تدخلت، الشغل يخرب. »
+
+التفكير الجديد: « إذا للحين أحتاج أتدخل… معناها ما بنيت النظام صح. »
+
+وظيفتك مو تسوي الشغل.
+وظيفتك مو تراجع الشغل.
+وظيفتك تصمم نظام يخلي الشغل يصير بشكل تلقائي.
+
+أنا @badrshaqer
+مستمر في دعمك في مشروعك بمحتوى يغنيك عن كتب ودورات كاملة ❤️
+
+اطلع على حسابي مستحيل منشوراتي ما توصلك ل١٠٠ الف $ بالشهر 🫰
+
+—
+#ادارة #ادارة_اعمال #رائد_اعمال #بزنس #مشاريع
+
+==========
+POST URL: https://www.instagram.com/badrshaqer/p/DNtWL-cZFmz/
+LIKES: 922  COMMENTS: 23  SHARES: 14
+DATE: 2025-08-23 (37w ago)
+TYPE: Long-form emotional/philosophical caption (entrepreneurial existential)
+
+CAPTION:
+في أحد الأيام، جلستُ أمام مشروعي الذي بدأته بشغف، فلم أشعر بشيء سوى الحيرة.
+
+الهدف واضح، والعمل منظم… لكنّي لم أعد أعلم ما أفعل ولماذا افعله ؟؟ .
+ذلك الشعور بالتيه أربكني.
+أتُراني وصلت لطريق مسدود ؟
+أم أنك فقط بدأت تُبصر ما لم تكن تراه حين انطلقت؟
+
+انطفئ الحماس وبدأت العراقيل تتسلل للواجهة
+اعتقدتُ أن الوضوح الكامل علامة النجاح. لكنني تعلمت مع الوقت أن الضياع هو الدليل الأول على النمو.
+
+فالذي يعرف كل خطوة، لا يغامر. ومن لا يغامر، لا يكتشف جديدًا.
+في البزنس، كما في الحياة، الخوف من الضياع يجعلنا نتمسّك بخطط قديمة، حتى حين لا تعود تخدمنا.
+
+لكن دائما، لا يبدأ التغيير… إلا حين نعترف أننا لم نعد نعرف الطريق.
+الضياع والتيه ليس فشلاً. بل هو لحظة صدق.
+
+لحظة نقف فيها أمام أنفسنا، ونسأل: "هل ما زال هذا الطريق لي؟"
+لا تخشَ هذا السؤال. هو ليس علامة على التراجع، بل على النضج.
+
+النضج الذي يسمح لك أن تغيّر، أن تتوقّف، أن تعيد ترتيب أوراقك .
+فإذا شعرتَ يومًا أنك تائه في شغلك، لا تظن أنك وحدك.
+
+ربما تكون تلك الحيرة... هي أول خطوة نحو مشروع يشبهك أكبر
+مشروع اكبر وانجح وأقوى...
+
+انت على الصريط المستقيم، لا تيأس ❤️
+
+تحب محتوى البزنس والتسويق ؟
+تابعني @badrshaqer
+
+#ريادة_الأعمال #إبداع
+
+==========
+POST URL: https://www.instagram.com/badrshaqer/p/DNv5pAFUAsk/
+LIKES: 4.3K  COMMENTS: 61  SHARES: 105
+DATE: 2025-08-24 (37w ago)
+TYPE: Long-caption with carousel — 4Ds technique for business management
+
+CAPTION:
+هل سمعت عن طريقة 4Ds في ادارة الأعمال ؟
+
+فيه لحظة غريبة يمرّ فيها كل مؤسس... يكتشف إنه بنى سجن بيده.
+يسميه "مشروعه الخاص"، بس هو وظيفة مقنعة.
+
+مشكلتنا مو في الإرهاق، مشكلتنا إننا نبرّره.
+
+نقول "ما في غيري"، "الفريق مو جاهز"، "هذي مرحلة مؤقتة"… ونكتشف بعد ٣ سنين إنها كانت حياتنا، مو مرحلة.
+
+السؤال الصعب: هل أنت مشغول… لأنك فعّال؟ ولا مشغول… لأنك ما رتبت شركتك؟
+
+استخدم تقنية 4Ds
+واخبرني بعدها عن تأثيرها العجيب على أعمالك ❤️
+
+أنا @badrshaqer
+مستمر في دعمك في مشروعك بمحتوى يغنيك عن دورات كاملة ❤️
+
+اطلع على حسابي مستحيل منشوراتي ما توصلك ل١٠٠ الف $ بالشهر 🫰
+
+—
+#ادارة #ادارة_اعمال #رائد_اعمال #بزنس #مشاريع
+
+==========
+POST URL: https://www.instagram.com/badrshaqer/p/DO9I5fGCPUR/
+LIKES: 1.3K  COMMENTS: 29  SHARES: 18
+DATE: 2025-09-23 (33w ago)
+TYPE: Short-caption with carousel (rules on slides)
+
+CAPTION:
+هل سمعت عن استراتجية موس الحلاقة في التسويق ؟
+
+تحب محتوى البزنس والتسويق ؟
+تابعني 👈🏽 @badrshaqer
+
+مستمر في دعمك في مشروعك بمحتوى يغنيك عن كتب ودورات كاملة ❤️
+
+==========
+POST URL: https://www.instagram.com/badrshaqer/p/DOrMyVrCChz/
+LIKES: 21.7K  COMMENTS: 504  SHARES: 376  (BIGGEST POST IN THIS BATCH — viral)
+DATE: 2025-09-16 (34w ago)
+TYPE: Short-caption with carousel — decoy effect (تأثير الطعم)
+
+CAPTION:
+هل سمعت عن تقنية تأثير الطعم في التسويق من قبل ؟
+
+تحب محتوى البزنس والتسويق ؟
+تابعني 👈🏽 أنا @badrshaqer
+
+مستمر في دعمك في مشروعك بمحتوى يغنيك عن كتب ودورات كاملة ❤️
+
+COMMENT PATTERNS NOTED:
+- Multiple people called him out for "you bought new iPhone, this whole post justifies it" (humor signal)
+- He's known for teaching marketing concepts via personal/relatable framing
+
+==========
+POST URL: https://www.instagram.com/badrshaqer/p/DR7oMrliBrO/
+LIKES: 3.3K  COMMENTS: 55  SHARES: 100
+DATE: 2025-12-06 (22w ago)
+TYPE: Long-caption opinion post (no slide content needed)
+
+CAPTION:
+هل تعرف لماذا لن تصبح ثرياً 😞؟
+
+لأنك تنتظر نهاية الدوام « لتعيش حياتك »
+خلال آخر ٨ سنوات سنحت لي الفرصة للعمل مع مؤسسين ورواد ثرواتهم فوق 10 مليون $ كشريك نمو / مستشار في دول مختلفة (من الصين الى منطقتنا)
+
+رغم اختلاف الثقافات واللغات، يشتركون في شيء واحد :
+لا أحد منهم يعرف معنى « نهاية الدوام »
+
+ليس لأنهم مدمنو عمل (Workaholics)
+
+بل لأن العمل بالنسبة لهم ليس عبئاً يهربون منه، بل متعة ينجذبون لها
+الفرق :
+أنت تبحث عن التوازن
+هم صمموا حياة لا تحتاج توازن
+
+غداؤهم؟ اجتماع عمل
+سفرهم؟ فرصة جديدة
+
+حتى راحتهم مبرمجة لتخدم أهدافهم
+
+Work-life balance
+هي مخدر اخترعه من لا يملك حلماً يستحق أن يعيش له
+
+سامحني لكن..
+إذا كنت تحتاج « توازن » بين حياتك وعملك، فأنت في العمل الخطأ
+
+غيّر رأيي في التعليقات (لا اظن انك ستنجح 😅)👇
+
+==========
+POST URL: https://www.instagram.com/badrshaqer/p/DSAwv_ciLKS/
+LIKES: 1.2K  COMMENTS: 66  SHARES: 39
+DATE: 2025-12-08 (22w ago)
+
+CAPTION:
+من 1 ل 16 ما هي قاعدتك المفضلة؟
+
+أنا @badrshaqer
+مستمر في دعمك في مشروعك بمحتوى يغنيك عن كتب ودورات كاملة ❤️
+
+اطلع على حسابي مستحيل منشوراتي ما توصلك ل١٠٠ الف $ بالشهر 🫰
+
+—
+#التسويق #مبيعات #ريادة_الأعمال
+
+==========
+POST URL: https://www.instagram.com/badrshaqer/p/DSdKU0lCKed/
+LIKES: 2.5K  COMMENTS: 64  SHARES: 65
+DATE: 2025-12-19 (20w ago at scrape time)
+
+CAPTION:
+أي واحد يناسبك A او B ؟
+
+لما يزيد عليك الطلب - وقف البيع !
+
+مخالفة للمنطق
+لكنها احد انجح الأساليب التسويقية لي مرت علي
+
+أنا @badrshaqer
+مستمر في دعمك في مشروعك بمحتوى يغنيك عن كتب ودورات كاملة ❤️
+
+اطلع على حسابي مستحيل منشوراتي ما توصلك ل١٠٠ الف $ بالشهر 🫰
+
+—
+#الثراء #التسويق #ريادة_الأعمال
+
+==========
+POST URL: https://www.instagram.com/badrshaqer/p/DSsnpNkiP_Q/
+LIKES: 3.7K  COMMENTS: 34  SHARES: 155
+DATE: 2025-12-25 (19w ago at scrape time)
+
+CAPTION:
+شفت شركات صعدت بشكل صاروخي..
+وبعدين طاحت فجأة.
+مو لان المنتج سيء
+مو لان السوق مات..
+
+السبب هو دائما نفسه : لم يحترموا القاعدة والمعادلة اللي ذكرتها في المنشور.
+
+لان التوسع يضخم كل شيء
+الربح… والخسارة… والضغط… والغباء بعد.
+اكثر جملة تضحكني هي :
+
+" خلينا نكبر وبعدين نرتب الأمور "
+تماماً مثل لي يقول راح اجرب الفرامل على الطريق
+
+توسع صح
+عشان ما تندم ✅
+
+@badrshaqer
+مستمر في دعمك في مشروعك بمحتوى يغنيك عن كتب ودورات كاملة ❤️
+
+اطلع على حسابي مستحيل منشوراتي ما توصلك ل١٠٠ الف $ بالشهر 🫰

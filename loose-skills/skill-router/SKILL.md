@@ -135,6 +135,7 @@ For these prompts, skill-router consumes more tokens than it saves — answer di
 | Social media content | `social-content` |
 | Video content | `video` |
 | Apply behavioral psychology | `marketing-psychology` |
+| Write Arabic marketing/business posts in Badr Shaqer (@badrshaqer / @almobadir) voice | `badrshaquer-writing-skills` |
 | Brand voice review | `marketing:brand-review`, `brand-voice:enforce-voice` |
 | Marketing performance report (KPIs, wins/misses) | `marketing:performance-report` |
 | Brand-voice discovery / guidelines / enforcement | `brand-voice:discover-brand` → `brand-voice:guideline-generation` → `brand-voice:brand-voice-enforcement` |

@@ -1,6 +1,6 @@
 # Skill catalog
 
-Auto-generated alphabetical index of 162 installed loose-skills.
+Auto-generated alphabetical index of 163 installed loose-skills.
 
 Use this when the cluster map in `SKILL.md` doesn't have the exact intent. Search this file (Ctrl+F) for keywords matching the user's request.
 
@@ -31,6 +31,9 @@ Creating algorithmic art using p5.js with seeded randomness and interactive para
 
 ### `analytics-tracking`
 When the user wants to set up, improve, or audit analytics tracking and measurement.
+
+### `badrshaquer-writing-skills`
+Writes Arabic marketing/business Instagram posts in Badr Shaqer's voice (@badrshaqer, 315K followers; founder of @almobadir). Extracted from a 12-post corpus by Gemini 2.5 Pro: punchy founder-to-founder rhythm, counter-intuitive hooks, ✅/❌ paired-rule carousels, dramatic short lines, signature CTA block. Built specifically for @almobadir brand use. References folder contains raw post corpus.
 
 ### `banner-design`
 "Design banners for social media, ads, website heroes, creative assets, and print.
