@@ -1,10 +1,55 @@
 ---
 name: badrshaquer-writing-skills
-description: Writes Arabic marketing/business posts in Badr Shaqer's style. Triggers: "write like badr", "badr shaqer style", "arabic marketing post", "carousel rule list", "@almobadir post".
+description: Writes Arabic marketing/business posts in Badr Shaqer's style — viral-tested hook archetypes, operator-grade voice fingerprint, soft-alarm rhythm. Triggers: "write like badr", "badr shaqer style", "arabic marketing post", "carousel rule list", "@almobadir post", "tribute to badr", "soft alarm post".
 ---
 
 ## Voice fingerprint
 Badr's voice is punchy, direct, and founder-to-founder, avoiding corporate fluff. He constantly uses the second-person "you" (أنت) to create a personal, mentor-like connection. The style mixes Gulf colloquial Arabic with more formal business terms, creating a voice that is both authoritative and relatable. His posts are built on dramatic short lines, contrarian hooks, and the abundant use of ✅/❌ to make advice scannable and absolute.
+
+## ⚡ THE ONE VARIABLE — viral vs flop (forensic finding)
+Based on a 12-post like-count analysis (range: 922 → 54,200 likes):
+
+**Style is the delivery mechanism, NOT the payload.** Flops contain the same fingerprint (hashtags, ✅/❌, brand CTA, « » quotes). The single variable that separates viral from flop is:
+
+> **A direct, audience-centric hook that either (a) validates a specific high-stakes struggle, OR (b) creates a curiosity gap by promising non-obvious, actionable business intel.**
+
+**Vector test — apply before publishing:**
+- **OUTWARD vector → VIRAL.** Direct interrogation of the reader's pain. Example (54.2K likes): `اخبرني عن معاناتك مع القيام بالأشياء الصعبة ؟ 😩`
+- **INWARD vector → FLOP.** Passive personal narrative. Reader is a spectator. Example (922 likes): `في أحد الأيام، جلستُ أمام مشروعي... فلم أشعر بشيء سوى الحيرة.`
+
+**Both 21.7K posts share one DNA:** a **named-technique curiosity gap** (`تأثير الطعم`, "where will you compete"). Promise to reveal a specific, non-obvious secret.
+
+**Caption-length finding:** Both extremes work — ultra-minimal (`من الآن فصاعداً هل اين ستنافس ؟` → 21.7K) and long-essay can both hit. **Mid-length philosophical drift is the danger zone.** When long-form, EVERY paragraph must earn its place with a named framework, a specific dollar figure, or a soft-alarm punch.
+
+## 🎯 Operator-grade tells (unfakeable signatures)
+These are micro-patterns no copycat catches. Use them deliberately.
+
+1. **The "Mobader" vocative** — `عزيزي #المبادر`. Bestows aspirational identity, not just "follower." The audience is named into being.
+2. **Value-Prop CTA, not a plea** — `محتوى يغنيك عن كتب ودورات كاملة ❤️`. Frames following him as an *investment*, never as a favor.
+3. **Code-switching surgery** — MSA for technical terms (`نموذج RACI`, `استراتجية`), visceral Khaliji for pain (`الكرف`, `شطارتك`, `بروحه`, `هالبوست`, `مو`). Authority + authenticity in one sentence.
+4. **The $ anchor** — `حققت اكثر من 92 مليون $ مبيعات`, `ثرواتهم فوق 10 مليون $`. Quantified authority, never vague.
+5. **« » as old-thinking quarantine** — visually isolates outdated ideas as foreign objects. Pair with «التفكير الجديد» reveal.
+6. **Staccato `..` ellipses** — force lean-in, mimic thought cadence. Example: `شفت شركات صعدت بشكل صاروخي.. وبعدين طاحت فجأة.`
+7. **Question → Soft Alarm → Solution rhythm** — see archetype 7 below.
+8. **`؟` with space-before** — Arabic convention. `هل سمعت عن ... من قبل ؟`
+
+## Recurring verbatim signature phrases
+Use these or close variants — they are Badr's "tells":
+- `هل سمعت عن ... من قبل ؟`
+- `هو إنذار ناعم.`
+- `محتوى يغنيك عن كتب ودورات كاملة ❤️`
+- `بنى سجن بيده. يسميه "مشروعه الخاص"، بس هو وظيفة مقنعة.`
+- `المؤسس اللي ياكل بروحه… يظل صغير.`
+- `الشغل بدون Leverage مثل الجري في مكانك.`
+- `يطلق النار قبل ان يُصوب.`
+- `لم اسمع بسباح ماهر تعلم السباحة على اليابسة.`
+- `لا تنتظر الإنهيار البطيء.`
+- `كل مؤسس يحتاج هذا التحول.`
+- `وقتك محدود في هذه الدنيا، بينما الاموال لا حدود لها.`
+- `اصبر على النتائج ولكن اضغط على نفسك في الأفعال.`
+- `لا تخجل من البداية المتهورة.`
+- `سامحني لكن...`
+- `أصلحت هذا 🪣 ؟` (leaky bucket frame)
 
 ## Structural archetypes
 
@@ -138,6 +183,67 @@ Badr's voice is punchy, direct, and founder-to-founder, avoiding corporate fluff
   > يقول احد افضل المسوقين في العالم "روري سوثرلاند"
   > التخفيض هو رشوة تقدمها الشركات للمستهلكين لانهم غير قادرين لاقناعهم بطريقة اخرى..
 
+### 7. Soft-alarm interrupt (الإنذار الناعم)
+- **WHEN TO USE:** To shift the post from "content" to "personal warning." Creates urgency by telling the reader the message found them on purpose. Place at slide 2-3 of a carousel or after the opening hook in a caption.
+- **TEMPLATE:**
+  ```
+  [سؤال أو خطاف يفتح المشاعر] ؟
+
+  هالبوست؟
+  مو [توقع شائع].
+  مو [توقع شائع ثاني].
+
+  هو «إنذار ناعم».
+  للي [حالة المستقبل المتعب]، لكن ما ينهزم.
+
+  إذا طحت عليه بالصدفة؟
+  ما كانت صدفة.
+
+  [دعوة عمل عاطفية] ❤️
+  ```
+- **EXAMPLE (Post `DLdLc6NsRYe`):**
+  > حصل معاك يا ترى ؟
+  >
+  > هالبوست؟
+  > مو معلومة. مو تحفيز.
+  >
+  > هو إنذار ناعم.
+  > للي تعب، لكن ما ينهزم.
+  >
+  > إذا طحت عليه بالصدفة؟
+  > ما كانت صدفة.
+
+### 8. Leaky-bucket diagnostic (الدلو المثقوب)
+- **WHEN TO USE:** To reframe a growth problem as a retention problem. Powerful when the audience assumes they need "more marketing" but actually have a leak.
+- **TEMPLATE:**
+  ```
+  هل أصلحت هذا 🪣 ؟
+
+  إذا مشروعك واقف مكانه…
+  يمكن هذا هو السبب.
+
+  المشكلة مو في [الاتهام الذاتي الشائع ١].
+  ولا في [الاتهام الذاتي الشائع ٢].
+  ولا [الاتهام الذاتي الشائع ٣].
+
+  المشكلة إن [الحقيقة الخفية].
+  [وصف مجازي للنزيف الصامت].
+
+  سكّر الدلو أولا.
+  ```
+
+### 9. Transformation question (سؤال التحول) — viral archetype
+- **WHEN TO USE:** This is Badr's top viral hook. Promises an escape route from a specific founder pain into a specific named outcome. Pose the problem as a state-to-state transition.
+- **TEMPLATE:**
+  ```
+  كيف تحوّل [الحالة المؤلمة الحالية]..
+  إلى [الحالة المربحة المنشودة] ؟
+  ```
+- **EXAMPLES:**
+  > كيف تحوّل مشروعك من سجن بنيته بيدك.. إلى أصلٍ مربح؟
+  > من الآن فصاعداً هل اين ستنافس ؟ (21.7K likes)
+  > هل سمعت عن تقنية تأثير الطعم في التسويق من قبل ؟ (21.7K likes — named-technique variant)
+
 ## Hook patterns
 - "هل سمعت عن X؟" (Have you heard of X?)
 - "هل تعرف لماذا لن تصبح ثرياً؟" (Do you know why you'll never be rich?)
@@ -205,6 +311,28 @@ Almost every post ends with this exact block, with minor variations. It is core 
 - No emoji walls. Use is sparse and highly purposeful (1-3 per post).
 - No passive voice. Always speak directly to "you" (أنت).
 - No complex sentence structures. Prefer short, punchy statements.
+
+## ✅ Pre-publish checklist (run BEFORE shipping any post)
+Score the draft 0/9. Anything under 7/9 → it's a flop in waiting.
+
+1. **Vector check** — Is the opening line OUTWARD (interrogates reader) or INWARD (narrates self)? Must be outward.
+2. **Hook archetype** — Does it match one of: transformation question, named-technique curiosity gap, soft-alarm, or counter-intuitive claim?
+3. **Soft alarm somewhere?** — At least one moment where reader feels "this found me on purpose."
+4. **« » quarantine** — Are outdated ideas isolated in guillemets, not just dismissed in prose?
+5. **`..` rhythm** — Multiple staccato pauses, not full stops everywhere.
+6. **Khaliji infusion** — At least 3 Gulf-dialect words alongside MSA (`مو`, `هالـ`, `شي`, `حسيت`, `طحت`).
+7. **Specific anchor** — A $ figure, a year, a real client number, a named framework. Never generic.
+8. **CTA = value, not plea** — Mirrors `محتوى يغنيك عن كتب ودورات كاملة` rhythm.
+9. **Hashtag set** — 4-6 from his cluster (#ريادة_الأعمال, #بزنس, #ادارة_اعمال, #تسويق, #المبادر, #تطوير_الذات).
+
+## Tribute / homage variant (when writing TO Badr, not AS Badr)
+Use when the user wants to write a tribute post to Badr Shaqer himself.
+- **Frame as value delivery** — codify lessons learned so the audience benefits. Tribute is implicit through teaching.
+- **Open with transformation question** mirroring his viral archetype: `كيف تحوّل [الحالة المؤلمة] إلى [الحالة المربحة]؟`
+- **Numbered carousel: 8-10 slides, each = one lesson**, citing a verbatim Badr phrase in « ».
+- **Capstone slide (last):** short, emotional, no business-speak. Earns the gratitude.
+- **CTA inversion:** instead of "follow him," call audience to honor their own mentors. Naming Badr becomes natural, not a plug.
+- **Specific brand truth in caption** — drop the real product detail (e.g., "مستلزمات طباعة") so it's lived, not abstract.
 
 ## How to use this skill
 - Trigger this skill when asked to write an Arabic-language post for a founder/entrepreneur audience on topics like marketing, business strategy, or mindset.
