@@ -1,336 +1,331 @@
 ---
 name: badr-real-posts
-description: Writes Arabic business/marketing posts in Badr Shaqer's verified voice — trained on 30 of his own confirmed posts. Triggers "write like badr", "badr real style", "badrshaqer post", "arabic founder post", "khaliji business post", "mobader post", "tribute to badr".
+description: Writes Arabic business/marketing Instagram carousels in Badr Shaqer's verified voice — trained on 30 caption fingerprints AND the actual slide content of 3 deep carousels (Procrastination 14-slide, Marketing Tricks 9-slide, Pricing Packages 12-slide). Knows carousel architecture, character casting, visual rhythm, and 50+ verbatim signatures. Triggers "write like badr", "badr real style", "badrshaqer carousel", "arabic founder carousel", "khaliji business post", "mobader carousel", "tribute to badr".
 ---
 
-## Voice fingerprint
-Badr Shaqer's voice is **founder-to-founder, never expert-to-audience**. He writes as a mentor who has been in your seat — Saudi/Khaliji entrepreneur, Saudi-Arabian sales consultant (`حققت اكثر من 92 مليون $ مبيعات لي وعملائي في آخر ٨ سنوات`), now teaching. His prose alternates between **MSA precision for frameworks** (RACI, 4Ds, Flywheel, Leverage) and **Khaliji rawness for pain** (`الكرف`, `بروحه`, `هالبوست`, `طحت عليه`, `حسيت لمسك`, `مو`, `بس`). He never lectures. He validates a wound, names a technique, and hands you the escape map.
+## CRITICAL: Badr posts CAROUSELS, not just captions
+Badr's captions are usually hooks + CTAs only. The real teaching lives on **slides 2-N of every carousel**. The caption invites the reader in; the slides do the work. Writing in his voice means designing the carousel architecture, not just the caption.
 
-Posts are visually built with short rhythmic lines, `..` staccato pauses, em-dashes that signal a sharp turn, and Arabic guillemets `« »` that quarantine outdated thinking like foreign objects. Emojis are sparse and weaponized — 😩 to validate struggle, 🫰 to anchor financial promise, ❤️ to soften authority, 🪣 to visualize a leak. He addresses the reader as `عزيزي #المبادر` (a brand-aligned vocative that bestows aspirational identity, not just "follower"). His CTA is never a plea — it is **a value statement disguised as a follow ask**: `محتوى يغنيك عن كتب ودورات كاملة`.
+## Voice fingerprint
+Badr is founder-to-founder, never expert-to-audience. Saudi/Khaliji entrepreneur, marketing consultant (`حققت اكثر من 92 مليون $ مبيعات لي وعملائي في آخر ٨ سنوات`), writing as someone who's been in your seat. Prose alternates between **MSA precision for frameworks** (RACI, 4Ds, Pareto, Eisenhower, Flywheel) and **Khaliji rawness for pain** (`الكرف`, `بروحه`, `هالبوست`, `طحت`, `حسيت`, `مو`, `بس`, `يدر`, `خلينا`).
+
+Visual style: dark-navy backgrounds with Khaliji ornamental mandala patterns + occasional white-grunge for "warning" topics. **Every slide** carries the brand watermark `المبادر` at the top and `@badrshaqer` (verified ✓) at the bottom. Celebrity/character imagery anchors each slide visually — same character represents a single concept.
 
 ## ⚡ The viral variable
-Across 30 verified posts, the single variable that separates viral from flop is the **vector of the opening line**:
+Across 30+ posts spanning 922 → 54.2K likes, the single variable separating viral from flop is the **vector of slide 1 + caption**:
+- **OUTWARD vector → viral.** Slide 1 names the reader's pain or promises a specific named framework. Caption is a one-line interrogation.
+- **INWARD vector → flop.** Slide 1 self-narrates. Caption is a philosophical essay.
 
-- **OUTWARD vector → viral.** Direct interrogation of the reader's pain. Examples:
-  - `اخبرني عن معاناتك مع القيام بالأشياء الصعبة ؟ 😩` (54.2K likes)
-  - `من الآن فصاعداً هل اين ستنافس ؟` (21.7K likes)
-  - `هل سمعت عن تقنية تأثير الطعم في التسويق من قبل ؟` (21.7K likes)
-- **INWARD vector → flop.** Self-narration without invitation. Reader becomes a passive spectator.
+Caption length: ultra-minimal (one question + hashtags) OR long-essay both work — **mid-length philosophical drift is the danger zone**.
 
-**Caption-length finding:** ultra-short minimal (one provocative question + hashtags) works beautifully when the carousel slides carry the content. Mid-length philosophical drift is the danger zone. When long-form, **every paragraph must earn its place** with a named framework, a dollar anchor, or a soft-alarm punch.
+---
 
-## Hook archetypes
+## 🏗️ CAROUSEL ARCHITECTURE — the 8-act structure
+Every Badr carousel follows the same dramatic structure. Adapt slide count to topic depth (8-14 slides typical).
 
-### 1. Named-technique curiosity gap (الخطاف بتقنية مسماة)
-**WHEN:** Teaching a specific framework. His top-viral archetype.
-**TEMPLATE:**
+### ACT 1 — COVER (slide 1)
+- Brand `المبادر` watermark top-center.
+- **Dramatic title in white** + key word highlighted in red, often with effects (blood-drip, neon, fire). Example: `هكذا يتلاعب بك المسوقين` / `خطأ بسـيـط يقتل مشروعك` / `كيف اخدع عقلي للتغلب على التسويف؟`
+- Iconic character image — Joker for manipulation, Godfather for power, Genie for tricks, Tom Cruise for action, Einstein for intellect, Kobe for grind, Jeff Bezos for business, Charlie Chaplin for advice.
+- Optional `اسحب →` (swipe) callout in corner.
+
+### ACT 2 — PROMISE (slide 2)
+- "I'll give you the X tricks/rules/frameworks now"
+- "تابع معي →" or "بهذه الطريقة:" pointer
+- Visual: secondary character (e.g., Kobe shooting basket = "scoring through grind")
+- Hint at length: `جربها وستنجز كل شيء أردت إنجازه.. وتغير حياتك في أقل من شهر!`
+
+### ACT 3 — REFRAME (slide 3)
+- Counter-narrative that dismisses the audience's existing belief. The "بائعي الوهم" (illusion-sellers) reset.
+- Example: `أقنعني بائعي الوهم اني كسـول... يقولون لي ان التسويف سيقضي على حياتي... لكن لا احد يخبرنا بالطريقة 😀`
+- Or: `طريقة التقديم أهم من المعلومة نفسها`
+
+### ACT 4 — TAXONOMY / TYPOLOGY (slide 4-5)
+- Numbered classification that gives the reader vocabulary they didn't have.
+- Examples actually used by Badr:
+  - 5 أنواع من المسوفين: `المتخاذل / المشغول / راموس / الفيلسوف / المثالي`
+  - Customer types: `Big whale (الحوت الكبير)` — `السعر مو مشكلة`
+- Engagement bait: `اخبرني من تكون انت ؟`
+
+### ACT 5 — NUMBERED TACTICS (slides 5-N, one tactic per slide)
+- Format per slide:
+  - Title line: `استخدم/استغل/اطبق حيلة [اسم التقنية]`
+  - Optional English label in highlight: `Baby Steps`, `Fake deadline`, `2-Minute Rule`, `the law of diminishing returns`
+  - Body: 3-5 lines mixing teaching + Khaliji asides
+  - Personal stamp: `أنا شخصياً ممكن ابقى بدون نوم وما أتخلف عن وعد...` or `هنا اكتشفت...`
+  - Visual: ONE character per concept (Tom Cruise = deadline, Einstein = 2-minute, Jeff Bezos = 3-goals, Ronaldo = 80/20)
+- Use comparison side-by-sides where useful:
+  - Cheese: `25% دهون / خالية من الدهون بنسبة 85%` — same product, different framing
+  - Watch vs Jeans: when to advertise % vs $ off
+  - Outfit with discount tags vs FREE tags
+
+### ACT 6 — DIAGRAM / CHART (slide ~N-2)
+- One slide visualizes a law or economic principle.
+- Example: Diminishing Returns curve with Productive / Diminishing / Negative phases (green/yellow/red).
+- Axes labeled in Arabic but the law named in English: `the law of diminishing returns`
+
+### ACT 7 — DUAL-AUDIENCE BIFURCATION (slide ~N-1)
+- Same teaching, two perspectives. Devastating when done right.
+- Template:
+  ```
+  ⚠️ نصيحتي لك كـ[consumer]:
+  انتبه!
+  [defense tactics]
+  ─────────
+  ✅ نصيحتي لك كـ[merchant]:
+  استخدمها!
+  ```
+
+### ACT 8 — CLOSE (final slide)
+Three close patterns to choose from:
+1. **Vulnerability + scholarly English quote** (used on heavy/emotional topics)
+   - Example: `عانيت ومازلت أعاني من مرض التسويف. لان معرفة هذه الحيل وأنواع المسوفين لا تكفي. الشيء الذي قهر التسويف عندي هو هذه المقولة: « Procrastination is a subconscious desire to feel good now » Dr Tim Pychyl`
+2. **Portrait + engagement question** (most common)
+   - `@badrshaqer` photo with verified ✓ + a question: `هل تلاحظ هذه الخدع في السوق ؟`
+3. **Portrait + dare-you challenge** (raises stakes)
+   - `اعطني سبب واحد يخليك ما تطبقها في مشروعك`
+
+---
+
+## 🎭 Character casting (visual lexicon)
+| Concept | Character |
+|---|---|
+| Manipulation / dark side | Joker, Wolf of Wall Street (DiCaprio) |
+| Power / authority | Don Corleone (Godfather) |
+| Trickery / magical solutions | Genie (Aladdin) |
+| Action / "no sleep until done" | Tom Cruise, John Wick |
+| Intellect / rules | Einstein, Charlie Chaplin |
+| Business titan | Jeff Bezos, Mark Zuckerberg |
+| Grind / performance | Kobe Bryant, Cristiano Ronaldo |
+| Scholar / academic | Dr Tim Pychyl |
+
+Use stable casting — the same character represents the same role across slides. Memes (Drake "No thanks") work as cover for value-rejection topics.
+
+---
+
+## 🎨 Visual rules
+- **Brand watermark `المبادر`** centered top of every slide.
+- **`@badrshaqer` ✓ signature** centered bottom of every slide.
+- **Title color hierarchy:** white for body, **red** for the dramatic key phrase, **gold/yellow** for English framework names.
+- **Effects** on dramatic verbs: blood-drip on `يقتل`, smoke around Joker, hand-arrows pointing inward at numbered points.
+- **`« »` Arabic guillemets** for "old thinking" / quoted axioms / English laws.
+- **Background motif:** dark navy + Khaliji mandala ornament (default) OR white textured grunge (warning topics).
+
+---
+
+## ✍️ Caption rules
+The caption job is to invite the reader to swipe. Three caption modes:
+
+### Mode A — Ultra-minimal (best for high-engagement)
 ```
-هل سمعت عن [اسم التقنية بالإنجليزية أو بالعربية] في [المجال] من قبل ؟
+[one provocative question] ؟
 
-[شرح موجز يفتح فضول السلايدات]
+#وسم #وسم #وسم
 ```
-**EXAMPLES:**
-- `هل سمعت عن تقنية تأثير الطعم في التسويق من قبل ؟`
-- `هل سمعت عن طريقة 4Ds في ادارة الأعمال ؟`
-- `هل سمعت عن طريقة RACI لادارة الأعمال من قبل ؟`
-- `هل سمعت عن استراتجية موس الحلاقة في التسويق ؟`
-- `هل صممت عجلة flywheel لمشروعك ؟`
+Examples: `اخبرني عن معاناتك مع التسويف !` / `من الآن فصاعداً هل اين ستنافس ؟` / `هل تعاني في المبيعات ؟`
 
-### 2. Transformation question (سؤال التحول)
-**WHEN:** Posing the highest-stakes founder pain as a state-to-state escape.
-**TEMPLATE:**
+### Mode B — Question + value CTA (most common)
 ```
-من الآن فصاعداً هل [نقطة التحول التنافسي] ؟
-```
-**EXAMPLES:**
-- `من الآن فصاعداً هل اين ستنافس ؟` (21.7K)
-- `أي واحد يناسبك A او B ؟`
+[question hook] ؟ [emoji]
 
-### 3. Pain interrogation (استجواب الألم)
-**WHEN:** When you want the reader to project their pain INTO the comment section. Hashtags only — no slides needed.
-**TEMPLATE:**
-```
-اخبرني عن معاناتك مع [مصدر الألم المحدد] ؟ 😩
+[brief context — 1-3 lines]
 
-#[وسم] #[وسم] #[وسم]
-```
-**EXAMPLES:**
-- `اخبرني عن معاناتك مع القيام بالأشياء الصعبة ؟ 😩` (54.2K likes — Badr's biggest hit ever)
-- `اخبرني عن معاناتك مع التسويف !`
-- `هل تعاني في المبيعات ؟`
-- `هل تجد صعوبة في الحصول على الجوعى ؟`
-- `هل تعاني في قراءة افكار عملائك 🤔 ؟`
+[empty line]
 
-### 4. Soft-alarm interrupt (الإنذار الناعم)
-**WHEN:** Reframe the post from "content" to "personal warning." Best placed slide 2-3.
-**TEMPLATE:**
-```
-[سؤال يفتح المشاعر] ؟
+مستمر بدعمك في أعمالك ومشاريعك بمحتوى يغنيك عن دورات كاملة.
+لمزيد من محتوى البزنس والتسويق
+تابعني @badrshaqer
 
-هالبوست؟
-مو [توقع شائع ١]. مو [توقع شائع ٢].
-
-هو إنذار ناعم.
-للي [وصف القارئ المتعب].
-
-إذا طحت عليه بالصدفة؟
-ما كانت صدفة.
-
-[دعوة لإعادة المشاركة بحب] ❤️
-```
-**VERBATIM EXAMPLE:**
-> حصل معاك يا ترى ؟
->
-> هالبوست؟
-> مو معلومة. مو تحفيز.
->
-> هو إنذار ناعم.
-> للي تعب، لكن ما ينهزم.
->
-> إذا طحت عليه بالصدفة؟
-> ما كانت صدفة.
->
-> ارسلها لشخص تعرف إنه عالق ❤️
-
-### 5. Old-thinking / New-thinking (التفكير القديم / التفكير الجديد)
-**WHEN:** Founder mindset shift. Use « » to quarantine the dying belief.
-**TEMPLATE:**
-```
-كل مؤسس يحتاج هذا التحول :
-
-التفكير القديم: « [المعتقد المعيق] »
-
-التفكير الجديد: « [المعتقد المُحرِّر] »
-
-وظيفتك مو [مهمة خاطئة].
-وظيفتك مو [مهمة خاطئة ثانية].
-وظيفتك [المهمة الحقيقية كنظام].
-```
-**VERBATIM:**
-> التفكير القديم: « إذا ما تدخلت، الشغل يخرب. »
-> التفكير الجديد: « إذا للحين أحتاج أتدخل… معناها ما بنيت النظام صح. »
-
-### 6. Leaky-bucket diagnostic (الدلو المثقوب)
-**WHEN:** Reframe a growth problem as a retention problem.
-**TEMPLATE:**
-```
-هل أصلحت هذا 🪣 ؟
-
-إذا مشروعك واقف مكانه…
-يمكن هذا هو السبب.
-
-المشكلة مو في [الاتهام الذاتي ١].
-ولا في [الاتهام الذاتي ٢].
-ولا لان [الاتهام الذاتي ٣]
-
-المشكلة إن [الحقيقة الخفية].
-[وصف مجازي للنزيف الصامت].
-
-سكّر الدلو أولا.
-```
-
-### 7. Counter-intuitive claim (الرأي المخالف)
-**WHEN:** Challenge a piece of "common wisdom" by reframing it as advice meant for someone else.
-**TEMPLATE:**
-```
-[رأي يفتح السؤال] ؟
-
-أنا في رأيي [الموقف المخالف للحكمة الشائعة].
-
-[شخصية مشهورة ١] لم يبني ثروته وهو [يفعل المعتاد]..
-[شخصية مشهورة ٢] ركز طوال حياته على [شيء واحد].
-[شخصية مشهورة ٣] [نفس النمط].
-
-" [الحكمة الشائعة المُقتبسة] "
-هذه نصيحة [للشريحة الأخرى]، وليست [لنا].
-وموجهة لـ[شريحة محددة] لا تقع في الفخ.
-```
-**VERBATIM:**
-> " لا تضع بيضك في سلة واحدة "
-> هذه نصيحة استثمارية وليست نصيحة في البزنس.
-> وموجهة لأصحاب الملايين لا تقع في الفخ.
-
-### 8. Founder-as-prisoner essay (المؤسس السجين)
-**WHEN:** Long-form existential post about founder burnout / over-involvement.
-**TEMPLATE:**
-```
-هل سمعت عن [التقنية] ؟
-
-فيه لحظة غريبة يمرّ فيها كل مؤسس... يكتشف إنه [حقيقة قاسية].
-يسميه "[التسمية الزائفة]"، بس هو [التسمية الحقيقية].
-
-مشكلتنا مو في [العَرَض]، مشكلتنا إننا [نخفي السبب].
-نقول "[عذر ١]"، "[عذر ٢]"، "[عذر ٣]"
-```
-**VERBATIM:**
-> فيه لحظة غريبة يمرّ فيها كل مؤسس... يكتشف إنه بنى سجن بيده.
-> يسميه "مشروعه الخاص"، بس هو وظيفة مقنعة.
->
-> مشكلتنا مو في الإرهاق، مشكلتنا إننا نبرّره.
-
-## Sentence rhythm rules
-1. **Question → empty line → answer.** Give the question oxygen.
-2. **Triple-line escalation.** `يظل صغير. / يظل تعبان. / ويظل مفلس.` Each line shorter, harder.
-3. **Staccato `..` ellipses** mimic thought. `شفت شركات صعدت بشكل صاروخي.. وبعدين طاحت فجأة.`
-4. **Em-dash `—`** is a hinge: separates body from CTA block.
-5. **« »** isolates old beliefs visually. Never use plain quotes for that purpose.
-6. **Hashtag block on its own paragraph**, preceded by `—` separator.
-7. **No paragraph exceeds 3-4 lines.** Wall of text = dead reader.
-8. **Mock-quote technique:** invent a fake quote in `" "` to mock a bad habit. `" خلينا نكبر وبعدين نرتب الأمور " — تماماً مثل لي يقول راح اجرب الفرامل على الطريق`
-
-## Punctuation & symbol vocabulary
-- **`..`** — dramatic pause, thought continuation
-- **`…`** — heavier pause, beat of finality
-- **`«  »`** — quarantine for old/foreign/wrong thinking
-- **`" "`** — straight quotes for mocked phrases and brand catchphrases
-- **`—`** — hinge between sections; CTA separator
-- **`؟ `** (with space before) — Arabic convention for question marks
-- **`✅ / ❌`** — binary do/don't; sparse use
-- **`👇🏽 / 👈🏽`** — direct reader's gaze to CTA
-- **`🫰`** — money/dollar promise gesture
-- **`🪣`** — leaky bucket (retention frame)
-- **`😩 😞 🤔 🫡`** — emotional bait in hooks
-- **`❤️`** — softens authority at end of warmth phrases
-
-## Recurring verbatim signature phrases (his unfakeable tells)
-1. `هل سمعت عن ... من قبل ؟`
-2. `هو إنذار ناعم`
-3. `طحت عليه بالصدفة؟ ما كانت صدفة`
-4. `محتوى يغنيك عن كتب ودورات كاملة ❤️`
-5. `اطلع على حسابي مستحيل منشوراتي ما توصلك ل١٠٠ الف $ بالشهر 🫰`
-6. `بنى سجن بيده. يسميه "مشروعه الخاص"، بس هو وظيفة مقنعة`
-7. `المؤسس اللي ياكل بروحه… يظل صغير. يظل تعبان. ويظل مفلس`
-8. `الشغل بدون Leverage مثل الجري في مكانك`
-9. `لا تنتظر الإنهيار البطيء`
-10. `كل مؤسس يحتاج هذا التحول`
-11. `التفكير القديم: « ... » / التفكير الجديد: « ... »`
-12. `وظيفتك مو [س]. وظيفتك مو [ص]. وظيفتك [الحقيقة].`
-13. `سكّر الدلو أولا`
-14. `إذا حسيت الكلام لمسك`
-15. `بالتوفيق لك عزيزي #المبادر`
-16. `بالتوفيق يا مبادر ❤️`
-17. `أنا مستمر في دعمك في مشروعك`
-18. `حققت اكثر من 92 مليون $ مبيعات لي وعملائي في آخر ٨ سنوات`
-19. `لان التوسع يضخم كل شيء — الربح… والخسارة… والضغط… والغباء بعد`
-20. `ضريبة الجهل ستلاحقك إلى ان تدفها كاملة مقدمة بدون اقساط`
-21. `شارك هذا المنشور مع صديقك رائد الأعمال — قد تنقذ حياته`
-22. `أنا في رأيي [المخالف]..`
-23. `مخالفة للمنطق — لكنها احد انجح الأساليب`
-24. `ابدأ بـ خطوة بسيطة من اليوم`
-25. `ارسلها لشخص تعرف إنه عالق ❤️`
-
-## Closing CTA template (verbatim)
-The signature 3-line closing block. Use this exact wording for any post >2 paragraphs.
-```
-أنا @badrshaqer
-مستمر في دعمك في مشروعك بمحتوى يغنيك عن كتب ودورات كاملة ❤️
-
-اطلع على حسابي مستحيل منشوراتي ما توصلك ل١٠٠ الف $ بالشهر 🫰
-
-—
-#[وسم] #[وسم] #[وسم]
-```
-For shorter posts, use the minimalist variant:
-```
-تابعني إذا كنت تحب محتوى التسويق والبزنس
-من هنا  @badrshaqer
-
-——
-#[وسم] #[وسم]
+#وسم #وسم #وسم
 ```
 
-## Hashtag clusters
-- **Marketing / Sales:** `#التسويق`, `#تسويق`, `#التسويق_الالكتروني`, `#تسويق_رقمي`, `#تسويق_الكتروني`, `#مبيعات`, `#المبيعات`, `#تجارة_الكترونية`
-- **Management / Business:** `#ادارة`, `#ادارة_اعمال`, `#بزنس`, `#مشاريع`, `#مشروعات_صغيرة`, `#إدارة_المشاريع`, `#تجارة`
-- **Entrepreneurship:** `#ريادة_الأعمال`, `#ريادة_أعمال`, `#رائد_اعمال`, `#رواد_الأعمال`, `#رواد_الاعمال`, `#المبادر`, `#مؤسسين`
-- **Mindset / Self-development:** `#انضباط`, `#تحفيز`, `#تطويرالذات`, `#تطوير_الذات`, `#تنمية_الذات`, `#تحفيز_الذات`
-- **Investment:** `#الاستثمار`, `#استثمار`, `#الثراء`, `#المال`
+### Mode C — Long-form essay (only when story IS the post)
+For posts like `هل تعرف لماذا لن تصبح ثرياً 😞 ؟` — full essay in caption, slides are visual reinforcement. Must drop $ anchor (`خلال آخر ٨ سنوات سنحت لي الفرصة للعمل مع مؤسسين ورواد ثرواتهم فوق 10 مليون $`) and never drift philosophical without a named framework.
 
-Pick 3-6 per post. Use 2-3 spelling variants of the same concept (`#ريادة_الأعمال` + `#ريادة_أعمال`) — Badr does this for reach.
+---
 
-## Style signatures unique to Badr (the unfakeable layer)
-1. **The "Mobader" vocative.** `عزيزي #المبادر` / `يا مبادر`. Bestows an aspirational identity. The audience is named into being.
-2. **The $ anchor.** Always specific: `92 مليون $`, `١٠ ملايين $`, `١٠٠ الف $ بالشهر`. Quantified, never vague.
-3. **« » as quarantine.** Reserved exclusively for outdated beliefs being dismissed. Plain `" "` is for mock-quotes and brand catchphrases — these are NOT interchangeable.
-4. **Code-switching surgery.** MSA for technical terms (`نموذج RACI`, `استراتجية`, `الإنهيار البطيء`), visceral Khaliji for pain (`الكرف`, `طحت`, `هالبوست`, `بس`, `مو`, `حسيت`, `بروحه`). Switching mid-sentence is the hallmark.
-5. **Celebrity-stacking pattern.** `ايلون ماسك / جيف بيزوز / مارك زاكربرغ` — three Western icons in a row, each one a one-line proof point.
-6. **Mock-quote + simile combo.** Invent a stupid-sounding fake quote then mock it with an even stupider simile: `" خلينا نكبر وبعدين نرتب الأمور " — تماماً مثل لي يقول راح اجرب الفرامل على الطريق`.
-7. **The credibility drop, late.** Never opens with credentials. Drops them mid-essay as casual context: `بفضل طبيعة عملي كاستشاري..`. Authority through indirect mention.
+## 🎯 Operator-grade tells (unfakeable)
+1. **`المبادر` vocative.** Audience is named into being. `بالتوفيق لك عزيزي #المبادر` / `بالتوفيق يا مبادر ❤️`
+2. **Value-prop CTA, not plea.** `محتوى يغنيك عن كتب ودورات كاملة ❤️`. Frame following as investment.
+3. **Code-switching surgery.** MSA technical terms (`نموذج RACI`, `استراتجية`, `الإنهيار البطيء`) + Khaliji rawness (`الكرف`, `طحت`, `هالبوست`, `بس`, `مو`, `حسيت`, `يدر`, `خلينا`, `شي`, `الحين`).
+4. **$ anchor.** Always specific: `92 مليون $`, `١٠٠ الف $ بالشهر`, `10 مليون $`, slide-level prices like `$100/$200/$300`.
+5. **`« »` as quarantine** for old thinking and English laws. Plain `" "` for mock-quotes and brand catchphrases.
+6. **Celebrity-stacking pattern.** Three Western icons in a row: `ايلون ماسك / جيف بيزوز / مارك زاكربرغ`.
+7. **Mock-quote + simile combo.** Invent a stupid fake quote, then mock with stupider simile: `" خلينا نكبر وبعدين نرتب الأمور " — تماماً مثل لي يقول راح اجرب الفرامل على الطريق`.
+8. **English law tag** in « » as ratification: `« the law of diminishing returns »`, `« Procrastination is a subconscious desire to feel good now »`.
+9. **Self-confession late** — drops `عانيت ومازلت أعاني من مرض التسويف` to puncture his own authority.
+10. **`اسحب →`** in corner of slide 1.
+11. **Country flags + specific numbers** for stats: 🇸🇦 1.05M, 🇲🇦 1.14M, 🇮🇶 1.23M, 🇩🇿 1.3M.
 
-## What to AVOID (anti-patterns that kill the voice)
-- Opening with self-narration (`في أحد الأيام، جلستُ أمام مشروعي...`). Always interrogate the reader first.
-- Corporate/academic phrasing (`من الجدير بالذكر`, `يمكن القول`, `في إطار`).
-- Hedging (`ربما`, `قد يكون`, `أعتقد أن`). Speak with certainty.
-- Generic American marketing tropes (`game-changer`, `10x`, `synergy`).
-- Emoji walls. Max 3-5 per post, each weaponized.
-- Long paragraphs. 3-4 lines is the ceiling.
+---
+
+## 📚 Verbatim signature phrases (50+ confirmed)
+
+### Hook phrases
+- `هل سمعت عن ... من قبل ؟`
+- `هل تعاني في ...؟`
+- `هل تجد صعوبة في ...؟`
+- `اخبرني عن معاناتك مع ... ؟`
+- `كيف اخدع عقلي للتغلب على [الألم] ؟`
+- `لماذا توقف زبائنك عن اعطائك مزيداً من المال 💰 ؟`
+- `هل تعرف لماذا لن تصبح ثرياً 😞 ؟`
+- `أعطني سبب واحد مقنع يخليك [يفعل العكس] !`
+- `هكذا يتلاعب بك [المسوقون/...]`
+- `خطأ بسـيـط يقتل مشروعك`
+- `كل مؤسس يحتاج هذا التحول :`
+
+### Reframe phrases
+- `طريقة التقديم أهم من المعلومة نفسها`
+- `أقنعني بائعي الوهم اني ...`
+- `لكن لا احد يخبرنا بالطريقة 😀`
+- `هذا بسبب قانون في علم الاقتصاد يسمى:`
+- `هو إنذار ناعم. للي تعب، لكن ما ينهزم.`
+- `إذا طحت عليه بالصدفة؟ ما كانت صدفة.`
+- `بنى سجن بيده. يسميه "مشروعه الخاص"، بس هو وظيفة مقنعة.`
+
+### Body / teaching phrases
+- `خلينا نفترض انه عندك ...`
+- `لتخيل ان عندك ...`
+- `معظم الناس يعتقدون ... الحقيقة ان ...`
+- `الحيلة هذه تدفعك لـ ...`
+- `الحل سهل: وهو ...`
+- `وإذا اردت ان تلزم 100% اضف ...`
+- `صحيح انك ... لكن ...`
+- `وسبحان الله فور ما ...`
+- `أنا شخصياً ممكن ... وما أتخلف عن وعد...`
+- `أنا في رأيي [موقف مخالف]..`
+- `مخالفة للمنطق — لكنها احد انجح الأساليب`
+
+### Closing / CTA phrases
+- `محتوى يغنيك عن كتب ودورات كاملة ❤️`
+- `اطلع على حسابي مستحيل منشوراتي ما توصلك ل١٠٠ الف $ بالشهر 🫰`
+- `بالتوفيق لك عزيزي #المبادر`
+- `بالتوفيق يا مبادر ❤️`
+- `أعطني سبب واحد يخليك ما تطبقها في مشروعك`
+- `إذا حسيت الكلام لمسك، شارك البوست مع شخص واحد ...`
+- `ارسلها لشخص تعرف إنه عالق ❤️`
+- `قد تنقذ حياته`
+- `لازم تعدل الأمر فوراً وأطلعني بالتطورات...`
+
+### Vulnerability phrases (the "earned authority" close)
+- `عانيت ومازلت أعاني من مرض [X]`
+- `لان معرفة [الحيل/المعلومات] لا تكفي`
+- `الشيء الذي قهر [X] عندي هو هذه المقولة:`
+- [English quote from Western academic]
+
+---
+
+## ✅ Pre-publish checklist (score 0-12)
+1. **Carousel-first?** Is the bulk of teaching ON the slides, not buried in caption?
+2. **Slide 1 vector** outward (interrogates) not inward (narrates)?
+3. **Brand watermark** `المبادر` on every slide?
+4. **`@badrshaqer ✓`** on every slide?
+5. **One character per concept** consistently?
+6. **8-act structure**: cover → promise → reframe → taxonomy → numbered tactics → diagram → dual-audience → vulnerable close?
+7. **Soft-alarm moment** somewhere (`إنذار ناعم` rhythm)?
+8. **`« »` quarantine** for old thinking / English law?
+9. **`..` rhythm** + em-dash hinges?
+10. **Khaliji infusion** (3+ Gulf words alongside MSA)?
+11. **$ or specific-number anchor** (`92 مليون $`, `$300`, `1.05 مليون شخص`)?
+12. **Value-prop CTA**, not plea?
+
+7+ = ship. 10+ = viral candidate.
+
+---
+
+## What to AVOID (anti-patterns)
+- Putting all the teaching in the caption with no slides. Captions are hooks; slides are content.
+- Inward-vector slide 1: `في أحد الأيام، جلستُ أمام مشروعي...`
+- One celebrity across multiple unrelated concepts — character casting must be stable.
+- Pure MSA throughout. The Khaliji infusion IS the voice.
+- Generic American marketing tropes (`game-changer`, `10x`).
+- Long unbroken paragraphs. 3-4 lines max per slide block.
 - Plain `" "` for old-thinking quotes (use `« »`).
 - A CTA that pleads. Always frame following as audience benefit.
-- Moralizing or judgment. Always pragmatic, experience-based.
-- Pure MSA throughout. The Khaliji infusion IS the voice — without it, you sound like LinkedIn.
+- More than 3-5 emojis per slide.
 
-## ✅ 9-point pre-publish checklist
-Score 0-9. Anything < 7 is a flop in waiting.
-1. **Vector** — outward (interrogates reader), not inward (narrates self)?
-2. **Hook archetype** — matches one of: named-technique / transformation / pain interrogation / soft-alarm / counter-intuitive / leaky-bucket / old-vs-new?
-3. **Soft alarm** — at least one moment where reader feels "this found me on purpose"?
-4. **« » quarantine** — old beliefs isolated in guillemets, not plain quotes?
-5. **`..` rhythm** — multiple staccato pauses, not all full stops?
-6. **Khaliji infusion** — at least 3 Gulf words alongside MSA (`مو`, `هالـ`, `شي`, `حسيت`, `طحت`, `بس`)?
-7. **Specific anchor** — a $ figure, named framework, real client number, or year?
-8. **CTA = value, not plea** — mirrors `محتوى يغنيك عن كتب ودورات كاملة` rhythm?
-9. **Hashtag set** — 3-6 from his clusters, with at least one spelling variant?
+---
 
 ## How to use this skill
-**Triggers:** "write like badr", "badr real style", "badrshaqer post", "arabic founder post", "khaliji business post", "mobader post", "tribute to badr", "post about [topic] in badr style"
-**Inputs expected:** `topic` (e.g. "pricing", "hiring", "burnout"), and optional `archetype` (one of the 8 above).
+**Triggers:** "write like badr", "badr real style", "badrshaqer carousel", "arabic founder carousel", "post about [topic] in badr style", "tribute to badr"
+
+**Inputs expected:**
+- `topic` (e.g., "pricing fear", "burnout", "competitor positioning")
+- Optional: `slide_count` (8-14, default 10)
+- Optional: `caption_mode` (A=minimal, B=hook+CTA, C=long-essay)
+
 **Workflow:**
-1. Pick the archetype that fits the topic.
-2. Draft hook using a verbatim signature phrase or one of his templates.
-3. Body in his rhythm (rule 1-8 of sentence rhythm).
-4. Insert 2-3 of his verbatim signature phrases naturally.
-5. Add `« »` for any old-thinking line.
-6. Close with the value-prop CTA template.
-7. Score against the 9-point checklist. Iterate until 7+.
+1. Pick the central FRAMEWORK or NAMED TECHNIQUE (e.g., Pareto, Eisenhower, RACI, "soft alarm"). Without a named framework, the post drifts.
+2. Choose the COVER VISUAL — pick one character from the casting table.
+3. Design slide-by-slide following the 8-act structure.
+4. Slide 1: dramatic title + red key phrase + character.
+5. Slides 2-N-2: numbered tactics, one per slide, with consistent character casting.
+6. Slide N-1: dual-audience or diagram.
+7. Slide N: vulnerable close OR portrait+question OR portrait+dare.
+8. Write caption in Mode A/B/C.
+9. Score against 12-point checklist. Iterate until 7+.
 
-### Worked example — pricing fear
+### Worked example — "Why your customers refuse to give you more money" (PRICING TIERS)
 
+**Caption (Mode B):**
 ```
-هل تعرف لماذا تخاف من رفع أسعارك ؟
+لماذا توقف زبائنك عن اعطائك مزيداً من المال 💰 ؟
 
-لأنك تعتقد إنك تبيع منتج.
-بس الحقيقة..
-إنت تبيع نتيجة.
+لازم تعدل الأمر فوراً وأطلعني بالتطورات...
 
-التفكير القديم: « إذا رفعت السعر، بخسر العملاء. »
-التفكير الجديد: « إذا ما رفعت السعر، بجذب العملاء الخطأ. »
+مستمر بدعمك في أعمالك ومشاريعك بمحتوى يغنيك عن دورات كاملة.
+لمزيد من محتوى البزنس والتسويق
+تابعني @badrshaqer
 
-العميل الرخيص = العميل الكئيب.
-هو اللي يطلب أكثر، يدفع أقل، ويتركك بأسرع.
-أصلحت هذا 🪣 ؟
-
-في آخر ٨ سنوات شفت مؤسسين مبيعاتهم فوق ١٠ مليون $..
-ولا واحد منهم وصل وهو أرخص خيار.
-وصلوا وهم « الخيار الذي يستحق ».
-
-لا تكن أرخص شي في السوق.
-كن أصدق شي في السوق.
-
-السعر يُنسى..
-لكن القيمة تبقى ❤️
-
-أنا @badrshaqer
-مستمر في دعمك في مشروعك بمحتوى يغنيك عن كتب ودورات كاملة ❤️
-
-اطلع على حسابي مستحيل منشوراتي ما توصلك ل١٠٠ الف $ بالشهر 🫰
-
-—
-#تسعير #تسويق #ريادة_الأعمال #بزنس #المبادر
+#تسويق #تجارة_الكترونية #التسويق_الرقمي #ريادة_الأعمال
 ```
+
+**Slide 1 (Cover):**
+- `المبادر` watermark
+- `خطأ بسـيـط يقتل مشروعك` [يقتل with blood-drip]
+- `احذر ان توقف عميلك عن اعطائك مزيداً من المال!!`
+- Visual: Godfather "خذ فلوسي" + Drake "لا شكراً ما احتاجهم" meme
+- `اسحب →` corner
+
+**Slide 2 (Promise):**
+- `أعطيني سبب واحد مقنع يخليك ترفض فلوس اكثر من عميلك !`
+- `مافي اي حجة صح ؟`
+- `لكن معظم اصحاب المشاريع يخسرون المال بدون ما يلاحظون بهذه الطريقة:`
+- Portrait of بدر شاكر bottom-left
+
+**Slide 3 (Setup):**
+- `طريقة الباقات`
+- `خلينا نفترض انه عندك 3 باكجات:`
+- 3 cards: ماسية $300 / ذهبية $200 / فضية $100
+
+**Slide 4 (Pain):**
+- `أتاك عميل ومباشرة دفع لك بكل سرور وسلاسة مبلغ الباقة الماسية 😍`
+- `تحدث كل يوم، وحدثت معي عشرات المرات...`
+- `تتحسر وتعرف داخلك انه:`
+- `لو عندك باكج آخر بـ$500 او $800 كان سيختاره.`
+
+**Slide 5 (Taxonomy):**
+- `أنسمي هذا النوع من العملاء بـ:`
+- `Big whale (الحوت الكبير)`
+- Sticker overlay: `السعر مو مشكلة`
+- Visual: Godfather
+
+**Slides 6-10**: Numbered tactics (3-tier ladder design, decoy effect, anchor pricing, scarcity, urgency) — one tactic per slide, each with its own framework name in English + character.
+
+**Slide 11 (Dual-audience):**
+- ⚠️ `نصيحتي لك كعميل`: be aware of these tactics
+- ✅ `نصيحتي لك كصاحب مشروع`: use them ethically
+
+**Slide 12 (Close — dare):**
+- @badrshaqer portrait + verified
+- `أعطني سبب واحد يخليك ما تطبقها في مشروعك`
+- Send arrow icon
+
+---
 
 ## Adaptation note for @almobadir brand
-When writing for the @almobadir brand (Star Toner / printer-consumables, mentored by Badr):
-- Sign-off `@almobadir` instead of `@badrshaqer`.
-- Adapt the CTA: `اطلع على حسابنا، محتوانا سيساعدك على بناء بزنس لا يقهر 🫰`
-- Keep the exact same authority/warmth balance and Khaliji infusion.
-- The audience overlap is total — Arab founders, marketers, e-commerce operators.
+Star Toner / printer-consumables, mentored by Badr's content:
+- Sign-off `@almobadir` instead of `@badrshaqer`
+- CTA: `اطلع على حسابنا، محتوانا سيساعدك على بناء بزنس لا يقهر 🫰`
+- Maintain exact Khaliji infusion + character casting + 8-act structure
+- Audience overlap is total — Arab founders, marketers, e-commerce operators
