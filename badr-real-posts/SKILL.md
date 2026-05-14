@@ -92,7 +92,7 @@ After analyzing all 31 posts (range: 399 likes → 54.2K), **the single variable
 
 - **« »** - Arabic guillemets, reserved for OLD-thinking quarantine: "« إذا ما تدخلت، الشغل يخرب »". The new thinking gets no quotes.
 - **$ with cents** - never "$21K". Always "$21,637.00". The cents communicate "I tracked this."
-- **- em-dash** - for category labels: "- كيف تبيع كتاجر المخد*رات -".
+- **Hyphen-bracketed labels** - for category labels: "- كيف تبيع كتاجر المخد*رات -".
 - **🚫 NO-circle** - visual overlay on cover, means "stop doing X."
 - **🤫** - secrets amplifier.
 - **💩** - punchline equation operator ("X = 💩").
